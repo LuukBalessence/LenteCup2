@@ -1,1 +1,1 @@
-web: gunicorn lentecup.wsgi --timeout 240 --log-file -
+web: gunicorn lentecup2.wsgi --timeout 240 --log-file -
