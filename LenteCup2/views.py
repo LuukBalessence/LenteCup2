@@ -27,7 +27,7 @@ def myaccount(request):
 
     return render(
         request=request,
-        template_name="Lentecup/myaccount.html",
+        template_name="LenteCup/myaccount.html",
         context={"manager": manager, "firstname": firstname})
 
 
