@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+    <table class="table" ALIGN="center">
+        <tr>
+            <th>
+                <div class="notification is-{{ info }} is-small" ALIGN="center">
+                    <button class="delete"></button>
+                    {{ notification1 }}
+                </div>
+            </th>
+        </tr>
+        <tr>
+            <th align="center">
+                {{ notification2 }}
+            </th>
+        </tr>
+        <tr>
+            <th style="text-align:center">
+                <a href=/accounts/login/><input style="width:250px" type="submit" class="button is-primary"
+                                                value="Ga naar de login pagina"/></a>
+            </th>
+        </tr>
+    </table>
+    </table>
+{% endblock %}

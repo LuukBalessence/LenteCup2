@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block title %}SIGN UP{% endblock %}
+{% block content %}
+    <table class="table" ALIGN="center">
+        <form method="post">      {% csrf_token %}
+            <tr>
+                <th>
+                    {% if form.errors %}
+                        <div class="notification is-danger" ALIGN="center">
+                            <button class="delete"></button>
+                            {% for key, value in form.errors.items %}
+                                {{ value }}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <div class="field">
+                        <p class="control has-icons-left">
+                            <input class="input is-primary" id="id_email" name="email"
+                                   placeholder="email" type="email"/>
+                            <span class="icon is-left">
+                                <i class="far fa-envelope" style="font-size:20px;color:black"></i>
+                            </span>
+                        </p>
+                    </div>
+                </th>
+            </tr>
+
+            <tr>
+                <th>
+                    <div class="field">
+                        <p class="control has-icons-left">
+                            <input class="input is-primary" id="id_first_name" name="first_name"
+                                   placeholder="Voornaam of bijnaam" type="text"/>
+                            <span class="icon is-left">
+                                <i class="far fa-user" style="font-size:20px;color:black"></i>
+                        </span>
+                        </p>
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <div class="field">
+                        <p class="control has-icons-left">
+                            <input class="input is-primary" id="id_password1" name="password1"
+                                   placeholder="Wachtwoord" type="password"/>
+                            <span class="icon is-left">
+                                <i class="fas fa-unlock-alt" style="font-size:20px;color:black"></i>
+                            </span>
+                        </p>
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <div class="field">
+                        <p class="control has-icons-left">
+                            <input class="input is-primary" id="id_password2" name="password2"
+                                   placeholder="Herhaal wachtwoord" type="password"/>
+                            <span class="icon is-left">
+                                <i class="fas fa-unlock-alt" style="font-size:20px;color:black"></i>
+                            </span>
+                        </p>
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <th style="text-align:center">
+                    <input type="submit" class="button is-primary" value="Sign up"/>
+                </th>
+            </tr>
+        </form>
+    </table>
+{% endblock %}

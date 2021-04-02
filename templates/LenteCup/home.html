@@ -1,0 +1,79 @@
+{% extends  'base.html' %}
+{% block title %}
+    <table class="table" ALIGN="center">
+        <tr>
+            <th style="text-align:center">
+                WELKOM
+            </th>
+        </tr>
+        <tr>
+            <th style="text-align:center">
+                BIJ DE
+            </th>
+        </tr>
+        <tr>
+            <th style="text-align:center">
+                LENTECUP 2021
+            </th>
+        </tr>
+        <tr>
+            <th style="text-align:center">
+                <i class="fas fa-golf-ball"></i>
+                <i class="fas fa-golf-ball"></i>
+                <i class="fas fa-golf-ball"></i>
+            </th>
+
+        </tr>
+    </table>
+{% endblock title %}
+{% block content %}
+    {% if user.is_authenticated %}
+        <table class="table" ALIGN="center">
+        <tr>
+            <th style="text-align:center">
+                <a href=myaccount><input style="width:250px" type="submit" class="button is-primary"
+                                   value="Profiel"/></a>
+            </th>
+        </tr>
+        <tr>
+            <th style="text-align:center">
+                <a href=/standinvoer><input style="width:250px" type="submit" class="button is-primary"
+                                   value="Voer je score in"/></a>
+            </th>
+        </tr>
+        <tr>
+            <th style="text-align:center">
+                <a href=/jouwuitslagen><input style="width:250px" type="submit" class="button is-primary"
+                                   value="Jouw uitslagen"/></a>
+            </th>
+        </tr>
+        <tr>
+            <th style="text-align:center">
+                <a href=/overallstandlc><input style="width:250px" type="submit" class="button is-primary"
+                                   value="Overall Stand LC"/></a>
+            </th>
+        </tr>
+        <tr>
+            <th style="text-align:center">
+                <a href=/accounts/logout><input style="width:250px" type="submit" class="button is-primary"
+                                   value="Uitloggen"/></a>
+            </th>
+        </tr>
+    </table>
+    {% else %}
+        <table class="table" ALIGN="center">
+        <tr>
+            <th style="text-align:center">
+                <a href=/accounts/login><input style="width:250px" type="submit" class="button is-primary"
+                                   value="Inloggen"/></a>
+            </th>
+        </tr>
+        <tr>
+            <th style="text-align:center">
+                <a href=/common/signup><input style="width:250px" type="submit" class="button is-primary"
+                                   value="Sign-up"/></a>
+            </th>
+        </tr>
+    </table>
+    {% endif %}
+{% endblock content %}

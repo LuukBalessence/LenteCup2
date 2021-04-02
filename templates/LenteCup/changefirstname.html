@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title %}NAAM AANPASSEN{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+ <table class="table" ALIGN="center">
+            <form action="" method="post">{% csrf_token %}
+                {% if form.errors %}
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <tr>
+                            <th>
+                                <div class="notification is-danger" ALIGN="center">
+                                    <button class="delete"></button>
+                                    {{ error|escape }}
+                                </div>
+                            </th>
+                        </tr>
+                    {% endfor %}
+                {% endfor %}
+                {% for field in form %}
+                    {% for error in form.non_field_errors %}
+
+                        <tr>
+                            <th>
+                                <div class="notification is-danger" ALIGN="center">
+                                    <button class="delete"></button>
+                                    {{ error|escape }}
+                                </div>
+                            </th>
+                        </tr>
+                    {% endfor %}
+                {% endfor %}
+                {% endif %}
+                <tr>
+                    <th>
+                        <div class="field">
+                            <p class="control has-icons-left">
+                                <input class="input is-primary" id="id_firstname" name="firstname"
+                                       placeholder="Voer naam in..." type="text"/>
+                                <span class="icon is-left">
+                                <i class="fas fa-user" style="font-size:20px;color:black"></i>
+                        </span>
+                                {{ field.errors }}
+                            </p>
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th style="text-align:center">
+                        <input style="width:250px" type="submit" class="button is-primary" value="Pas naam aan"/>
+                    </th>
+                </tr>
+            </form>
+        </table>
+
+    {% endif %}
+{% endblock %}
+{% block helptext %}
+    1. Give yourself a beautiful name<br>
+        i.e. first name, alias or nickname<br>
+
+{% endblock helptext%}

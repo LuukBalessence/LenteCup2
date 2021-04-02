@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}INLOGGEN{% endblock %}
+{% block content %}
+    {% if form.errors %}
+        <table class="table" ALIGN="center">
+            <tr>
+                <th>
+
+                    <div class="notification is-danger" ALIGN="center">
+                        <button class="delete"></button>
+                        {% for key, value in form.errors.items %}
+                            {{ value }}
+                        {% endfor %}
+                    </div>
+
+                </th>
+            </tr>
+        </table>
+    {% endif %}
+
+    <table class="table" ALIGN="center">
+        <form action="" method="post">{% csrf_token %}
+
+
+            <div class="field">
+                <tr>
+                    <th>
+                        <p class="control has-icons-left">
+                            <input class="input is-primary" type="username" id="inputuser" name="username"
+                                   placeholder="Email">
+                            <span class="icon is-left">
+                                    <i class="far fa-envelope" style="font-size:20px;color:black"></i>
+                                </span>
+                        </p>
+                    </th>
+                </tr>
+            </div>
+            <div class="field">
+                <tr>
+                    <th>
+                        <p class="control has-icons-left">
+                            <input class="input is-primary" type="password" name="password" id="inputPassword"
+                                   placeholder="Wachtwoord">
+                            <span class="icon is-left">
+                        <i class="fas fa-unlock-alt" style="font-size:20px;color:black"></i>
+                    </span>
+                        </p>
+                    </th>
+                </tr>
+            </div>
+            <tr>
+                <th style="text-align:center">
+                    <input style="width:250px" type="submit" class="button is-primary" value="Inloggen"/>
+                </th>
+            </tr>
+            <tr>
+                <th style="text-align:center">
+                    <a href="/accounts/password_reset">Wachtwoord vergeten</a>
+                </th>
+            </tr>
+        </form>
+    </table>
+{% endblock %}
+

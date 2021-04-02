@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Stand LenteCup{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        <table class="table" ALIGN="center">
+            <tr>
+                <th>
+                    Naam
+                </th>
+                <th>
+                    Punten
+                </th>
+            </tr>
+            {% if scores %}
+                {% for key, value in scores.items %}
+                    <tr>
+                        <td>
+                            {{ key }}
+                        </td>
+                        <td align="center">
+                            {{ value }}
+                        </td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <th>
+                        No scores yet
+                    </th>
+                    <th>
+                    </th>
+                </tr>
+                </table>
+            {% endif %}
+        <table class="table" ALIGN="center">
+            <tr>
+                <th align="center">
+                    <a href=/><input style="width:250px" type="submit" class="button is-primary"
+                                     value="Naar Lentecup Homepage"/>
+                    </a>
+                </th>
+            </tr>
+        </table>
+    {% endif %}
+{% endblock %}

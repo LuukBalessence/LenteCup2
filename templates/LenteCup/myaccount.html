@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block title %}MY ACCOUNT{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        <table class="table" ALIGN="center">
+            {% if not firstname %}
+                <tr>
+                    <th>
+                        <div class="notification is-info" ALIGN="center">
+                            <button class="delete"></button>
+                            Je hebt nog geen naam voor jezelf ingevoerd. Voer je naam in.
+                        </div>
+                    </th>
+                </tr>
+            {% endif %}
+        </table>
+        <table class="table" ALIGN="center">
+            <div class="field">
+                <tr>
+                    <th>
+                        <p class="control has-icons-left">
+                            <input class="input is-primary" style="color: black"
+                                   value="{{ manager }}" disabled>
+                            <span class="icon is-left">
+                                <i class="fas fa-envelope" style="font-size:20px;color:black"></i>
+                            </span>
+                        </p>
+                    </th>
+                </tr>
+            </div>
+            <tr>
+                <th>
+                    <div class="field has-addons">
+                        <div class="control has-icons-left">
+                            <input class="input is-primary" style="color: black"
+                                   value="{{ firstname }}" placeholder="Voer je (bij)naam in" disabled>
+                            <span class="icon is-left">
+                                <i class="fas fa-user" style="font-size:20px;color:black"></i>
+                            </span>
+                        </div>
+                        <div class="control">
+                            <a class="button is-primary" href={% url 'changefirstname' %}>
+                                Verander
+                            </a>
+                        </div>
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <div class="field has-addons">
+                        <div class="control has-icons-left">
+                            <input class="input is-primary" style="color: black;" type="password" name="password"
+                                   id="inputPassword"
+                                   placeholder="************" disabled>
+                            <span class="icon is-left">
+                            <i class="fas fa-lock" style="font-size:20px;color:black"></i>
+                        </span>
+                        </div>
+                        <div class="control">
+                            <a class="button is-primary" href={% url 'change_password' %}>
+                                Verander
+                            </a>
+                        </div>
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <th align="center">
+                    <a href=/><input style="width:250px" type="submit" class="button is-primary"
+                                     value="Naar Lentecup Homepage"/>
+                    </a>
+                </th>
+            </tr>
+
+            </div>
+        </table>
+    {% else %}
+        <table class="table" ALIGN="center">
+            <tr>
+                <th style="text-align:center">
+                    <h3 ALIGN="center" class="title is-h3">Je bent niet ingelogd</h3>
+                </th>
+            </tr>
+            <tr>
+                <th style="text-align:center">
+                    <a href=/accounts/login/><input style="width:250px" type="submit" class="button is-primary"
+                                                    value="Ga naar de login pagina"/></a>
+                </th>
+            </tr>
+        </table>
+    {% endif %}
+{% endblock %}

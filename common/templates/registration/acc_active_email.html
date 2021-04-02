@@ -1,0 +1,6 @@
+{% autoescape off %}
+Hoi {{ user.first_name }},
+Klik op de link om je deelname aan de Lentecup te bevestigen,
+http://{{ domain }}{% url 'activate' uidb64=uid token=token %}
+Als jij dit niet bent, gelieve deze mail te negeren.
+{% endautoescape %}

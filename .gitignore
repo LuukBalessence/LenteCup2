@@ -1,0 +1,6 @@
+.idea
+*.env
+%SystemDrive%
+sent_emails/
+
+

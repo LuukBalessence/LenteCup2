@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welkom bij de Lentecup!</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    {% block style %}{% endblock style %}
+</head>
+<body>
+{#{% if user.is_authenticated %}#}
+{#{% endif %}#}
+<div class="table">
+    <tr>
+        <th>
+            <h3 class="title" ALIGN="center">
+                {% block title %}Deze titel zou je nooit moeten zien!{% endblock title %}
+            </h3>
+        </th>
+    </tr>
+</div>
+
+<div class="container">
+    {% block content %}Deze content tekst zou je nooit moeten zien!{% endblock content %}
+</div>
+</body>
+</html>

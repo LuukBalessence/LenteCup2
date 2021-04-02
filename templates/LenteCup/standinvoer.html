@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+{% block title %}SCORE INVOEREN{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        {% if error %}
+            <table class="table" ALIGN="center" style="width: 300px">
+            <tr>
+                    <th>
+                        <div class="notification is-danger" ALIGN="center">
+                            <button class="delete"></button>
+                            {{ error }}
+                        </div>
+                    </th>
+                </tr>
+            </table>
+        {% endif %}
+        <table class="table" ALIGN="center">
+            <form action="" method="post">{% csrf_token %}
+                <tr>
+                    <th>
+                        <div class="field">
+                            <div class="control has-icons-left">
+                                <input class="input is-primary" id="id_naam" name="naam"
+                                       type="text" value="{{ manager }}" disabled/>
+                                <span class="icon is-left">
+                                <i class="fas fa-user" style="font-size:20px;color:black"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <div class="field">
+                            <div class="control has-icons-left">
+                                <input class="input is-primary" id="id_score" name="score"
+                                       placeholder="9-holes Stableford Score" type="number" min="0" max="40" value="0"/>
+                                <span class="icon is-left">
+                                <i class="fas fa-poll-h" style="font-size:20px;color:black"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="control has-icons-left">
+                            <div class="select is-primary">
+                                <select style="width: 300px" name="weekname" id="weekname-select">
+                                    <option value="" selected>Kies week</option>
+                                    {% for week in weeksopen %}
+                                        <option value="{{ week.week }}">{{ week.week }}</option>
+                                    {% endfor %}
+                                </select>
+                                <span class="icon is-left is-small">
+                                    <i class="far fa-calendar-alt" style="font-size:20px;color:black"></i>
+                                </span>
+
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="control has-icons-left">
+                            <div class="select is-primary">
+                                <select style="width: 300px" name="qualifying" id="qualifying-select">
+                                    <option value="" selected>Qualifying?</option>
+                                    <option value="True">Ja</option>
+                                    <option value="False">Nee (1pt)</option>
+                                </select>
+                                <span class="icon is-left is-small">
+                                    <i class="fas fa-check" style="font-size:20px;color:black"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <div class="field">
+                            <div class="control has-icons-left">
+                                <input class="input is-primary" id="id_baan" name="baan"
+                                       placeholder="Baan?. Optioneel" type="text"/>
+                                <span class="icon is-left">
+                                <i class="fas fa-golf-ball" style="font-size:20px;color:black"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <div class="field">
+                            <div class="control has-icons-left">
+                                <input class="input is-primary" id="id_lus" name="lus"
+                                       placeholder="Lus?, optioneel" type="text"/>
+                                <span class="icon is-left">
+                                <i class="fas fa-map-pin" style="font-size:20px;color:black"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <input class="input is-primary" id="id_finalscore" name="finalscore"
+                                       type="hidden" required="false"/>
+                    </th>
+                </tr>
+                <tr>
+                    <th style="text-align:center">
+                        <input style="width:250px" type="submit" class="button is-primary" value="Verzend"/>
+                    </th>
+                </tr>
+            </form>
+            <tr>
+                <th align="center">
+                <a href=/><input style="width:250px" type="submit" class="button is-primary"
+                                 value="Naar Lentecup Homepage"/>
+                </a>
+                </th>
+            </tr>
+        </table>
+    {% endif %}
+{% endblock %}
+{% block helptext %}
+    1. Give yourself a beautiful name<br>
+    i.e. first name, alias or nickname<br>
+
+{% endblock helptext %}
