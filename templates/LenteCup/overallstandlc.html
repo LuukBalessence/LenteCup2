@@ -5,6 +5,9 @@
         <table class="table" ALIGN="center">
             <tr>
                 <th>
+                    Nr.
+                </th>
+                <th>
                     Naam
                 </th>
                 <th>
@@ -14,6 +17,9 @@
             {% if scores %}
                 {% for key, value in scores.items %}
                     <tr>
+                        <td>
+                            {{ forloop.counter }}
+                        </td>
                         <td>
                             {{ key }}
                         </td>

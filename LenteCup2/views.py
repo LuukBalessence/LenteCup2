@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from LenteCup2.forms import ChangeFirstNameForm, ScoresForm
 from LenteCup2.models import Week, Scores
 from common.models import User
-
+from collections import OrderedDict
 
 def home(request):
     return render(request, "LenteCup/home.html", )
@@ -151,7 +151,7 @@ def jouwuitslagen(request):
 
 def overallstandlc(request):
     allusers = User.objects.all()
-    tempscore = {}
+    tempscore = []
     for everyuser in allusers:
         userscores = Scores.objects.filter(user=everyuser)
         totalscore=0
@@ -159,7 +159,9 @@ def overallstandlc(request):
             totalscore = totalscore + everyscore.finalscore
         if totalscore == 0:
             totalscore = 0.00
-        tempscore.update({everyuser.first_name: str(totalscore)})
-        dict(sorted(tempscore.items(), key=lambda item: item[1]))
+        tempscore += [[everyuser.first_name, totalscore]]
+    sorted_score = OrderedDict()
+    for username, score in sorted(tempscore, key=lambda x: x[1], reverse=True):
+        sorted_score[username] = score
     return render(request, "LenteCup/overallstandlc.html",
-                  {'scores': tempscore})
+                  {'scores': sorted_score})
