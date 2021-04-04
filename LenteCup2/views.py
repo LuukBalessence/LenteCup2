@@ -165,3 +165,16 @@ def overallstandlc(request):
         sorted_score[username] = score
     return render(request, "LenteCup/overallstandlc.html",
                   {'scores': sorted_score})
+
+
+def weekuitslagen(request):
+    tempscore = []
+    sorted_score = OrderedDict()
+    weeks = Week.objects.all()
+    userscores = Scores.objects.all().select_related('week')
+    # for eachscore in userscores:
+    #     tempscore += [[eachscore.user.first_name, eachscore.finalscore]]
+    # for username, score in sorted(tempscore, key=lambda x: x[1], reverse=True):
+    #     sorted_score[username] = score
+    return render(request, "LenteCup/weekuitslagen.html",
+                  {'scores': userscores,'weeks': weeks})

@@ -32,7 +32,8 @@ urlpatterns = [
     path("myaccount", views.myaccount, name="myaccount"),
     path("standinvoer", views.standinvoer, name="standinvoer"),
     path("jouwuitslagen", views.jouwuitslagen, name="jouwuitslagen"),
-    path("overallstandlc", views.overallstandlc, name="overallstandlc")
+    path("overallstandlc", views.overallstandlc, name="overallstandlc"),
+    path("weekuitslagen", views.weekuitslagen, name="weekuitslagen")
 ]
 
 if settings.DEBUG:
