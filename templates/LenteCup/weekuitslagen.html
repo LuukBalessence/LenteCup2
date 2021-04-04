@@ -3,40 +3,30 @@
 {% block content %}
     {% if user.is_authenticated %}
         <table class="table" ALIGN="center">
-            <tr>
-                <th>
-                    Naam
-                </th>
-                <th>
-                    Stbf
-                </th>
-                <th>
-                    Qualifying
-                </th>
-                <th>
-                    Punten
-                </th>
-                <th>
-                    Baan
-                </th>
-                <th>
-                    Lus
-                </th>
-            </tr>
             {% if scores %}
                 {% for week in weeks %}
                     <tr>
                         <th>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th>
                             {{ week }}
                         </th>
+                        <th>
+                            Stbf
+                        </th>
+                        <th>
+                            Qualifying
+                        </th>
+                        <th>
+                            Punten
+                        </th>
+                        <th>
+                            Baan
+                        </th>
+                        <th>
+                            Lus
+                        </th>
                     </tr>
                     <tr>
-                        <th>
-                        </th>
+                    </tr>
                     </tr>
                     {% for score in scores %}
                         {% if score.week == week %}
@@ -63,12 +53,12 @@
                                     {{ score.baan }}
                                 </td>
                                 <td align="center">
-                                        {{ score.lus }}
-                                    </td>
-                                </tr>
-                            {% endif %}
-                        {% endfor %}
+                                    {{ score.lus }}
+                                </td>
+                            </tr>
+                        {% endif %}
                     {% endfor %}
+                {% endfor %}
             {% else %}
                 <tr>
                     <th>
