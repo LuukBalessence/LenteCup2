@@ -29,57 +29,86 @@
 {% block content %}
     {% if user.is_authenticated %}
         <table class="table" ALIGN="center">
-        <tr>
-            <th style="text-align:center">
-                <a href=/myaccount><input style="width:250px" type="submit" class="button is-primary"
-                                   value="Profiel"/></a>
-            </th>
-        </tr>
-        <tr>
-            <th style="text-align:center">
-                <a href=/standinvoer><input style="width:250px" type="submit" class="button is-primary"
-                                   value="Voer je score in"/></a>
-            </th>
-        </tr>
-        <tr>
-            <th style="text-align:center">
-                <a href=/jouwuitslagen><input style="width:250px" type="submit" class="button is-primary"
-                                   value="Jouw uitslagen"/></a>
-            </th>
-        </tr>
-        <tr>
-            <th style="text-align:center">
-                <a href=/overallstandlc><input style="width:250px" type="submit" class="button is-primary"
-                                   value="Stand LenteCup"/></a>
-            </th>
-        </tr>
-        <tr>
-        <th style="text-align:center">
-            <a href=/weekuitslagen><input style="width:250px" type="submit" class="button is-primary"
-                               value="Week Uitslagen"/></a>
-        </th>
-        </tr>
-        <tr>
-            <th style="text-align:center">
-                <a href=/accounts/logout><input style="width:250px" type="submit" class="button is-primary"
-                                   value="Uitloggen"/></a>
-            </th>
-        </tr>
-    </table>
+            <tr>
+                <th style="text-align:center">
+                    <a href=/myaccount><input style="width:250px" type="submit" class="button is-primary"
+                                              value="Profiel"/></a>
+                </th>
+            </tr>
+            <tr>
+                <th style="text-align:center">
+                    <a href=/standinvoer><input style="width:250px" type="submit" class="button is-primary"
+                                                value="Voer je score in"/></a>
+                </th>
+            </tr>
+            <tr>
+                <th style="text-align:center">
+                    <a href=/jouwuitslagen><input style="width:250px" type="submit" class="button is-primary"
+                                                  value="Jouw uitslagen"/></a>
+                </th>
+            </tr>
+            <tr>
+                <th style="text-align:center">
+                    <a href=/overallstandlc><input style="width:250px" type="submit" class="button is-primary"
+                                                   value="Stand LenteCup"/></a>
+                </th>
+            </tr>
+            <tr>
+                <th style="text-align:center">
+                    <a href=/weekuitslagen><input style="width:250px" type="submit" class="button is-primary"
+                                                  value="Week Uitslagen"/></a>
+                </th>
+            </tr>
+            <tr>
+                <th style="text-align:center">
+                    <a href=/accounts/logout><input style="width:250px" type="submit" class="button is-primary"
+                                                    value="Uitloggen"/></a>
+                </th>
+            </tr>
+            <tr>
+                <th style="text-align:center;font-size: xx-large">
+                    MASTERS 2021
+                </th>
+            </tr>
+            <tr>
+                <th style="text-align:center">
+                    <a href=/spelerslijst><input style="width:250px" type="submit" class="button is-info"
+                                                  value="Masters spelers"/></a>
+                </th>
+            </tr>
+            <tr>
+                <th style="text-align:center">
+                    <a href=/kiesspelers><input style="width:250px" type="submit" class="button is-info"
+                                                  value="Kies 10 spelers"/></a>
+                </th>
+            </tr>
+            <tr>
+                <th style="text-align:center">
+                    <a href=/jouwspelers><input style="width:250px" type="submit" class="button is-info"
+                                                  value="Jouw Spelers"/></a>
+                </th>
+            </tr>
+            <tr>
+                <th style="text-align:center">
+                    <a href=/mastersstand><input style="width:250px" type="submit" class="button is-info"
+                                                  value="Huidige stand"/></a>
+                </th>
+            </tr>
+        </table>
     {% else %}
         <table class="table" ALIGN="center">
-        <tr>
-            <th style="text-align:center">
-                <a href=/accounts/login><input style="width:250px" type="submit" class="button is-primary"
-                                   value="Inloggen"/></a>
-            </th>
-        </tr>
-        <tr>
-            <th style="text-align:center">
-                <a href=/common/signup><input style="width:250px" type="submit" class="button is-primary"
-                                   value="Sign-up"/></a>
-            </th>
-        </tr>
-    </table>
+            <tr>
+                <th style="text-align:center">
+                    <a href=/accounts/login><input style="width:250px" type="submit" class="button is-primary"
+                                                   value="Inloggen"/></a>
+                </th>
+            </tr>
+            <tr>
+                <th style="text-align:center">
+                    <a href=/common/signup><input style="width:250px" type="submit" class="button is-primary"
+                                                  value="Sign-up"/></a>
+                </th>
+            </tr>
+        </table>
     {% endif %}
 {% endblock content %}

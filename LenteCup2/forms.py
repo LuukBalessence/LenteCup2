@@ -1,6 +1,6 @@
 from django import forms
 
-from LenteCup2.models import Week, Scores
+from LenteCup2.models import Week, Scores, GekozenSpelers
 
 
 class WeekForm(forms.ModelForm):
@@ -16,6 +16,12 @@ class ScoresForm(forms.ModelForm):
         model = Scores
         fields = "__all__"
 
+
+class GekozenSpelersForm(forms.ModelForm):
+
+    class Meta:
+        model = GekozenSpelers
+        fields = "__all__"
 
 
 

@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{% block title %}KIES 10 SPELERS{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        {% if error %}
+            <table class="table" ALIGN="center" style="width: 300px">
+                <tr>
+                    <th>
+                        <div class="notification is-danger" ALIGN="center">
+                            <button class="delete"></button>
+                            {{ error }}
+                        </div>
+                    </th>
+                </tr>
+            </table>
+        {% else %}
+            <table class="table" ALIGN="center">
+                <form action="" method="post">{% csrf_token %}
+                    <tr>
+                        <th></th>
+                        <th>
+                            <div class="field">
+                                <div class="control has-icons-left">
+                                    <input class="input is-primary" id="id_naam" name="naam"
+                                           type="text" value="{{ manager }}" disabled/>
+                                    <span class="icon is-left">
+                                    <i class="fas fa-user" style="font-size:20px;color:black"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th align="center">
+                            Puntenverdeling:
+                        </th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th align="center">
+                            Speler in de top 10 goed: 5 punten
+                        </th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th align="center">
+                            Een speler exact op de goede plaats:
+                        </th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th align="center">
+                            30, 18, 16, 7, 6, 5, 4, 3, 2, 1 punten
+
+                        </th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th align="center">
+                            Gelijke stand: regels Masters whatsapp
+
+                        </th>
+                    </tr>
+
+                    {% for x in range %}
+                        <tr>
+                            <td>
+                                {{ forloop.counter }}
+                            </td>
+                            <td>
+                                <div class="control has-icons-left">
+                                    <div class="select is-primary">
+                                        <select style="width: 300px" name="plaats{{ forloop.counter }}"
+                                                id="plaats-select{{ forloop.counter }}">
+                                            <option value="" selected>Kies plaats {{ forloop.counter }}</option>
+                                            {% for speler in spelers %}
+                                                <option value={{ speler.pk }}>{{ speler.rank }} {{ speler.first_name }} {{ speler.last_name }}</option>
+                                            {% endfor %}
+                                        </select>
+                                        <span class="icon is-left is-small">
+                                        <i class="fas fa-medal" style="font-size:20px;color:black"></i>
+                                    </span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    <tr>
+                        <th></th>
+                        <th style="text-align:center">
+                            <input style="width:250px" type="submit" class="button is-primary" value="Verzend"/>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <input class="input is-primary" id="id_user" name="user"
+                                   type="hidden" required="false" value="1"/>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <input class="input is-primary" id="id_speler" name="speler"
+                                   type="hidden" required="false" value="5"/>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <input class="input is-primary" id="id_eindplaats" name="eindplaats"
+                                   type="hidden" required="false" value="10"/>
+                        </th>
+                    </tr>
+                </form>
+                <tr>
+                    <th></th>
+                    <th align="center">
+                        <a href=/><input style="width:250px" type="submit" class="button is-primary"
+                                         value="Naar Lentecup Homepage"/>
+                        </a>
+                    </th>
+                </tr>
+            </table>
+        {% endif %}
+    {% endif %}
+{% endblock %}

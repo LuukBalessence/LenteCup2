@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Jouw Spelers{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        <table class="table" ALIGN="center">
+            <tr>
+                <th>
+                    Plaats
+                </th>
+                <th>
+                    Naam
+                </th>
+            </tr>
+            {% for speler in gekozenspelers %}
+                <tr>
+                    <td>
+                        {{ speler.eindplaats }}
+                    </td>
+                    <td>
+                        {{ speler.speler.first_name }} {{ speler.speler.last_name }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+        <table class="table" ALIGN="center">
+            <tr>
+                <th align="center">
+                    <a href=/><input style="width:250px" type="submit" class="button is-primary"
+                                     value="Naar Lentecup Homepage"/>
+                    </a>
+                </th>
+            </tr>
+        </table>
+    {% endif %}
+{% endblock %}

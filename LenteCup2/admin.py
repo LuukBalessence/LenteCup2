@@ -13,3 +13,13 @@ class WeekAdmin(admin.ModelAdmin):
 class ScoresAdmin(admin.ModelAdmin):
     form = ScoresForm
     list_display = ['user', 'week', 'score', 'qualifying', 'finalscore']
+
+
+@admin.register(models.Speler)
+class ScoresAdmin(admin.ModelAdmin):
+    list_display = ['rank', 'first_name', 'last_name', 'position']
+
+
+@admin.register(models.GekozenSpelers)
+class ScoresAdmin(admin.ModelAdmin):
+    list_display = ['user', 'speler']

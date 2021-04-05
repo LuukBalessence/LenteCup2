@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 
-from LenteCup2.forms import ChangeFirstNameForm, ScoresForm
-from LenteCup2.models import Week, Scores
+from LenteCup2.forms import ChangeFirstNameForm, ScoresForm, GekozenSpelersForm
+from LenteCup2.models import Week, Scores, Speler, GekozenSpelers
 from common.models import User
 from collections import OrderedDict
 
@@ -178,3 +178,80 @@ def weekuitslagen(request):
     #     sorted_score[username] = score
     return render(request, "LenteCup/weekuitslagen.html",
                   {'scores': userscores,'weeks': weeks})
+
+
+def spelerslijst(request):
+    spelers= Speler.objects.all()
+    return render(request, "LenteCup/spelerslijst.html",
+                  {'spelers': spelers})
+
+
+
+def kiesspelers(request):
+    error = ""
+    currentuser = request.user
+    manager = currentuser.first_name
+    spelers = Speler.objects.all()
+    form = GekozenSpelersForm(request.GET)
+    if manager == "":
+        error = "Je hebt nog geen naam geregistreerd. Ga naar je profiel en vul je naam"
+        print(error)
+        return render(request, "LenteCup/kiesspelers.html",
+                      {'form': form, 'spelers': spelers, 'manager': manager, 'error': error})
+    if request.method == 'POST':
+        GekozenSpelers.objects.filter(user=currentuser).delete()
+        form = GekozenSpelersForm(request.POST)
+        if form.is_valid():
+            check = True
+            numberlist = []
+            playerlist = []
+            for i in range (1,11):
+                selectbox = 'plaats' + str(i)
+                if request.POST[selectbox] == "":
+                    error = "Je hebt in ieder geval voor plaats " + str(i) + " niets ingevuld"
+                    print(error)
+                    check = False
+                    break
+                else:
+                    if request.POST[selectbox] in numberlist:
+                        dubbele = Speler.objects.get(pk=int(request.POST[selectbox]))
+                        error = "Je hebt de speler " + dubbele.first_name + " " + dubbele.last_name + " meerdere keren ingevoerd"
+                        print(error)
+                        check = False
+                        break
+                    else:
+                        numberlist += request.POST[selectbox]
+                        playerlist += [[manager, request.POST[selectbox]]]
+            if check:
+                for i in range(1, 11):
+                    gekozenspeler = Speler.objects.get(pk=int(playerlist[i-1][1]))
+                    try:
+                        obj = GekozenSpelers.objects.get(speler=gekozenspeler)
+                        obj.user = currentuser
+                        obj.speler = gekozenspeler
+                        obj.eindplaats = i
+                        obj.save()
+                    except:
+                        obj1 = GekozenSpelers.objects.create(user=currentuser, speler=gekozenspeler, eindplaats=i)
+                        obj1.save()
+                return redirect(to="jouwspelers")
+            else:
+                return render(request, "LenteCup/kiesspelers.html",
+                              {'form': form, 'spelers': spelers, 'manager': manager, 'error': error})
+        else:
+            return render(request, "LenteCup/kiesspelers.html",
+                          {'form': form, 'spelers': spelers, 'manager': manager, 'error': "er ging iets mis met het formulier"})
+    else:
+        return render(request, "LenteCup/kiesspelers.html",
+                      {'form': form, 'spelers': spelers, 'manager': manager, "range": range(10)})
+
+
+def jouwspelers(request):
+    currentuser = request.user
+    gekozenspelers = GekozenSpelers.objects.filter(user=currentuser).select_related('speler')
+    return render(request, "LenteCup/jouwspelers.html",
+                  {'gekozenspelers': gekozenspelers})
+
+
+def mastersstand(request):
+    pass

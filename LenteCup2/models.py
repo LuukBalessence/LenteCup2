@@ -24,3 +24,33 @@ class Scores(models.Model):
 
     def __str__(self):
         return f"{self.score}"
+
+
+class Speler(models.Model):
+    rank = models.PositiveSmallIntegerField()
+    first_name = models.CharField(verbose_name=("First name"), max_length=40)
+    last_name = models.CharField(verbose_name=("Last name"), max_length=60)
+    land = models.CharField(max_length=40)
+    position = models.PositiveSmallIntegerField(blank=True, null=True)
+
+    class Meta:
+        verbose_name = ("Speler")
+        verbose_name_plural = ("Spelers")
+        unique_together = (("first_name", "last_name"),)
+        ordering = ("rank", "first_name", "last_name")
+
+    def __str__(self):
+        return f"{self.rank} {self.first_name} {self.last_name}"
+
+
+class GekozenSpelers(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="gekozen")
+    speler = models.ForeignKey(Speler, on_delete=models.CASCADE, related_name="gekozen")
+    eindplaats = models.PositiveSmallIntegerField(default=0)
+
+    class Meta:
+        unique_together = (("user", "speler"),)
+        ordering = ("user", "speler")
+
+    def __str__(self):
+        return f"{self.user} {self.speler}"
