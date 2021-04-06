@@ -238,7 +238,7 @@ def kiesspelers(request):
                 for j in range(1, 11):
                     gekozenspeler = Speler.objects.get(pk=int(playerlist[j-1][1]))
                     try:
-                        obj = GekozenSpelers.objects.get(speler=gekozenspeler)
+                        obj = GekozenSpelers.objects.get(speler=gekozenspeler, user=currentuser)
                         obj.user = currentuser
                         obj.speler = gekozenspeler
                         obj.eindplaats = j
