@@ -1,0 +1,970 @@
+[
+{
+    "model": "LenteCup2.speler",
+    "pk": 5,
+    "fields": {
+        "rank":1,
+        "first_name": "Dustin",
+        "last_name": "Johnson",	
+        "land": "VS",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 6,
+    "fields": {
+        "rank":2,
+        "first_name": "Justin",
+        "last_name": "Thomas",	
+        "land": "VS",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 7,
+    "fields": {
+        "rank":3,
+        "first_name": "Jon",
+        "last_name": "Rahm",	
+        "land": "Spanje",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 8,
+    "fields": {
+        "rank":4,
+        "first_name": "Collin",
+        "last_name": "Morikawa",	
+        "land": "VS",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 9,
+    "fields": {
+        "rank":5,
+        "first_name": "Bryson",
+        "last_name": "DeChambeau",	
+        "land": "VS",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 10,
+    "fields": {
+        "rank":6,
+        "first_name": "Xander",
+        "last_name": "Schauffele",	
+        "land": "VS",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 11,
+    "fields": {
+        "rank":7,
+        "first_name": "Patrick",
+        "last_name": "Reed",	
+        "land": "VS",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 12,
+    "fields": {
+        "rank":8,
+        "first_name": "Tyrrell",
+        "last_name": "Hatton",	
+        "land": "Engeland",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 13,
+    "fields": {
+        "rank":9,
+        "first_name": "Webb",
+        "last_name": "Simpson",	
+        "land": "VS",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 14,
+    "fields": {
+        "rank":10,
+        "first_name": "Patrick",
+        "last_name": "Cantlay",	
+        "land": "VS",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 15,
+    "fields": {
+        "rank":11,
+        "first_name": "Brooks",
+        "last_name": "Koepka",	
+        "land": "VS",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 16,
+    "fields": {
+        "rank":12,
+        "first_name": "Rory",
+        "last_name": "McIlroy",	
+        "land": "Noord Ierland",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 17,
+    "fields": {
+        "rank":13,
+        "first_name": "Tony",
+        "last_name": "Finau",	
+        "land": "VS",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 18,
+    "fields": {
+        "rank":14,
+        "first_name": "Viktor",
+        "last_name": "Hovland",	
+        "land": "Noorwegen",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 19,
+    "fields": {
+        "rank":15,
+        "first_name": "Daniel",
+        "last_name": "Berger",	
+        "land": "VS",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 20,
+    "fields": {
+        "rank":16,
+        "first_name": "Matthew",
+        "last_name": "Fitzpatrick",	
+        "land": "Engeland",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 21,
+    "fields": {
+        "rank":17,
+        "first_name": "Billy",
+        "last_name": "Horschel",	
+        "land": "VS",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 22,
+    "fields": {
+        "rank":18,
+        "first_name": "Paul",
+        "last_name": "Casey",	
+        "land": "Engeland",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 23,
+    "fields": {
+        "rank":19,
+        "first_name": "Sungjae",
+        "last_name": "Im",	
+        "land": "Zuid Korea",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 24,
+    "fields": {
+        "rank":20,
+        "first_name": "Lee",
+        "last_name": "Westwood",	
+        "land": "Engeland",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 25,
+    "fields": {
+        "rank":21,
+        "first_name": "Harris",
+        "last_name": "English",	
+        "land": "VS",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 26,
+    "fields": {
+        "rank":22,
+        "first_name": "Scottie",
+        "last_name": "Scheffler",	
+        "land": "VS",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 27,
+    "fields": {
+        "rank":23,
+        "first_name": "Matthew",
+        "last_name": "Wolff",	
+        "land": "VS",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 28,
+    "fields": {
+        "rank":24,
+        "first_name": "Tommy",
+        "last_name": "Fleetwood",	
+        "land": "Engeland",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 29,
+    "fields": {
+        "rank":25,
+        "first_name": "Hideki",
+        "last_name": "Matsuyama",	
+        "land": "Japan",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 30,
+    "fields": {
+        "rank":26,
+        "first_name": "Joaquin",
+        "last_name": "Niemann",	
+        "land": "Chili",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 31,
+    "fields": {
+        "rank":27,
+        "first_name": "Ryan",
+        "last_name": "Palmer",	
+        "land": "VS",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 32,
+    "fields": {
+        "rank":28,
+        "first_name": "Louis",
+        "last_name": "Oosthuizen",	
+        "land": "Zuid Afrika",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 33,
+    "fields": {
+        "rank":29,
+        "first_name": "Victor",
+        "last_name": "Perez",	
+        "land": "Frankrijk",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 34,
+    "fields": {
+        "rank":30,
+        "first_name": "Cameron",
+        "last_name": "Smith",	
+        "land": "Australie",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 35,
+    "fields": {
+        "rank":31,
+        "first_name": "Abraham",
+        "last_name": "Ancer",	
+        "land": "Mexico",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 36,
+    "fields": {
+        "rank":32,
+        "first_name": "Adam",
+        "last_name": "Scott",	
+        "land": "Australie",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 37,
+    "fields": {
+        "rank":33,
+        "first_name": "Jason",
+        "last_name": "Kokrak",	
+        "land": "VS",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 38,
+    "fields": {
+        "rank":34,
+        "first_name": "Kevin",
+        "last_name": "Na",	
+        "land": "VS",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 39,
+    "fields": {
+        "rank":35,
+        "first_name": "Christiaan",
+        "last_name": "Bezuidenhout",	
+        "land": "Zuid Afrika",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 40,
+    "fields": {
+        "rank":36,
+        "first_name": "Kevin",
+        "last_name": "Kisner",	
+        "land": "VS",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 41,
+    "fields": {
+        "rank":37,
+        "first_name": "Max",
+        "last_name": "Homa",	
+        "land": "VS",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 42,
+    "fields": {
+        "rank":38,
+        "first_name": "Jordan",
+        "last_name": "Spieth",	
+        "land": "VS",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 43,
+    "fields": {
+        "rank":39,
+        "first_name": "Marc",
+        "last_name": "Leishman",	
+        "land": "Australie",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 44,
+    "fields": {
+        "rank":40,
+        "first_name": "Sergio",
+        "last_name": "Garcia",	
+        "land": "Spanje",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 45,
+    "fields": {
+        "rank":41,
+        "first_name": "Justin",
+        "last_name": "Rose",	
+        "land": "Engeland",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 46,
+    "fields": {
+        "rank":42,
+        "first_name": "Matt",
+        "last_name": "Kuchar",	
+        "land": "VS",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 47,
+    "fields": {
+        "rank":43,
+        "first_name": "Corey",
+        "last_name": "Conners",	
+        "land": "Canada",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 48,
+    "fields": {
+        "rank":44,
+        "first_name": "Shane",
+        "last_name": "Lowry",	
+        "land": "Ierland",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 49,
+    "fields": {
+        "rank":45,
+        "first_name": "Robert",
+        "last_name": "MacIntyre",	
+        "land": "Schotland",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 50,
+    "fields": {
+        "rank":46,
+        "first_name": "Will",
+        "last_name": "Zalatoris",	
+        "land": "VS",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 51,
+    "fields": {
+        "rank":47,
+        "first_name": "Carlos",
+        "last_name": "Ortiz",	
+        "land": "Mexico",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 52,
+    "fields": {
+        "rank":48,
+        "first_name": "Matt",
+        "last_name": "Wallace",	
+        "land": "Engeland",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 53,
+    "fields": {
+        "rank":49,
+        "first_name": "Si",
+        "last_name": "Woo",	
+        "land": "Zuid Korea",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 54,
+    "fields": {
+        "rank":50,
+        "first_name": "Brian",
+        "last_name": "Harman",	
+        "land": "VS",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 55,
+    "fields": {
+        "rank":51,
+        "first_name": "Mackenzie",
+        "last_name": "Hughes",	
+        "land": "Canada",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 56,
+    "fields": {
+        "rank":52,
+        "first_name": "Jason",
+        "last_name": "Day",	
+        "land": "Australie",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 57,
+    "fields": {
+        "rank":53,
+        "first_name": "Gary",
+        "last_name": "Woodland",	
+        "land": "VS",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 58,
+    "fields": {
+        "rank":54,
+        "first_name": "Bernd",
+        "last_name": "Wiesberger",	
+        "land": "Oostenrijk",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 59,
+    "fields": {
+        "rank":55,
+        "first_name": "Matt",
+        "last_name": "Jones",	
+        "land": "Australie",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 60,
+    "fields": {
+        "rank":56,
+        "first_name": "Brendon",
+        "last_name": "Todd",	
+        "land": "VS",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 61,
+    "fields": {
+        "rank":57,
+        "first_name": "Lanto",
+        "last_name": "Griffin",	
+        "land": "VS",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 62,
+    "fields": {
+        "rank":58,
+        "first_name": "Bubba",
+        "last_name": "Watson",	
+        "land": "VS",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 63,
+    "fields": {
+        "rank":63,
+        "first_name": "Sebastian",
+        "last_name": "Munoz",	
+        "land": "Colombia",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 64,
+    "fields": {
+        "rank":64,
+        "first_name": "Ian",
+        "last_name": "Poulter",	
+        "land": "Engeland",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 65,
+    "fields": {
+        "rank":68,
+        "first_name": "Dylan",
+        "last_name": "Frittelli",	
+        "land": "Zuid Afrika",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 66,
+    "fields": {
+        "rank":77,
+        "first_name": "Danny",
+        "last_name": "Willett",	
+        "land": "Engeland",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 67,
+    "fields": {
+        "rank":86,
+        "first_name": "Cameron",
+        "last_name": "Champ",	
+        "land": "VS",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 68,
+    "fields": {
+        "rank":100,
+        "first_name": "Martin",
+        "last_name": "Laird",	
+        "land": "Schotland",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 69,
+    "fields": {
+        "rank":105,
+        "first_name": "Michael",
+        "last_name": "Thompson",	
+        "land": "VS",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 70,
+    "fields": {
+        "rank":107,
+        "first_name": "Zach",
+        "last_name": "Johnson",	
+        "land": "VS",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 71,
+    "fields": {
+        "rank":108,
+        "first_name": "Francesco",
+        "last_name": "Molinari",	
+        "land": "Italie",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 72,
+    "fields": {
+        "rank":110,
+        "first_name": "Robert",
+        "last_name": "Streb",	
+        "land": "VS",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 73,
+    "fields": {
+        "rank":115,
+        "first_name": "Phil",
+        "last_name": "Mickelson",	
+        "land": "VS",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 74,
+    "fields": {
+        "rank":117,
+        "first_name": "Henrik",
+        "last_name": "Stenson",	
+        "land": "Zweden",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 75,
+    "fields": {
+        "rank":132,
+        "first_name": "Jim",
+        "last_name": "Herman",	
+        "land": "VS",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 76,
+    "fields": {
+        "rank":149,
+        "first_name": "Stewart",
+        "last_name": "Cink",	
+        "land": "VS",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 77,
+    "fields": {
+        "rank":155,
+        "first_name": "C.T.",
+        "last_name": "Pan",	
+        "land": "Taiwan",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 78,
+    "fields": {
+        "rank":175,
+        "first_name": "Hudson",
+        "last_name": "Swafford",	
+        "land": "VS",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 79,
+    "fields": {
+        "rank":209,
+        "first_name": "Brian",
+        "last_name": "Gay",	
+        "land": "VS",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 80,
+    "fields": {
+        "rank":211,
+        "first_name": "Charl",
+        "last_name": "Schwartzel",	
+        "land": "Zuid Afrika",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 81,
+    "fields": {
+        "rank":528,
+        "first_name": "Jimmy",
+        "last_name": "Walker",	
+        "land": "VS",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 82,
+    "fields": {
+        "rank":739,
+        "first_name": "Bernhard",
+        "last_name": "Langer",	
+        "land": "Duitsland",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 83,
+    "fields": {
+        "rank":808,
+        "first_name": "Mike",
+        "last_name": "Weir",	
+        "land": "Canada",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 84,
+    "fields": {
+        "rank":1834,
+        "first_name": "Fred",
+        "last_name": "Couples",	
+        "land": "VS",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 85,
+    "fields": {
+        "rank":1834,
+        "first_name": "Joe",
+        "last_name": "Long",	
+        "land": "Engeland",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 86,
+    "fields": {
+        "rank":1834,
+        "first_name": "Sandy",
+        "last_name": "Lyle",	
+        "land": "Schotland",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 87,
+    "fields": {
+        "rank":1834,
+        "first_name": "Larry",
+        "last_name": "Mize",	
+        "land": "VS",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 88,
+    "fields": {
+        "rank":1834,
+        "first_name": "Jose",
+        "last_name": "Maria",	
+        "land": "Spanje",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 89,
+    "fields": {
+        "rank":1834,
+        "first_name": "Charles",
+        "last_name": "Osborne",	
+        "land": "VS",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 90,
+    "fields": {
+        "rank":1834,
+        "first_name": "Vijay",
+        "last_name": "Singh",	
+        "land": "Fiji",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 91,
+    "fields": {
+        "rank":1834,
+        "first_name": "Tyler",
+        "last_name": "Strafaci",	
+        "land": "VS",
+        "position": null
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 92,
+    "fields": {
+        "rank":1834,
+        "first_name": "Ian",
+        "last_name": "Woosnam",	
+        "land": "Wales",
+        "position": null
+    }
+}
+]
