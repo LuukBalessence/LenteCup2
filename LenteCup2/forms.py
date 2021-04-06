@@ -20,6 +20,7 @@ class ScoresForm(forms.ModelForm):
 class GekozenSpelersForm(forms.ModelForm):
 
     class Meta:
+        use_required_attribute = False
         model = GekozenSpelers
         fields = "__all__"
 

@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.shortcuts import render, redirect
 
 from LenteCup2.forms import ChangeFirstNameForm, ScoresForm, GekozenSpelersForm
@@ -186,6 +187,17 @@ def spelerslijst(request):
                   {'spelers': spelers})
 
 
+def tournamentstarted():
+    now = datetime.now()
+    tournamentstarts = datetime(2021, 4, 8, 12, 1, 59, 342380)
+    # tournamentstarts = datetime(2021, 4, 8, 12, 1, 59, 342380)
+    if now > tournamentstarts:
+        print("Tournament has started")
+        return True
+    else:
+        print("Tournament has not started yet")
+        return False
+
 
 def kiesspelers(request):
     error = ""
@@ -198,12 +210,13 @@ def kiesspelers(request):
         print(error)
         return render(request, "LenteCup/kiesspelers.html",
                       {'form': form, 'spelers': spelers, 'manager': manager, 'error': error})
+    if tournamentstarted():
+        return redirect(to="jouwspelers")
     if request.method == 'POST':
         GekozenSpelers.objects.filter(user=currentuser).delete()
         form = GekozenSpelersForm(request.POST)
         if form.is_valid():
             check = True
-            numberlist = []
             playerlist = []
             for i in range (1,11):
                 selectbox = 'plaats' + str(i)
@@ -213,26 +226,25 @@ def kiesspelers(request):
                     check = False
                     break
                 else:
-                    if request.POST[selectbox] in numberlist:
+                    if any(request.POST[selectbox] in sublist for sublist in playerlist):
                         dubbele = Speler.objects.get(pk=int(request.POST[selectbox]))
                         error = "Je hebt de speler " + dubbele.first_name + " " + dubbele.last_name + " meerdere keren ingevoerd"
                         print(error)
                         check = False
                         break
                     else:
-                        numberlist += request.POST[selectbox]
                         playerlist += [[manager, request.POST[selectbox]]]
             if check:
-                for i in range(1, 11):
-                    gekozenspeler = Speler.objects.get(pk=int(playerlist[i-1][1]))
+                for j in range(1, 11):
+                    gekozenspeler = Speler.objects.get(pk=int(playerlist[j-1][1]))
                     try:
                         obj = GekozenSpelers.objects.get(speler=gekozenspeler)
                         obj.user = currentuser
                         obj.speler = gekozenspeler
-                        obj.eindplaats = i
+                        obj.eindplaats = j
                         obj.save()
                     except:
-                        obj1 = GekozenSpelers.objects.create(user=currentuser, speler=gekozenspeler, eindplaats=i)
+                        obj1 = GekozenSpelers.objects.create(user=currentuser, speler=gekozenspeler, eindplaats=j)
                         obj1.save()
                 return redirect(to="jouwspelers")
             else:
@@ -248,10 +260,14 @@ def kiesspelers(request):
 
 def jouwspelers(request):
     currentuser = request.user
-    gekozenspelers = GekozenSpelers.objects.filter(user=currentuser).select_related('speler')
+    gekozenspelers = GekozenSpelers.objects.filter(user=currentuser).select_related('speler').order_by('eindplaats')
+    if tournamentstarted():
+        message = "De Masters is gestart, Jouw golfers zijn niet meer aan te passen"
+    else:
+        message = "De Masters is nog niet gestart, Je kunt je golfers nog wijzigen."
     return render(request, "LenteCup/jouwspelers.html",
-                  {'gekozenspelers': gekozenspelers})
+                  {'gekozenspelers': gekozenspelers, 'message': message})
 
 
-def mastersstand(request):
-    pass
+def huidigestand(request):
+    return render(request, "LenteCup/huidigestand.html")

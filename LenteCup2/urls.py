@@ -35,9 +35,9 @@ urlpatterns = [
     path("overallstandlc", views.overallstandlc, name="overallstandlc"),
     path("weekuitslagen", views.weekuitslagen, name="weekuitslagen"),
     path("kiesspelers", views.kiesspelers, name="kiesspelers"),
-    path("mastersstand", views.mastersstand, name="mastersstand"),
     path("spelerslijst", views.spelerslijst, name="spelerslijst"),
     path("jouwspelers", views.jouwspelers, name="jouwspelers"),
+    path("huidigestand", views.huidigestand, name="huidigestand"),
 ]
 
 if settings.DEBUG:

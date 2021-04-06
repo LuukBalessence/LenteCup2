@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Stand Masters 2021{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        <table class="table" ALIGN="center">
+            <tr>
+                <th>
+                    Nr.
+                </th>
+                <th>
+                    Naam
+                </th>
+                <th>
+                    Punten
+                </th>
+            </tr>
+            {% if scores %}
+                {% for key, value in scores.items %}
+                    <tr>
+                        <td>
+                            {{ forloop.counter }}
+                        </td>
+                        <td>
+                            {{ key }}
+                        </td>
+                        <td align="center">
+                            {{ value }}
+                        </td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <th>
+                        No scores yet
+                    </th>
+                    <th>
+                    </th>
+                </tr>
+                </table>
+            {% endif %}
+        <table class="table" ALIGN="center">
+            <tr>
+                <th align="center">
+                    <a href=/><input style="width:250px" type="submit" class="button is-info"
+                                     value="Naar Masters Homepage"/>
+                    </a>
+                </th>
+            </tr>
+        </table>
+    {% endif %}
+{% endblock %}
