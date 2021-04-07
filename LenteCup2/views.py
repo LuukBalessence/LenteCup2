@@ -189,7 +189,7 @@ def spelerslijst(request):
 
 def tournamentstarted():
     now = datetime.now()
-    tournamentstarts = datetime(2020, 4, 8, 12, 1, 59, 342380)
+    tournamentstarts = datetime(2021, 4, 8, 12, 1, 59, 342380)
     # tournamentstarts = datetime(2021, 4, 8, 12, 1, 59, 342380)
     if now > tournamentstarts:
         print("Tournament has started")
