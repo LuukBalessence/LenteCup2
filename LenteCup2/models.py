@@ -37,7 +37,7 @@ class Speler(models.Model):
         verbose_name = ("Speler")
         verbose_name_plural = ("Spelers")
         unique_together = (("first_name", "last_name"),)
-        ordering = ("rank", "first_name", "last_name")
+        ordering = ("position", "first_name", "last_name")
 
     def __str__(self):
         return f"{self.rank} {self.first_name} {self.last_name}"
@@ -47,6 +47,7 @@ class GekozenSpelers(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="gekozen", blank=True)
     speler = models.ForeignKey(Speler, on_delete=models.CASCADE, related_name="gekozen", blank=True)
     eindplaats = models.PositiveSmallIntegerField(default=0, blank=True)
+    punten = models.PositiveSmallIntegerField(default=0, blank=True)
 
     class Meta:
         unique_together = (("user", "speler"),)

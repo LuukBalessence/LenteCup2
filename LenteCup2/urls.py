@@ -38,6 +38,7 @@ urlpatterns = [
     path("spelerslijst", views.spelerslijst, name="spelerslijst"),
     path("jouwspelers", views.jouwspelers, name="jouwspelers"),
     path("huidigestand", views.huidigestand, name="huidigestand"),
+    path("watgoktderest", views.watgoktderest, name="watgoktderest"),
 ]
 
 if settings.DEBUG:

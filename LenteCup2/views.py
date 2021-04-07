@@ -281,30 +281,63 @@ def huidigestand(request):
                 pass
             else:
                 for score in userscores:
+                    total = 0
                     if score.speler in masterresults:
+                        total = 5
                         totalscore += 5
-                        master = masterresults.filter(speler=score.speler)
-                        if score.eindplaats == master.position:
-                            if master.position == 1:
+                        masterresult = masterresults.filter(first_name=score.speler.first_name, last_name=score.speler.last_name).get().position
+                        if score.eindplaats == masterresult:
+                            if masterresult == 1:
+                                total += 30
                                 totalscore += 30
-                            if master.position == 2:
+                            if masterresult == 2:
+                                total += 18
                                 totalscore += 18
-                            if master.position == 3:
+                            if masterresult == 3:
+                                total += 16
                                 totalscore += 16
-                            if master.position == 4:
+                            if masterresult == 4:
+                                total += 7
                                 totalscore += 7
-                            if master.position == 5:
+                            if masterresult == 5:
+                                total += 6
                                 totalscore += 6
-                            if master.position == 6:
+                            if masterresult == 6:
+                                total += 5
                                 totalscore += 5
-                            if master.position == 7:
+                            if masterresult == 7:
+                                total += 4
                                 totalscore += 4
-                            if master.position == 8:
+                            if masterresult == 8:
+                                total += 3
                                 totalscore += 3
-                            if master.position == 9:
+                            if masterresult == 9:
+                                total += 2
                                 totalscore += 2
-                            if master.position == 10:
+                            if masterresult == 10:
+                                total += 1
                                 totalscore += 1
-                    userresults += [[user.first_name, totalscore]]
+                    obj = score
+                    obj.punten = total
+                    obj.save()
+                userresults += [[user.first_name, totalscore]]
+    sorted_score = OrderedDict()
+    for username, score in sorted(userresults, key=lambda x: x[1], reverse=True):
+        sorted_score[username] = score
     return render(request, "LenteCup/huidigestand.html",
-                  {'userresults': userresults})
+                  {'scores': sorted_score})
+
+
+def watgoktderest(request):
+    users = User.objects.all()
+    currentusers=[]
+    for user in users:
+        totaalgekozen = len(GekozenSpelers.objects.filter(user=user.pk))
+        if totaalgekozen > 0:
+            currentusers.append(user)
+    scores = GekozenSpelers.objects.all().select_related('speler', 'user')
+    tourstarted = tournamentstarted()
+
+    return render(request, "LenteCup/watgoktderest.html",
+                  {'scores': scores, 'users': currentusers, 'tourstarted': tourstarted})
+

@@ -18,8 +18,8 @@ class ScoresAdmin(admin.ModelAdmin):
 @admin.register(models.Speler)
 class ScoresAdmin(admin.ModelAdmin):
     list_display = ['rank', 'first_name', 'last_name', 'position']
-
+    list_editable = ['position']
 
 @admin.register(models.GekozenSpelers)
 class ScoresAdmin(admin.ModelAdmin):
-    list_display = ['user', 'speler']
+    list_display = ['user', 'speler', 'eindplaats', 'punten']
