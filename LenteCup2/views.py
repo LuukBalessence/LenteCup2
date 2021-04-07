@@ -189,7 +189,7 @@ def spelerslijst(request):
 
 def tournamentstarted():
     now = datetime.now()
-    tournamentstarts = datetime(2021, 4, 8, 12, 1, 59, 342380)
+    tournamentstarts = datetime(2020, 4, 8, 12, 1, 59, 342380)
     # tournamentstarts = datetime(2021, 4, 8, 12, 1, 59, 342380)
     if now > tournamentstarts:
         print("Tournament has started")
@@ -270,4 +270,41 @@ def jouwspelers(request):
 
 
 def huidigestand(request):
-    return render(request, "LenteCup/huidigestand.html")
+    users = User.objects.all()
+    masterresults = Speler.objects.filter(position__isnull=False)
+    userresults = []
+    if tournamentstarted():
+        for user in users:
+            totalscore = 0
+            userscores = GekozenSpelers.objects.filter(user=user)
+            if len(userscores) == 0:
+                pass
+            else:
+                for score in userscores:
+                    if score.speler in masterresults:
+                        totalscore += 5
+                        master = masterresults.filter(speler=score.speler)
+                        if score.eindplaats == master.position:
+                            if master.position == 1:
+                                totalscore += 30
+                            if master.position == 2:
+                                totalscore += 18
+                            if master.position == 3:
+                                totalscore += 16
+                            if master.position == 4:
+                                totalscore += 7
+                            if master.position == 5:
+                                totalscore += 6
+                            if master.position == 6:
+                                totalscore += 5
+                            if master.position == 7:
+                                totalscore += 4
+                            if master.position == 8:
+                                totalscore += 3
+                            if master.position == 9:
+                                totalscore += 2
+                            if master.position == 10:
+                                totalscore += 1
+                    userresults += [[user.first_name, totalscore]]
+    return render(request, "LenteCup/huidigestand.html",
+                  {'userresults': userresults})
