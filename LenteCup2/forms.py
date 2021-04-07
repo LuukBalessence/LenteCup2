@@ -1,6 +1,13 @@
 from django import forms
 
-from LenteCup2.models import Week, Scores, GekozenSpelers
+from LenteCup2.models import Week, Scores, GekozenSpelers, GameSettings
+
+
+class GameSettingsForm(forms.ModelForm):
+
+    class Meta:
+        model = GameSettings
+        fields = "__all__"
 
 
 class WeekForm(forms.ModelForm):

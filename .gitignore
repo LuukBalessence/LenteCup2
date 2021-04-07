@@ -2,5 +2,6 @@
 *.env
 %SystemDrive%
 sent_emails/
+latest.dump
 
 

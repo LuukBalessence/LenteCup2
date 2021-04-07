@@ -43,11 +43,15 @@
                                 <td>
                                     {{ score.speler.first_name }} {{ score.speler.last_name }}
                                 </td>
-                                <td>
+                                <td align="center">
                                     {{ score.eindplaats }}
                                 </td>
-                                <td>
+                                <td align="center">
+                                {% if score.speler.position == None %}
+                                    Geen Top-10
+                                {% else %}
                                     {{ score.speler.position }}
+                                {% endif %}
                                 </td>
                                 <td align="center">
                                     {{ score.punten }}

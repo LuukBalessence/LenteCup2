@@ -1,8 +1,8 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from django.shortcuts import render, redirect
 
 from LenteCup2.forms import ChangeFirstNameForm, ScoresForm, GekozenSpelersForm
-from LenteCup2.models import Week, Scores, Speler, GekozenSpelers
+from LenteCup2.models import Week, Scores, Speler, GekozenSpelers, GameSettings
 from common.models import User
 from collections import OrderedDict
 
@@ -188,9 +188,8 @@ def spelerslijst(request):
 
 
 def tournamentstarted():
-    now = datetime.now()
-    tournamentstarts = datetime(2021, 4, 8, 12, 1, 59, 342380)
-    # tournamentstarts = datetime(2021, 4, 8, 12, 1, 59, 342380)
+    now = datetime.now(timezone.utc)
+    tournamentstarts = GameSettings.objects.get().tourstarttime
     if now > tournamentstarts:
         print("Tournament has started")
         return True

@@ -1,6 +1,12 @@
 from django.contrib import admin
 from LenteCup2 import models
-from .forms import WeekForm, ScoresForm
+from .forms import WeekForm, ScoresForm, GameSettingsForm
+
+
+@admin.register(models.GameSettings)
+class WeekAdmin(admin.ModelAdmin):
+    form = GameSettingsForm
+    list_display = ["tourstarttime"]
 
 
 @admin.register(models.Week)
