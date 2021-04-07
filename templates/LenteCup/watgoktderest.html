@@ -3,7 +3,7 @@
 {% block content %}
     {% if user.is_authenticated %}
         <table class="table" ALIGN="center">
-            {% if not tourstarted %}
+            {% if tourstarted %}
                 {% for user in users %}
                     <tr>
                         <th></th>
