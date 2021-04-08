@@ -6,7 +6,8 @@ from common.models import User
 
 
 class GameSettings(models.Model):
-    tourstarttime = models.DateTimeField()
+    gamesettings = models.CharField(max_length=60, blank=True, null=True)
+    gamesettingsvalue = models.CharField(max_length=60, blank=True, null=True)
 
 
 class Week(models.Model):

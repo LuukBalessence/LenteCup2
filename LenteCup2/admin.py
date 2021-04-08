@@ -4,9 +4,10 @@ from .forms import WeekForm, ScoresForm, GameSettingsForm
 
 
 @admin.register(models.GameSettings)
-class WeekAdmin(admin.ModelAdmin):
+class GameSettingsAdmin(admin.ModelAdmin):
     form = GameSettingsForm
-    list_display = ["tourstarttime"]
+    list_display = ["gamesettings", "gamesettingsvalue"]
+    list_editable = ['gamesettingsvalue']
 
 
 @admin.register(models.Week)

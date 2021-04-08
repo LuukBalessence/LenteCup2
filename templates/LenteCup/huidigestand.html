@@ -40,6 +40,42 @@
             {% endif %}
         <table class="table" ALIGN="center">
             <tr>
+                <th>
+
+                </th>
+                <th>
+                    STAND ECHTE MASTERS
+                </th>
+            </tr>
+            <tr>
+                <th>
+                </th>
+                <th>
+                    Stand van {{ standbijgewerkt }}
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    Nr.
+                </th>
+                <th>
+                    Naam
+                </th>
+            </tr>
+            {% for result in masterresults %}
+                <tr>
+                    <td>
+                        {{ result.position }}
+                    </td>
+                    <td>
+                        {{ result.first_name }} {{ result.last_name }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+
+        <table class="table" ALIGN="center">
+            <tr>
                 <th align="center">
                     <a href=/><input style="width:250px" type="submit" class="button is-info"
                                      value="Naar Masters Homepage"/>

@@ -5,6 +5,7 @@ from LenteCup2.forms import ChangeFirstNameForm, ScoresForm, GekozenSpelersForm
 from LenteCup2.models import Week, Scores, Speler, GekozenSpelers, GameSettings
 from common.models import User
 from collections import OrderedDict
+import pytz
 
 def home(request):
     return render(request, "LenteCup/home.html", )
@@ -189,8 +190,10 @@ def spelerslijst(request):
 
 def tournamentstarted():
     now = datetime.now(timezone.utc)
-    tournamentstarts = GameSettings.objects.get().tourstarttime
-    if now > tournamentstarts:
+    tournamentstarts = GameSettings.objects.get(gamesettings='tourstarttime').gamesettingsvalue
+    tourstarts = datetime.strptime(tournamentstarts, '%Y-%m-%d %H:%M:%S.%f')
+    tourstarts = tourstarts.astimezone(pytz.timezone("UTC"))
+    if now > tourstarts:
         print("Tournament has started")
         return True
     else:
@@ -323,8 +326,9 @@ def huidigestand(request):
     sorted_score = OrderedDict()
     for username, score in sorted(userresults, key=lambda x: x[1], reverse=True):
         sorted_score[username] = score
+    standbijgewerkt = GameSettings.objects.get(gamesettings='Opmerkingstandbijgewerkt').gamesettingsvalue
     return render(request, "LenteCup/huidigestand.html",
-                  {'scores': sorted_score})
+                  {'scores': sorted_score, 'masterresults': masterresults, 'standbijgewerkt': standbijgewerkt})
 
 
 def watgoktderest(request):
