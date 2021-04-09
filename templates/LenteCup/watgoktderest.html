@@ -43,7 +43,7 @@
                                 {% if score.speler.eliminated %}
                                     <td>
                                         <p style="color: red">
-                                        {{ score.speler.first_name }} {{ score.speler.last_name }}
+                                            {{ score.speler.first_name }} {{ score.speler.last_name }}
                                         </p>
                                     </td>
                                 {% else %}
@@ -54,15 +54,21 @@
                                 <td align="center">
                                     {{ score.eindplaats }}
                                 </td>
-                                <td align="center">
                                     {% if score.speler.eliminated %}
-                                        Uit toernooi
+                                        <td align="center"><p style="color: red">
+                                            Uit toernooi
+                                        </p>
+                                        </td>
                                     {% elif score.speler.position == None %}
-                                        Geen Top-10
+                                        <td align="center">
+                                            Geen Top-10
+                                        </td>
                                     {% else %}
-                                        {{ score.speler.position }}
+                                        <td align="center">
+                                            {{ score.speler.position }}
+                                        </>
+                                        </td>
                                     {% endif %}
-                                </td>
                                 <td align="center">
                                     {{ score.punten }}
                                 </td>
