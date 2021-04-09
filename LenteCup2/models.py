@@ -16,6 +16,11 @@ class Week(models.Model):
     maxpoints = models.PositiveSmallIntegerField(default=4)
     openforscoring = models.BooleanField(default=False)
 
+    class Meta:
+        verbose_name = ("Week")
+        verbose_name_plural = ("Weken")
+        ordering = ("-weeknummer", 'week')
+
     def __str__(self):
         return f"{self.week}"
 
@@ -39,6 +44,7 @@ class Speler(models.Model):
     last_name = models.CharField(verbose_name=("Last name"), max_length=60)
     land = models.CharField(max_length=40)
     position = models.PositiveSmallIntegerField(blank=True, null=True)
+    eliminated = models.BooleanField(default=False)
 
     class Meta:
         verbose_name = ("Speler")
