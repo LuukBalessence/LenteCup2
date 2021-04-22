@@ -39,6 +39,8 @@ urlpatterns = [
     path("jouwspelers", views.jouwspelers, name="jouwspelers"),
     path("huidigestand", views.huidigestand, name="huidigestand"),
     path("watgoktderest", views.watgoktderest, name="watgoktderest"),
+    path("masters2021", views.masters2021, name="masters2021"),
+    path("lentecup2021", views.lentecup2021, name="lentecup2021"),
 ]
 
 if settings.DEBUG:

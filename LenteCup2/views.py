@@ -344,3 +344,12 @@ def watgoktderest(request):
     return render(request, "LenteCup/watgoktderest.html",
                   {'scores': scores, 'users': currentusers, 'tourstarted': tourstarted})
 
+
+def masters2021(request):
+
+    return render(request, "LenteCup/masters2021.html")
+
+
+def lentecup2021(request):
+
+    return render(request, "LenteCup/lentecup2021.html")
