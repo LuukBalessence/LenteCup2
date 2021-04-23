@@ -1,16 +1,92 @@
+{% load static %}
 <!DOCTYPE html>
+<!-- Bulma Navbar JS -->
+<script src="{% static 'js/navbarburger.js' %}"></script>
+<script src="{% static 'js/notification.js' %}"></script>
 <html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Welkom bij de Lentecup!</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/tooltip.css' %}">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     {% block style %}{% endblock style %}
 </head>
 <body>
-{#{% if user.is_authenticated %}#}
-{#{% endif %}#}
+{% if user.is_authenticated %}
+    <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="https://bulma.io">
+                <img src="{% static 'images/logo1.jpg' %}" width="112" height="28">
+            </a>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+               data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="/">
+                    Home
+                </a>
+
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        More
+                    </a>
+
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item" href="/">
+                            Hoofdmenu
+                        </a>
+                        <hr class="navbar-divider">
+                        <a class="navbar-item" href="/myaccount">
+                            Jouw profiel
+                        </a>
+                        <a class="navbar-item" href="/accounts/logout">
+                            Uitloggen
+                        </a>
+                        <hr class="navbar-divider">
+                        <a class="navbar-item" href="/lentecup2021">
+                            Lentecup
+                        </a>
+                        <a class="navbar-item" href="/" disabled="">
+                            Euro 2020 Coming soon
+                        </a>
+                        <a class="navbar-item" href="/masters2021" disabled="">
+                            Masters 2021 (archief)
+                        </a>
+                    </div>
+                </div>
+                {% if user.is_staff %}
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">
+                            Admin functions
+                        </a>
+                        <div class="navbar-dropdown">
+                            <a class="navbar-item" href="/admin/">
+                                Django Admin
+                            </a>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a class="button is-primary" href="/accounts/logout">
+                            Log out
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+{% endif %}
 <div class="table">
     <tr>
         <th>
