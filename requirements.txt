@@ -2,5 +2,4 @@ django
 dj-database-url
 psycopg2
 gunicorn
-black
-django-debug-toolbar
+whitenoise
