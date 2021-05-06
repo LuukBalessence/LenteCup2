@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
 from django.utils.translation import ugettext_lazy as _
+from common import models
 from .models import User
 
 
@@ -33,4 +34,11 @@ class UserAdmin(DjangoUserAdmin):
     ordering = ("email",)
 
 
+@admin.register(models.Apps)
+class AppsAdmin(admin.ModelAdmin):
+    list_display = ['appname', 'active', 'openforsubscribing', 'apparea', 'directory']
 
+
+@admin.register(models.AppAuthorisation)
+class AppAuthorisationAdmin(admin.ModelAdmin):
+    list_display = ['app', 'user', 'isauthorised', 'readonly']

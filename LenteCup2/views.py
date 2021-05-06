@@ -3,12 +3,25 @@ from django.shortcuts import render, redirect
 
 from LenteCup2.forms import ChangeFirstNameForm, ScoresForm, GekozenSpelersForm
 from LenteCup2.models import Week, Scores, Speler, GekozenSpelers, GameSettings
-from common.models import User
+from common.models import User, AppAuthorisation, Apps
 from collections import OrderedDict
 import pytz
 
 def home(request):
-    return render(request, "LenteCup/home.html", )
+    userlentecup = False
+    usereuro2020 = False
+    euro2020 = Apps.objects.get(appname="EURO 2020")
+    currentuser = request.user
+    if currentuser.is_authenticated:
+        if AppAuthorisation.objects.filter(user=currentuser, app__appname="LenteCup 2021").exists():
+            userlentecup = True
+        if AppAuthorisation.objects.filter(user=currentuser, app__appname="EURO 2020").exists():
+            usereuro2020 = True
+
+    return render(request=request, template_name="LenteCup/home.html",
+                  context={"userlentecup": userlentecup, "usereuro2020": usereuro2020,
+                           "euro2020active": euro2020.active,
+                           "euro2020openforsubscribing": euro2020.openforsubscribing})
 
 
 def explain(request):

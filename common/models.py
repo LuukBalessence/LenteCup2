@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.contrib.postgres.fields import CIEmailField
+from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
 class UserManager(BaseUserManager):
@@ -47,4 +48,24 @@ class User(AbstractUser):
 
     objects = UserManager()
 
+
+class Apps(models.Model):
+    appname = models.CharField(max_length=30)
+    directory = models.CharField(max_length=30)
+    openforsubscribing = models.BooleanField(default=False)
+    active = models.BooleanField(default=False)
+    apparea = models.CharField(max_length=30, default=None)
+
+    def __str__(self):
+        return f"{self.appname}"
+
+
+class AppAuthorisation(models.Model):
+    app = models.ForeignKey(Apps, on_delete=models.CASCADE, related_name="appauthorisation")
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="appauthorisation")
+    isauthorised = models.BooleanField(default=False)
+    readonly = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"{self.app} {self.user} {self.isauthorised}"
 
