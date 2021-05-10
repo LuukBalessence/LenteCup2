@@ -1,0 +1,343 @@
+[
+{
+    "model": "euro2020.gamephase",
+    "pk": 1,
+    "fields": {
+        "gamephase": "10 Registration and Preparation",
+        "allowbidding": false,
+        "allowauction": false,
+        "allowlineup": false,
+        "allowfiring": false
+    }
+},
+{
+    "model": "euro2020.gamephase",
+    "pk": 2,
+    "fields": {
+        "gamephase": "20 GroupPhaseBidding 1st Round",
+        "allowbidding": true,
+        "allowauction": false,
+        "allowlineup": false,
+        "allowfiring": false
+    }
+},
+{
+    "model": "euro2020.gamephase",
+    "pk": 4,
+    "fields": {
+        "gamephase": "30 Groupphase M1 Lineup",
+        "allowbidding": false,
+        "allowauction": false,
+        "allowlineup": true,
+        "allowfiring": true
+    }
+},
+{
+    "model": "euro2020.gamephase",
+    "pk": 5,
+    "fields": {
+        "gamephase": "31 Groupphase M1 Live",
+        "allowbidding": false,
+        "allowauction": false,
+        "allowlineup": false,
+        "allowfiring": true
+    }
+},
+{
+    "model": "euro2020.gamephase",
+    "pk": 6,
+    "fields": {
+        "gamephase": "32 Groupphase M2 Lineup",
+        "allowbidding": false,
+        "allowauction": false,
+        "allowlineup": true,
+        "allowfiring": true
+    }
+},
+{
+    "model": "euro2020.gamephase",
+    "pk": 7,
+    "fields": {
+        "gamephase": "33 Groupphase M2 Live",
+        "allowbidding": false,
+        "allowauction": false,
+        "allowlineup": false,
+        "allowfiring": true
+    }
+},
+{
+    "model": "euro2020.gamephase",
+    "pk": 8,
+    "fields": {
+        "gamephase": "34 Groupphase M3 Lineup",
+        "allowbidding": false,
+        "allowauction": false,
+        "allowlineup": true,
+        "allowfiring": true
+    }
+},
+{
+    "model": "euro2020.gamephase",
+    "pk": 9,
+    "fields": {
+        "gamephase": "35 Groupphase M3 Live",
+        "allowbidding": false,
+        "allowauction": false,
+        "allowlineup": false,
+        "allowfiring": true
+    }
+},
+{
+    "model": "euro2020.gamephase",
+    "pk": 10,
+    "fields": {
+        "gamephase": "40 Last 16 Bid",
+        "allowbidding": true,
+        "allowauction": false,
+        "allowlineup": true,
+        "allowfiring": false
+    }
+},
+{
+    "model": "euro2020.gamephase",
+    "pk": 11,
+    "fields": {
+        "gamephase": "41 Last 16 Auction",
+        "allowbidding": false,
+        "allowauction": true,
+        "allowlineup": true,
+        "allowfiring": false
+    }
+},
+{
+    "model": "euro2020.gamephase",
+    "pk": 12,
+    "fields": {
+        "gamephase": "43 Last 16 Live",
+        "allowbidding": false,
+        "allowauction": false,
+        "allowlineup": false,
+        "allowfiring": true
+    }
+},
+{
+    "model": "euro2020.gamephase",
+    "pk": 13,
+    "fields": {
+        "gamephase": "50 Last 8 Bid",
+        "allowbidding": true,
+        "allowauction": false,
+        "allowlineup": true,
+        "allowfiring": false
+    }
+},
+{
+    "model": "euro2020.gamephase",
+    "pk": 14,
+    "fields": {
+        "gamephase": "51 Last 8 Auction",
+        "allowbidding": false,
+        "allowauction": true,
+        "allowlineup": true,
+        "allowfiring": false
+    }
+},
+{
+    "model": "euro2020.gamephase",
+    "pk": 15,
+    "fields": {
+        "gamephase": "53 Last 8 Live",
+        "allowbidding": false,
+        "allowauction": false,
+        "allowlineup": false,
+        "allowfiring": true
+    }
+},
+{
+    "model": "euro2020.gamephase",
+    "pk": 16,
+    "fields": {
+        "gamephase": "60 Semi-final Bid",
+        "allowbidding": true,
+        "allowauction": false,
+        "allowlineup": true,
+        "allowfiring": false
+    }
+},
+{
+    "model": "euro2020.gamephase",
+    "pk": 17,
+    "fields": {
+        "gamephase": "61 Semi-final Auction",
+        "allowbidding": false,
+        "allowauction": true,
+        "allowlineup": true,
+        "allowfiring": false
+    }
+},
+{
+    "model": "euro2020.gamephase",
+    "pk": 18,
+    "fields": {
+        "gamephase": "63 Semi-final Live",
+        "allowbidding": false,
+        "allowauction": false,
+        "allowlineup": false,
+        "allowfiring": true
+    }
+},
+{
+    "model": "euro2020.gamephase",
+    "pk": 19,
+    "fields": {
+        "gamephase": "70 FInal Bid",
+        "allowbidding": true,
+        "allowauction": false,
+        "allowlineup": true,
+        "allowfiring": false
+    }
+},
+{
+    "model": "euro2020.gamephase",
+    "pk": 20,
+    "fields": {
+        "gamephase": "71 Final Auction",
+        "allowbidding": false,
+        "allowauction": true,
+        "allowlineup": true,
+        "allowfiring": false
+    }
+},
+{
+    "model": "euro2020.gamephase",
+    "pk": 21,
+    "fields": {
+        "gamephase": "73 Final Live",
+        "allowbidding": false,
+        "allowauction": false,
+        "allowlineup": false,
+        "allowfiring": false
+    }
+},
+{
+    "model": "euro2020.gamephase",
+    "pk": 22,
+    "fields": {
+        "gamephase": "80 Euro2020 Ceremony",
+        "allowbidding": false,
+        "allowauction": false,
+        "allowlineup": false,
+        "allowfiring": false
+    }
+},
+{
+    "model": "euro2020.gamephase",
+    "pk": 23,
+    "fields": {
+        "gamephase": "21 GrouphaseAuction 1st Round",
+        "allowbidding": false,
+        "allowauction": true,
+        "allowlineup": false,
+        "allowfiring": false
+    }
+},
+{
+    "model": "euro2020.gamephase",
+    "pk": 24,
+    "fields": {
+        "gamephase": "23 GrouphaseAuction 2nd Round",
+        "allowbidding": false,
+        "allowauction": true,
+        "allowlineup": true,
+        "allowfiring": false
+    }
+},
+{
+    "model": "euro2020.gamephase",
+    "pk": 25,
+    "fields": {
+        "gamephase": "25 GrouphaseAuction 3rd Round",
+        "allowbidding": false,
+        "allowauction": true,
+        "allowlineup": true,
+        "allowfiring": false
+    }
+},
+{
+    "model": "euro2020.gamephase",
+    "pk": 26,
+    "fields": {
+        "gamephase": "22 GroupPhaseBidding 2nd Round",
+        "allowbidding": true,
+        "allowauction": false,
+        "allowlineup": true,
+        "allowfiring": false
+    }
+},
+{
+    "model": "euro2020.gamephase",
+    "pk": 27,
+    "fields": {
+        "gamephase": "24 GroupPhaseBidding 3rd Round",
+        "allowbidding": true,
+        "allowauction": false,
+        "allowlineup": true,
+        "allowfiring": false
+    }
+},
+{
+    "model": "euro2020.gamephase",
+    "pk": 28,
+    "fields": {
+        "gamephase": "42 Last 16 Lineup",
+        "allowbidding": false,
+        "allowauction": false,
+        "allowlineup": false,
+        "allowfiring": true
+    }
+},
+{
+    "model": "euro2020.gamephase",
+    "pk": 29,
+    "fields": {
+        "gamephase": "52 Last 8 Lineup",
+        "allowbidding": false,
+        "allowauction": false,
+        "allowlineup": false,
+        "allowfiring": true
+    }
+},
+{
+    "model": "euro2020.gamephase",
+    "pk": 30,
+    "fields": {
+        "gamephase": "62 Semi-final Lineup",
+        "allowbidding": false,
+        "allowauction": false,
+        "allowlineup": false,
+        "allowfiring": true
+    }
+},
+{
+    "model": "euro2020.gamephase",
+    "pk": 31,
+    "fields": {
+        "gamephase": "72 Final Lineup",
+        "allowbidding": false,
+        "allowauction": false,
+        "allowlineup": false,
+        "allowfiring": true
+    }
+},
+{
+    "model": "euro2020.gamephase",
+    "pk": 32,
+    "fields": {
+        "gamephase": "11 EURO 2020 Draw",
+        "allowbidding": false,
+        "allowauction": false,
+        "allowlineup": false,
+        "allowfiring": false
+    }
+}
+]
