@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+{% block title %}EURO 2020{% endblock %}
+{% block content %}
+    <table class="table" ALIGN="center">
+        <tr>
+            <th style="text-align:center">
+                    <a href=../accounts/login/><input style="width:250px" type="submit" class="button is-primary"
+                                                      value="Log in"/></a>
+            </th>
+        </tr>
+        <tr>
+            <th style="text-align:center">
+                <a href={% url 'signup' %}><input style="width:250px" type="submit" class="button is-primary"
+                                                  value="Sign up"/></a>
+            </th>
+        </tr>
+        <tr>
+            <th style="text-align:center">
+                <a href="/explain"><input style="width:250px" type="submit" class="button is-primary" value="Explain"/></a>
+            </th>
+        </tr>
+    </table>
+    <p>In deze app moeten de volgende modellen worden aangemaakt:
+    <ul>
+        <li>Country (Name, Group, Order, Coach, Flag)</li>
+        <li>Player (FK naar Country)</li>
+        <li>Match (Country1, Country2, Location, DateTime, Stage?)</li>
+        <li>Goals (Match, Player, Type [Field, Penalty])</li>
+    </ul>
+    </p>
+    {# voorbeeld van de groepswedstrijden #}
+    {% if matchinfo %}
+        <hr>
+        <h3 class="title is-3">Het EK 2020 schema</h3>
+        <table class="table">
+            <tbody>
+            <tr>
+                <th>Stage</th>
+                <th>Group</th>
+                <th>Date & Time</th>
+                <th>Team 1</th>
+                <th>Team 2</th>
+                <th>Started</th>
+                <th>Finished</th>
+            </tr>
+            {% for event in matchinfo %}
+                <tr>
+                    <td>{{ event.get_stage_display }}</td>
+                    <td>{{ event.group }}</td>
+                    <td>{{ event.eventtime }}</td>
+                    <td>{{ event.countryhome }}</td>
+                    <td>{{ event.countryaway }}</td>
+                    <td class="has-text-centered">{% if event.is_started %}<i class="fas fa-check-circle"></i>{% else %}
+                        <i class="fas fa-times-circle has-text-danger"></i>{% endif %}</td>
+                    <td class="has-text-centered">{% if event.is_finished %}
+                        <i class="fas fa-check-circle"></i>{% else %}
+                        <i class="fas fa-times-circle has-text-danger"></i>{% endif %}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+    {# voorbeeld van lijstje met countries #}
+    {% if countries %}
+        <hr>
+        <h3 class="title is-3">Countries</h3>
+        <table class="table">
+            <tbody>
+            <tr>
+                <th>Name</th>
+                <th>Group</th>
+            </tr>
+            {% for country in countries %}
+                <tr>
+                    <td>{{ country.name }}</td>
+                    <td>{{ country.group }}</td>
+                </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+    {% endif %}
+
+    {# voorbeeld met lijstje van countries per group #}
+    {% if countries %}
+        <hr>
+        <h3 class="title is-3">Countries per Group</h3>
+        {% for group in groups %}
+            <h4 class="title is-4">Group: {{ group }}</h4>
+            <table class="table">
+                <tbody>
+                <tr>
+                    <th>Name</th>
+                </tr>
+                {% for country in countries %}
+                    {% if country.group == group %}
+                        <tr>
+                            <td>{{ country.name }}</td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+                </tbody>
+            </table>
+        {% endfor %}
+    {% endif %}
+
+    {# voorbeeld met lijstje van players met country. #}
+    {% if players %}
+        <hr>
+        <h3 class="title is-3">Players</h3>
+        {% for country in countries %}
+            <h4 class="title is-4">{{ country }}</h4>
+            <table class="table">
+                <tbody>
+                <th>Name</th>
+                <th>Role</th>
+                {% for player in players %}
+                    {% if player.country == country %}
+                        <tr>
+                            <td>{{ player }}</td>
+                            <td>{{ player.get_position_display }}</td>
+                        </tr>
+                    {% endif %}
+                    </tbody>
+                {% endfor %}
+            </table>
+        {% endfor %}
+    {% endif %}
+
+    {% if eventlocations %}
+        <hr>
+        <h3 class="title is-3">Event Locations</h3>
+        <table class="table">
+            <tbody>
+            {% for eventlocation in eventlocations %}
+                <tr>
+                    <td>{{ eventlocation }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+{% endblock %}

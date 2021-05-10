@@ -1,0 +1,233 @@
+[
+{
+    "model": "euro2020.goal",
+    "pk": 1,
+    "fields": {
+        "match": 7,
+        "player": 759,
+        "type": "GO",
+        "minute": 23,
+        "phase": "1R"
+    }
+},
+{
+    "model": "euro2020.goal",
+    "pk": 2,
+    "fields": {
+        "match": 7,
+        "player": 690,
+        "type": "GO",
+        "minute": 28,
+        "phase": "1R"
+    }
+},
+{
+    "model": "euro2020.goal",
+    "pk": 3,
+    "fields": {
+        "match": 14,
+        "player": 165,
+        "type": "OG",
+        "minute": 60,
+        "phase": "1R"
+    }
+},
+{
+    "model": "euro2020.goal",
+    "pk": 4,
+    "fields": {
+        "match": 15,
+        "player": 674,
+        "type": "OG",
+        "minute": 80,
+        "phase": "1R"
+    }
+},
+{
+    "model": "euro2020.goal",
+    "pk": 5,
+    "fields": {
+        "match": 59,
+        "player": 42,
+        "type": "PE",
+        "minute": 28,
+        "phase": "1R"
+    }
+},
+{
+    "model": "euro2020.goal",
+    "pk": 6,
+    "fields": {
+        "match": 69,
+        "player": 143,
+        "type": "GO",
+        "minute": 34,
+        "phase": "1R"
+    }
+},
+{
+    "model": "euro2020.goal",
+    "pk": 8,
+    "fields": {
+        "match": 10,
+        "player": 559,
+        "type": "PE",
+        "minute": 120,
+        "phase": "3P"
+    }
+},
+{
+    "model": "euro2020.goal",
+    "pk": 9,
+    "fields": {
+        "match": 10,
+        "player": 42,
+        "type": "PE",
+        "minute": 120,
+        "phase": "3P"
+    }
+},
+{
+    "model": "euro2020.goal",
+    "pk": 10,
+    "fields": {
+        "match": 10,
+        "player": 46,
+        "type": "PE",
+        "minute": 120,
+        "phase": "3P"
+    }
+},
+{
+    "model": "euro2020.goal",
+    "pk": 11,
+    "fields": {
+        "match": 10,
+        "player": 44,
+        "type": "PE",
+        "minute": 22,
+        "phase": "1R"
+    }
+},
+{
+    "model": "euro2020.goal",
+    "pk": 12,
+    "fields": {
+        "match": 11,
+        "player": 226,
+        "type": "GO",
+        "minute": 22,
+        "phase": "1R"
+    }
+},
+{
+    "model": "euro2020.goal",
+    "pk": 13,
+    "fields": {
+        "match": 11,
+        "player": 211,
+        "type": "GO",
+        "minute": 40,
+        "phase": "1R"
+    }
+},
+{
+    "model": "euro2020.goal",
+    "pk": 15,
+    "fields": {
+        "match": 55,
+        "player": 466,
+        "type": "PE",
+        "minute": 29,
+        "phase": "1R"
+    }
+},
+{
+    "model": "euro2020.goal",
+    "pk": 16,
+    "fields": {
+        "match": 55,
+        "player": 467,
+        "type": "GO",
+        "minute": 50,
+        "phase": "1R"
+    }
+},
+{
+    "model": "euro2020.goal",
+    "pk": 17,
+    "fields": {
+        "match": 62,
+        "player": 164,
+        "type": "GO",
+        "minute": 23,
+        "phase": "1R"
+    }
+},
+{
+    "model": "euro2020.goal",
+    "pk": 18,
+    "fields": {
+        "match": 12,
+        "player": 311,
+        "type": "PE",
+        "minute": 77,
+        "phase": "1R"
+    }
+},
+{
+    "model": "euro2020.goal",
+    "pk": 19,
+    "fields": {
+        "match": 13,
+        "player": 180,
+        "type": "GO",
+        "minute": 44,
+        "phase": "1R"
+    }
+},
+{
+    "model": "euro2020.goal",
+    "pk": 20,
+    "fields": {
+        "match": 14,
+        "player": 184,
+        "type": "OG",
+        "minute": 44,
+        "phase": "1R"
+    }
+},
+{
+    "model": "euro2020.goal",
+    "pk": 21,
+    "fields": {
+        "match": 14,
+        "player": 183,
+        "type": "GO",
+        "minute": 33,
+        "phase": "1R"
+    }
+},
+{
+    "model": "euro2020.goal",
+    "pk": 22,
+    "fields": {
+        "match": 14,
+        "player": 221,
+        "type": "OG",
+        "minute": 77,
+        "phase": "1R"
+    }
+},
+{
+    "model": "euro2020.goal",
+    "pk": 23,
+    "fields": {
+        "match": 63,
+        "player": 1051,
+        "type": "GO",
+        "minute": 33,
+        "phase": "1R"
+    }
+}
+]

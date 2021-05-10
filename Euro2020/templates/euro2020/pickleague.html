@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}Choose your LEAGUE{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        <table class="table" ALIGN="center">
+            {% if error %}
+                <tr>
+                    <th>
+                        <div class="notification is-danger" ALIGN="center">
+                            <button class="delete"></button>
+                            {{ error }}
+                        </div>
+                    </th>
+                </tr>
+            {% endif %}
+            <form action="" method="post">{% csrf_token %}
+
+                <tr>
+                    <th>
+                        <div class="control has-icons-left">
+                            <div class="select is-primary">
+                                <select name="leaguename" class="input is-primary" style="width: 300px; text-align:right"
+                                        id="id_leaguename">
+                                    <option selected>Pick a league</option>
+                                    {% for eachleague in availableleagues %}
+                                        {% for league in leagues %}
+                                            {% if eachleague == league %}
+                                                <option>{{ league.leaguename }}</option>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endfor %}
+                                </select>
+                                <span class="icon is-left is-small">
+                                    <i class="far fa-lightbulb" style="font-size:20px;color:black"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <input type="number" name="secretnumber" class="input is-primary"
+                               style="width: 300px; text-align:right" placeholder="0" min="10000" max="99999"
+                               id="id_secretnumber">
+                    </th>
+                </tr>
+                <tr>
+                    <th style="text-align:center">
+                        <input style="width:250px" type="submit" class="button is-primary" value="Pick League"/>
+                    </th>
+                </tr>
+            </form>
+        </table>
+
+    {% endif %}
+{% endblock %}

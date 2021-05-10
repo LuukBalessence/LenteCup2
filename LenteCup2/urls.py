@@ -24,6 +24,7 @@ urlpatterns = [
     path("", home, name="home"),
     path("admin/", admin.site.urls),
     path("common/", include("common.urls")),
+    path("euro2020/", include("euro2020.urls")),
     path('accounts/', include('django.contrib.auth.urls')),
     path("explain", explain, name="explain"),
     path("about", about, name="about"),

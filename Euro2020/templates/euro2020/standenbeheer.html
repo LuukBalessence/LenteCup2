@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h3 class="title is-h3">Matches</h3>
+    {% if matches %}
+        <hr>
+        <table class="table">
+            <tbody>
+            <tr>
+                <th>Matches</th>
+            </tr>
+            <tr>
+                <th>ID</th>
+                <th>Stage</th>
+                <th>Home</th>
+                <th>Away</th>
+                <th>Add Goal</th>
+            </tr>
+            <form action="" method="post">{% csrf_token %}
+                {% for match in matches %}
+                    <tr>
+                        <td>{{ match.id }}</td>
+                        <td><label for="stage">{{ match.stage }}</label></td>
+                        <td><label for="home">{{ match.home }}</label></td>
+                        <td><label for="away">{{ match.away }}</label></td>
+                        <td><a href="{% url "add-goal" match.pk %}" class="button is-primary">GOAL!</a></td>
+                    </tr>
+                    <p></p>
+                {% endfor %}
+                <p></p>
+            </form>
+            </tbody>
+        </table>
+    {% endif %}
+{% endblock %}

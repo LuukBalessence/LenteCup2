@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}BIDDING{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        <table class="table" ALIGN="center">
+            {% if error %}
+                <tr>
+                    <th>
+                        <div class="notification is-danger" ALIGN="center">
+                            <button class="delete"></button>
+                            {{ error }}
+                        </div>
+                    </th>
+                </tr>
+            {% endif %}
+        {% if formset %}
+            <form method="post">
+                {% csrf_token %}
+                {{ formset.management_form }}
+                    <tr>
+                        <th align="center" style="font-size: xx-large">
+                            {% with 'images/'|add:countryname|add:'.jpg' as image_static %}
+                                  <img src="{% static image_static %}" width="60" height="40">
+                            {% endwith %}
+                            {{ countryname }}
+                        </th>
+                    </tr>
+                    <tr>
+                        <th style="vertical-align:middle;text-align:center;width: 300px;">
+                                <div class="control has-icons-left" style="width:300px">
+                                    <input style="width:300px;font-weight: bold" type="submit"
+                                           class="button is-primary"
+                                           name="save_bids" value="Save bids"/>
+                                    <span class="icon is-left">
+                                        <i class="far fa-save" style="font-size:20px;color:white"></i>
+                                    </span>
+                                </div>
+                        </th>
+                    </tr>
+                </table>
+                <table class="table" ALIGN="center" style="padding:0px">
+                    <tr>
+                        <th>Player</th>
+                        <th>Pos.</th>
+                        <th>Bid</th>
+                    </tr>
+                    {% for form in formset %}
+                        {% if form.initial %}
+                            <tr>
+                                <th>
+                                    {{ form.id }}
+                                    {{ form.playerpk }}
+                                    {{ form.player }} <label style="font-weight: normal"
+                                                             for="Male">{{ form.initial.player }}</label>
+                                </th>
+                                <th>
+                                    {{ form.position }}
+                                    <label style="font-weight: normal" for="Male">{{ form.initial.position }}</label>
+                                </th>
+                                <th>{{ form.bid }}</th>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                </table>
+                <table class="table" align="center" style="padding:0">
+                    <tr>
+                        <th style="vertical-align:middle;text-align:center;width: 300px;">
+                            <div class="control has-icons-left" style="width:300px">
+                                <input style="width:300px;font-weight: bold" type="submit"
+                                       class="button is-primary"
+                                       name="save_bids" value="Save bids"/>
+                                <span class="icon is-left">
+                                    <i class="far fa-save" style="font-size:20px;color:white"></i>
+                                </span>
+                            </div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th style="text-align:center" style="width:300px">
+                        <div class="field has-addons">
+                            <div>
+                                 <div class="control" style="width:120px">
+                                <input style="width:120px;font-weight: bold" type="submit"
+                                       class="button is-info"
+                                       name="save_and_go" value="Save & Go to"/>
+                            </div>
+                            </div>
+                            <div class="control">
+                                <div class="select" style="width: 180px">
+                                    <select name="selectcountry">
+                                        {% for country in countries %}
+                                            {% if country.name == countryname %}
+                                                <option value={{ country.name }} selected>{{ country.name }}</option>
+                                            {% else %}
+                                                <option value={{ country.name }}>{{ country.name }}</option>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        </th>
+                    </tr>
+                <tr>
+                        <th style="vertical-align:middle;text-align:center;width: 300px;">
+                            <div class="control has-icons-left" style="width:300px">
+                                <a href="{% url 'bidoverview' %}" style="width: 300px" class="button is-info is-hovered">No Save & back to Bidoverview</a>
+                                <span class="icon is-left">
+                                    <i class="fas fa-arrow-left" style="font-size:20px;color:white"></i>
+                                </span>
+                            </div>
+                        </th>
+                    </tr>
+                </table>
+            </form>
+        {% endif %}
+    {% endif %}
+{% endblock %}
+{% block helptext %}
+{% endblock helptext %}

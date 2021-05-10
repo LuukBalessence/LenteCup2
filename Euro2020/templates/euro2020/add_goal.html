@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <section class="section">
+        <div class="container">
+            <h2 class="title">Goal management</h2>
+            <h3 class="subtitle">Please fill in the necessary information</h3>
+        </div>
+    </section>
+    <form action="" method="post" novalidate>{% csrf_token %}
+        {% if form.errors %}
+            {% for field in form %}
+                {% for error in field.errors %}
+                    <div class="notification is-danger">
+                        <strong>{{ field.name }}: {{ error|escape }}</strong>
+                    </div>
+                {% endfor %}
+            {% endfor %}
+            {% for error in form.non_field_errors %}
+                <div class="alert alert-danger">
+                    <strong>{{ error|escape }}</strong>
+                </div>
+            {% endfor %}
+        {% endif %}
+        <div class="field is-grouped">
+            <div class="field">
+                <label class="label">Player</label>
+                <div class="control has-icons-left">
+                    <div class="select is-medium is-primary">
+                        {{ form.player }}
+                    </div>
+                    <div class="icon is-small is-left">
+                        <i class="fas fa-user-clock"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Game Phase</label>
+                <div class="control has-icons-left">
+                    <div class="select is-medium is-primary">
+                        {{ form.phase }}
+                    </div>
+                    <div class="icon is-small is-left">
+                        <i class="fas fa-futbol"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Scoring time</label>
+                <div class="control has-icons-left">
+                    <input class="input is-medium is-primary" type="number" placeholder="Minuut" name="minute">
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-history " data-fa-transform="flip-h"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Type of Goal</label>
+                <div class="control has-icons-left">
+                    <div class="select is-medium is-primary">
+                        {{ form.type }}
+                    </div>
+                    <div class="icon is-small is-left">
+                        <i class="fas fa-futbol"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="field is-grouped">
+            <div class="control">
+                <button type="submit" class="button is-medium is-primary">Submit</button>
+            </div>
+            <div class="control">
+                <a href="{% url "standenbeheer" %}" class="button is-medium is-link is-light">Cancel</a>
+            </div>
+        </div>
+    </form>
+{% endblock %}

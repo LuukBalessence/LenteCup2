@@ -1,0 +1,6514 @@
+[
+{
+    "model": "euro2020.player",
+    "pk": 1,
+    "fields": {
+        "first_name": "Luuk",
+        "last_name": "Smeets",
+        "position": "A",
+        "number": 2,
+        "country": "Netherlands"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 37,
+    "fields": {
+        "first_name": "Thibaut",
+        "last_name": "Courtois",
+        "position": "G",
+        "number": 1,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 38,
+    "fields": {
+        "first_name": "Simon",
+        "last_name": "Mignolet",
+        "position": "G",
+        "number": 12,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 39,
+    "fields": {
+        "first_name": "Jens",
+        "last_name": "Teunckens",
+        "position": "G",
+        "number": 12,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 40,
+    "fields": {
+        "first_name": "Matz",
+        "last_name": "Sels",
+        "position": "G",
+        "number": 13,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 41,
+    "fields": {
+        "first_name": "Koen",
+        "last_name": "Casteels",
+        "position": "G",
+        "number": 13,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 42,
+    "fields": {
+        "first_name": "Toby",
+        "last_name": "Alderweireld",
+        "position": "D",
+        "number": 2,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 43,
+    "fields": {
+        "first_name": "Brandon",
+        "last_name": "Mechele",
+        "position": "D",
+        "number": 3,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 44,
+    "fields": {
+        "first_name": "Thomas",
+        "last_name": "Vermaelen",
+        "position": "D",
+        "number": 3,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 45,
+    "fields": {
+        "first_name": "Dedryck",
+        "last_name": "Boyata",
+        "position": "D",
+        "number": 4,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 46,
+    "fields": {
+        "first_name": "Vincent",
+        "last_name": "Kompany",
+        "position": "D",
+        "number": 4,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 47,
+    "fields": {
+        "first_name": "Jason",
+        "last_name": "Denayer",
+        "position": "D",
+        "number": 5,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 48,
+    "fields": {
+        "first_name": "Jan",
+        "last_name": "Vertonghen",
+        "position": "D",
+        "number": 5,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 49,
+    "fields": {
+        "first_name": "Thomas",
+        "last_name": "Meunier",
+        "position": "D",
+        "number": 15,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 50,
+    "fields": {
+        "first_name": "Elias",
+        "last_name": "Cobbaut",
+        "position": "D",
+        "number": 15,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 51,
+    "fields": {
+        "first_name": "Timothy",
+        "last_name": "Castagne",
+        "position": "D",
+        "number": 21,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 52,
+    "fields": {
+        "first_name": "Leander",
+        "last_name": "Dendoncker",
+        "position": "M",
+        "number": 4,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 53,
+    "fields": {
+        "first_name": "Axel",
+        "last_name": "Witsel",
+        "position": "M",
+        "number": 6,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 54,
+    "fields": {
+        "first_name": "Kevin",
+        "last_name": "De Bruyne",
+        "position": "M",
+        "number": 7,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 55,
+    "fields": {
+        "first_name": "Youri",
+        "last_name": "Tielemans",
+        "position": "M",
+        "number": 8,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 56,
+    "fields": {
+        "first_name": "Yannick",
+        "last_name": "Carrasco",
+        "position": "M",
+        "number": 11,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 57,
+    "fields": {
+        "first_name": "Thorgan",
+        "last_name": "Hazard",
+        "position": "M",
+        "number": 16,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 58,
+    "fields": {
+        "first_name": "Adnan",
+        "last_name": "Januzaj",
+        "position": "M",
+        "number": 18,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 59,
+    "fields": {
+        "first_name": "Hans",
+        "last_name": "Vanaken",
+        "position": "M",
+        "number": 18,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 60,
+    "fields": {
+        "first_name": "Dennis",
+        "last_name": "Praet",
+        "position": "M",
+        "number": 19,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 61,
+    "fields": {
+        "first_name": "Yari",
+        "last_name": "Verschaeren",
+        "position": "M",
+        "number": 22,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 62,
+    "fields": {
+        "first_name": "Nacer",
+        "last_name": "Chadli",
+        "position": "M",
+        "number": 22,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 63,
+    "fields": {
+        "first_name": "Romelu",
+        "last_name": "Lukaku",
+        "position": "A",
+        "number": 9,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 64,
+    "fields": {
+        "first_name": "Leandro",
+        "last_name": "Trossard",
+        "position": "A",
+        "number": 9,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 65,
+    "fields": {
+        "first_name": "Eden",
+        "last_name": "Hazard",
+        "position": "A",
+        "number": 10,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 66,
+    "fields": {
+        "first_name": "Dries",
+        "last_name": "Mertens",
+        "position": "A",
+        "number": 14,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 67,
+    "fields": {
+        "first_name": "Divock",
+        "last_name": "Origi",
+        "position": "A",
+        "number": 17,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 68,
+    "fields": {
+        "first_name": "Christian",
+        "last_name": "Benteke",
+        "position": "A",
+        "number": 20,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 69,
+    "fields": {
+        "first_name": "Benito",
+        "last_name": "Raman",
+        "position": "A",
+        "number": 21,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 70,
+    "fields": {
+        "first_name": "Michy",
+        "last_name": "Batshuayi",
+        "position": "A",
+        "number": 23,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 139,
+    "fields": {
+        "first_name": "Jasper",
+        "last_name": "Cillessen",
+        "position": "G",
+        "number": 1,
+        "country": "Netherlands"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 140,
+    "fields": {
+        "first_name": "Kenneth",
+        "last_name": "Vermeer",
+        "position": "G",
+        "number": 13,
+        "country": "Netherlands"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 141,
+    "fields": {
+        "first_name": "Jeroen",
+        "last_name": "Zoet",
+        "position": "G",
+        "number": 13,
+        "country": "Netherlands"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 142,
+    "fields": {
+        "first_name": "Marco",
+        "last_name": "Bizot",
+        "position": "G",
+        "number": 23,
+        "country": "Netherlands"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 143,
+    "fields": {
+        "first_name": "Hans",
+        "last_name": "Hateboer",
+        "position": "D",
+        "number": 2,
+        "country": "Netherlands"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 144,
+    "fields": {
+        "first_name": "Kenny",
+        "last_name": "Tete",
+        "position": "D",
+        "number": 2,
+        "country": "Netherlands"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 145,
+    "fields": {
+        "first_name": "Jo\u00ebl",
+        "last_name": "Veltman",
+        "position": "D",
+        "number": 2,
+        "country": "Netherlands"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 146,
+    "fields": {
+        "first_name": "Matthijs",
+        "last_name": "de Ligt",
+        "position": "D",
+        "number": 3,
+        "country": "Netherlands"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 147,
+    "fields": {
+        "first_name": "Virgil",
+        "last_name": "van Dijk",
+        "position": "D",
+        "number": 4,
+        "country": "Netherlands"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 148,
+    "fields": {
+        "first_name": "Nathan",
+        "last_name": "Ak\u00e9",
+        "position": "D",
+        "number": 5,
+        "country": "Netherlands"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 149,
+    "fields": {
+        "first_name": "Patrick",
+        "last_name": "van Aanholt",
+        "position": "D",
+        "number": 12,
+        "country": "Netherlands"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 150,
+    "fields": {
+        "first_name": "Stefan",
+        "last_name": "de Vrij",
+        "position": "D",
+        "number": 14,
+        "country": "Netherlands"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 151,
+    "fields": {
+        "first_name": "Daley",
+        "last_name": "Blind",
+        "position": "D",
+        "number": 17,
+        "country": "Netherlands"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 152,
+    "fields": {
+        "first_name": "Denzel",
+        "last_name": "Dumfries",
+        "position": "D",
+        "number": 22,
+        "country": "Netherlands"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 153,
+    "fields": {
+        "first_name": "Pablo",
+        "last_name": "Rosario",
+        "position": "M",
+        "number": 6,
+        "country": "Netherlands"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 154,
+    "fields": {
+        "first_name": "Tom\u00e1\u0161",
+        "last_name": "Vacl\u00edk",
+        "position": "G",
+        "number": 1,
+        "country": "Czech Republic"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 155,
+    "fields": {
+        "first_name": "Davy",
+        "last_name": "Pr\u00f6pper",
+        "position": "M",
+        "number": 6,
+        "country": "Netherlands"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 156,
+    "fields": {
+        "first_name": "Calvin",
+        "last_name": "Stengs",
+        "position": "M",
+        "number": 7,
+        "country": "Netherlands"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 157,
+    "fields": {
+        "first_name": "Steven",
+        "last_name": "Bergwijn",
+        "position": "M",
+        "number": 7,
+        "country": "Netherlands"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 158,
+    "fields": {
+        "first_name": "Georginio",
+        "last_name": "Wijnaldum",
+        "position": "M",
+        "number": 8,
+        "country": "Netherlands"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 159,
+    "fields": {
+        "first_name": "Quincy",
+        "last_name": "Promes",
+        "position": "M",
+        "number": 11,
+        "country": "Netherlands"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 160,
+    "fields": {
+        "first_name": "Marten",
+        "last_name": "de Roon",
+        "position": "M",
+        "number": 15,
+        "country": "Netherlands"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 161,
+    "fields": {
+        "first_name": "Kevin",
+        "last_name": "Strootman",
+        "position": "M",
+        "number": 16,
+        "country": "Netherlands"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 162,
+    "fields": {
+        "first_name": "Tonny",
+        "last_name": "Vilhena",
+        "position": "M",
+        "number": 18,
+        "country": "Netherlands"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 163,
+    "fields": {
+        "first_name": "Donny",
+        "last_name": "van de Beek",
+        "position": "M",
+        "number": 20,
+        "country": "Netherlands"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 164,
+    "fields": {
+        "first_name": "Ond\u0159ej",
+        "last_name": "Kol\u00e1\u0159",
+        "position": "G",
+        "number": 16,
+        "country": "Czech Republic"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 165,
+    "fields": {
+        "first_name": "Tom\u00e1\u0161",
+        "last_name": "Koubek",
+        "position": "G",
+        "number": 16,
+        "country": "Czech Republic"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 166,
+    "fields": {
+        "first_name": "Ji\u0159\u00ed",
+        "last_name": "Pavlenka",
+        "position": "G",
+        "number": 23,
+        "country": "Czech Republic"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 167,
+    "fields": {
+        "first_name": "Pavel",
+        "last_name": "Kade\u0159\u00e1bek",
+        "position": "D",
+        "number": 2,
+        "country": "Czech Republic"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 168,
+    "fields": {
+        "first_name": "Radim",
+        "last_name": "\u0158ezn\u00edk",
+        "position": "D",
+        "number": 2,
+        "country": "Czech Republic"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 169,
+    "fields": {
+        "first_name": "Ond\u0159ej",
+        "last_name": "\u010cel\u016fstka",
+        "position": "D",
+        "number": 3,
+        "country": "Czech Republic"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 170,
+    "fields": {
+        "first_name": "Jakub",
+        "last_name": "Brabec",
+        "position": "D",
+        "number": 4,
+        "country": "Czech Republic"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 171,
+    "fields": {
+        "first_name": "Theodor",
+        "last_name": "Gebre Selassie",
+        "position": "D",
+        "number": 4,
+        "country": "Czech Republic"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 172,
+    "fields": {
+        "first_name": "Vladim\u00edr",
+        "last_name": "Coufal",
+        "position": "D",
+        "number": 5,
+        "country": "Czech Republic"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 173,
+    "fields": {
+        "first_name": "Frenkie",
+        "last_name": "de Jong",
+        "position": "M",
+        "number": 21,
+        "country": "Netherlands"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 174,
+    "fields": {
+        "first_name": "Luuk",
+        "last_name": "de Jong",
+        "position": "A",
+        "number": 9,
+        "country": "Netherlands"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 175,
+    "fields": {
+        "first_name": "Ryan",
+        "last_name": "Babel",
+        "position": "A",
+        "number": 9,
+        "country": "Netherlands"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 176,
+    "fields": {
+        "first_name": "Memphis",
+        "last_name": "Depay",
+        "position": "A",
+        "number": 10,
+        "country": "Netherlands"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 177,
+    "fields": {
+        "first_name": "Steven",
+        "last_name": "Berghuis",
+        "position": "A",
+        "number": 15,
+        "country": "Netherlands"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 178,
+    "fields": {
+        "first_name": "Myron",
+        "last_name": "Boadu",
+        "position": "A",
+        "number": 18,
+        "country": "Netherlands"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 179,
+    "fields": {
+        "first_name": "Wout",
+        "last_name": "Weghorst",
+        "position": "A",
+        "number": 19,
+        "country": "Netherlands"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 180,
+    "fields": {
+        "first_name": "Justin",
+        "last_name": "Kluivert",
+        "position": "A",
+        "number": 20,
+        "country": "Netherlands"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 181,
+    "fields": {
+        "first_name": "Donyell",
+        "last_name": "Malen",
+        "position": "A",
+        "number": 20,
+        "country": "Netherlands"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 182,
+    "fields": {
+        "first_name": "Tom\u00e1\u0161",
+        "last_name": "Kalas",
+        "position": "D",
+        "number": 6,
+        "country": "Czech Republic"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 183,
+    "fields": {
+        "first_name": "Martin",
+        "last_name": "Fr\u00fddek",
+        "position": "D",
+        "number": 10,
+        "country": "Czech Republic"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 184,
+    "fields": {
+        "first_name": "Marek",
+        "last_name": "Such\u00fd",
+        "position": "D",
+        "number": 17,
+        "country": "Czech Republic"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 185,
+    "fields": {
+        "first_name": "Ond\u0159ej",
+        "last_name": "K\u00fadela",
+        "position": "D",
+        "number": 17,
+        "country": "Czech Republic"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 186,
+    "fields": {
+        "first_name": "Jan",
+        "last_name": "Bo\u0159il",
+        "position": "D",
+        "number": 18,
+        "country": "Czech Republic"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 187,
+    "fields": {
+        "first_name": "Stefan",
+        "last_name": "Simi\u010d",
+        "position": "D",
+        "number": 22,
+        "country": "Czech Republic"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 188,
+    "fields": {
+        "first_name": "Filip",
+        "last_name": "Nov\u00e1k",
+        "position": "D",
+        "number": 22,
+        "country": "Czech Republic"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 189,
+    "fields": {
+        "first_name": "Ladislav",
+        "last_name": "Krej\u010d\u00ed",
+        "position": "M",
+        "number": 7,
+        "country": "Czech Republic"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 190,
+    "fields": {
+        "first_name": "Vladim\u00edr",
+        "last_name": "Darida",
+        "position": "M",
+        "number": 8,
+        "country": "Czech Republic"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 191,
+    "fields": {
+        "first_name": "Michal",
+        "last_name": "Sad\u00edlek",
+        "position": "M",
+        "number": 8,
+        "country": "Czech Republic"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 192,
+    "fields": {
+        "first_name": "Bo\u0159ek",
+        "last_name": "Do\u010dkal",
+        "position": "M",
+        "number": 9,
+        "country": "Czech Republic"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 193,
+    "fields": {
+        "first_name": "Josef",
+        "last_name": "Hu\u0161bauer",
+        "position": "M",
+        "number": 10,
+        "country": "Czech Republic"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 194,
+    "fields": {
+        "first_name": "David",
+        "last_name": "Pavelka",
+        "position": "M",
+        "number": 11,
+        "country": "Czech Republic"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 195,
+    "fields": {
+        "first_name": "Dominik",
+        "last_name": "Livakovi\u0107",
+        "position": "G",
+        "number": 1,
+        "country": "Croatia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 196,
+    "fields": {
+        "first_name": "Luk\u00e1\u0161",
+        "last_name": "Masopust",
+        "position": "M",
+        "number": 12,
+        "country": "Czech Republic"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 197,
+    "fields": {
+        "first_name": "Petr",
+        "last_name": "\u0160ev\u010d\u00edk",
+        "position": "M",
+        "number": 13,
+        "country": "Czech Republic"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 198,
+    "fields": {
+        "first_name": "Jan",
+        "last_name": "Kopic",
+        "position": "M",
+        "number": 13,
+        "country": "Czech Republic"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 199,
+    "fields": {
+        "first_name": "Jakub",
+        "last_name": "Jankto",
+        "position": "M",
+        "number": 14,
+        "country": "Czech Republic"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 200,
+    "fields": {
+        "first_name": "Tom\u00e1\u0161",
+        "last_name": "Sou\u010dek",
+        "position": "M",
+        "number": 15,
+        "country": "Czech Republic"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 201,
+    "fields": {
+        "first_name": "Jarom\u00edr",
+        "last_name": "Zmrhal",
+        "position": "M",
+        "number": 17,
+        "country": "Czech Republic"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 202,
+    "fields": {
+        "first_name": "Luk\u00e1\u0161",
+        "last_name": "Kalvach",
+        "position": "M",
+        "number": 20,
+        "country": "Czech Republic"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 203,
+    "fields": {
+        "first_name": "Alex",
+        "last_name": "Kr\u00e1l",
+        "position": "M",
+        "number": 21,
+        "country": "Czech Republic"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 204,
+    "fields": {
+        "first_name": "Lovre",
+        "last_name": "Kalini\u0107",
+        "position": "G",
+        "number": 12,
+        "country": "Croatia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 205,
+    "fields": {
+        "first_name": "Simon",
+        "last_name": "Sluga",
+        "position": "G",
+        "number": 23,
+        "country": "Croatia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 208,
+    "fields": {
+        "first_name": "Dario",
+        "last_name": "Melnjak",
+        "position": "D",
+        "number": 2,
+        "country": "Croatia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 209,
+    "fields": {
+        "first_name": "Borna",
+        "last_name": "Bari\u0161i\u0107",
+        "position": "D",
+        "number": 3,
+        "country": "Croatia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 210,
+    "fields": {
+        "first_name": "Dino",
+        "last_name": "Peri\u0107",
+        "position": "D",
+        "number": 5,
+        "country": "Croatia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 211,
+    "fields": {
+        "first_name": "Dejan",
+        "last_name": "Lovren",
+        "position": "D",
+        "number": 6,
+        "country": "Croatia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 212,
+    "fields": {
+        "first_name": "Duje",
+        "last_name": "\u0106aleta-Car",
+        "position": "D",
+        "number": 6,
+        "country": "Croatia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 213,
+    "fields": {
+        "first_name": "Filip",
+        "last_name": "Benkovi\u0107",
+        "position": "D",
+        "number": 14,
+        "country": "Croatia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 214,
+    "fields": {
+        "first_name": "Mile",
+        "last_name": "\u0160kori\u0107",
+        "position": "D",
+        "number": 14,
+        "country": "Croatia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 215,
+    "fields": {
+        "first_name": "Zden\u011bk",
+        "last_name": "Ondr\u00e1\u0161ek",
+        "position": "A",
+        "number": 9,
+        "country": "Czech Republic"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 216,
+    "fields": {
+        "first_name": "Libor",
+        "last_name": "Koz\u00e1k",
+        "position": "A",
+        "number": 9,
+        "country": "Czech Republic"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 217,
+    "fields": {
+        "first_name": "Michael",
+        "last_name": "Krmen\u010d\u00edk",
+        "position": "A",
+        "number": 11,
+        "country": "Czech Republic"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 218,
+    "fields": {
+        "first_name": "Martin",
+        "last_name": "Dole\u017eal",
+        "position": "A",
+        "number": 19,
+        "country": "Czech Republic"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 219,
+    "fields": {
+        "first_name": "Patrik",
+        "last_name": "Schick",
+        "position": "A",
+        "number": 19,
+        "country": "Czech Republic"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 220,
+    "fields": {
+        "first_name": "Mat\u011bj",
+        "last_name": "Vydra",
+        "position": "A",
+        "number": 20,
+        "country": "Czech Republic"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 221,
+    "fields": {
+        "first_name": "Milan",
+        "last_name": "\u0160koda",
+        "position": "A",
+        "number": 21,
+        "country": "Czech Republic"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 224,
+    "fields": {
+        "first_name": "Antonio",
+        "last_name": "Mili\u0107",
+        "position": "D",
+        "number": 16,
+        "country": "Croatia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 225,
+    "fields": {
+        "first_name": "Tin",
+        "last_name": "Jedvaj",
+        "position": "D",
+        "number": 16,
+        "country": "Croatia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 226,
+    "fields": {
+        "first_name": "Josip",
+        "last_name": "Juranovi\u0107",
+        "position": "D",
+        "number": 21,
+        "country": "Croatia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 227,
+    "fields": {
+        "first_name": "Domagoj",
+        "last_name": "Vida",
+        "position": "D",
+        "number": 21,
+        "country": "Croatia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 228,
+    "fields": {
+        "first_name": "Marin",
+        "last_name": "Leovac",
+        "position": "D",
+        "number": 22,
+        "country": "Croatia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 229,
+    "fields": {
+        "first_name": "Karlo",
+        "last_name": "Bartolec",
+        "position": "D",
+        "number": 22,
+        "country": "Croatia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 230,
+    "fields": {
+        "first_name": "Mijo",
+        "last_name": "Cakta\u0161",
+        "position": "M",
+        "number": 2,
+        "country": "Croatia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 231,
+    "fields": {
+        "first_name": "Ivan",
+        "last_name": "Rakiti\u0107",
+        "position": "M",
+        "number": 7,
+        "country": "Croatia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 232,
+    "fields": {
+        "first_name": "Mateo",
+        "last_name": "Kova\u010di\u0107",
+        "position": "M",
+        "number": 8,
+        "country": "Croatia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 233,
+    "fields": {
+        "first_name": "Luka",
+        "last_name": "Modri\u0107",
+        "position": "M",
+        "number": 10,
+        "country": "Croatia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 262,
+    "fields": {
+        "first_name": "Filip",
+        "last_name": "Bradari\u0107",
+        "position": "M",
+        "number": 11,
+        "country": "Croatia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 263,
+    "fields": {
+        "first_name": "Marcelo",
+        "last_name": "Brozovi\u0107",
+        "position": "M",
+        "number": 11,
+        "country": "Croatia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 264,
+    "fields": {
+        "first_name": "Nikola",
+        "last_name": "Vla\u0161i\u0107",
+        "position": "M",
+        "number": 13,
+        "country": "Croatia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 265,
+    "fields": {
+        "first_name": "Mario",
+        "last_name": "Pa\u0161ali\u0107",
+        "position": "M",
+        "number": 15,
+        "country": "Croatia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 266,
+    "fields": {
+        "first_name": "Marko",
+        "last_name": "Rog",
+        "position": "M",
+        "number": 17,
+        "country": "Croatia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 267,
+    "fields": {
+        "first_name": "Alen",
+        "last_name": "Halilovi\u0107",
+        "position": "M",
+        "number": 17,
+        "country": "Croatia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 268,
+    "fields": {
+        "first_name": "Ante",
+        "last_name": "Rebi\u0107",
+        "position": "M",
+        "number": 18,
+        "country": "Croatia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 269,
+    "fields": {
+        "first_name": "Milan",
+        "last_name": "Badelj",
+        "position": "M",
+        "number": 19,
+        "country": "Croatia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 270,
+    "fields": {
+        "first_name": "Ivan",
+        "last_name": "Peri\u0161i\u0107",
+        "position": "A",
+        "number": 4,
+        "country": "Croatia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 271,
+    "fields": {
+        "first_name": "Josip",
+        "last_name": "Brekalo",
+        "position": "A",
+        "number": 7,
+        "country": "Croatia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 272,
+    "fields": {
+        "first_name": "Andrej",
+        "last_name": "Kramari\u0107",
+        "position": "A",
+        "number": 9,
+        "country": "Croatia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 273,
+    "fields": {
+        "first_name": "Mislav",
+        "last_name": "Or\u0161i\u0107",
+        "position": "A",
+        "number": 9,
+        "country": "Croatia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 274,
+    "fields": {
+        "first_name": "Bruno",
+        "last_name": "Petkovi\u0107",
+        "position": "A",
+        "number": 20,
+        "country": "Croatia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 311,
+    "fields": {
+        "first_name": "Heinz",
+        "last_name": "Lindner",
+        "position": "G",
+        "number": 1,
+        "country": "Austria"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 312,
+    "fields": {
+        "first_name": "Alexander",
+        "last_name": "Schlager",
+        "position": "G",
+        "number": 1,
+        "country": "Austria"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 313,
+    "fields": {
+        "first_name": "Pavao",
+        "last_name": "Pervan",
+        "position": "G",
+        "number": 12,
+        "country": "Austria"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 314,
+    "fields": {
+        "first_name": "Richard",
+        "last_name": "Strebinger",
+        "position": "G",
+        "number": 12,
+        "country": "Austria"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 315,
+    "fields": {
+        "first_name": "J\u00f6rg",
+        "last_name": "Siebenhandl",
+        "position": "G",
+        "number": 13,
+        "country": "Austria"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 316,
+    "fields": {
+        "first_name": "Cican",
+        "last_name": "Stankovic",
+        "position": "G",
+        "number": 13,
+        "country": "Austria"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 317,
+    "fields": {
+        "first_name": "Maximilian",
+        "last_name": "Ullmann",
+        "position": "D",
+        "number": 2,
+        "country": "Austria"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 318,
+    "fields": {
+        "first_name": "Andreas",
+        "last_name": "Ulmer",
+        "position": "D",
+        "number": 2,
+        "country": "Austria"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 319,
+    "fields": {
+        "first_name": "Aleksandar",
+        "last_name": "Dragovi\u0107",
+        "position": "D",
+        "number": 3,
+        "country": "Austria"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 320,
+    "fields": {
+        "first_name": "Martin",
+        "last_name": "Hinteregger",
+        "position": "D",
+        "number": 4,
+        "country": "Austria"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 321,
+    "fields": {
+        "first_name": "Maximilian",
+        "last_name": "W\u00f6ber",
+        "position": "D",
+        "number": 4,
+        "country": "Austria"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 322,
+    "fields": {
+        "first_name": "Stefan",
+        "last_name": "Posch",
+        "position": "D",
+        "number": 5,
+        "country": "Austria"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 323,
+    "fields": {
+        "first_name": "Reinhold",
+        "last_name": "Ranftl",
+        "position": "D",
+        "number": 7,
+        "country": "Austria"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 324,
+    "fields": {
+        "first_name": "Marco",
+        "last_name": "Friedl",
+        "position": "D",
+        "number": 8,
+        "country": "Austria"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 325,
+    "fields": {
+        "first_name": "David",
+        "last_name": "Alaba",
+        "position": "D",
+        "number": 8,
+        "country": "Austria"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 326,
+    "fields": {
+        "first_name": "Albert",
+        "last_name": "Vallci",
+        "position": "D",
+        "number": 14,
+        "country": "Austria"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 327,
+    "fields": {
+        "first_name": "Philipp",
+        "last_name": "Lienhart",
+        "position": "D",
+        "number": 15,
+        "country": "Austria"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 328,
+    "fields": {
+        "first_name": "Sebastian",
+        "last_name": "Pr\u00f6dl",
+        "position": "D",
+        "number": 15,
+        "country": "Austria"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 329,
+    "fields": {
+        "first_name": "Stefan",
+        "last_name": "Lainer",
+        "position": "D",
+        "number": 21,
+        "country": "Austria"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 330,
+    "fields": {
+        "first_name": "Stefan",
+        "last_name": "Ilsanker",
+        "position": "M",
+        "number": 6,
+        "country": "Austria"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 331,
+    "fields": {
+        "first_name": "Kevin",
+        "last_name": "St\u00f6ger",
+        "position": "M",
+        "number": 8,
+        "country": "Austria"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 332,
+    "fields": {
+        "first_name": "Florian",
+        "last_name": "Grillitsch",
+        "position": "M",
+        "number": 10,
+        "country": "Austria"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 333,
+    "fields": {
+        "first_name": "Peter",
+        "last_name": "\u017dulj",
+        "position": "M",
+        "number": 10,
+        "country": "Austria"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 334,
+    "fields": {
+        "first_name": "Julian",
+        "last_name": "Baumgartlinger",
+        "position": "M",
+        "number": 14,
+        "country": "Austria"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 337,
+    "fields": {
+        "first_name": "Thomas",
+        "last_name": "Goiginger",
+        "position": "M",
+        "number": 16,
+        "country": "Austria"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 338,
+    "fields": {
+        "first_name": "Florian",
+        "last_name": "Kainz",
+        "position": "M",
+        "number": 17,
+        "country": "Austria"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 367,
+    "fields": {
+        "first_name": "Christopher",
+        "last_name": "Trimmel",
+        "position": "M",
+        "number": 17,
+        "country": "Austria"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 368,
+    "fields": {
+        "first_name": "Alessandro",
+        "last_name": "Sch\u00f6pf",
+        "position": "M",
+        "number": 17,
+        "country": "Austria"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 369,
+    "fields": {
+        "first_name": "Konrad",
+        "last_name": "Laimer",
+        "position": "M",
+        "number": 18,
+        "country": "Austria"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 370,
+    "fields": {
+        "first_name": "Kasper",
+        "last_name": "Schmeichel",
+        "position": "G",
+        "number": 1,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 401,
+    "fields": {
+        "first_name": "Hannes",
+        "last_name": "Wolf",
+        "position": "M",
+        "number": 20,
+        "country": "Austria"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 402,
+    "fields": {
+        "first_name": "Karim",
+        "last_name": "Onisiwo",
+        "position": "M",
+        "number": 20,
+        "country": "Austria"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 403,
+    "fields": {
+        "first_name": "Valentino",
+        "last_name": "Lazaro",
+        "position": "M",
+        "number": 22,
+        "country": "Austria"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 404,
+    "fields": {
+        "first_name": "Xaver",
+        "last_name": "Schlager",
+        "position": "M",
+        "number": 23,
+        "country": "Austria"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 405,
+    "fields": {
+        "first_name": "Louis",
+        "last_name": "Schaub",
+        "position": "M",
+        "number": 23,
+        "country": "Austria"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 406,
+    "fields": {
+        "first_name": "Marko",
+        "last_name": "Arnautovi\u0107",
+        "position": "A",
+        "number": 7,
+        "country": "Austria"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 407,
+    "fields": {
+        "first_name": "Marcel",
+        "last_name": "Sabitzer",
+        "position": "A",
+        "number": 9,
+        "country": "Austria"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 408,
+    "fields": {
+        "first_name": "Michael",
+        "last_name": "Gregoritsch",
+        "position": "A",
+        "number": 11,
+        "country": "Austria"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 409,
+    "fields": {
+        "first_name": "Guido",
+        "last_name": "Burgstaller",
+        "position": "A",
+        "number": 19,
+        "country": "Austria"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 410,
+    "fields": {
+        "first_name": "Lukas",
+        "last_name": "Hinterseer",
+        "position": "A",
+        "number": 19,
+        "country": "Austria"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 411,
+    "fields": {
+        "first_name": "Marc",
+        "last_name": "Janko",
+        "position": "A",
+        "number": 21,
+        "country": "Austria"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 412,
+    "fields": {
+        "first_name": "Jonas",
+        "last_name": "L\u00f6ssl",
+        "position": "G",
+        "number": 16,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 415,
+    "fields": {
+        "first_name": "Daniel",
+        "last_name": "Iversen",
+        "position": "G",
+        "number": 22,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 416,
+    "fields": {
+        "first_name": "Frederik",
+        "last_name": "R\u00f8nnow",
+        "position": "G",
+        "number": 22,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 417,
+    "fields": {
+        "first_name": "Peter",
+        "last_name": "Ankersen",
+        "position": "D",
+        "number": 2,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 418,
+    "fields": {
+        "first_name": "Joachim",
+        "last_name": "Andersen",
+        "position": "D",
+        "number": 3,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 435,
+    "fields": {
+        "first_name": "Victor",
+        "last_name": "Nelsson",
+        "position": "D",
+        "number": 3,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 436,
+    "fields": {
+        "first_name": "Simon",
+        "last_name": "Kj\u00e6r",
+        "position": "D",
+        "number": 4,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 437,
+    "fields": {
+        "first_name": "Riza",
+        "last_name": "Durmisi",
+        "position": "D",
+        "number": 5,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 438,
+    "fields": {
+        "first_name": "Jonas",
+        "last_name": "Knudsen",
+        "position": "D",
+        "number": 5,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 439,
+    "fields": {
+        "first_name": "Andreas",
+        "last_name": "Christensen",
+        "position": "D",
+        "number": 6,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 440,
+    "fields": {
+        "first_name": "Mathias",
+        "last_name": "J\u00f8rgensen",
+        "position": "D",
+        "number": 13,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 441,
+    "fields": {
+        "first_name": "Henrik",
+        "last_name": "Dalsgaard",
+        "position": "D",
+        "number": 14,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 442,
+    "fields": {
+        "first_name": "Jens",
+        "last_name": "Stryger Larsen",
+        "position": "D",
+        "number": 17,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 443,
+    "fields": {
+        "first_name": "Anders",
+        "last_name": "Christiansen",
+        "position": "M",
+        "number": 2,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 446,
+    "fields": {
+        "first_name": "Philip",
+        "last_name": "Billing",
+        "position": "M",
+        "number": 5,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 447,
+    "fields": {
+        "first_name": "Robert",
+        "last_name": "Skov",
+        "position": "M",
+        "number": 7,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 448,
+    "fields": {
+        "first_name": "Thomas",
+        "last_name": "Delaney",
+        "position": "M",
+        "number": 8,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 449,
+    "fields": {
+        "first_name": "Christian",
+        "last_name": "Eriksen",
+        "position": "M",
+        "number": 10,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 450,
+    "fields": {
+        "first_name": "Lukas",
+        "last_name": "Lerager",
+        "position": "M",
+        "number": 15,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 451,
+    "fields": {
+        "first_name": "Christian",
+        "last_name": "N\u00f8rgaard",
+        "position": "M",
+        "number": 15,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 452,
+    "fields": {
+        "first_name": "Daniel",
+        "last_name": "Wass",
+        "position": "M",
+        "number": 18,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 453,
+    "fields": {
+        "first_name": "Lasse",
+        "last_name": "Sch\u00f6ne",
+        "position": "M",
+        "number": 19,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 454,
+    "fields": {
+        "first_name": "Jacob",
+        "last_name": "Bruun Larsen",
+        "position": "M",
+        "number": 21,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 455,
+    "fields": {
+        "first_name": "Pierre Emile",
+        "last_name": "H\u00f8jbjerg",
+        "position": "M",
+        "number": 23,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 456,
+    "fields": {
+        "first_name": "Christian",
+        "last_name": "Gytkj\u00e6r",
+        "position": "A",
+        "number": 9,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 457,
+    "fields": {
+        "first_name": "Nicolai",
+        "last_name": "J\u00f8rgensen",
+        "position": "A",
+        "number": 9,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 458,
+    "fields": {
+        "first_name": "Martin",
+        "last_name": "Braithwaite",
+        "position": "A",
+        "number": 11,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 459,
+    "fields": {
+        "first_name": "Kasper",
+        "last_name": "Dolberg",
+        "position": "A",
+        "number": 12,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 460,
+    "fields": {
+        "first_name": "Yussuf",
+        "last_name": "Poulsen",
+        "position": "A",
+        "number": 20,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 461,
+    "fields": {
+        "first_name": "Andreas",
+        "last_name": "Cornelius",
+        "position": "A",
+        "number": 21,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 462,
+    "fields": {
+        "first_name": "Lukas",
+        "last_name": "Hradecky",
+        "position": "G",
+        "number": 1,
+        "country": "Finland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 463,
+    "fields": {
+        "first_name": "Jesse",
+        "last_name": "Joronen",
+        "position": "G",
+        "number": 12,
+        "country": "Finland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 464,
+    "fields": {
+        "first_name": "Anssi",
+        "last_name": "Jaakkola",
+        "position": "G",
+        "number": 23,
+        "country": "Finland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 465,
+    "fields": {
+        "first_name": "Paulus",
+        "last_name": "Arajuuri",
+        "position": "D",
+        "number": 2,
+        "country": "Finland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 466,
+    "fields": {
+        "first_name": "Daniel",
+        "last_name": "O'Shaughnessy",
+        "position": "D",
+        "number": 3,
+        "country": "Finland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 467,
+    "fields": {
+        "first_name": "Albin",
+        "last_name": "Granlund",
+        "position": "D",
+        "number": 3,
+        "country": "Finland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 468,
+    "fields": {
+        "first_name": "Joona",
+        "last_name": "Toivio",
+        "position": "D",
+        "number": 4,
+        "country": "Finland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 469,
+    "fields": {
+        "first_name": "Leo",
+        "last_name": "V\u00e4is\u00e4nen",
+        "position": "D",
+        "number": 5,
+        "country": "Finland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 470,
+    "fields": {
+        "first_name": "Sauli",
+        "last_name": "V\u00e4is\u00e4nen",
+        "position": "D",
+        "number": 15,
+        "country": "Finland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 471,
+    "fields": {
+        "first_name": "Juha",
+        "last_name": "Pirinen",
+        "position": "D",
+        "number": 16,
+        "country": "Finland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 472,
+    "fields": {
+        "first_name": "Niko",
+        "last_name": "Markkula",
+        "position": "D",
+        "number": 17,
+        "country": "Finland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 473,
+    "fields": {
+        "first_name": "Mikko",
+        "last_name": "Sumusalo",
+        "position": "D",
+        "number": 18,
+        "country": "Finland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 474,
+    "fields": {
+        "first_name": "Jere",
+        "last_name": "Uronen",
+        "position": "D",
+        "number": 18,
+        "country": "Finland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 475,
+    "fields": {
+        "first_name": "Thomas",
+        "last_name": "Lam",
+        "position": "D",
+        "number": 18,
+        "country": "Finland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 476,
+    "fields": {
+        "first_name": "Jukka",
+        "last_name": "Raitala",
+        "position": "D",
+        "number": 22,
+        "country": "Finland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 477,
+    "fields": {
+        "first_name": "Petteri",
+        "last_name": "Forsell",
+        "position": "M",
+        "number": 2,
+        "country": "Finland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 478,
+    "fields": {
+        "first_name": "Glen",
+        "last_name": "Kamara",
+        "position": "M",
+        "number": 6,
+        "country": "Finland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 479,
+    "fields": {
+        "first_name": "Robin",
+        "last_name": "Lod",
+        "position": "M",
+        "number": 8,
+        "country": "Finland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 480,
+    "fields": {
+        "first_name": "Fredrik",
+        "last_name": "Jensen",
+        "position": "M",
+        "number": 9,
+        "country": "Finland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 481,
+    "fields": {
+        "first_name": "Rasmus",
+        "last_name": "Sch\u00fcller",
+        "position": "M",
+        "number": 11,
+        "country": "Finland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 482,
+    "fields": {
+        "first_name": "Pyry",
+        "last_name": "Soiri",
+        "position": "M",
+        "number": 13,
+        "country": "Finland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 483,
+    "fields": {
+        "first_name": "Tim",
+        "last_name": "Sparv",
+        "position": "M",
+        "number": 14,
+        "country": "Finland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 484,
+    "fields": {
+        "first_name": "Joni",
+        "last_name": "Kauko",
+        "position": "M",
+        "number": 19,
+        "country": "Finland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 485,
+    "fields": {
+        "first_name": "Lasse",
+        "last_name": "Karjalainen",
+        "position": "M",
+        "number": 20,
+        "country": "Finland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 486,
+    "fields": {
+        "first_name": "Robert",
+        "last_name": "Taylor",
+        "position": "M",
+        "number": 21,
+        "country": "Finland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 487,
+    "fields": {
+        "first_name": "Kasper",
+        "last_name": "H\u00e4m\u00e4l\u00e4inen",
+        "position": "M",
+        "number": 21,
+        "country": "Finland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 488,
+    "fields": {
+        "first_name": "Benjamin",
+        "last_name": "K\u00e4llman",
+        "position": "A",
+        "number": 7,
+        "country": "Finland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 489,
+    "fields": {
+        "first_name": "Jasse",
+        "last_name": "Tuominen",
+        "position": "A",
+        "number": 7,
+        "country": "Finland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 490,
+    "fields": {
+        "first_name": "Teemu",
+        "last_name": "Pukki",
+        "position": "A",
+        "number": 10,
+        "country": "Finland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 491,
+    "fields": {
+        "first_name": "Simon",
+        "last_name": "Skrabb",
+        "position": "A",
+        "number": 17,
+        "country": "Finland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 492,
+    "fields": {
+        "first_name": "Joel",
+        "last_name": "Pohjanpalo",
+        "position": "A",
+        "number": 20,
+        "country": "Finland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 493,
+    "fields": {
+        "first_name": "Rasmus",
+        "last_name": "Karjalainen",
+        "position": "A",
+        "number": 20,
+        "country": "Finland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 494,
+    "fields": {
+        "first_name": "Lassi",
+        "last_name": "Lappalainen",
+        "position": "A",
+        "number": 21,
+        "country": "Finland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 495,
+    "fields": {
+        "first_name": "Hugo",
+        "last_name": "Lloris",
+        "position": "G",
+        "number": 1,
+        "country": "France"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 496,
+    "fields": {
+        "first_name": "Alphonse",
+        "last_name": "Areola",
+        "position": "G",
+        "number": 1,
+        "country": "France"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 497,
+    "fields": {
+        "first_name": "Steve",
+        "last_name": "Mandanda",
+        "position": "G",
+        "number": 16,
+        "country": "France"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 498,
+    "fields": {
+        "first_name": "Mike",
+        "last_name": "Maignan",
+        "position": "G",
+        "number": 23,
+        "country": "France"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 499,
+    "fields": {
+        "first_name": "Benjamin",
+        "last_name": "Pavard",
+        "position": "D",
+        "number": 2,
+        "country": "France"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 500,
+    "fields": {
+        "first_name": "Presnel",
+        "last_name": "Kimpembe",
+        "position": "D",
+        "number": 3,
+        "country": "France"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 501,
+    "fields": {
+        "first_name": "Ferland",
+        "last_name": "Mendy",
+        "position": "D",
+        "number": 3,
+        "country": "France"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 502,
+    "fields": {
+        "first_name": "Rapha\u00ebl",
+        "last_name": "Varane",
+        "position": "D",
+        "number": 4,
+        "country": "France"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 503,
+    "fields": {
+        "first_name": "Cl\u00e9ment",
+        "last_name": "Lenglet",
+        "position": "D",
+        "number": 5,
+        "country": "France"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 504,
+    "fields": {
+        "first_name": "Samuel",
+        "last_name": "Umtiti",
+        "position": "D",
+        "number": 5,
+        "country": "France"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 505,
+    "fields": {
+        "first_name": "Kurt",
+        "last_name": "Zouma",
+        "position": "D",
+        "number": 15,
+        "country": "France"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 506,
+    "fields": {
+        "first_name": "Lucas",
+        "last_name": "Digne",
+        "position": "D",
+        "number": 19,
+        "country": "France"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 507,
+    "fields": {
+        "first_name": "Djibril",
+        "last_name": "Sidib\u00e9",
+        "position": "D",
+        "number": 19,
+        "country": "France"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 508,
+    "fields": {
+        "first_name": "L\u00e9o",
+        "last_name": "Dubois",
+        "position": "D",
+        "number": 21,
+        "country": "France"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 509,
+    "fields": {
+        "first_name": "Lucas",
+        "last_name": "Hern\u00e1ndez",
+        "position": "D",
+        "number": 21,
+        "country": "France"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 512,
+    "fields": {
+        "first_name": "Layvin",
+        "last_name": "Kurzawa",
+        "position": "D",
+        "number": 22,
+        "country": "France"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 513,
+    "fields": {
+        "first_name": "Benjamin",
+        "last_name": "Mendy",
+        "position": "D",
+        "number": 22,
+        "country": "France"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 514,
+    "fields": {
+        "first_name": "Paul",
+        "last_name": "Pogba",
+        "position": "M",
+        "number": 6,
+        "country": "France"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 515,
+    "fields": {
+        "first_name": "Tanguy",
+        "last_name": "Ndomb\u00e9l\u00e9",
+        "position": "M",
+        "number": 6,
+        "country": "France"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 516,
+    "fields": {
+        "first_name": "Thomas",
+        "last_name": "Lemar",
+        "position": "M",
+        "number": 8,
+        "country": "France"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 517,
+    "fields": {
+        "first_name": "Corentin",
+        "last_name": "Tolisso",
+        "position": "M",
+        "number": 12,
+        "country": "France"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 518,
+    "fields": {
+        "first_name": "N'Golo",
+        "last_name": "Kant\u00e9",
+        "position": "M",
+        "number": 13,
+        "country": "France"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 519,
+    "fields": {
+        "first_name": "Matt\u00e9o",
+        "last_name": "Guendouzi",
+        "position": "M",
+        "number": 14,
+        "country": "France"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 520,
+    "fields": {
+        "first_name": "Blaise",
+        "last_name": "Matuidi",
+        "position": "M",
+        "number": 14,
+        "country": "France"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 521,
+    "fields": {
+        "first_name": "Steven",
+        "last_name": "Nzonzi",
+        "position": "M",
+        "number": 15,
+        "country": "France"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 522,
+    "fields": {
+        "first_name": "Moussa",
+        "last_name": "Sissoko",
+        "position": "M",
+        "number": 17,
+        "country": "France"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 523,
+    "fields": {
+        "first_name": "Jonathan",
+        "last_name": "Ikon\u00e9",
+        "position": "M",
+        "number": 20,
+        "country": "France"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 524,
+    "fields": {
+        "first_name": "Antoine",
+        "last_name": "Griezmann",
+        "position": "A",
+        "number": 7,
+        "country": "France"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 525,
+    "fields": {
+        "first_name": "Olivier",
+        "last_name": "Giroud",
+        "position": "A",
+        "number": 9,
+        "country": "France"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 526,
+    "fields": {
+        "first_name": "Anton",
+        "last_name": "Shunin",
+        "position": "G",
+        "number": 12,
+        "country": "Russia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 527,
+    "fields": {
+        "first_name": "Andrei",
+        "last_name": "Lunev",
+        "position": "G",
+        "number": 12,
+        "country": "Russia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 528,
+    "fields": {
+        "first_name": "Soslan",
+        "last_name": "Dzhanaev",
+        "position": "G",
+        "number": 16,
+        "country": "Russia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 531,
+    "fields": {
+        "first_name": "Dmitri",
+        "last_name": "Chistyakov",
+        "position": "D",
+        "number": 3,
+        "country": "Russia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 532,
+    "fields": {
+        "first_name": "Roman",
+        "last_name": "Neust\u00e4dter",
+        "position": "D",
+        "number": 3,
+        "country": "Russia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 533,
+    "fields": {
+        "first_name": "Kirill",
+        "last_name": "Nababkin",
+        "position": "D",
+        "number": 3,
+        "country": "Russia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 534,
+    "fields": {
+        "first_name": "Vladislav",
+        "last_name": "Ignatyev",
+        "position": "D",
+        "number": 3,
+        "country": "Russia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 535,
+    "fields": {
+        "first_name": "Vyacheslav",
+        "last_name": "Karavaev",
+        "position": "D",
+        "number": 4,
+        "country": "Russia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 536,
+    "fields": {
+        "first_name": "Andrei",
+        "last_name": "Semenov",
+        "position": "D",
+        "number": 5,
+        "country": "Russia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 537,
+    "fields": {
+        "first_name": "Maksim",
+        "last_name": "Belyaev",
+        "position": "D",
+        "number": 6,
+        "country": "Russia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 538,
+    "fields": {
+        "first_name": "Fedor",
+        "last_name": "Kudryashov",
+        "position": "D",
+        "number": 13,
+        "country": "Russia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 539,
+    "fields": {
+        "first_name": "Georgi",
+        "last_name": "Dzhikiya",
+        "position": "D",
+        "number": 14,
+        "country": "Russia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 540,
+    "fields": {
+        "first_name": "Georgi",
+        "last_name": "Schennikov",
+        "position": "D",
+        "number": 23,
+        "country": "Russia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 541,
+    "fields": {
+        "first_name": "Kylian",
+        "last_name": "Mbapp\u00e9",
+        "position": "A",
+        "number": 10,
+        "country": "France"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 542,
+    "fields": {
+        "first_name": "Kingsley",
+        "last_name": "Coman",
+        "position": "A",
+        "number": 11,
+        "country": "France"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 543,
+    "fields": {
+        "first_name": "Nabil",
+        "last_name": "Fekir",
+        "position": "A",
+        "number": 18,
+        "country": "France"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 544,
+    "fields": {
+        "first_name": "Florian",
+        "last_name": "Thauvin",
+        "position": "A",
+        "number": 20,
+        "country": "France"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 545,
+    "fields": {
+        "first_name": "Wissam",
+        "last_name": "Ben Yedder",
+        "position": "A",
+        "number": 20,
+        "country": "France"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 546,
+    "fields": {
+        "first_name": "Alassane",
+        "last_name": "Pl\u00e9a",
+        "position": "A",
+        "number": 22,
+        "country": "France"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 547,
+    "fields": {
+        "first_name": "Yevgeni",
+        "last_name": "Chernov",
+        "position": "D",
+        "number": 23,
+        "country": "Russia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 548,
+    "fields": {
+        "first_name": "Sergei",
+        "last_name": "Petrov",
+        "position": "D",
+        "number": 23,
+        "country": "Russia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 549,
+    "fields": {
+        "first_name": "Denis",
+        "last_name": "Cheryshev",
+        "position": "M",
+        "number": 6,
+        "country": "Russia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 550,
+    "fields": {
+        "first_name": "Magomed",
+        "last_name": "Ozdoev",
+        "position": "M",
+        "number": 7,
+        "country": "Russia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 551,
+    "fields": {
+        "first_name": "Yuri",
+        "last_name": "Gazinski",
+        "position": "M",
+        "number": 8,
+        "country": "Russia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 552,
+    "fields": {
+        "first_name": "Dmitri",
+        "last_name": "Barinov",
+        "position": "M",
+        "number": 8,
+        "country": "Russia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 553,
+    "fields": {
+        "first_name": "Ilzat",
+        "last_name": "Akhmetov",
+        "position": "M",
+        "number": 8,
+        "country": "Russia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 554,
+    "fields": {
+        "first_name": "Daler",
+        "last_name": "Kuzyaev",
+        "position": "M",
+        "number": 9,
+        "country": "Russia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 555,
+    "fields": {
+        "first_name": "Zelimkhan",
+        "last_name": "Bakaev",
+        "position": "M",
+        "number": 10,
+        "country": "Russia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 556,
+    "fields": {
+        "first_name": "Ruslan",
+        "last_name": "Kambolov",
+        "position": "M",
+        "number": 10,
+        "country": "Russia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 557,
+    "fields": {
+        "first_name": "Roman",
+        "last_name": "Zobnin",
+        "position": "M",
+        "number": 11,
+        "country": "Russia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 558,
+    "fields": {
+        "first_name": "Pavel",
+        "last_name": "Mogilevets",
+        "position": "M",
+        "number": 11,
+        "country": "Russia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 559,
+    "fields": {
+        "first_name": "Aleksei",
+        "last_name": "Miranchuk",
+        "position": "M",
+        "number": 15,
+        "country": "Russia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 560,
+    "fields": {
+        "first_name": "Daniil",
+        "last_name": "Fomin",
+        "position": "M",
+        "number": 17,
+        "country": "Russia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 561,
+    "fields": {
+        "first_name": "Aleksandr",
+        "last_name": "Golovin",
+        "position": "M",
+        "number": 17,
+        "country": "Russia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 562,
+    "fields": {
+        "first_name": "Yuri",
+        "last_name": "Zhirkov",
+        "position": "M",
+        "number": 18,
+        "country": "Russia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 563,
+    "fields": {
+        "first_name": "Anton",
+        "last_name": "Miranchuk",
+        "position": "M",
+        "number": 19,
+        "country": "Russia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 564,
+    "fields": {
+        "first_name": "Reziuan",
+        "last_name": "Mirzov",
+        "position": "M",
+        "number": 19,
+        "country": "Russia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 565,
+    "fields": {
+        "first_name": "Aleksei",
+        "last_name": "Ionov",
+        "position": "M",
+        "number": 20,
+        "country": "Russia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 566,
+    "fields": {
+        "first_name": "Aleksandr",
+        "last_name": "Erokhin",
+        "position": "M",
+        "number": 21,
+        "country": "Russia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 567,
+    "fields": {
+        "first_name": "Fedor",
+        "last_name": "Smolov",
+        "position": "A",
+        "number": 9,
+        "country": "Russia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 568,
+    "fields": {
+        "first_name": "Aleksandr",
+        "last_name": "Sobolev",
+        "position": "A",
+        "number": 9,
+        "country": "Russia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 569,
+    "fields": {
+        "first_name": "Fedor",
+        "last_name": "Chalov",
+        "position": "A",
+        "number": 10,
+        "country": "Russia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 570,
+    "fields": {
+        "first_name": "Nikolai",
+        "last_name": "Komlichenko",
+        "position": "A",
+        "number": 19,
+        "country": "Russia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 571,
+    "fields": {
+        "first_name": "Artem",
+        "last_name": "Dzyuba",
+        "position": "A",
+        "number": 22,
+        "country": "Russia"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 580,
+    "fields": {
+        "first_name": "N\u00e9lson",
+        "last_name": "Semedo",
+        "position": "D",
+        "number": 2,
+        "country": "Portugal"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 591,
+    "fields": {
+        "first_name": "Rapha\u00ebl",
+        "last_name": "Guerreiro",
+        "position": "D",
+        "number": 5,
+        "country": "Portugal"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 592,
+    "fields": {
+        "first_name": "Jos\u00e9",
+        "last_name": "Fonte",
+        "position": "D",
+        "number": 6,
+        "country": "Portugal"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 601,
+    "fields": {
+        "first_name": "Manuel",
+        "last_name": "Neuer",
+        "position": "G",
+        "number": 1,
+        "country": "Germany"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 616,
+    "fields": {
+        "first_name": "Daniel",
+        "last_name": "Podence",
+        "position": "M",
+        "number": 17,
+        "country": "Portugal"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 623,
+    "fields": {
+        "first_name": "Cristiano",
+        "last_name": "Ronaldo",
+        "position": "A",
+        "number": 7,
+        "country": "Portugal"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 630,
+    "fields": {
+        "first_name": "Bernd",
+        "last_name": "Leno",
+        "position": "G",
+        "number": 12,
+        "country": "Germany"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 631,
+    "fields": {
+        "first_name": "Kevin",
+        "last_name": "Trapp",
+        "position": "G",
+        "number": 12,
+        "country": "Germany"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 632,
+    "fields": {
+        "first_name": "Marc-Andr\u00e9",
+        "last_name": "ter Stegen",
+        "position": "G",
+        "number": 22,
+        "country": "Germany"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 633,
+    "fields": {
+        "first_name": "Sven",
+        "last_name": "Ulreich",
+        "position": "G",
+        "number": 22,
+        "country": "Germany"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 634,
+    "fields": {
+        "first_name": "Robin",
+        "last_name": "Koch",
+        "position": "D",
+        "number": 2,
+        "country": "Germany"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 635,
+    "fields": {
+        "first_name": "Thilo",
+        "last_name": "Kehrer",
+        "position": "D",
+        "number": 2,
+        "country": "Germany"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 636,
+    "fields": {
+        "first_name": "Jonas",
+        "last_name": "Hector",
+        "position": "D",
+        "number": 3,
+        "country": "Germany"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 637,
+    "fields": {
+        "first_name": "Matthias",
+        "last_name": "Ginter",
+        "position": "D",
+        "number": 4,
+        "country": "Germany"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 638,
+    "fields": {
+        "first_name": "Jonathan",
+        "last_name": "Tah",
+        "position": "D",
+        "number": 5,
+        "country": "Germany"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 639,
+    "fields": {
+        "first_name": "Lukas",
+        "last_name": "Klostermann",
+        "position": "D",
+        "number": 13,
+        "country": "Germany"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 640,
+    "fields": {
+        "first_name": "Nico",
+        "last_name": "Schulz",
+        "position": "D",
+        "number": 14,
+        "country": "Germany"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 651,
+    "fields": {
+        "first_name": "Wojciech",
+        "last_name": "Szcz\u0119sny",
+        "position": "G",
+        "number": 1,
+        "country": "Poland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 654,
+    "fields": {
+        "first_name": "Niklas",
+        "last_name": "S\u00fcle",
+        "position": "D",
+        "number": 15,
+        "country": "Germany"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 655,
+    "fields": {
+        "first_name": "Marcel",
+        "last_name": "Halstenberg",
+        "position": "D",
+        "number": 16,
+        "country": "Germany"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 656,
+    "fields": {
+        "first_name": "Sebastian",
+        "last_name": "Rudy",
+        "position": "D",
+        "number": 16,
+        "country": "Germany"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 657,
+    "fields": {
+        "first_name": "Antonio",
+        "last_name": "R\u00fcdiger",
+        "position": "D",
+        "number": 16,
+        "country": "Germany"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 658,
+    "fields": {
+        "first_name": "Niklas",
+        "last_name": "Stark",
+        "position": "D",
+        "number": 17,
+        "country": "Germany"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 661,
+    "fields": {
+        "first_name": "Joshua",
+        "last_name": "Kimmich",
+        "position": "M",
+        "number": 6,
+        "country": "Germany"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 662,
+    "fields": {
+        "first_name": "Kai",
+        "last_name": "Havertz",
+        "position": "M",
+        "number": 7,
+        "country": "Germany"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 663,
+    "fields": {
+        "first_name": "Maximilian",
+        "last_name": "Eggestein",
+        "position": "M",
+        "number": 7,
+        "country": "Germany"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 664,
+    "fields": {
+        "first_name": "Toni",
+        "last_name": "Kroos",
+        "position": "M",
+        "number": 8,
+        "country": "Germany"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 665,
+    "fields": {
+        "first_name": "Julian",
+        "last_name": "Brandt",
+        "position": "M",
+        "number": 10,
+        "country": "Germany"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 666,
+    "fields": {
+        "first_name": "Marco",
+        "last_name": "Reus",
+        "position": "M",
+        "number": 11,
+        "country": "Germany"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 667,
+    "fields": {
+        "first_name": "Nadiem",
+        "last_name": "Amiri",
+        "position": "M",
+        "number": 11,
+        "country": "Germany"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 668,
+    "fields": {
+        "first_name": "Suat",
+        "last_name": "Serdar",
+        "position": "M",
+        "number": 15,
+        "country": "Germany"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 669,
+    "fields": {
+        "first_name": "Rafal",
+        "last_name": "Gikiewicz",
+        "position": "G",
+        "number": 1,
+        "country": "Poland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 670,
+    "fields": {
+        "first_name": "\u0141ukasz",
+        "last_name": "Skorupski",
+        "position": "G",
+        "number": 12,
+        "country": "Poland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 671,
+    "fields": {
+        "first_name": "\u0141ukasz",
+        "last_name": "Fabia\u0144ski",
+        "position": "G",
+        "number": 22,
+        "country": "Poland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 672,
+    "fields": {
+        "first_name": "Rados\u0142aw",
+        "last_name": "Majecki",
+        "position": "G",
+        "number": 22,
+        "country": "Poland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 673,
+    "fields": {
+        "first_name": "Micha\u0142",
+        "last_name": "Pazdan",
+        "position": "D",
+        "number": 2,
+        "country": "Poland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 674,
+    "fields": {
+        "first_name": "Krystian",
+        "last_name": "Bielik",
+        "position": "D",
+        "number": 2,
+        "country": "Poland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 675,
+    "fields": {
+        "first_name": "Artur",
+        "last_name": "J\u0119drzejczyk",
+        "position": "D",
+        "number": 3,
+        "country": "Poland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 676,
+    "fields": {
+        "first_name": "Thiago",
+        "last_name": "Cionek",
+        "position": "D",
+        "number": 4,
+        "country": "Poland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 677,
+    "fields": {
+        "first_name": "Jan",
+        "last_name": "Bednarek",
+        "position": "D",
+        "number": 5,
+        "country": "Poland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 678,
+    "fields": {
+        "first_name": "Arkadiusz",
+        "last_name": "Reca",
+        "position": "D",
+        "number": 13,
+        "country": "Poland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 679,
+    "fields": {
+        "first_name": "Maciej",
+        "last_name": "Rybus",
+        "position": "D",
+        "number": 13,
+        "country": "Poland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 680,
+    "fields": {
+        "first_name": "Kamil",
+        "last_name": "Glik",
+        "position": "D",
+        "number": 15,
+        "country": "Poland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 681,
+    "fields": {
+        "first_name": "Tomasz",
+        "last_name": "K\u0119dziora",
+        "position": "D",
+        "number": 16,
+        "country": "Poland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 684,
+    "fields": {
+        "first_name": "Salvatore",
+        "last_name": "Sirigu",
+        "position": "G",
+        "number": 1,
+        "country": "Italy"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 685,
+    "fields": {
+        "first_name": "Alessio",
+        "last_name": "Cragno",
+        "position": "G",
+        "number": 12,
+        "country": "Italy"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 686,
+    "fields": {
+        "first_name": "Pierluigi",
+        "last_name": "Gollini",
+        "position": "G",
+        "number": 12,
+        "country": "Italy"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 687,
+    "fields": {
+        "first_name": "Alex",
+        "last_name": "Meret",
+        "position": "G",
+        "number": 12,
+        "country": "Italy"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 688,
+    "fields": {
+        "first_name": "Gianluigi",
+        "last_name": "Donnarumma",
+        "position": "G",
+        "number": 21,
+        "country": "Italy"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 689,
+    "fields": {
+        "first_name": "Mattia",
+        "last_name": "De Sciglio",
+        "position": "D",
+        "number": 2,
+        "country": "Italy"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 690,
+    "fields": {
+        "first_name": "Cristiano",
+        "last_name": "Piccini",
+        "position": "D",
+        "number": 2,
+        "country": "Italy"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 691,
+    "fields": {
+        "first_name": "Giovanni",
+        "last_name": "Di Lorenzo",
+        "position": "D",
+        "number": 2,
+        "country": "Italy"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 692,
+    "fields": {
+        "first_name": "Danilo",
+        "last_name": "D'Ambrosio",
+        "position": "D",
+        "number": 2,
+        "country": "Italy"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 695,
+    "fields": {
+        "first_name": "Giorgio",
+        "last_name": "Chiellini",
+        "position": "D",
+        "number": 3,
+        "country": "Italy"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 696,
+    "fields": {
+        "first_name": "Cristiano",
+        "last_name": "Biraghi",
+        "position": "D",
+        "number": 3,
+        "country": "Italy"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 697,
+    "fields": {
+        "first_name": "Armando",
+        "last_name": "Izzo",
+        "position": "D",
+        "number": 5,
+        "country": "Italy"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 698,
+    "fields": {
+        "first_name": "Leon",
+        "last_name": "Goretzka",
+        "position": "M",
+        "number": 18,
+        "country": "Germany"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 699,
+    "fields": {
+        "first_name": "Leroy",
+        "last_name": "San\u00e9",
+        "position": "M",
+        "number": 19,
+        "country": "Germany"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 700,
+    "fields": {
+        "first_name": "\u0130lkay",
+        "last_name": "G\u00fcndo\u011fan",
+        "position": "M",
+        "number": 21,
+        "country": "Germany"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 701,
+    "fields": {
+        "first_name": "Julian",
+        "last_name": "Draxler",
+        "position": "A",
+        "number": 7,
+        "country": "Germany"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 702,
+    "fields": {
+        "first_name": "Timo",
+        "last_name": "Werner",
+        "position": "A",
+        "number": 9,
+        "country": "Germany"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 703,
+    "fields": {
+        "first_name": "Luca",
+        "last_name": "Waldschmidt",
+        "position": "A",
+        "number": 19,
+        "country": "Germany"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 704,
+    "fields": {
+        "first_name": "Serge",
+        "last_name": "Gnabry",
+        "position": "A",
+        "number": 20,
+        "country": "Germany"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 705,
+    "fields": {
+        "first_name": "Robert",
+        "last_name": "Gumny",
+        "position": "D",
+        "number": 17,
+        "country": "Poland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 706,
+    "fields": {
+        "first_name": "Bartosz",
+        "last_name": "Bereszy\u0144ski",
+        "position": "D",
+        "number": 18,
+        "country": "Poland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 707,
+    "fields": {
+        "first_name": "Marcin",
+        "last_name": "Kami\u0144ski",
+        "position": "D",
+        "number": 19,
+        "country": "Poland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 708,
+    "fields": {
+        "first_name": "\u0141ukasz",
+        "last_name": "Piszczek",
+        "position": "D",
+        "number": 20,
+        "country": "Poland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 709,
+    "fields": {
+        "first_name": "Jacek",
+        "last_name": "G\u00f3ralski",
+        "position": "M",
+        "number": 6,
+        "country": "Poland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 710,
+    "fields": {
+        "first_name": "Piotr",
+        "last_name": "Zieli\u0144ski",
+        "position": "M",
+        "number": 7,
+        "country": "Poland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 711,
+    "fields": {
+        "first_name": "Dominik",
+        "last_name": "Furman",
+        "position": "M",
+        "number": 8,
+        "country": "Poland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 712,
+    "fields": {
+        "first_name": "Karol",
+        "last_name": "Linetty",
+        "position": "M",
+        "number": 8,
+        "country": "Poland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 713,
+    "fields": {
+        "first_name": "Grzegorz",
+        "last_name": "Krychowiak",
+        "position": "M",
+        "number": 10,
+        "country": "Poland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 714,
+    "fields": {
+        "first_name": "Kamil",
+        "last_name": "Grosicki",
+        "position": "M",
+        "number": 11,
+        "country": "Poland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 715,
+    "fields": {
+        "first_name": "Mateusz",
+        "last_name": "Klich",
+        "position": "M",
+        "number": 14,
+        "country": "Poland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 716,
+    "fields": {
+        "first_name": "Jakub",
+        "last_name": "B\u0142aszczykowski",
+        "position": "M",
+        "number": 16,
+        "country": "Poland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 717,
+    "fields": {
+        "first_name": "Kamil",
+        "last_name": "J\u00f3\u017awiak",
+        "position": "M",
+        "number": 18,
+        "country": "Poland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 718,
+    "fields": {
+        "first_name": "Sebastian",
+        "last_name": "Szyma\u0144ski",
+        "position": "M",
+        "number": 19,
+        "country": "Poland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 719,
+    "fields": {
+        "first_name": "Leonardo",
+        "last_name": "Spinazzola",
+        "position": "D",
+        "number": 7,
+        "country": "Italy"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 720,
+    "fields": {
+        "first_name": "Alessandro",
+        "last_name": "Florenzi",
+        "position": "D",
+        "number": 7,
+        "country": "Italy"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 721,
+    "fields": {
+        "first_name": "Damian",
+        "last_name": "Szyma\u0144ski",
+        "position": "M",
+        "number": 19,
+        "country": "Poland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 722,
+    "fields": {
+        "first_name": "Przemys\u0142aw",
+        "last_name": "Frankowski",
+        "position": "M",
+        "number": 21,
+        "country": "Poland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 723,
+    "fields": {
+        "first_name": "Arkadiusz",
+        "last_name": "Milik",
+        "position": "A",
+        "number": 7,
+        "country": "Poland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 724,
+    "fields": {
+        "first_name": "Robert",
+        "last_name": "Lewandowski",
+        "position": "A",
+        "number": 9,
+        "country": "Poland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 725,
+    "fields": {
+        "first_name": "Damian",
+        "last_name": "K\u0105dzior",
+        "position": "A",
+        "number": 17,
+        "country": "Poland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 726,
+    "fields": {
+        "first_name": "Dawid",
+        "last_name": "Kownacki",
+        "position": "A",
+        "number": 21,
+        "country": "Poland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 727,
+    "fields": {
+        "first_name": "Krzysztof",
+        "last_name": "Pi\u0105tek",
+        "position": "A",
+        "number": 23,
+        "country": "Poland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 728,
+    "fields": {
+        "first_name": "Luca",
+        "last_name": "Pellegrini",
+        "position": "D",
+        "number": 11,
+        "country": "Italy"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 729,
+    "fields": {
+        "first_name": "Alessio",
+        "last_name": "Romagnoli",
+        "position": "D",
+        "number": 13,
+        "country": "Italy"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 730,
+    "fields": {
+        "first_name": "Francesco",
+        "last_name": "Acerbi",
+        "position": "D",
+        "number": 15,
+        "country": "Italy"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 731,
+    "fields": {
+        "first_name": "Leonardo",
+        "last_name": "Bonucci",
+        "position": "D",
+        "number": 19,
+        "country": "Italy"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 732,
+    "fields": {
+        "first_name": "Gianluca",
+        "last_name": "Mancini",
+        "position": "D",
+        "number": 23,
+        "country": "Italy"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 733,
+    "fields": {
+        "first_name": "Bryan",
+        "last_name": "Cristante",
+        "position": "M",
+        "number": 4,
+        "country": "Italy"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 734,
+    "fields": {
+        "first_name": "Gaetano",
+        "last_name": "Castrovilli",
+        "position": "M",
+        "number": 4,
+        "country": "Italy"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 735,
+    "fields": {
+        "first_name": "Sandro",
+        "last_name": "Tonali",
+        "position": "M",
+        "number": 6,
+        "country": "Italy"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 736,
+    "fields": {
+        "first_name": "Marco",
+        "last_name": "Verratti",
+        "position": "M",
+        "number": 6,
+        "country": "Italy"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 737,
+    "fields": {
+        "first_name": "Lorenzo",
+        "last_name": "Pellegrini",
+        "position": "M",
+        "number": 7,
+        "country": "Italy"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 742,
+    "fields": {
+        "first_name": "Nicol\u00f2",
+        "last_name": "Zaniolo",
+        "position": "M",
+        "number": 11,
+        "country": "Italy"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 743,
+    "fields": {
+        "first_name": "Vincenzo",
+        "last_name": "Grifo",
+        "position": "M",
+        "number": 11,
+        "country": "Italy"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 744,
+    "fields": {
+        "first_name": "Stefano",
+        "last_name": "Sensi",
+        "position": "M",
+        "number": 12,
+        "country": "Italy"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 745,
+    "fields": {
+        "first_name": "Rolando",
+        "last_name": "Mandragora",
+        "position": "M",
+        "number": 16,
+        "country": "Italy"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 746,
+    "fields": {
+        "first_name": "Nicol\u00f2",
+        "last_name": "Barella",
+        "position": "M",
+        "number": 18,
+        "country": "Italy"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 747,
+    "fields": {
+        "first_name": "Federico",
+        "last_name": "Bernardeschi",
+        "position": "M",
+        "number": 20,
+        "country": "Italy"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 748,
+    "fields": {
+        "first_name": "Riccardo",
+        "last_name": "Orsolini",
+        "position": "M",
+        "number": 23,
+        "country": "Italy"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 751,
+    "fields": {
+        "first_name": "Andrea",
+        "last_name": "Belotti",
+        "position": "A",
+        "number": 9,
+        "country": "Italy"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 752,
+    "fields": {
+        "first_name": "Lorenzo",
+        "last_name": "Insigne",
+        "position": "A",
+        "number": 10,
+        "country": "Italy"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 753,
+    "fields": {
+        "first_name": "Moise",
+        "last_name": "Kean",
+        "position": "A",
+        "number": 11,
+        "country": "Italy"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 754,
+    "fields": {
+        "first_name": "Federico",
+        "last_name": "Chiesa",
+        "position": "A",
+        "number": 14,
+        "country": "Italy"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 755,
+    "fields": {
+        "first_name": "Kevin",
+        "last_name": "Lasagna",
+        "position": "A",
+        "number": 15,
+        "country": "Italy"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 756,
+    "fields": {
+        "first_name": "Ciro",
+        "last_name": "Immobile",
+        "position": "A",
+        "number": 17,
+        "country": "Italy"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 757,
+    "fields": {
+        "first_name": "Leonardo",
+        "last_name": "Pavoletti",
+        "position": "A",
+        "number": 17,
+        "country": "Italy"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 758,
+    "fields": {
+        "first_name": "Fabio",
+        "last_name": "Quagliarella",
+        "position": "A",
+        "number": 21,
+        "country": "Italy"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 759,
+    "fields": {
+        "first_name": "Stephan",
+        "last_name": "El Shaarawy",
+        "position": "A",
+        "number": 22,
+        "country": "Italy"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 760,
+    "fields": {
+        "first_name": "David",
+        "last_name": "de Gea",
+        "position": "G",
+        "number": 1,
+        "country": "Spain"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 765,
+    "fields": {
+        "first_name": "Dani",
+        "last_name": "Carvajal",
+        "position": "D",
+        "number": 2,
+        "country": "Spain"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 768,
+    "fields": {
+        "first_name": "Ra\u00fal",
+        "last_name": "Albiol",
+        "position": "D",
+        "number": 3,
+        "country": "Spain"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 769,
+    "fields": {
+        "first_name": "Mario",
+        "last_name": "Hermoso",
+        "position": "D",
+        "number": 4,
+        "country": "Spain"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 774,
+    "fields": {
+        "first_name": "Diego",
+        "last_name": "Llorente",
+        "position": "D",
+        "number": 12,
+        "country": "Spain"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 775,
+    "fields": {
+        "first_name": "Juan",
+        "last_name": "Bernat",
+        "position": "D",
+        "number": 14,
+        "country": "Spain"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 776,
+    "fields": {
+        "first_name": "Sergio",
+        "last_name": "Ramos",
+        "position": "D",
+        "number": 15,
+        "country": "Spain"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 777,
+    "fields": {
+        "first_name": "Sergio",
+        "last_name": "Reguil\u00f3n",
+        "position": "D",
+        "number": 18,
+        "country": "Spain"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 780,
+    "fields": {
+        "first_name": "Jos\u00e9",
+        "last_name": "Gay\u00e0",
+        "position": "D",
+        "number": 18,
+        "country": "Spain"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 785,
+    "fields": {
+        "first_name": "Dani",
+        "last_name": "Ceballos",
+        "position": "M",
+        "number": 6,
+        "country": "Spain"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 794,
+    "fields": {
+        "first_name": "Pablo",
+        "last_name": "Sarabia",
+        "position": "M",
+        "number": 11,
+        "country": "Spain"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 797,
+    "fields": {
+        "first_name": "Sergio",
+        "last_name": "Canales",
+        "position": "M",
+        "number": 11,
+        "country": "Spain"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 800,
+    "fields": {
+        "first_name": "Marco",
+        "last_name": "Asensio",
+        "position": "M",
+        "number": 11,
+        "country": "Spain"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 801,
+    "fields": {
+        "first_name": "Dani",
+        "last_name": "Olmo",
+        "position": "M",
+        "number": 12,
+        "country": "Spain"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 808,
+    "fields": {
+        "first_name": "Daniel",
+        "last_name": "Parejo",
+        "position": "M",
+        "number": 21,
+        "country": "Spain"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 809,
+    "fields": {
+        "first_name": "\u00c1lvaro",
+        "last_name": "Morata",
+        "position": "A",
+        "number": 7,
+        "country": "Spain"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 810,
+    "fields": {
+        "first_name": "Paco",
+        "last_name": "Alc\u00e1cer",
+        "position": "A",
+        "number": 9,
+        "country": "Spain"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 811,
+    "fields": {
+        "first_name": "Iago",
+        "last_name": "Aspas",
+        "position": "A",
+        "number": 17,
+        "country": "Spain"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 812,
+    "fields": {
+        "first_name": "Jaime",
+        "last_name": "Mata",
+        "position": "A",
+        "number": 17,
+        "country": "Spain"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 813,
+    "fields": {
+        "first_name": "Iker",
+        "last_name": "Muniain",
+        "position": "A",
+        "number": 19,
+        "country": "Spain"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 818,
+    "fields": {
+        "first_name": "Mikel",
+        "last_name": "Oyarzabal",
+        "position": "A",
+        "number": 21,
+        "country": "Spain"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 821,
+    "fields": {
+        "first_name": "Robin",
+        "last_name": "Olsen",
+        "position": "G",
+        "number": 1,
+        "country": "Sweden"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 822,
+    "fields": {
+        "first_name": "Karl-Johan",
+        "last_name": "Johnsson",
+        "position": "G",
+        "number": 12,
+        "country": "Sweden"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 823,
+    "fields": {
+        "first_name": "Kristoffer",
+        "last_name": "Nordfeldt",
+        "position": "G",
+        "number": 23,
+        "country": "Sweden"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 824,
+    "fields": {
+        "first_name": "Mikael",
+        "last_name": "Lustig",
+        "position": "D",
+        "number": 2,
+        "country": "Sweden"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 825,
+    "fields": {
+        "first_name": "Victor",
+        "last_name": "Lindel\u00f6f",
+        "position": "D",
+        "number": 3,
+        "country": "Sweden"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 826,
+    "fields": {
+        "first_name": "Aleksander",
+        "last_name": "Milosevic",
+        "position": "D",
+        "number": 4,
+        "country": "Sweden"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 827,
+    "fields": {
+        "first_name": "Per",
+        "last_name": "Karlsson",
+        "position": "D",
+        "number": 4,
+        "country": "Sweden"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 828,
+    "fields": {
+        "first_name": "Andreas",
+        "last_name": "Granqvist",
+        "position": "D",
+        "number": 4,
+        "country": "Sweden"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 829,
+    "fields": {
+        "first_name": "Pierre",
+        "last_name": "Bengtsson",
+        "position": "D",
+        "number": 5,
+        "country": "Sweden"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 830,
+    "fields": {
+        "first_name": "Niklas",
+        "last_name": "Hult",
+        "position": "D",
+        "number": 5,
+        "country": "Sweden"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 831,
+    "fields": {
+        "first_name": "Marcus",
+        "last_name": "Danielson",
+        "position": "D",
+        "number": 6,
+        "country": "Sweden"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 832,
+    "fields": {
+        "first_name": "Ludwig",
+        "last_name": "Augustinsson",
+        "position": "D",
+        "number": 6,
+        "country": "Sweden"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 833,
+    "fields": {
+        "first_name": "Filip",
+        "last_name": "Helander",
+        "position": "D",
+        "number": 14,
+        "country": "Sweden"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 834,
+    "fields": {
+        "first_name": "Anton",
+        "last_name": "Tinnerholm",
+        "position": "D",
+        "number": 14,
+        "country": "Sweden"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 835,
+    "fields": {
+        "first_name": "Emil",
+        "last_name": "Krafth",
+        "position": "D",
+        "number": 16,
+        "country": "Sweden"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 836,
+    "fields": {
+        "first_name": "Riccardo",
+        "last_name": "Gagliolo",
+        "position": "D",
+        "number": 17,
+        "country": "Sweden"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 837,
+    "fields": {
+        "first_name": "Pontus",
+        "last_name": "Jansson",
+        "position": "D",
+        "number": 18,
+        "country": "Sweden"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 838,
+    "fields": {
+        "first_name": "Sotirios",
+        "last_name": "Papagiannopoulos",
+        "position": "D",
+        "number": 18,
+        "country": "Sweden"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 841,
+    "fields": {
+        "first_name": "Jakob",
+        "last_name": "Johansson",
+        "position": "M",
+        "number": 6,
+        "country": "Sweden"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 842,
+    "fields": {
+        "first_name": "Alexander",
+        "last_name": "Fransson",
+        "position": "M",
+        "number": 6,
+        "country": "Sweden"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 843,
+    "fields": {
+        "first_name": "Sebastian",
+        "last_name": "Larsson",
+        "position": "M",
+        "number": 7,
+        "country": "Sweden"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 844,
+    "fields": {
+        "first_name": "Albin",
+        "last_name": "Ekdal",
+        "position": "M",
+        "number": 8,
+        "country": "Sweden"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 845,
+    "fields": {
+        "first_name": "Muamer",
+        "last_name": "Tankovic",
+        "position": "M",
+        "number": 8,
+        "country": "Sweden"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 846,
+    "fields": {
+        "first_name": "Dejan",
+        "last_name": "Kulusevski",
+        "position": "M",
+        "number": 13,
+        "country": "Sweden"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 847,
+    "fields": {
+        "first_name": "Gustav",
+        "last_name": "Svensson",
+        "position": "M",
+        "number": 13,
+        "country": "Sweden"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 848,
+    "fields": {
+        "first_name": "Mattias",
+        "last_name": "Svanberg",
+        "position": "M",
+        "number": 16,
+        "country": "Sweden"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 849,
+    "fields": {
+        "first_name": "Viktor",
+        "last_name": "Claesson",
+        "position": "M",
+        "number": 17,
+        "country": "Sweden"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 850,
+    "fields": {
+        "first_name": "Kristoffer",
+        "last_name": "Olsson",
+        "position": "M",
+        "number": 20,
+        "country": "Sweden"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 851,
+    "fields": {
+        "first_name": "Ken",
+        "last_name": "Sema",
+        "position": "M",
+        "number": 21,
+        "country": "Sweden"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 852,
+    "fields": {
+        "first_name": "Jimmy",
+        "last_name": "Durmaz",
+        "position": "M",
+        "number": 21,
+        "country": "Sweden"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 853,
+    "fields": {
+        "first_name": "Robin",
+        "last_name": "Quaison",
+        "position": "M",
+        "number": 22,
+        "country": "Sweden"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 854,
+    "fields": {
+        "first_name": "Marcus",
+        "last_name": "Berg",
+        "position": "A",
+        "number": 9,
+        "country": "Sweden"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 855,
+    "fields": {
+        "first_name": "Emil",
+        "last_name": "Forsberg",
+        "position": "A",
+        "number": 10,
+        "country": "Sweden"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 856,
+    "fields": {
+        "first_name": "John",
+        "last_name": "Guidetti",
+        "position": "A",
+        "number": 11,
+        "country": "Sweden"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 857,
+    "fields": {
+        "first_name": "Alexander",
+        "last_name": "Isak",
+        "position": "A",
+        "number": 15,
+        "country": "Sweden"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 858,
+    "fields": {
+        "first_name": "Sam",
+        "last_name": "Larsson",
+        "position": "A",
+        "number": 15,
+        "country": "Sweden"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 859,
+    "fields": {
+        "first_name": "Sebastian",
+        "last_name": "Andersson",
+        "position": "A",
+        "number": 19,
+        "country": "Sweden"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 860,
+    "fields": {
+        "first_name": "Yann",
+        "last_name": "Sommer",
+        "position": "G",
+        "number": 1,
+        "country": "Switzerland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 861,
+    "fields": {
+        "first_name": "Yvon",
+        "last_name": "Mvogo",
+        "position": "G",
+        "number": 12,
+        "country": "Switzerland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 862,
+    "fields": {
+        "first_name": "Jonas",
+        "last_name": "Omlin",
+        "position": "G",
+        "number": 21,
+        "country": "Switzerland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 863,
+    "fields": {
+        "first_name": "Stephan",
+        "last_name": "Lichtsteiner",
+        "position": "D",
+        "number": 2,
+        "country": "Switzerland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 864,
+    "fields": {
+        "first_name": "Jacques Fran\u00e7ois",
+        "last_name": "Moubandje",
+        "position": "D",
+        "number": 3,
+        "country": "Switzerland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 865,
+    "fields": {
+        "first_name": "Nico",
+        "last_name": "Elvedi",
+        "position": "D",
+        "number": 4,
+        "country": "Switzerland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 866,
+    "fields": {
+        "first_name": "Manuel",
+        "last_name": "Akanji",
+        "position": "D",
+        "number": 5,
+        "country": "Switzerland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 867,
+    "fields": {
+        "first_name": "Michael",
+        "last_name": "Lang",
+        "position": "D",
+        "number": 6,
+        "country": "Switzerland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 868,
+    "fields": {
+        "first_name": "Silvan",
+        "last_name": "Widmer",
+        "position": "D",
+        "number": 6,
+        "country": "Switzerland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 869,
+    "fields": {
+        "first_name": "Ricardo",
+        "last_name": "Rodr\u00edguez",
+        "position": "D",
+        "number": 13,
+        "country": "Switzerland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 870,
+    "fields": {
+        "first_name": "Eray",
+        "last_name": "C\u00f6mert",
+        "position": "D",
+        "number": 14,
+        "country": "Switzerland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 871,
+    "fields": {
+        "first_name": "Timm",
+        "last_name": "Klose",
+        "position": "D",
+        "number": 20,
+        "country": "Switzerland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 872,
+    "fields": {
+        "first_name": "Kevin",
+        "last_name": "Mbabu",
+        "position": "D",
+        "number": 22,
+        "country": "Switzerland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 873,
+    "fields": {
+        "first_name": "Fabian",
+        "last_name": "Sch\u00e4r",
+        "position": "D",
+        "number": 22,
+        "country": "Switzerland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 874,
+    "fields": {
+        "first_name": "Loris",
+        "last_name": "Benito",
+        "position": "D",
+        "number": 23,
+        "country": "Switzerland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 875,
+    "fields": {
+        "first_name": "Denys",
+        "last_name": "Boyko",
+        "position": "G",
+        "number": 1,
+        "country": "Ukraine"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 876,
+    "fields": {
+        "first_name": "Remo",
+        "last_name": "Freuler",
+        "position": "M",
+        "number": 8,
+        "country": "Switzerland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 877,
+    "fields": {
+        "first_name": "Michel",
+        "last_name": "Aebischer",
+        "position": "M",
+        "number": 8,
+        "country": "Switzerland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 878,
+    "fields": {
+        "first_name": "Granit",
+        "last_name": "Xhaka",
+        "position": "M",
+        "number": 10,
+        "country": "Switzerland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 879,
+    "fields": {
+        "first_name": "Renato",
+        "last_name": "Steffen",
+        "position": "M",
+        "number": 11,
+        "country": "Switzerland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 880,
+    "fields": {
+        "first_name": "Steven",
+        "last_name": "Zuber",
+        "position": "M",
+        "number": 14,
+        "country": "Switzerland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 881,
+    "fields": {
+        "first_name": "Djibril",
+        "last_name": "Sow",
+        "position": "M",
+        "number": 15,
+        "country": "Switzerland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 882,
+    "fields": {
+        "first_name": "Christian",
+        "last_name": "Fassnacht",
+        "position": "M",
+        "number": 16,
+        "country": "Switzerland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 883,
+    "fields": {
+        "first_name": "Denis",
+        "last_name": "Zakaria",
+        "position": "M",
+        "number": 17,
+        "country": "Switzerland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 884,
+    "fields": {
+        "first_name": "Ruben",
+        "last_name": "Vargas",
+        "position": "M",
+        "number": 18,
+        "country": "Switzerland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 885,
+    "fields": {
+        "first_name": "Edimilson",
+        "last_name": "Fernandes",
+        "position": "M",
+        "number": 20,
+        "country": "Switzerland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 886,
+    "fields": {
+        "first_name": "Breel",
+        "last_name": "Embolo",
+        "position": "A",
+        "number": 7,
+        "country": "Switzerland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 887,
+    "fields": {
+        "first_name": "Albian",
+        "last_name": "Ajeti",
+        "position": "A",
+        "number": 7,
+        "country": "Switzerland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 888,
+    "fields": {
+        "first_name": "Haris",
+        "last_name": "Seferovi\u0107",
+        "position": "A",
+        "number": 9,
+        "country": "Switzerland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 889,
+    "fields": {
+        "first_name": "Mario",
+        "last_name": "Gavranovi\u0107",
+        "position": "A",
+        "number": 16,
+        "country": "Switzerland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 890,
+    "fields": {
+        "first_name": "Yuriy",
+        "last_name": "Pankiv",
+        "position": "G",
+        "number": 1,
+        "country": "Ukraine"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 891,
+    "fields": {
+        "first_name": "Andriy",
+        "last_name": "Pyatov",
+        "position": "G",
+        "number": 12,
+        "country": "Ukraine"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 892,
+    "fields": {
+        "first_name": "Andriy",
+        "last_name": "Lunin",
+        "position": "G",
+        "number": 23,
+        "country": "Ukraine"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 895,
+    "fields": {
+        "first_name": "Eduard",
+        "last_name": "Sobol",
+        "position": "D",
+        "number": 2,
+        "country": "Ukraine"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 896,
+    "fields": {
+        "first_name": "Bogdan",
+        "last_name": "Butko",
+        "position": "D",
+        "number": 2,
+        "country": "Ukraine"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 897,
+    "fields": {
+        "first_name": "Igor",
+        "last_name": "Plastun",
+        "position": "D",
+        "number": 3,
+        "country": "Ukraine"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 898,
+    "fields": {
+        "first_name": "Serhiy",
+        "last_name": "Kryvtsov",
+        "position": "D",
+        "number": 4,
+        "country": "Ukraine"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 899,
+    "fields": {
+        "first_name": "Mykyta",
+        "last_name": "Burda",
+        "position": "D",
+        "number": 5,
+        "country": "Ukraine"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 900,
+    "fields": {
+        "first_name": "Artem",
+        "last_name": "Shabanov",
+        "position": "D",
+        "number": 6,
+        "country": "Ukraine"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 901,
+    "fields": {
+        "first_name": "Vitaliy",
+        "last_name": "Mykolenko",
+        "position": "D",
+        "number": 16,
+        "country": "Ukraine"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 902,
+    "fields": {
+        "first_name": "Oleksandr",
+        "last_name": "Zinchenko",
+        "position": "D",
+        "number": 17,
+        "country": "Ukraine"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 903,
+    "fields": {
+        "first_name": "Mykola",
+        "last_name": "Matviyenko",
+        "position": "D",
+        "number": 22,
+        "country": "Ukraine"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 906,
+    "fields": {
+        "first_name": "Serhiy",
+        "last_name": "Sydorchuk",
+        "position": "M",
+        "number": 5,
+        "country": "Ukraine"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 907,
+    "fields": {
+        "first_name": "Admir",
+        "last_name": "Mehmedi",
+        "position": "A",
+        "number": 18,
+        "country": "Switzerland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 908,
+    "fields": {
+        "first_name": "C\u00e9dric",
+        "last_name": "Itten",
+        "position": "A",
+        "number": 19,
+        "country": "Switzerland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 909,
+    "fields": {
+        "first_name": "Josip",
+        "last_name": "Drmic",
+        "position": "A",
+        "number": 19,
+        "country": "Switzerland"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 910,
+    "fields": {
+        "first_name": "Taras",
+        "last_name": "Stepanenko",
+        "position": "M",
+        "number": 6,
+        "country": "Ukraine"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 911,
+    "fields": {
+        "first_name": "Mykola",
+        "last_name": "Shaparenko",
+        "position": "M",
+        "number": 7,
+        "country": "Ukraine"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 912,
+    "fields": {
+        "first_name": "Ruslan",
+        "last_name": "Malinovskyi",
+        "position": "M",
+        "number": 8,
+        "country": "Ukraine"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 913,
+    "fields": {
+        "first_name": "Yevhen",
+        "last_name": "Konoplyanka",
+        "position": "M",
+        "number": 10,
+        "country": "Ukraine"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 916,
+    "fields": {
+        "first_name": "Volodymyr",
+        "last_name": "Shepeliev",
+        "position": "M",
+        "number": 13,
+        "country": "Ukraine"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 917,
+    "fields": {
+        "first_name": "Vitaliy",
+        "last_name": "Buyalskiy",
+        "position": "M",
+        "number": 14,
+        "country": "Ukraine"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 918,
+    "fields": {
+        "first_name": "Viktor",
+        "last_name": "Tsygankov",
+        "position": "M",
+        "number": 15,
+        "country": "Ukraine"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 919,
+    "fields": {
+        "first_name": "Yevhen",
+        "last_name": "Shakhov",
+        "position": "M",
+        "number": 17,
+        "country": "Ukraine"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 920,
+    "fields": {
+        "first_name": "Roman",
+        "last_name": "Bezus",
+        "position": "M",
+        "number": 18,
+        "country": "Ukraine"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 921,
+    "fields": {
+        "first_name": "Serhiy",
+        "last_name": "Bolbat",
+        "position": "M",
+        "number": 19,
+        "country": "Ukraine"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 922,
+    "fields": {
+        "first_name": "Viktor",
+        "last_name": "Kovalenko",
+        "position": "M",
+        "number": 20,
+        "country": "Ukraine"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 923,
+    "fields": {
+        "first_name": "Oleksandr",
+        "last_name": "Karavaev",
+        "position": "M",
+        "number": 21,
+        "country": "Ukraine"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 928,
+    "fields": {
+        "first_name": "Andriy",
+        "last_name": "Yarmolenko",
+        "position": "A",
+        "number": 7,
+        "country": "Ukraine"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 929,
+    "fields": {
+        "first_name": "Artem",
+        "last_name": "Kravets",
+        "position": "A",
+        "number": 9,
+        "country": "Ukraine"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 930,
+    "fields": {
+        "first_name": "Roman",
+        "last_name": "Yaremchuk",
+        "position": "A",
+        "number": 9,
+        "country": "Ukraine"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 931,
+    "fields": {
+        "first_name": "Artem",
+        "last_name": "Besedin",
+        "position": "A",
+        "number": 11,
+        "country": "Ukraine"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 948,
+    "fields": {
+        "first_name": "Mert",
+        "last_name": "M\u00fcld\u00fcr",
+        "position": "D",
+        "number": 4,
+        "country": "Turkey"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 949,
+    "fields": {
+        "first_name": "Mert",
+        "last_name": "\u00c7etin",
+        "position": "D",
+        "number": 5,
+        "country": "Turkey"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 956,
+    "fields": {
+        "first_name": "Merih",
+        "last_name": "Demiral",
+        "position": "D",
+        "number": 15,
+        "country": "Turkey"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 961,
+    "fields": {
+        "first_name": "Nazim",
+        "last_name": "Sangar\u00e9",
+        "position": "D",
+        "number": 21,
+        "country": "Turkey"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 962,
+    "fields": {
+        "first_name": "Wayne",
+        "last_name": "Hennessey",
+        "position": "G",
+        "number": 1,
+        "country": "Wales"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 987,
+    "fields": {
+        "first_name": "Ahmed",
+        "last_name": "Kutucu",
+        "position": "M",
+        "number": 14,
+        "country": "Turkey"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 990,
+    "fields": {
+        "first_name": "Danny",
+        "last_name": "Ward",
+        "position": "G",
+        "number": 12,
+        "country": "Wales"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 991,
+    "fields": {
+        "first_name": "Adam",
+        "last_name": "Davies",
+        "position": "G",
+        "number": 12,
+        "country": "Wales"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 992,
+    "fields": {
+        "first_name": "Tom",
+        "last_name": "King",
+        "position": "G",
+        "number": 21,
+        "country": "Wales"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 993,
+    "fields": {
+        "first_name": "Chris",
+        "last_name": "Gunter",
+        "position": "D",
+        "number": 2,
+        "country": "Wales"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 994,
+    "fields": {
+        "first_name": "Paul",
+        "last_name": "Dummett",
+        "position": "D",
+        "number": 3,
+        "country": "Wales"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 995,
+    "fields": {
+        "first_name": "James",
+        "last_name": "Lawrence",
+        "position": "D",
+        "number": 3,
+        "country": "Wales"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 996,
+    "fields": {
+        "first_name": "Neil",
+        "last_name": "Taylor",
+        "position": "D",
+        "number": 3,
+        "country": "Wales"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 997,
+    "fields": {
+        "first_name": "Regan",
+        "last_name": "Poole",
+        "position": "D",
+        "number": 3,
+        "country": "Wales"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 998,
+    "fields": {
+        "first_name": "Ben",
+        "last_name": "Davies",
+        "position": "D",
+        "number": 4,
+        "country": "Wales"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 999,
+    "fields": {
+        "first_name": "Chris",
+        "last_name": "Mepham",
+        "position": "D",
+        "number": 5,
+        "country": "Wales"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 1000,
+    "fields": {
+        "first_name": "Joe",
+        "last_name": "Rodon",
+        "position": "D",
+        "number": 5,
+        "country": "Wales"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 1001,
+    "fields": {
+        "first_name": "Ashley",
+        "last_name": "Williams",
+        "position": "D",
+        "number": 6,
+        "country": "Wales"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 1002,
+    "fields": {
+        "first_name": "Connor",
+        "last_name": "Roberts",
+        "position": "D",
+        "number": 14,
+        "country": "Wales"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 1003,
+    "fields": {
+        "first_name": "Ethan",
+        "last_name": "Ampadu",
+        "position": "D",
+        "number": 15,
+        "country": "Wales"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 1004,
+    "fields": {
+        "first_name": "Tom",
+        "last_name": "Lockyer",
+        "position": "D",
+        "number": 16,
+        "country": "Wales"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 1027,
+    "fields": {
+        "first_name": "Joe",
+        "last_name": "Allen",
+        "position": "M",
+        "number": 7,
+        "country": "Wales"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 1028,
+    "fields": {
+        "first_name": "Matthew",
+        "last_name": "Smith",
+        "position": "M",
+        "number": 8,
+        "country": "Wales"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 1029,
+    "fields": {
+        "first_name": "Aaron",
+        "last_name": "Ramsey",
+        "position": "M",
+        "number": 10,
+        "country": "Wales"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 1030,
+    "fields": {
+        "first_name": "Gareth",
+        "last_name": "Bale",
+        "position": "M",
+        "number": 11,
+        "country": "Wales"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 1031,
+    "fields": {
+        "first_name": "Declan",
+        "last_name": "John",
+        "position": "M",
+        "number": 13,
+        "country": "Wales"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 1032,
+    "fields": {
+        "first_name": "Lee",
+        "last_name": "Evans",
+        "position": "M",
+        "number": 16,
+        "country": "Wales"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 1033,
+    "fields": {
+        "first_name": "Dylan",
+        "last_name": "Levitt",
+        "position": "M",
+        "number": 17,
+        "country": "Wales"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 1034,
+    "fields": {
+        "first_name": "Jonny",
+        "last_name": "Williams",
+        "position": "M",
+        "number": 17,
+        "country": "Wales"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 1035,
+    "fields": {
+        "first_name": "Joe",
+        "last_name": "Morrell",
+        "position": "M",
+        "number": 18,
+        "country": "Wales"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 1036,
+    "fields": {
+        "first_name": "Tom",
+        "last_name": "Lawrence",
+        "position": "M",
+        "number": 19,
+        "country": "Wales"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 1037,
+    "fields": {
+        "first_name": "Jonathan",
+        "last_name": "Williams",
+        "position": "M",
+        "number": 19,
+        "country": "Wales"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 1038,
+    "fields": {
+        "first_name": "Daniel",
+        "last_name": "James",
+        "position": "M",
+        "number": 20,
+        "country": "Wales"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 1039,
+    "fields": {
+        "first_name": "Ben",
+        "last_name": "Woodburn",
+        "position": "M",
+        "number": 22,
+        "country": "Wales"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 1040,
+    "fields": {
+        "first_name": "George",
+        "last_name": "Thomas",
+        "position": "M",
+        "number": 23,
+        "country": "Wales"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 1041,
+    "fields": {
+        "first_name": "Will",
+        "last_name": "Vaulks",
+        "position": "M",
+        "number": 23,
+        "country": "Wales"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 1044,
+    "fields": {
+        "first_name": "Harry",
+        "last_name": "Wilson",
+        "position": "A",
+        "number": 8,
+        "country": "Wales"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 1045,
+    "fields": {
+        "first_name": "Sam",
+        "last_name": "Vokes",
+        "position": "A",
+        "number": 9,
+        "country": "Wales"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 1046,
+    "fields": {
+        "first_name": "Kieffer",
+        "last_name": "Moore",
+        "position": "A",
+        "number": 13,
+        "country": "Wales"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 1047,
+    "fields": {
+        "first_name": "David",
+        "last_name": "Brooks",
+        "position": "A",
+        "number": 16,
+        "country": "Wales"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 1048,
+    "fields": {
+        "first_name": "Ryan",
+        "last_name": "Hedges",
+        "position": "A",
+        "number": 19,
+        "country": "Wales"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 1049,
+    "fields": {
+        "first_name": "Tyler",
+        "last_name": "Roberts",
+        "position": "A",
+        "number": 19,
+        "country": "Wales"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 1050,
+    "fields": {
+        "first_name": "Rabbi",
+        "last_name": "Matondo",
+        "position": "A",
+        "number": 22,
+        "country": "Wales"
+    }
+},
+{
+    "model": "euro2020.player",
+    "pk": 1051,
+    "fields": {
+        "first_name": "Paul",
+        "last_name": "Gascoigne",
+        "position": "M",
+        "number": 23,
+        "country": "England"
+    }
+}
+]

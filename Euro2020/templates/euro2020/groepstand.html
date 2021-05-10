@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <h3 class="title is-3">Standings</h3>
+    <hr>
+    {% for group in groups %}
+        <h4 class="title is-4">Group: {{ group }}</h4>
+        <table class="table">
+            <tr>
+                <th></th>
+                <th>Country</th>
+                <th>GS</th>
+                <th>W</th>
+                <th>G</th>
+                <th>V</th>
+                <th>PT</th>
+                <th>DV</th>
+                <th>DT</th>
+                <th>DF</th>
+            </tr>
+            {% for country in groupdata %}
+                {% if group == country.country.group %}
+                    <tr>
+                        <td>{% with 'images/'|add:country.country.name|add:'.jpg' as image_static %}
+                            <img src="{% static image_static %}" width="30" height="20">
+                        {% endwith %}</td>
+                        <td>{{ country.country }}</td>
+                        <td>{{ country.GS }}</td>
+                        <td>{{ country.W }}</td>
+                        <td>{{ country.G }}</td>
+                        <td>{{ country.V }}</td>
+                        <td>{{ country.PT }}</td>
+                        <td>{{ country.DV }}</td>
+                        <td>{{ country.DT }}</td>
+                        <td>{{ country.DF }}</td>
+                        <td>{{ country.PO }}</td>
+                        <td>{{ country.POCOMMENT }}</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+    {% endfor %}
+{% endblock content %}

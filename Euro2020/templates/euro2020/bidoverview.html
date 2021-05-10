@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}BIDDING{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        <h3 class="title is-3" align="center">These Countries are open for bidding</h3>
+        <form method="post">
+            {% csrf_token %}
+            {% if groups %}
+                <table class="table" align="center">
+                    <tr>
+                        <th style="text-align:center">
+                            <a style="width:250px;align-self: center"
+                               href="{% url 'listallbids' %}"
+                               name="Bids">Review all your bids</a>
+                        </th>
+                    </tr>
+                    {% for group in groups %}
+                        <tr>
+                            <td style="text-align:center">
+                                <p class="control has-icons-left" style="width:150px">
+                                    <input style="width:250px; font-size: 20px;color: white; font-weight: bolder"
+                                           type="submit"
+                                           class="button is-primary"
+                                           name="Bids" value="Bids GROUP {{ group }}"/>
+                                    <span class="icon is-left">
+                                                        {% with 'images/'|add:group|add:'png.png' as image_static %}
+                                                            <img src="{% static image_static %}" width="35" height="30">
+                                                        {% endwith %}
+                                                    </span>
+                                </p>
+                            </td>
+                        </tr>
+                        {% for country in countries %}
+                            {% if country.openforbid %}
+                                {% if group == country.group %}
+                                    <tr>
+                                        <th style="text-align:center">
+                                             <span class="icon is-left">
+                                                        {% with 'images/'|add:country.name|add:'.jpg' as image_static %}
+                                                            <img src="{% static image_static %}" width="30" height="20">
+                                                        {% endwith %}
+                                                </span>
+                                            <a style="width:250px;align-self: center"
+                                               href="{% url 'bidspercountry' country.pk %}"
+                                               name="Bids">Bids {{ country }}</a>
+                                        </th>
+                                    </tr>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+                    <tr>
+                        <td style="text-align:center">
+                            <p class="control has-icons-left" style="width:150px">
+                                <input style="width:250px;font-size: 20px;color: white; font-weight: bolder"
+                                       type="submit" class="button is-primary"
+                                       name="Bids" value="ALL Bids"/>
+                                <span class="icon is-left">
+                                    <img src="{% static 'images/EU.png' %}" width="30" height="20">
+                                </span>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            {% endif %}
+        </form>
+    {% endif %}
+
+{% endblock %}
+{% block helptext %}
+{% endblock helptext %}

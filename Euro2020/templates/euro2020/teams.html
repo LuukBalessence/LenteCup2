@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}BIDDING{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        <form action="" method="post">{% csrf_token %}
+        <table class="table" align="center">
+            <tr>
+                <th>
+                    {{ leaguename }}
+                </th>
+            </tr>
+        <table class="table" align="center">
+            <tr>
+                <th style="background-color: #00d1b2;color: white">Team</th>
+                <th style="background-color: #00d1b2;color: white">TOT</th>
+                <th style="background-color: #00d1b2;color: white">GKE</th>
+                <th style="background-color: #00d1b2;color: white">DEF</th>
+                <th style="background-color: #00d1b2;color: white">MID</th>
+                <th style="background-color: #00d1b2;color: white">ATT</th>
+                <th style="background-color: #00d1b2;color: white">Budget</th>
+                <th style="background-color: #00d1b2;color: white">Paid</th>
+            </tr>
+            {% for team in leagueteams %}
+                <tr>
+                    <td>{{ team.name }}</td>
+                    <td>{{ team.betcoins }}</td>
+                    <td>{{ team.paid }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        </form>
+    {% endif %}
+{% endblock %}
+{% block helptext %}
+{% endblock helptext %}

@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}BIDDING{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        <table class="table" ALIGN="center">
+            {% if error %}
+                <tr>
+                    <th>
+                        <div class="notification is-danger" ALIGN="center">
+                            <button class="delete"></button>
+                            {{ error }}
+                        </div>
+                    </th>
+                </tr>
+            {% endif %}
+        </table>
+        <table class="table" ALIGN="center">
+            <tr>
+                <th>
+                    Player
+                </th>
+                <th>
+                    Pos.
+                </th>
+                <th>
+                    Country
+                </th>
+                <th>
+                    Bid
+                </th>
+            </tr>
+            {% for bid in bids %}
+                <tr>
+                    <td>
+                        {{ bid.player }}
+                    </td>
+                    <td>
+                        {{ bid.player.position }}
+                    </td>
+                    <td>
+                        <span class="icon is-left">
+                            {% with 'images/'|add:bid.player.country_id|add:'.jpg' as image_static %}
+                                <img src="{% static image_static %}" width="30" height="20">
+                            {% endwith %}
+                        </span>
+                        <a style="width:250px;align-self: center"
+                           href="{% url 'bidspercountry' bid.player.country.pk %}"
+                           name="Bids">{{ bid.player.country_id }}</a>
+
+                    </td>
+                    <td>
+                        {{ bid.playerbid }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+         <table class="table" ALIGN="center">
+            <tr>
+                <th style="text-align:center;width: 300px;">
+                    <div class="control has-icons-left" align="center" style="width:300px">
+                        <a href="{% url 'bidoverview' %}" style="width: 300px" class="button is-info is-hovered">No Save
+                            & back to Bidoverview</a>
+                        <span class="icon is-left">
+                                <i class="fas fa-arrow-left" style="font-size:20px;color:white"></i>
+                            </span>
+                    </div>
+                </th>
+            </tr>
+        </table>
+    {% endif %}
+{% endblock %}
+{% block helptext %}
+{% endblock helptext %}

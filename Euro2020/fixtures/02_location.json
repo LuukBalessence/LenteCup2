@@ -1,0 +1,98 @@
+[
+{
+    "model": "euro2020.location",
+    "pk": "Arena Nationala",
+    "fields": {
+        "city": "Bucharest",
+        "country": "RO"
+    }
+},
+{
+    "model": "euro2020.location",
+    "pk": "Baku Olympic Stadium",
+    "fields": {
+        "city": "Baku",
+        "country": "AZ"
+    }
+},
+{
+    "model": "euro2020.location",
+    "pk": "Dublin Arena",
+    "fields": {
+        "city": "Dublin",
+        "country": "IR"
+    }
+},
+{
+    "model": "euro2020.location",
+    "pk": "Football Arena",
+    "fields": {
+        "city": "Munich",
+        "country": "DE"
+    }
+},
+{
+    "model": "euro2020.location",
+    "pk": "Hampden Park",
+    "fields": {
+        "city": "Glasgow",
+        "country": "SC"
+    }
+},
+{
+    "model": "euro2020.location",
+    "pk": "Johan Cruijf Arena",
+    "fields": {
+        "city": "Amsterdam",
+        "country": "NL"
+    }
+},
+{
+    "model": "euro2020.location",
+    "pk": "Parken Stadium",
+    "fields": {
+        "city": "Copenhagen",
+        "country": "DK"
+    }
+},
+{
+    "model": "euro2020.location",
+    "pk": "Puskas Arena",
+    "fields": {
+        "city": "Budapest",
+        "country": "HU"
+    }
+},
+{
+    "model": "euro2020.location",
+    "pk": "Saint Petersburg Stadium",
+    "fields": {
+        "city": "Saint Petersburg",
+        "country": "RU"
+    }
+},
+{
+    "model": "euro2020.location",
+    "pk": "San Mames Stadium",
+    "fields": {
+        "city": "Bilbao",
+        "country": "ES"
+    }
+},
+{
+    "model": "euro2020.location",
+    "pk": "Stadio Olympico",
+    "fields": {
+        "city": "Rome",
+        "country": "IT"
+    }
+},
+{
+    "model": "euro2020.location",
+    "pk": "Wembley Stadium",
+    "fields": {
+        "city": "London",
+        "country": "UK"
+    }
+}
+]

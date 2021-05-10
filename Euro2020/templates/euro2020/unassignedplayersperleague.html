@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}UNASSSIGNED PLAYERS PER LEAGUE{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        {% if error %}
+            {{ error }}
+        {% else %}
+            <table class="table" align="center">
+                <tr>
+                    <th style="background-color: #00d1b2;color: white">league: {{ league }}</th>
+                </tr>
+            </table>
+            <table class="table" align="center">
+                <tr>
+                    <th style="background-color: #00d1b2;color: white">Player</th>
+                    <th style="background-color: #00d1b2;color: white">Country</th>
+                    <th style="background-color: #00d1b2;color: white">Pos.</th>
+                </tr>
+                {% for player in players %}
+                    <tr>
+                        <td>{{ player.first_name }} {{ player.last_name }}</td>
+                        <td>{{ player.country }}</td>
+                        <td>{{ player.position }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% endif %}
+    {% endif %}
+{% endblock %}
+{% block helptext %}
+    1. Give yourself a beautiful name<br>
+    i.e. first name, alias or nickname<br>
+
+{% endblock helptext %}

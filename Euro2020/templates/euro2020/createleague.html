@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}CREATE LEAGUE{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        <table class="table" ALIGN="center">
+            <form action="" method="post">{% csrf_token %}
+                <tr>
+                    <th>
+                        {% if error %}
+                            <div class="notification is-danger" ALIGN="center">
+                                <button class="delete"></button>
+                                {% if error == "leagueexists" %}
+                                    This leaguename already exists. Please Pick another one.
+                                {% else %}
+                                    Unknown error.
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <div class="field">
+                            <p class="control has-icons-left">
+                                <input class="input is-primary" id="id_leaguename" name="leaguename"
+                                       placeholder="Please enter a league name.." type="text" required/>
+                                <span class="icon is-left">
+                                    <i class="fas fa-users" style="font-size:20px;color:black"></i>
+                                </span>
+                            </p>
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th style="text-align:center">
+                        <input style="width:250px" type="submit" class="button is-primary" value="Create League"/>
+                    </th>
+                </tr>
+            </form>
+        </table>
+    {% endif %}
+{% endblock %}

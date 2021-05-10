@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}MY TEAM{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        {% if team %}
+            <table class="table" ALIGN="center">
+                <tr>
+                    <td>General info</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="field">
+                            <p class="control has-icons-left">
+                                <input class="input is-primary" id="id_team"
+                                       name="team"
+                                       placeholder="Please enter team name..." type="text" value="{{ team }}"
+                                       style="width: 300px" disabled/>
+                                <span class="icon is-left is-small">
+                                    <i class="fas fa-users" style="font-size:20px;color:black"></i>
+                                </span>
+                            </p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Bid info</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="field">
+                            <p class="control has-icons-left">
+                                <input class="input is-primary" id="id_team"
+                                       name="team"
+                                       placeholder="Enter max budget this bid round..." type="number" min="0" max="2000"
+                                       value="{{ bidbudget }}"
+                                       style="width: 300px" {{ disabled }}/>
+                                <span class="icon is-left is-small">
+                                    <i class="fas fa-coins" style="font-size:20px;color:black"></i>
+                                </span>
+                            </p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="field">
+                            <p class="control has-icons-left">
+                                <input class="input is-primary" id="id_gke"
+                                       name="gke"
+                                       placeholder="Enter max goalkeepers..." type="number" min="0" max="3"
+                                       value="{{ maxbidgke }}"
+                                       style="width: 300px" {{ disabled }}/>
+                                <span class="icon is-left">
+                                    <img src="{% static 'images/gke.png' %}" width="30" height="20">
+                                </span>
+                            </p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="field">
+                            <p class="control has-icons-left">
+                                <input class="input is-primary" id="id_def"
+                                       name="def"
+                                       placeholder="Enter max defenders..." type="number" min="0" max="8"
+                                       value="{{ maxbiddef }}"
+                                       style="width: 300px" {{ disabled }}/>
+                                <span class="icon is-left">
+                                    <img src="{% static 'images/def.png' %}" width="30" height="20">
+                                </span>
+                            </p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="field">
+                            <p class="control has-icons-left">
+                                <input class="input is-primary" id="id_mid"
+                                       name="mid"
+                                       placeholder="Enter max midfielders..." type="number" min="0" max="8"
+                                       value="{{ maxbidmid }}"
+                                       style="width: 300px" {{ disabled }}/>
+                                <span class="icon is-left">
+                                    <img src="{% static 'images/mid.png' %}" width="30" height="20">
+                                </span>
+                            </p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="field">
+                            <p class="control has-icons-left">
+                                <input class="input is-primary" id="id_att"
+                                       name="att"
+                                       placeholder="Enter max attackers..." type="number" min="0" max="5"
+                                       value="{{ maxbidatt }}"
+                                       style="width: 300px" {{ disabled }}/>
+                                <span class="icon is-left">
+                                    <img src="{% static 'images/att.png' %}" width="30" height="20">
+                                </span>
+                            </p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tactics</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="control has-icons-left">
+                            <div class="select is-primary">
+                                <select style="width: 300px">
+                                    <option selected>Normal</option>
+                                    <option>Offensive</option>
+                                </select>
+                                <span class="icon is-left is-small">
+                                    <i class="far fa-lightbulb" style="font-size:20px;color:black"></i>
+                                </span>
+
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Line up and management</td>
+                </tr>
+            </table>
+        {% else %}
+            <table class="table" ALIGN="center">
+                <tr>
+                    <td>
+                        <input type="submit" class="button is-primary" value="Make Team Name here"/></a>
+                    </td>
+                </tr>
+            </table>
+        {% endif %}
+    {% endif %}
+{% endblock %}
+{% block helptext %}
+    1. Give yourself a beautiful name<br>
+    i.e. first name, alias or nickname<br>
+
+{% endblock helptext %}

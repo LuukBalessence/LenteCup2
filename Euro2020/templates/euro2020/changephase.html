@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block title %}CHANGE LEAGUE PHASE{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        <form method="post">
+            {% csrf_token %}
+        {% if league %}
+            <table class="table" ALIGN="center">
+                <tr>
+                    <th>
+                        <label for="id_league">Leaguename</label>
+                    </th>
+                    <td>
+                        <div class="field">
+                            <p class="control has-icons-left">
+                                <input class="input is-primary" id="id_league"
+                                       name="league"
+                                       type="text" value="{{ league }}"
+                                       style="width: 300px" disabled/>
+                                <span class="icon is-left is-small">
+                                    <i class="fas fa-users" style="font-size:20px;color:black"></i>
+                                </span>
+                            </p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <label for="id_currentphase">Current phase</label>
+                    </th>
+                    <td>
+                        <div class="field">
+                            <p class="control has-icons-left">
+                                <input class="input is-primary" id="id_currentphase"
+                                       name="currentphase"
+                                       type="text" value="{{ currentphase }}"
+                                       style="width: 300px" disabled/>
+                                <span class="icon is-left is-small">
+                                    <i class="fas fa-history" style="font-size:20px;color:black"></i>
+                                </span>
+                            </p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th align="center">
+                        <label for="id_nextphase">Next phase</label>
+                    </th>
+                    <td>
+                        <div class="field">
+                            <p class="control has-icons-left">
+                                <input class="input is-primary" id="id_nextphase"
+                                       name="nextphase"
+                                       type="text" value="{{ nextphase }}"
+                                       style="width: 300px" disabled/>
+                                <span class="icon is-left is-small">
+                                    <i class="fas fa-history" style="font-size:20px;color:black"></i>
+                                </span>
+                            </p>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <table class="table" ALIGN="center">
+                <tr>
+                    <td align="center">
+                        <input type="submit" class="button is-primary" name="check" value="Change phase check"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <input type="submit" class="button is-primary" name="change" value="Go to next phase"/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        {% endif %}
+    {% endif %}
+{% endblock %}

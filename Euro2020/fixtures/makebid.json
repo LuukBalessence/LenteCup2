@@ -1,0 +1,92 @@
+[
+{
+    "model": "euro2020.Bids",
+    "pk": 1,
+    "fields": {
+        "team": 6,
+        "player": 751,
+        "playerbid": 50
+    }
+},
+{
+    "model": "euro2020.Bids",
+    "pk": 2,
+    "fields": {
+        "team": 8,
+        "player": 753,
+        "playerbid": 202
+    }
+},
+{
+    "model": "euro2020.Bids",
+    "pk": 3,
+    "fields": {
+        "team": 8,
+        "player": 63,
+        "playerbid": 1998
+    }
+},
+{
+    "model": "euro2020.Bids",
+    "pk": 4,
+    "fields": {
+        "team": 9,
+        "player": 557,
+        "playerbid": 120
+    }
+},
+{
+    "model": "euro2020.Bids",
+    "pk": 5,
+    "fields": {
+        "team": 9,
+        "player": 170,
+        "playerbid": 502
+    }
+},
+{
+    "model": "euro2020.Bids",
+    "pk": 6,
+    "fields": {
+        "team": 10,
+        "player": 580,
+        "playerbid": 1
+    }
+},
+{
+    "model": "euro2020.Bids",
+    "pk": 7,
+    "fields": {
+        "team": 10,
+        "player": 658,
+        "playerbid": 1001
+    }
+},
+{
+    "model": "euro2020.Bids",
+    "pk": 8,
+    "fields": {
+        "team": 10,
+        "player": 208,
+        "playerbid": 1002
+    }
+},
+{
+    "model": "euro2020.Bids",
+    "pk": 9,
+    "fields": {
+        "team": 10,
+        "player": 756,
+        "playerbid": 80
+    }
+},
+{
+    "model": "euro2020.Bids",
+    "pk": 10,
+    "fields": {
+        "team": 8,
+        "player": 751,
+        "playerbid": 20
+    }
+}
+]

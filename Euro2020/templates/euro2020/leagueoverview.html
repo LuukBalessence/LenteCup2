@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}AUCTIONOVERVIEW{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        {% if error %}
+            <table class="table" align="center">
+                <tr>
+                    <th>{{ error }}</th>
+                </tr>
+            </table>
+        {% endif %}
+        {% if leagues %}
+            <table class="table" align="center">
+                {% for league in leagues %}
+                    <tr>
+                        <th style="text-align:center">
+                                <a href="{% url 'leaguemanager' league.pk %}" class="button is-primary">{{ league }}</a>
+                        </th>
+                        <th style="text-align:center">
+                            {{ league.gamephase }}
+                        </th>
+                    </tr>
+                {% endfor %}
+            </table>
+            <table class="table" ALIGN="center">
+                <tr>
+                    <td align="center">
+                        <a href="{% url 'createleague' %}" class="button is-primary">Create new League</a>
+                    </td>
+                </tr>
+            </table>
+        {% endif %}
+    {% endif %}
+{% endblock %}
