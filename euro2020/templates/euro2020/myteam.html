@@ -1,12 +1,35 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}TEAMGEGEVENS{% endblock %}
+{% block title %}JOUW TEAMGEGEVENS{% endblock %}
 {% block content %}
     {% if user.is_authenticated %}
         {% if team %}
             <table class="table" ALIGN="center">
+                {% if not betcoinbalance %}
+                    <tr>
+                        <th>
+                            <div class="notification is-danger is-small" ALIGN="center">
+                                <button class="delete"></button>
+                                We hebben nog geen betaling ontvangen.
+                            </div>
+
+                        </th>
+                    </tr>
+                {% endif %}
+                {% if not league %}
+                    <tr>
+                        <th>
+                            <div class="notification is-info" ALIGN="center">
+                                <button class="delete"></button>
+                                Je dient nog een league te kiezen.
+                            </div>
+                        </th>
+                    </tr>
+                {% endif %}
+            </table>
+            <table class="table" ALIGN="center">
                 <tr>
-                    <td>General info</td>
+                    <td align="center" style="font-weight: bold">Algemeen</td>
                 </tr>
                 <tr>
                     <td>
@@ -24,7 +47,58 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Bid info</td>
+                    <th>
+                        <div class="field has-addons">
+                            <div class="control has-icons-left">
+                                <input class="input is-primary" style="width: 200px; color: black" value="{{ league }}"
+                                       type="text"
+                                       name="leaguename"
+                                       id="leaguename"
+                                       placeholder="Kies hier een league" disabled>
+                                <span class="icon is-left">
+                                    <i class="fas fa-list-ol" style="font-size:20px;color:black"></i>
+                                </span>
+                            </div>
+                            <div class="control">
+                                <a class="button is-primary" style="width: 100px" href={% url 'pickleague' %}>
+                                    Kies League
+                                </a>
+                            </div>
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <div class="control has-icons-left">
+                            <input class="input is-primary" style="width: 300px; color: black" value="{{ leaguephase }}"
+                                   type="text"
+                                   name="currentphase"
+                                   id="currentphase"
+                                   placeholder="League fase onbekend" disabled/>
+                            <span class="icon is-left">
+                                <i class="fas fa-history" style="font-size:20px;color:black"></i>
+                            </span>
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <div class="control has-icons-left">
+                            <input class="input is-primary" style="width: 300px; color: black"
+                                   value="{{ betcoinbalance }}"
+                                   type="text"
+                                   name="betcoinbalance" id="betcoinbalance"
+                                   placeholder="Betcoin" disabled/>
+                            <span class="icon is-left">
+                                <i class="fas fa-coins" style="font-size:20px;color:black"></i>
+                            </span>
+                        </div>
+                    </th>
+                </tr>
+                </div>
+
+                <tr>
+                    <td align="center" style="font-weight: bold">Bid info</td>
                 </tr>
                 <tr>
                     <td>
@@ -107,7 +181,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Tactics</td>
+                    <td align="center" style="font-weight: bold">Tactiek</td>
                 </tr>
                 <tr>
                     <td>

@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}CHANGE TEAM NAME{% endblock %}
+{% block title %}TEAMNAAM AANPASSEN{% endblock %}
 {% block content %}
     {% if user.is_authenticated %}
         <table class="table" ALIGN="center">
@@ -10,9 +10,9 @@
                             <div class="notification is-danger" ALIGN="center">
                                 <button class="delete"></button>
                                 {% if error == "teamexists" %}
-                                    This teamname already exists. Please Pick another one.
+                                    Deze teamnaam bestaat al. Verzin een andere
                                 {% else  %}
-                                    Unknown error.
+                                    Onbekende fout.
                                 {% endif %}
                             </div>
                         {% endif %}
@@ -23,7 +23,7 @@
                         <div class="field">
                             <p class="control has-icons-left">
                                 <input class="input is-primary" id="id_teamname" name="teamname"
-                                       placeholder="Until 1st auction name can be changed" type="text" required/>
+                                       placeholder="Voer hier je teamnaam in" type="text" required/>
                                 <span class="icon is-left">
                                 <i class="fas fa-user" style="font-size:20px;color:black"></i>
                         </span>
@@ -34,7 +34,7 @@
                 </tr>
                 <tr>
                     <th style="text-align:center">
-                        <input style="width:250px" type="submit" class="button is-primary" value="Change team name"/>
+                        <input style="width:250px" type="submit" class="button is-primary" value="Verander teamnaam"/>
                     </th>
                 </tr>
             </form>

@@ -2,6 +2,60 @@
 {% block title %}MY ACCOUNT{% endblock %}
 {% block content %}
     {% if user.is_authenticated %}
+
+            <tr>
+                <th>
+                    <div class="field has-addons">
+                        <div class="control has-icons-left">
+                            <input class="input is-primary" style="color: black" value="{{ league }}" type="text"
+                                   name="leaguename"
+                                   id="leaguename"
+                                   placeholder="leaguename not yet known" disabled>
+                            <span class="icon is-left">
+                                <i class="fas fa-list-ol" style="font-size:20px;color:black"></i>
+                            </span>
+                            </div>
+                            <div class="control" style="width: 100px">
+                                <a class="button is-primary" href={% url 'pickleague' %}>
+                                    Pick
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </th>
+            </tr>
+            <div class="field">
+                <tr>
+                    <th>
+                        <p class="control has-icons-left">
+                            <input class="input is-primary" style="color: black" value="{{ leaguephase }}" type="text"
+                                   name="currentphase"
+                                   id="currentphase"
+                                   placeholder="phase will be set" disabled>
+                            <span class="icon is-left">
+                        <i class="fas fa-history" style="font-size:20px;color:black"></i>
+                    </span>
+                        </p>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <p class="control has-icons-left">
+                            <input class="input is-primary" style="color: black" value="{{ betcoinbalance }}"
+                                   type="text"
+                                   name="betcoinbalance" id="betcoinbalance"
+                                   placeholder="Betcoin Balance" disabled>
+                            <span class="icon is-left">
+                        <i class="fas fa-coins" style="font-size:20px;color:black"></i>
+                    </span>
+                        </p>
+                    </th>
+                </tr>
+            </div>
+        </table>
+        <h3 ALIGN="center" class="title is-h3">NOT LOGGED IN YET.</h3>
+    {% else %}
+        <h3 ALIGN="center" class="title is-h3">PLEASE GO TO LOGIN PAGE</h3>
         <table class="table" ALIGN="center">
             {% if not betcoinbalance %}
                 <tr>
@@ -41,134 +95,10 @@
                             <button class="delete"></button>
                             A leaguename will be assigned to you.
                         </div>
-
                     </th>
                 </tr>
             {% endif %}
         </table>
-        <table class="table" ALIGN="center">
-            <div class="field">
-                <tr>
-                    <th>
-                        <p class="control has-icons-left">
-                            <input class="input is-primary" style="color: black"
-                                   value="{{ manager }}" disabled>
-                            <span class="icon is-left">
-                                <i class="fas fa-envelope" style="font-size:20px;color:black"></i>
-                            </span>
-                        </p>
-                    </th>
-                </tr>
-            </div>
-            <tr>
-                <th>
-                    <div class="field has-addons">
-                        <div class="control has-icons-left">
-                            <input class="input is-primary" style="color: black"
-                                   value="{{ firstname }}" placeholder="Add your firstname or alias" disabled>
-                            <span class="icon is-left">
-                                <i class="fas fa-user" style="font-size:20px;color:black"></i>
-                            </span>
-                        </div>
-                        <div class="control">
-                            <a class="button is-primary" href={% url 'changefirstname' %}>
-                                Change
-                            </a>
-                        </div>
-                    </div>
-                </th>
-            </tr>
-            <tr>
-                <th>
-                    <div class="field has-addons">
-                        <div class="control has-icons-left">
-                            <input class="input is-primary" style="color: black"
-                                   value="{{ teamdata }}" placeholder="Add your teamname" disabled>
-                            <span class="icon is-left">
-                                <i class="fas fa-users" style="font-size:20px;color:black"></i>
-                            </span>
-                        </div>
-                        <div class="control">
-                            <a class="button is-primary" href={% url 'changeteamname' %}>
-                                Change
-                            </a>
-                        </div>
-                    </div>
-                </th>
-            </tr>
-            <tr>
-                <th>
-                    <div class="field has-addons">
-                        <div class="control has-icons-left">
-                            <input class="input is-primary" style="color: black;" type="password" name="password"
-                                   id="inputPassword"
-                                   placeholder="************" disabled>
-                            <span class="icon is-left">
-                            <i class="fas fa-lock" style="font-size:20px;color:black"></i>
-                        </span>
-                        </div>
-                        <div class="control">
-                            <a class="button is-primary" href={% url 'change_password' %}>
-                                Change
-                            </a>
-                        </div>
-                    </div>
-                </th>
-            </tr>
-
-            <tr>
-                <th>
-                    <div class="field has-addons">
-                        <div class="control has-icons-left">
-                            <input class="input is-primary" style="color: black" value="{{ league }}" type="text"
-                                   name="leaguename"
-                                   id="leaguename"
-                                   placeholder="leaguename not yet known" disabled>
-                            <span class="icon is-left">
-                                <i class="fas fa-list-ol" style="font-size:20px;color:black"></i>
-                            </span>
-                            </div>
-                            <div class="control">
-                                <a class="button is-primary" href={% url 'pickleague' %}>
-                                    Pick
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </th>
-            </tr>
-            <div class="field">
-                <tr>
-                    <th>
-                        <p class="control has-icons-left">
-                            <input class="input is-primary" style="color: black" value="{{ leaguephase }}" type="text"
-                                   name="currentphase"
-                                   id="currentphase"
-                                   placeholder="phase will be set" disabled>
-                            <span class="icon is-left">
-                        <i class="fas fa-history" style="font-size:20px;color:black"></i>
-                    </span>
-                        </p>
-                    </th>
-                </tr>
-                <tr>
-                    <th>
-                        <p class="control has-icons-left">
-                            <input class="input is-primary" style="color: black" value="{{ betcoinbalance }}"
-                                   type="text"
-                                   name="betcoinbalance" id="betcoinbalance"
-                                   placeholder="Betcoin Balance" disabled>
-                            <span class="icon is-left">
-                        <i class="fas fa-coins" style="font-size:20px;color:black"></i>
-                    </span>
-                        </p>
-                    </th>
-                </tr>
-            </div>
-        </table>
-    {% else %}
-        <h3 ALIGN="center" class="title is-h3">NOT LOGGED IN YET.</h3>
-        <h3 ALIGN="center" class="title is-h3">PLEASE GO TO LOGIN PAGE</h3>
 
         <table class="table" ALIGN="center">
             <tr>

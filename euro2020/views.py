@@ -126,7 +126,7 @@ def changeteamname(request):
                 else:
                     Team.objects.create(name=teamname, owner=currentuser)
 
-                return redirect(to="myaccount")
+                return redirect(to="myteam")
         else:
             return render(request, "euro2020/changeteamname.html", context={'form': ChangeTeamNameForm, "error": error})
 
@@ -137,9 +137,33 @@ def changeteamname(request):
 def myteam(request):
     manager = request.user
     try:
+        teamdata = Team.objects.get(owner=manager)
+    except:
+        teamdata = ""
+    try:
+        league = teamdata.league
+        if league == None:
+            league = ""
+    except:
+        league = ""
+
+    try:
+        leaguephase = league.gamephase
+    except:
+        leaguephase = ""
+
+    betcoinbalance = ""
+    try:
+        if teamdata.paid:
+            betcoinbalance = teamdata.betcoins
+    except:
+        betcoinbalance = ""
+
+    try:
         team = Team.objects.get(owner=manager)
         return render(request, template_name="euro2020/myteam.html",
-                      context={"team": team, "tactics": team, "lineup": team})
+                      context={"team": team, "tactics": team, "lineup": team, "league": league, "leaguephase": leaguephase,
+                               "betcoinbalance": betcoinbalance})
     except ObjectDoesNotExist:
         return redirect(to="changeteamname")
 
@@ -174,47 +198,24 @@ def pickleague(request):
                                   context={"leagues": leagues, "availableleagues": availableleagues, "error": error})
             team.league = League.objects.get(leaguename=leaguename)
             team.save()
-            return redirect(myaccount)
+            return redirect(myteam)
 
     return render(request, template_name="euro2020/pickleague.html",
                   context={"form": form, "leagues": leagues, "availableleagues": availableleagues, "error": error})
 
 
-def myaccount(request):
+def listallbids(request):
     manager = request.user
-
     try:
-        firstname = request.user.first_name
-    except:
-        firstname = ""
+        currentteam = Team.objects.get(owner=manager)
+    except ObjectDoesNotExist:
+        error = "Please create a team first. Go to the Change Team page located in My Account"
+        return render(request, 'euro2020/listallbids.html',
+                      context={'countries': "", 'bids': "", 'error': error})
 
-    try:
-        teamdata = Team.objects.get(owner=manager)
-    except:
-        teamdata = ""
-
-    try:
-        league = teamdata.league
-    except:
-        league = ""
-
-    try:
-        leaguephase = league.gamephase
-    except:
-        leaguephase = ""
-
-    betcoinbalance = ""
-    try:
-        if teamdata.paid:
-            betcoinbalance = teamdata.betcoins
-    except:
-        betcoinbalance = ""
-
-    return render(
-        request=request,
-        template_name="euro2020/myaccount.html",
-        context={"manager": manager, "teamdata": teamdata, "firstname": firstname, "league": league,
-                 "leaguephase": leaguephase, "betcoinbalance": betcoinbalance})
+    allteambids = Bids.objects.filter(team=currentteam).order_by('playerbid').reverse()
+    return render(request, 'euro2020/listallbids.html',
+                  context={'countries': Country.objects.all(), 'bids': allteambids, 'error': ""})
 
 
 def groepstand(request):
@@ -248,20 +249,6 @@ def groepstand(request):
         template_name="euro2020/groepstand.html",
         context={"groupdata": standings, "groups": Country.Group.labels}
     )
-
-
-def listallbids(request):
-    manager = request.user
-    try:
-        currentteam = Team.objects.get(owner=manager)
-    except ObjectDoesNotExist:
-        error = "Please create a team first. Go to the Change Team page located in My Account"
-        return render(request, 'euro2020/listallbids.html',
-                      context={'countries': "", 'bids': "", 'error': error})
-
-    allteambids = Bids.objects.filter(team=currentteam).order_by('playerbid').reverse()
-    return render(request, 'euro2020/listallbids.html',
-                  context={'countries': Country.objects.all(), 'bids': allteambids, 'error': ""})
 
 
 def bidoverview(request):

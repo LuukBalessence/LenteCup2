@@ -8,7 +8,6 @@ urlpatterns = [
     path("standenbeheer", views.standenbeheer, name="standenbeheer"),
     path("euro2020", views.euro2020, name="euro2020"),
     path("match/<int:pk>/add_goal", views.add_goal, name="add-goal"),
-    path("myaccount", views.myaccount, name="myaccount"),
     path("changeteamname", views.changeteamname, name="changeteamname"),
     path("changefirstname", views.changefirstname, name="changefirstname"),
     path("pickleague", views.pickleague, name="pickleague"),

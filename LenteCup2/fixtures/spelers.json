@@ -1,0 +1,24 @@
+[
+{
+    "model": "LenteCup2.speler",
+    "pk": 3,
+    "fields": {
+        "rank": 1800,
+        "first_name": "Lukas",
+        "last_name": "Smeets",
+        "land": "nederland",
+        "position": 5
+    }
+},
+{
+    "model": "LenteCup2.speler",
+    "pk": 5,
+    "fields": {
+        "rank": 4,
+        "first_name": "Astro",
+        "last_name": "Smeets",
+        "land": "nederland",
+        "position": null
+    }
+}
+]
