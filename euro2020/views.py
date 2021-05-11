@@ -135,6 +135,7 @@ def changeteamname(request):
 
 
 def myteam(request):
+    bidauction = False
     manager = request.user
     try:
         teamdata = Team.objects.get(owner=manager)
@@ -149,6 +150,8 @@ def myteam(request):
 
     try:
         leaguephase = league.gamephase
+        if leaguephase.allowbidding or leaguephase.allowauction:
+            bidauction = True
     except:
         leaguephase = ""
 
@@ -163,7 +166,7 @@ def myteam(request):
         team = Team.objects.get(owner=manager)
         return render(request, template_name="euro2020/myteam.html",
                       context={"team": team, "tactics": team, "lineup": team, "league": league, "leaguephase": leaguephase,
-                               "betcoinbalance": betcoinbalance})
+                               "betcoinbalance": betcoinbalance, "bidauction": bidauction})
     except ObjectDoesNotExist:
         return redirect(to="changeteamname")
 
@@ -353,7 +356,7 @@ def auction(request, league, gamephase):
     # TODO Hoe bepaal je in welk team een speler zit na de groepsfase?
     # TODO Volgens mij mag er niet ontslagen worden tijdens biedingen en veiling van de groepsfase? Check
     # TODO hoeveel geld beschikbaar en hoeveel uitkeren na elke ronde?
-    # TODO Check op minimaal 1000 paidia uitgegeven
+    # TODO Check op minimaal 1000 betcoins uitgegeven
     # TODO simuleerfunctie voor ontslaan spelers
 
     error = ""

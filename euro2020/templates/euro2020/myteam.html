@@ -96,100 +96,103 @@
                     </th>
                 </tr>
                 </div>
-
-                <tr>
-                    <td align="center" style="font-weight: bold">Bid info</td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="field">
-                            <p class="control has-icons-left">
-                                <input class="input is-primary" id="id_team"
-                                       name="team"
-                                       placeholder="Enter max budget this bid round..." type="number" min="0" max="2000"
-                                       value="{{ bidbudget }}"
-                                       style="width: 300px" {{ disabled }}/>
-                                <span class="icon is-left is-small">
+                {% if bidauction %}
+                    <tr>
+                        <td align="center" style="font-weight: bold">Jouw instellingen deze biedronde</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="field">
+                                <p class="control has-icons-left">
+                                    <input class="input is-primary" id="id_team"
+                                           name="team"
+                                           placeholder="Maximaal uit te geven betcoins..." type="number" min="0"
+                                           max="2000"
+                                           value="{{ bidbudget }}"
+                                           style="width: 300px" disabled/>
+                                    <span class="icon is-left is-small">
                                     <i class="fas fa-coins" style="font-size:20px;color:black"></i>
                                 </span>
-                            </p>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="field">
-                            <p class="control has-icons-left">
-                                <input class="input is-primary" id="id_gke"
-                                       name="gke"
-                                       placeholder="Enter max goalkeepers..." type="number" min="0" max="3"
-                                       value="{{ maxbidgke }}"
-                                       style="width: 300px" {{ disabled }}/>
-                                <span class="icon is-left">
+                                </p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="field">
+                                <p class="control has-icons-left">
+                                    <input class="input is-primary" id="id_gke"
+                                           name="gke"
+                                           placeholder="Maximaal te kopen keepers..." type="number" min="0" max="3"
+                                           value="{{ maxbidgke }}"
+                                           style="width: 300px" disabled/>
+                                    <span class="icon is-left">
                                     <img src="{% static 'images/gke.png' %}" width="30" height="20">
                                 </span>
-                            </p>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="field">
-                            <p class="control has-icons-left">
-                                <input class="input is-primary" id="id_def"
-                                       name="def"
-                                       placeholder="Enter max defenders..." type="number" min="0" max="8"
-                                       value="{{ maxbiddef }}"
-                                       style="width: 300px" {{ disabled }}/>
-                                <span class="icon is-left">
+                                </p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="field">
+                                <p class="control has-icons-left">
+                                    <input class="input is-primary" id="id_def"
+                                           name="def"
+                                           placeholder="Maximaal te kopen verdedigers..." type="number" min="0" max="8"
+                                           value="{{ maxbiddef }}"
+                                           style="width: 300px" disabled/>
+                                    <span class="icon is-left">
                                     <img src="{% static 'images/def.png' %}" width="30" height="20">
                                 </span>
-                            </p>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="field">
-                            <p class="control has-icons-left">
-                                <input class="input is-primary" id="id_mid"
-                                       name="mid"
-                                       placeholder="Enter max midfielders..." type="number" min="0" max="8"
-                                       value="{{ maxbidmid }}"
-                                       style="width: 300px" {{ disabled }}/>
-                                <span class="icon is-left">
+                                </p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="field">
+                                <p class="control has-icons-left">
+                                    <input class="input is-primary" id="id_mid"
+                                           name="mid"
+                                           placeholder="Maximaal te kopen middenvelders..." type="number" min="0"
+                                           max="8"
+                                           value="{{ maxbidmid }}"
+                                           style="width: 300px" disabled/>
+                                    <span class="icon is-left">
                                     <img src="{% static 'images/mid.png' %}" width="30" height="20">
                                 </span>
-                            </p>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="field">
-                            <p class="control has-icons-left">
-                                <input class="input is-primary" id="id_att"
-                                       name="att"
-                                       placeholder="Enter max attackers..." type="number" min="0" max="5"
-                                       value="{{ maxbidatt }}"
-                                       style="width: 300px" {{ disabled }}/>
-                                <span class="icon is-left">
+                                </p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="field">
+                                <p class="control has-icons-left">
+                                    <input class="input is-primary" id="id_att"
+                                           name="att"
+                                           placeholder="Maximaal te kopen aanvallers..." type="number" min="0" max="5"
+                                           value="{{ maxbidatt }}"
+                                           style="width: 300px" disabled/>
+                                    <span class="icon is-left">
                                     <img src="{% static 'images/att.png' %}" width="30" height="20">
                                 </span>
-                            </p>
-                        </div>
-                    </td>
-                </tr>
+                                </p>
+                            </div>
+                        </td>
+                    </tr>
+                {% endif %}
                 <tr>
-                    <td align="center" style="font-weight: bold">Tactiek</td>
+                    <td align="center" style="font-weight: bold">Kies je Tactiek</td>
                 </tr>
                 <tr>
                     <td>
                         <div class="control has-icons-left">
                             <div class="select is-primary">
                                 <select style="width: 300px">
-                                    <option selected>Normal</option>
-                                    <option>Offensive</option>
+                                    <option selected>Normaal</option>
+                                    <option>Offensief (geen minpt, 25% meer aanvalpt</option>
                                 </select>
                                 <span class="icon is-left is-small">
                                     <i class="far fa-lightbulb" style="font-size:20px;color:black"></i>
@@ -200,7 +203,210 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Line up and management</td>
+                    <td align="center" style="font-weight: bold">Geef je opstelling</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="control has-icons-left">
+                            <div class="select is-primary">
+                                <select style="width: 300px">
+                                    <option>Selecteer een keeper</option>
+                                    <option>Keeper 1</option>
+                                    <option>Keeper 2</option>
+                                </select>
+                                <span class="icon is-left">
+                                    <img src="{% static 'images/gke.png' %}" width="30" height="20">
+                                </span>
+
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="control has-icons-left">
+                            <div class="select is-primary">
+                                <select style="width: 300px">
+                                    <option>Selecteer een verdediger</option>
+                                    <option>Verdediger 1</option>
+                                    <option>Verdediger 2</option>
+                                    <option>Verdediger 3</option>
+                                    <option>Verdediger 4</option>
+                                </select>
+                                <span class="icon is-left">
+                                    <img src="{% static 'images/def.png' %}" width="30" height="20">
+                                </span>
+
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="control has-icons-left">
+                            <div class="select is-primary">
+                                <select style="width: 300px">
+                                    <option>Selecteer een verdediger</option>
+                                    <option>Verdediger 1</option>
+                                    <option>Verdediger 2</option>
+                                    <option>Verdediger 3</option>
+                                    <option>Verdediger 4</option>
+                                </select>
+                                <span class="icon is-left">
+                                    <img src="{% static 'images/def.png' %}" width="30" height="20">
+                                </span>
+
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="control has-icons-left">
+                            <div class="select is-primary">
+                                <select style="width: 300px">
+                                    <option>Selecteer een verdediger</option>
+                                    <option>Verdediger 1</option>
+                                    <option>Verdediger 2</option>
+                                    <option>Verdediger 3</option>
+                                    <option>Verdediger 4</option>
+                                </select>
+                                <span class="icon is-left">
+                                    <img src="{% static 'images/def.png' %}" width="30" height="20">
+                                </span>
+
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="control has-icons-left">
+                            <div class="select is-primary">
+                                <select style="width: 300px">
+                                    <option>Selecteer een verdediger</option>
+                                    <option>Verdediger 1</option>
+                                    <option>Verdediger 2</option>
+                                    <option>Verdediger 3</option>
+                                    <option>Verdediger 4</option>
+                                </select>
+                                <span class="icon is-left">
+                                    <img src="{% static 'images/def.png' %}" width="30" height="20">
+                                </span>
+
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="control has-icons-left">
+                            <div class="select is-primary">
+                                <select style="width: 300px">
+                                    <option>Selecteer een middenvelder</option>
+                                    <option>Middenvelder 1</option>
+                                    <option>Middenvelder 2</option>
+                                    <option>Middenvelder 3</option>
+                                    <option>Middenvelder 4</option>
+                                </select>
+                                <span class="icon is-left">
+                                    <img src="{% static 'images/mid.png' %}" width="30" height="20">
+                                </span>
+
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="control has-icons-left">
+                            <div class="select is-primary">
+                                <select style="width: 300px">
+                                    <option>Selecteer een middenvelder</option>
+                                    <option>Middenvelder 1</option>
+                                    <option>Middenvelder 2</option>
+                                    <option>Middenvelder 3</option>
+                                    <option>Middenvelder 4</option>
+                                </select>
+                                <span class="icon is-left">
+                                    <img src="{% static 'images/mid.png' %}" width="30" height="20">
+                                </span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="control has-icons-left">
+                            <div class="select is-primary">
+                                <select style="width: 300px">
+                                    <option>Selecteer een middenvelder</option>
+                                    <option>Middenvelder 1</option>
+                                    <option>Middenvelder 2</option>
+                                    <option>Middenvelder 3</option>
+                                    <option>Middenvelder 4</option>
+                                </select>
+                                <span class="icon is-left">
+                                    <img src="{% static 'images/mid.png' %}" width="30" height="20">
+                                </span>
+
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="control has-icons-left">
+                            <div class="select is-primary">
+                                <select style="width: 300px">
+                                    <option>Selecteer een middenvelder</option>
+                                    <option>Middenvelder 1</option>
+                                    <option>Middenvelder 2</option>
+                                    <option>Middenvelder 3</option>
+                                    <option>Middenvelder 4</option>
+                                </select>
+                                <span class="icon is-left">
+                                    <img src="{% static 'images/mid.png' %}" width="30" height="20">
+                                </span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            <tr>
+                    <td>
+                        <div class="control has-icons-left">
+                            <div class="select is-primary">
+                                <select style="width: 300px">
+                                    <option>Selecteer een aanvaller</option>
+                                    <option>Aanvaller 1</option>
+                                    <option>Aanvaller 2</option>
+                                    <option>Aanvaller 3</option>
+                                    <option>Aanvaller 4</option>
+                                </select>
+                                <span class="icon is-left">
+                                    <img src="{% static 'images/att.png' %}" width="30" height="20">
+                                </span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            <tr>
+                    <td>
+                        <div class="control has-icons-left">
+                            <div class="select is-primary">
+                                <select style="width: 300px">
+                                    <option>Selecteer een aanvaller</option>
+                                    <option>Aanvaller 1</option>
+                                    <option>Aanvaller 2</option>
+                                    <option>Aanvaller 3</option>
+                                    <option>Aanvaller 4</option>
+                                </select>
+                                <span class="icon is-left">
+                                    <img src="{% static 'images/att.png' %}" width="30" height="20">
+                                </span>
+                            </div>
+                        </div>
+                    </td>
                 </tr>
             </table>
         {% else %}
