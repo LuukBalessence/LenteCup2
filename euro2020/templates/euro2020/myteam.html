@@ -5,17 +5,6 @@
     {% if user.is_authenticated %}
         {% if team %}
             <table class="table" ALIGN="center">
-                {% if not betcoinbalance %}
-                    <tr>
-                        <th>
-                            <div class="notification is-danger is-small" ALIGN="center">
-                                <button class="delete"></button>
-                                We hebben nog geen betaling ontvangen.
-                            </div>
-
-                        </th>
-                    </tr>
-                {% endif %}
                 {% if not league %}
                     <tr>
                         <th>
@@ -25,6 +14,18 @@
                             </div>
                         </th>
                     </tr>
+                {% else %}
+                    {% if not betcoinbalance %}
+                        <tr>
+                            <th>
+                                <div class="notification is-danger is-small" ALIGN="center">
+                                    <button class="delete"></button>
+                                    We hebben nog geen betaling van je ontvangen. Maak het inschrijfgeld a {{ leaguefee }} EUR
+                                    over naar rek.nr {{ bnumber }} t.n.v. {{ bname }} o.v.v. je teamnaam en naam
+                                </div>
+                            </th>
+                        </tr>
+                    {% endif %}
                 {% endif %}
             </table>
             <table class="table" ALIGN="center">
@@ -203,7 +204,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td align="center" style="font-weight: bold">Geef je opstelling</td>
+                    <td align="center" style="font-weight: bold">Je opstelling</td>
                 </tr>
                 <tr>
                     <td>
@@ -372,7 +373,7 @@
                         </div>
                     </td>
                 </tr>
-            <tr>
+                <tr>
                     <td>
                         <div class="control has-icons-left">
                             <div class="select is-primary">
@@ -390,7 +391,7 @@
                         </div>
                     </td>
                 </tr>
-            <tr>
+                <tr>
                     <td>
                         <div class="control has-icons-left">
                             <div class="select is-primary">

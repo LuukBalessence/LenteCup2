@@ -1,5 +1,7 @@
 from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, get_list_or_404, get_object_or_404, redirect
+
+from LenteCup2.models import GameSettings
 from euro2020 import models
 from euro2020.models import Bids, Player, League, GamePhase
 from .bid_functions import createbidlist, validbid, assignfinalbid, savebid, remove_sameplayer_bids, \
@@ -77,7 +79,12 @@ def add_goal(request, pk: int):
 
 
 def euro2020(request):
-    return render(request, template_name="euro2020/euro2020.html")
+    hoofdmelding1 = GameSettings.objects.get(gamesettings='hoofdmelding1').gamesettingsvalue
+    hoofdmelding2 = GameSettings.objects.get(gamesettings='hoofdmelding2').gamesettingsvalue
+    hoofdmelding3 = GameSettings.objects.get(gamesettings='hoofdmelding3').gamesettingsvalue
+    hoofdmelding4 = GameSettings.objects.get(gamesettings='hoofdmelding4').gamesettingsvalue
+    return render(request, template_name="euro2020/euro2020.html", context={"hoofdmelding1": hoofdmelding1,
+                                            "hoofdmelding2": hoofdmelding2,"hoofdmelding3": hoofdmelding3,"hoofdmelding4": hoofdmelding4})
 
 
 def changefirstname(request):
@@ -137,6 +144,9 @@ def changeteamname(request):
 def myteam(request):
     bidauction = False
     manager = request.user
+    bnumber = GameSettings.objects.get(gamesettings='bnumber').gamesettingsvalue
+    bname = GameSettings.objects.get(gamesettings='bname').gamesettingsvalue
+    leaguefee = "Onbekend"
     try:
         teamdata = Team.objects.get(owner=manager)
     except:
@@ -145,6 +155,9 @@ def myteam(request):
         league = teamdata.league
         if league == None:
             league = ""
+        else:
+            leaguefee = league.leaguefee
+
     except:
         league = ""
 
@@ -166,7 +179,8 @@ def myteam(request):
         team = Team.objects.get(owner=manager)
         return render(request, template_name="euro2020/myteam.html",
                       context={"team": team, "tactics": team, "lineup": team, "league": league, "leaguephase": leaguephase,
-                               "betcoinbalance": betcoinbalance, "bidauction": bidauction})
+                               "betcoinbalance": betcoinbalance, "bidauction": bidauction, "bnumber": bnumber, "bname": bname
+                               , "leaguefee": leaguefee})
     except ObjectDoesNotExist:
         return redirect(to="changeteamname")
 
@@ -185,7 +199,10 @@ def pickleague(request):
         if form.is_valid():
             namedata = form.cleaned_data
             leaguename = namedata.get('leaguename')
-            secretnumber = namedata.get('secretnumber')
+            if leaguename == "Kies een league":
+                error = "You dient een league te kiezen of terug te gaan naar het hoofdmenu"
+                return render(request, template_name="euro2020/pickleague.html",
+                              context={"leagues": leagues, "availableleagues": availableleagues, "error": error})
             manager = request.user
             try:
                 team = Team.objects.get(owner=manager)
@@ -193,12 +210,6 @@ def pickleague(request):
                 error = "You do not have a team name yet. Please go to the My Account menu"
                 return render(request, template_name="euro2020/pickleague.html",
                               context={"leagues": leagues, "availableleagues": availableleagues, "error": error})
-            selectedleague = League.objects.get(leaguename=leaguename)
-            if selectedleague.is_private:
-                if not selectedleague.secretnumber == secretnumber:
-                    error = "This is a private league. You must specify a secret number or a correct secret number"
-                    return render(request, template_name="euro2020/pickleague.html",
-                                  context={"leagues": leagues, "availableleagues": availableleagues, "error": error})
             team.league = League.objects.get(leaguename=leaguename)
             team.save()
             return redirect(myteam)
@@ -255,14 +266,36 @@ def groepstand(request):
 
 
 def bidoverview(request):
+    manager = request.user
+    error = ""
+    try:
+        currentteam = Team.objects.get(owner=manager)
+    except ObjectDoesNotExist:
+        error = "Je dient eerst een teamnaam aan te maken onder Jouw teamgegevens"
+
+    # Als de huidige gebruiker een team heeft dienen we te controleren of deze toegewezen is aan een league
+    try:
+        currentleague = currentteam.league
+    except:
+        error = "Je hebt nog geen league gekozen. Ga naar Jouw Teamgegevens"
+    # We dienen te controleren of we in een spelfase zitten waarin we mogen bieden, anders een melding
+    currentleaguegamephase = League.objects.get(leaguename=currentleague).gamephase
+
+    if not GamePhase.objects.get(gamephase=currentleaguegamephase).allowbidding:
+        error = "Je league is (nog) niet in een fase die biedingen toelaat"
+
     return render(request, 'euro2020/bidoverview.html',
-                  context={'countries': Country.objects.all(), 'groups': Country.Group.labels}, )
+                  context={'countries': Country.objects.all(), 'groups': Country.Group.labels, "error": error})
 
 
 def bids(request, country_name):
     # TODO Test Tab function on Iphone
     BidFormSet = formset_factory(BidsForm)
     formset = BidFormSet(initial=[])
+    country = Country.objects.get(name=country_name)
+    countries = Country.objects.all()
+    countrybidopen = country.openforbid
+
     # Wat is de naam van de huidige manager en heeft hij al een team?
     manager = request.user
     try:
@@ -292,7 +325,7 @@ def bids(request, country_name):
     # Deze lijst bestaat uit de reeds gedane beidingen aangevuld met lege biedingen voor de spelers
     # waarop nog niet is geboden
     initialbids = createbidlist(currentteam, country_name)
-    countries = Country.objects.all()
+
 
     # Bij versturen formulier controleren we of deze valide is.
     if request.method == 'POST':
@@ -340,7 +373,7 @@ def bids(request, country_name):
         formset = BidFormSet(initial=initialbids)
 
     return render(request, 'euro2020/bids.html',
-                  context={'formset': formset, 'countries': countries, 'countryname': country_name})
+                  context={'formset': formset, 'countries': countries, 'countryname': country_name, 'countrybidopen': countrybidopen})
 
 
 def auction(request, league, gamephase):
@@ -593,3 +626,13 @@ def createleague(request):
             pass
 
     return render(request, "euro2020/createleague.html", context={"form": CreateLeagueForm, "error": error})
+
+
+def regels(request):
+    return render(request, "euro2020/regels.html")
+
+def programma(request):
+    return render(request, "euro2020/programma.html")
+
+
+

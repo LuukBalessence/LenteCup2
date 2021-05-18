@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    <table class="table" ALIGN="center">
+        <tr>
+            <th style="text-align:center">
+                Speluitleg en Regels
+            </th>
+        </tr>
+        <tr>
+            <th style="text-align:center">
+                <i class="fas fa-futbol"></i>
+                <i class="fas fa-futbol"></i>
+                <i class="fas fa-futbol"></i>
+            </th>
+        </tr>
+    </table>
+{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        <table class="table" ALIGN="center">
+            <tr>
+                <th style="text-align:center">
+                    <a href={% static 'pdf/Regels_uitleg_Oxel_EURO_2020.pdf' %} target="_blank"><input style="width:250px" type="submit" class="button is-primary"
+                                             value="Speluitleg en Regels"/></a>
+                </th>
+            </tr>
+            <tr>
+                <th style="text-align:center">
+                    <a href=programma><input style="width:250px" type="submit" class="button is-primary"
+                                                       value="Programma"/></a>
+                </th>
+            </tr>
+            <tr>
+                <th style="text-align:center">
+                    <a href=euro2020><input style="width:250px" type="submit" class="button is-primary"
+                                                       value="Terug naar EURO2020"/></a>
+                </th>
+            </tr>
+        </table>
+    {% else %}
+        <h3 ALIGN="center" class="title is-h3">NOT LOGGED IN YET.</h3>
+        <h3 ALIGN="center" class="title is-h3">PLEASE GO TO LOGIN PAGE</h3>
+
+        <table class="table" ALIGN="center">
+            <tr>
+                <th style="text-align:center">
+                    <a href=/accounts/login/><input style="width:250px" type="submit" class="button is-primary"
+                                                    value="Ga naar Login"/></a>
+                </th>
+            </tr>
+        </table>
+    {% endif %}
+{% endblock %}
+{% block helptext %}
+    1. ACCOUNT: See your profile<br>
+        Change names or password<br>
+    2. TEAM: See your current team<br>
+    3. GO TO AUCTION: See bidding and auction results<br>
+    4. LEAGUE See the results and Fixtures <br>
+        of your league<br>
+    5. RULES: See the rules of the game<br>
+        and important dates<br>
+    6. REAL FIXTURES<br>
+        See the scores of the Real Tournament<br>
+{% endblock helptext%}
+
+

@@ -8,8 +8,8 @@ from .models import Goal, Match, Team
 
 @admin.register(models.Country)
 class CountryAdmin(admin.ModelAdmin):
-    list_display = ("name", "group", "order", "openforbid")
-    list_editable = ("openforbid", "openforbid")
+    list_display = ("name", "nlname", "group", "order", "openforbid")
+    list_editable = ("openforbid", "openforbid", "nlname")
 
 
 @admin.register(models.GamePhase)

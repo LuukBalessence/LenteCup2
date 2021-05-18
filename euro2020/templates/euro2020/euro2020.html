@@ -23,6 +23,46 @@
 {% block content %}
     {% if user.is_authenticated %}
         <table class="table" ALIGN="center">
+            {% if hoofdmelding1 %}
+                <tr>
+                    <th>
+                        <div class="notification is-info" ALIGN="center">
+                            <button class="delete"></button>
+                            {{ hoofdmelding1 }}
+                        </div>
+                    </th>
+                </tr>
+            {% endif %}
+        {% if hoofdmelding2 %}
+                <tr>
+                    <th>
+                        <div class="notification is-info" ALIGN="center">
+                            <button class="delete"></button>
+                            {{ hoofdmelding2 }}
+                        </div>
+                    </th>
+                </tr>
+            {% endif %}
+        {% if hoofdmelding3 %}
+                <tr>
+                    <th>
+                        <div class="notification is-info" ALIGN="center">
+                            <button class="delete"></button>
+                            {{ hoofdmelding3 }}
+                        </div>
+                    </th>
+                </tr>
+            {% endif %}
+        {% if hoofdmelding4 %}
+                <tr>
+                    <th>
+                        <div class="notification is-info" ALIGN="center">
+                            <button class="delete"></button>
+                            {{ hoofdmelding4 }}
+                        </div>
+                    </th>
+                </tr>
+            {% endif %}
             <tr>
                 <th style="text-align:center">
                     <a href=/euro2020/myteam><input style="width:250px" type="submit" class="button is-primary"
@@ -51,14 +91,14 @@
             </tr>
             <tr>
                 <th style="text-align:center">
-                    <a href=/euro2020/test><input style="width:250px" type="submit" class="button is-primary"
-                                                      value="Programma en Regels"/></a>
+                    <a href=/euro2020/regels><input style="width:250px" type="submit" class="button is-primary"
+                                                      value="Uitleg en Regels"/></a>
                 </th>
             </tr>
             <tr>
                 <th style="text-align:center">
                     <a href=../accounts/logout/><input style="width:250px" type="submit" class="button is-primary"
-                                                       value="UEFA EURO2020 Fixtures & Results"/></a>
+                                                       value="Uitloggen"/></a>
                 </th>
             </tr>
         </table>
@@ -76,17 +116,5 @@
         </table>
     {% endif %}
 {% endblock %}
-{% block helptext %}
-    1. ACCOUNT: See your profile<br>
-        Change names or password<br>
-    2. TEAM: See your current team<br>
-    3. GO TO AUCTION: See bidding and auction results<br>
-    4. LEAGUE See the results and Fixtures <br>
-        of your league<br>
-    5. RULES: See the rules of the game<br>
-        and important dates<br>
-    6. REAL FIXTURES<br>
-        See the scores of the Real Tournament<br>
-{% endblock helptext%}
 
 

@@ -28,4 +28,6 @@ urlpatterns = [
     path("setupbids/<int:league>", views.setupbids, name="setupleaguebids"),
     path("deleteleaguedata/<int:league>", views.deleteleaguedata, name="deleteleaguedata"),
     path("createleague", views.createleague, name="createleague"),
+    path("regels", views.regels, name="regels"),
+    path("programma", views.programma, name="programma"),
 ]

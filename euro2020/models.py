@@ -49,6 +49,7 @@ class Country(models.Model):
 
     name = models.CharField(verbose_name=_("Name"), max_length=30, primary_key=True)
     shortname = models.CharField(verbose_name=_("Ctry"), max_length=3, default="NUL")
+    nlname = models.CharField(verbose_name=_("NL naam"), max_length=30, default="")
     order = models.PositiveSmallIntegerField(
         verbose_name=_("Order"), validators=[MinValueValidator(1), MaxValueValidator(5)]
     )
@@ -275,6 +276,7 @@ class Bids(models.Model):
     gamephase = models.ForeignKey(GamePhase, null=True, on_delete=models.CASCADE)
     assigned = models.BooleanField(null=True)
     bidcomment = models.CharField(verbose_name=_("Bid Comment"), max_length=200, default="Bid Created", null=True)
+    previousteam = models.ForeignKey(Team, on_delete=models.CASCADE, related_name="bidsprevious", null=True, default=None)
 
     class Meta:
         verbose_name = _("Bid")

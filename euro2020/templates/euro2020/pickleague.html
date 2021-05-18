@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Choose your LEAGUE{% endblock %}
+{% block title %}KIES JE LEAGUE{% endblock %}
 {% block content %}
     {% if user.is_authenticated %}
         <table class="table" ALIGN="center">
@@ -21,7 +21,7 @@
                             <div class="select is-primary">
                                 <select name="leaguename" class="input is-primary" style="width: 300px; text-align:right"
                                         id="id_leaguename">
-                                    <option selected>Pick a league</option>
+                                    <option selected>Kies een league</option>
                                     {% for eachleague in availableleagues %}
                                         {% for league in leagues %}
                                             {% if eachleague == league %}
@@ -38,15 +38,8 @@
                     </th>
                 </tr>
                 <tr>
-                    <th>
-                        <input type="number" name="secretnumber" class="input is-primary"
-                               style="width: 300px; text-align:right" placeholder="0" min="10000" max="99999"
-                               id="id_secretnumber">
-                    </th>
-                </tr>
-                <tr>
                     <th style="text-align:center">
-                        <input style="width:250px" type="submit" class="button is-primary" value="Pick League"/>
+                        <input style="width:250px" type="submit" class="button is-primary" value="Kies League"/>
                     </th>
                 </tr>
             </form>
