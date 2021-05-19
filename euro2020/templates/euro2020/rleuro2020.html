@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}Real Life EURO2020{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        {% if error %}
+            <table class="table" align="center">
+                <tr>
+                    <th>{{ error }}</th>
+                </tr>
+            </table>
+        {% endif %}
+        <table class="table" align="center">
+            <tr>
+                <th style="text-align:center;width: 300px">
+                    <a href="/euro2020/groepstand"><input style="width:250px" type="submit" class="button is-primary"
+                                                                          value="Stand Echte EURO 2020"/></a>
+                </th>
+            </tr>
+            <tr>
+                <th style="text-align:center;width: 300px">
+                    <a href="/euro2020/groeprlmatches"><input style="width:250px" type="submit" class="button is-primary"
+                                                                          value="Groepsfase EURO 2020"/></a>
+                </th>
+            </tr>
+            <tr>
+                <th style="text-align:center;width: 300px">
+                    <a href="/euro2020/groepstand"><input style="width:250px" type="submit" class="button is-primary"
+                                                                          value="KO-fase EURO 2020"/></a>
+                </th>
+            </tr>
+
+        </table>
+    {% endif %}
+{% endblock %}

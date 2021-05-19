@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}LEAGUE STAND{% endblock %}
+{% block content %}
+    {% if not loting %}
+        <table class="table" align="center">
+            <tr>
+                <th>
+                    <div class="notification is-info" ALIGN="center">
+                        <button class="delete"></button>
+                        Er heeftt nog geen loting plaatsgevonden voor deze league. Er is nog geen leaguestand.
+                    </div>
+                </th>
+            </tr>
+        </table>
+    {% else %}
+        <hr>
+        {% for group in groups %}
+            <h4 align="center" class="title is-4">Groep: {{ group }}</h4>
+            <table class="table" align="center">
+                <tr>
+                    <th></th>
+                    <th>Land</th>
+                    <th>GS</th>
+                    <th>W</th>
+                    <th>G</th>
+                    <th>V</th>
+                    <th>PT</th>
+                    <th>DV</th>
+                    <th>DT</th>
+                    <th>DF</th>
+                </tr>
+                {% for country in groupdata %}
+                    {% if group == country.country.group %}
+                        <tr>
+                            <td>{% with 'images/'|add:country.country.name|add:'.jpg' as image_static %}
+                                <img src="{% static image_static %}" width="30" height="20">
+                            {% endwith %}</td>
+                            <th>{{ country.country.nlname }}</th>
+                            <td>{{ country.GS }}</td>
+                            <td>{{ country.W }}</td>
+                            <td>{{ country.G }}</td>
+                            <td>{{ country.V }}</td>
+                            <th>{{ country.PT }}</th>
+                            <td>{{ country.DV }}</td>
+                            <td>{{ country.DT }}</td>
+                            <td>{{ country.DF }}</td>
+                            <td>{{ country.PO }}</td>
+                            <td>{{ country.POCOMMENT }}</td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            </table>
+        {% endfor %}
+    {% endif %}
+    <table class="table" align="center">
+        <tr>
+            <th style="text-align:center">
+                <a href=/euro2020/myleague><input style="width:250px" type="submit" class="button is-primary"
+                                                  value="Terug naar Jouw League"/></a>
+            </th>
+        </tr>
+    </table>
+{% endblock content %}

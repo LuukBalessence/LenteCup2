@@ -1,15 +1,15 @@
 {% extends "base.html" %}
 {% load static %}
-
+{% block title %}STAND ECHTE EURO2020{% endblock %}
 {% block content %}
-    <h3 class="title is-3">Standings</h3>
     <hr>
     {% for group in groups %}
-        <h4 class="title is-4">Group: {{ group }}</h4>
-        <table class="table">
+
+        <h4 align="center" class="title is-4">Groep: {{ group }}</h4>
+        <table class="table" align="center">
             <tr>
                 <th></th>
-                <th>Country</th>
+                <th>Land</th>
                 <th>GS</th>
                 <th>W</th>
                 <th>G</th>
@@ -25,12 +25,12 @@
                         <td>{% with 'images/'|add:country.country.name|add:'.jpg' as image_static %}
                             <img src="{% static image_static %}" width="30" height="20">
                         {% endwith %}</td>
-                        <td>{{ country.country }}</td>
+                        <th>{{ country.country.nlname }}</th>
                         <td>{{ country.GS }}</td>
                         <td>{{ country.W }}</td>
                         <td>{{ country.G }}</td>
                         <td>{{ country.V }}</td>
-                        <td>{{ country.PT }}</td>
+                        <th>{{ country.PT }}</th>
                         <td>{{ country.DV }}</td>
                         <td>{{ country.DT }}</td>
                         <td>{{ country.DF }}</td>

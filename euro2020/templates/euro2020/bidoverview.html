@@ -13,6 +13,12 @@
                         </div>
                     </th>
                 </tr>
+                <tr>
+                    <th style="text-align:center">
+                        <a href=euro2020><input style="width:250px" type="submit" class="button is-primary"
+                                                value="Terug naar EURO2020"/></a>
+                    </th>
+                </tr>
             </table>
         {% else %}
             <form method="post">
@@ -34,7 +40,8 @@
                                                name="Bids" value="Bids GROUP {{ group }}"/>
                                         <span class="icon is-left">
                                                             {% with 'images/'|add:group|add:'png.png' as image_static %}
-                                                                <img src="{% static image_static %}" width="35" height="30">
+                                                                <img src="{% static image_static %}" width="35"
+                                                                     height="30">
                                                             {% endwith %}
                                                         </span>
                                     </p>
@@ -47,7 +54,8 @@
                                             <th style="text-align:center">
                                                  <span class="icon is-left">
                                                             {% with 'images/'|add:country.name|add:'.jpg' as image_static %}
-                                                                <img src="{% static image_static %}" width="30" height="20">
+                                                                <img src="{% static image_static %}" width="30"
+                                                                     height="20">
                                                             {% endwith %}
                                                     </span>
                                                 <a style="width:250px;align-self: center"

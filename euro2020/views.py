@@ -185,6 +185,38 @@ def myteam(request):
         return redirect(to="changeteamname")
 
 
+def myleague(request):
+    manager = request.user
+    try:
+        teamdata = Team.objects.get(owner=manager)
+    except:
+        teamdata = ""
+    try:
+        league = League.objects.get(leaguename=teamdata.league)
+    except:
+        league = ""
+    try:
+        leaguephase = league.gamephase
+        if leaguephase.allowbidding or leaguephase.allowauction:
+            bidauction = True
+    except:
+        leaguephase = ""
+
+    betcoinbalance = ""
+    try:
+        if teamdata.paid:
+            betcoinbalance = teamdata.betcoins
+    except:
+        betcoinbalance = ""
+
+    return render(request, template_name="euro2020/myleague.html",
+                    context={"league": league, "teamdata": teamdata})
+
+
+def rleuro2020(request):
+    return render(request, template_name="euro2020/rleuro2020.html")
+
+
 def pickleague(request):
     error = ""
     availableleagues = []
@@ -200,7 +232,7 @@ def pickleague(request):
             namedata = form.cleaned_data
             leaguename = namedata.get('leaguename')
             if leaguename == "Kies een league":
-                error = "You dient een league te kiezen of terug te gaan naar het hoofdmenu"
+                error = "Je dient een league te kiezen of terug te gaan naar het hoofdmenu"
                 return render(request, template_name="euro2020/pickleague.html",
                               context={"leagues": leagues, "availableleagues": availableleagues, "error": error})
             manager = request.user
@@ -265,24 +297,32 @@ def groepstand(request):
     )
 
 
+def leaguestand(request, league):
+    currentleague = League.objects.get(pk=league)
+    return render(
+        request=request,
+        template_name="euro2020/leaguestand.html",context={"loting": currentleague.draw})
+
+
 def bidoverview(request):
     manager = request.user
     error = ""
     try:
         currentteam = Team.objects.get(owner=manager)
+        # Als de huidige gebruiker een team heeft dienen we te controleren of deze toegewezen is aan een league
+        try:
+            currentleague = currentteam.league
+            currentleaguegamephase = League.objects.get(leaguename=currentleague).gamephase
+            if not GamePhase.objects.get(gamephase=currentleaguegamephase).allowbidding:
+                error = "Je league is (nog) niet in een fase die biedingen toelaat"
+        except:
+            error = "Je hebt nog geen league gekozen. Ga in het Hoofdmenu naat  Jouw Team"
+            # We dienen te controleren of we in een spelfase zitten waarin we mogen bieden, anders een melding
     except ObjectDoesNotExist:
         error = "Je dient eerst een teamnaam aan te maken onder Jouw teamgegevens"
 
-    # Als de huidige gebruiker een team heeft dienen we te controleren of deze toegewezen is aan een league
-    try:
-        currentleague = currentteam.league
-    except:
-        error = "Je hebt nog geen league gekozen. Ga naar Jouw Teamgegevens"
-    # We dienen te controleren of we in een spelfase zitten waarin we mogen bieden, anders een melding
-    currentleaguegamephase = League.objects.get(leaguename=currentleague).gamephase
 
-    if not GamePhase.objects.get(gamephase=currentleaguegamephase).allowbidding:
-        error = "Je league is (nog) niet in een fase die biedingen toelaat"
+
 
     return render(request, 'euro2020/bidoverview.html',
                   context={'countries': Country.objects.all(), 'groups': Country.Group.labels, "error": error})
@@ -527,11 +567,6 @@ def teams(request, league):
 
 def changephase(request, league):
     error = ""
-    currentuser = request.user
-    if not currentuser.is_superuser:
-        error = "You must be a super user to start the auction"
-        return render(request, 'euro2020/assignedbidsperteam.html',
-                      context={'bids': "", 'teams': "", 'error': error})
     leaguename = League.objects.get(id=league).leaguename
     currentphase = League.objects.get(pk=league).gamephase
     nextgamephase = nextphase(currentphase)
@@ -542,9 +577,8 @@ def changephase(request, league):
             obj.save()
         return redirect(leaguemanager, league)
 
-    return render(request, 'euro2020/changephase.html',
-                  context={'league': leaguename, 'currentphase': currentphase, 'nextphase': nextgamephase.gamephase,
-                           "error": error})
+    return render(request, 'euro2020/changephase.html',context={'league': leaguename, 'currentphase': currentphase,
+                            'nextphase': nextgamephase.gamephase, "error": error})
 
 
 def setupteams(request, league):

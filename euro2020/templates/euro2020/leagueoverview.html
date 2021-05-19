@@ -1,32 +1,45 @@
 {% extends "base.html" %}
-{% block title %}AUCTIONOVERVIEW{% endblock %}
+{% block title %}LEAGUE OVERVIEW{% endblock %}
 {% block content %}
     {% if user.is_authenticated %}
-        {% if error %}
-            <table class="table" align="center">
-                <tr>
-                    <th>{{ error }}</th>
-                </tr>
-            </table>
-        {% endif %}
-        {% if leagues %}
-            <table class="table" align="center">
-                {% for league in leagues %}
+        {% if user.is_staff %}
+            {% if error %}
+                <table class="table" align="center">
                     <tr>
-                        <th style="text-align:center">
-                                <a href="{% url 'leaguemanager' league.pk %}" class="button is-primary">{{ league }}</a>
-                        </th>
-                        <th style="text-align:center">
-                            {{ league.gamephase }}
-                        </th>
+                        <th>{{ error }}</th>
                     </tr>
-                {% endfor %}
-            </table>
+                </table>
+            {% endif %}
+            {% if leagues %}
+                <table class="table" align="center">
+                    {% for league in leagues %}
+                        <tr>
+                            <th style="text-align:center">
+                                    <a href="{% url 'leaguemanager' league.pk %}" class="button is-primary">{{ league }}</a>
+                            </th>
+                            <th style="text-align:center">
+                                {{ league.gamephase }}
+                            </th>
+                        </tr>
+                    {% endfor %}
+                </table>
+                <table class="table" ALIGN="center">
+                    <tr>
+                        <td align="center">
+                            <a href="{% url 'createleague' %}" class="button is-primary">Create new League</a>
+                        </td>
+                    </tr>
+                </table>
+            {% endif %}
+        {% else %}
             <table class="table" ALIGN="center">
                 <tr>
-                    <td align="center">
-                        <a href="{% url 'createleague' %}" class="button is-primary">Create new League</a>
-                    </td>
+                    <th>
+                        <div class="notification is-info" ALIGN="center">
+                            <button class="delete"></button>
+                            Je bent geen admin gebruiker
+                        </div>
+                    </th>
                 </tr>
             </table>
         {% endif %}

@@ -89,7 +89,7 @@
                                    value="{{ betcoinbalance }}"
                                    type="text"
                                    name="betcoinbalance" id="betcoinbalance"
-                                   placeholder="Betcoin" disabled/>
+                                   placeholder="Geen betaling gedaan of verwerk!" disabled/>
                             <span class="icon is-left">
                                 <i class="fas fa-coins" style="font-size:20px;color:black"></i>
                             </span>
@@ -409,6 +409,12 @@
                         </div>
                     </td>
                 </tr>
+                <tr>
+                <th style="text-align:center">
+                    <a href=euro2020><input style="width:250px" type="submit" class="button is-primary"
+                                                       value="Terug naar EURO2020"/></a>
+                </th>
+            </tr>
             </table>
         {% else %}
             <table class="table" ALIGN="center">
@@ -422,7 +428,4 @@
     {% endif %}
 {% endblock %}
 {% block helptext %}
-    1. Give yourself a beautiful name<br>
-    i.e. first name, alias or nickname<br>
-
 {% endblock helptext %}
