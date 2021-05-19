@@ -142,6 +142,7 @@ def changeteamname(request):
 
 
 def myteam(request):
+    leaguedraw = False
     bidauction = False
     manager = request.user
     bnumber = GameSettings.objects.get(gamesettings='bnumber').gamesettingsvalue
@@ -157,6 +158,8 @@ def myteam(request):
             league = ""
         else:
             leaguefee = league.leaguefee
+            leaguedraw = league.draw
+
 
     except:
         league = ""
@@ -180,7 +183,7 @@ def myteam(request):
         return render(request, template_name="euro2020/myteam.html",
                       context={"team": team, "tactics": team, "lineup": team, "league": league, "leaguephase": leaguephase,
                                "betcoinbalance": betcoinbalance, "bidauction": bidauction, "bnumber": bnumber, "bname": bname
-                               , "leaguefee": leaguefee})
+                               , "leaguefee": leaguefee, "leaguedraw": leaguedraw})
     except ObjectDoesNotExist:
         return redirect(to="changeteamname")
 
@@ -220,7 +223,7 @@ def rleuro2020(request):
 def pickleague(request):
     error = ""
     availableleagues = []
-    leagues = League.objects.all()
+    leagues = League.objects.filter(draw=False)
     for league in leagues:
         teams = Team.objects.filter(league=league.pk)
         if len(teams) < 24:

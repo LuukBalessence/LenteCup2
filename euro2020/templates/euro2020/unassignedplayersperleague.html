@@ -4,7 +4,7 @@
     {% if user.is_authenticated %}
         {% if error %}
             {{ error }}
-        {% else %}
+        {% elif players %}
             <table class="table" align="center">
                 <tr>
                     <th style="background-color: #00d1b2;color: white">league: {{ league }}</th>
@@ -24,11 +24,17 @@
                     </tr>
                 {% endfor %}
             </table>
+        {% else %}
+            <table class="table" align="center">
+                <tr>
+                    <th>
+                        <div class="notification is-info" ALIGN="center">
+                            <button class="delete"></button>
+                            De spelerslijst van de UEFA is nog niet ingevoerd
+                        </div>
+                    </th>
+                </tr>
+            </table>
         {% endif %}
     {% endif %}
 {% endblock %}
-{% block helptext %}
-    1. Give yourself a beautiful name<br>
-    i.e. first name, alias or nickname<br>
-
-{% endblock helptext %}

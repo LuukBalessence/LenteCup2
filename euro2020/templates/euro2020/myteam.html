@@ -20,7 +20,8 @@
                             <th>
                                 <div class="notification is-danger is-small" ALIGN="center">
                                     <button class="delete"></button>
-                                    We hebben nog geen betaling van je ontvangen. Maak het inschrijfgeld a {{ leaguefee }} EUR
+                                    We hebben nog geen betaling van je ontvangen. Maak het inschrijfgeld
+                                    a {{ leaguefee }} EUR
                                     over naar rek.nr {{ bnumber }} t.n.v. {{ bname }} o.v.v. je teamnaam en naam
                                 </div>
                             </th>
@@ -39,7 +40,7 @@
                                 <input class="input is-primary" id="id_team"
                                        name="team"
                                        placeholder="Please enter team name..." type="text" value="{{ team }}"
-                                       style="width: 300px" disabled/>
+                                       style="width: 300px;color: black" disabled/>
                                 <span class="icon is-left is-small">
                                     <i class="fas fa-users" style="font-size:20px;color:black"></i>
                                 </span>
@@ -47,27 +48,49 @@
                         </div>
                     </td>
                 </tr>
-                <tr>
-                    <th>
-                        <div class="field has-addons">
-                            <div class="control has-icons-left">
-                                <input class="input is-primary" style="width: 200px; color: black" value="{{ league }}"
-                                       type="text"
-                                       name="leaguename"
-                                       id="leaguename"
-                                       placeholder="Kies hier een league" disabled>
-                                <span class="icon is-left">
+                {% if not leaguedraw %}
+                    <tr>
+                        <th>
+                            <div class="field has-addons">
+                                <div class="control has-icons-left">
+                                    <input class="input is-primary" style="width: 200px; color: black"
+                                           value="{{ league }}"
+                                           type="text"
+                                           name="leaguename"
+                                           id="leaguename"
+                                           placeholder="Kies hier een league" disabled>
+                                    <span class="icon is-left">
                                     <i class="fas fa-list-ol" style="font-size:20px;color:black"></i>
                                 </span>
+                                </div>
+
+                                <div class="control">
+                                    <a class="button is-primary" style="width: 100px" href={% url 'pickleague' %}>
+                                        Kies League
+                                    </a>
+                                </div>
                             </div>
-                            <div class="control">
-                                <a class="button is-primary" style="width: 100px" href={% url 'pickleague' %}>
-                                    Kies League
-                                </a>
+                        </th>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <th>
+                            <div class="field has-addons">
+                                <div class="control has-icons-left">
+                                    <input class="input is-primary" style="width: 300px; color: black"
+                                           value="{{ league }}"
+                                           type="text"
+                                           name="leaguename"
+                                           id="leaguename"
+                                           placeholder="Kies hier een league" disabled>
+                                    <span class="icon is-left">
+                                    <i class="fas fa-list-ol" style="font-size:20px;color:black"></i>
+                                </span>
+                                </div>
                             </div>
-                        </div>
-                    </th>
-                </tr>
+                        </th>
+                    </tr>
+                {% endif %}
                 <tr>
                     <th>
                         <div class="control has-icons-left">
@@ -410,11 +433,11 @@
                     </td>
                 </tr>
                 <tr>
-                <th style="text-align:center">
-                    <a href=euro2020><input style="width:250px" type="submit" class="button is-primary"
-                                                       value="Terug naar EURO2020"/></a>
-                </th>
-            </tr>
+                    <th style="text-align:center">
+                        <a href=euro2020><input style="width:250px" type="submit" class="button is-primary"
+                                                value="Terug naar EURO2020"/></a>
+                    </th>
+                </tr>
             </table>
         {% else %}
             <table class="table" ALIGN="center">
