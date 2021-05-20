@@ -121,3 +121,13 @@ class BidsAdmin(admin.ModelAdmin):
         "bidcomment",
     )
     list_filter = ("team",)
+
+
+@admin.register(models.Boekhouding)
+class BoekhoudingsAdmin(admin.ModelAdmin):
+    list_display = ("team", "boekingsopmerking", "aantalbetcoins")
+
+
+@admin.register(models.BoekhoudingLeague)
+class BoekhoudingsAdmin(admin.ModelAdmin):
+    list_display = ("league", "boekingsopmerking", "aantalbetcoins")

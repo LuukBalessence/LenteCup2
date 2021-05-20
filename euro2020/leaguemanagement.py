@@ -6,7 +6,7 @@ import random
 def setup_bids(league, maxbet):
     currentleague = League.objects.get(pk=league)
     userprefix = currentleague.leaguename + "_"
-    playerbidpercentage = 0.6
+    playerbidpercentage = 0.8
     teams = Team.objects.filter(name__istartswith=userprefix)
     players = Player.objects.select_related('country').filter(country__openforbid=True)
     print("setup bids is going to make bids for " + str(len(players)) + " players.")

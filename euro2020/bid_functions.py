@@ -1,4 +1,4 @@
-from euro2020.models import Player, Bids, Team, League
+from euro2020.models import Player, Bids, Team, League, Boekhouding, BoekhoudingLeague
 import random
 
 
@@ -78,10 +78,14 @@ def savebid(bid, assigned, bidcomment, team, players):
         currentbalance = team['betcoins']
         newbalance = currentbalance - bid['playerbid']
         team['betcoins'] = newbalance
+        Boekhouding.objects.create(team_id=team['id'], aantalbetcoins=- bid['playerbid'], boekingsopmerking=str(obj.player) + " gekocht")
         currentbudget = team['bidbudget']
         newbudget = currentbudget - bid['playerbid']
         team['bidbudget'] = newbudget
+        # TODO Als previousteam bestaat dient de opbrengst ten goede te komen aan het oude team en niet aan de league
+        # TODO Als het previousteam niet bestaan dient de opbrengst ten goede te komen aan de league
         league = League.objects.get(pk = team['league_id'])
+        BoekhoudingLeague.objects.create(league=league, aantalbetcoins= bid['playerbid'], boekingsopmerking=str(obj.player) + " gekocht")
         league.leaguebalance += bid['playerbid']
         league.save()
         player = list(filter(lambda x: x['id'] == bid['player_id'], players))[0]

@@ -33,4 +33,5 @@ urlpatterns = [
     path("myleague", views.myleague, name="myleague"),
     path("leaguestand/<int:league>", views.leaguestand, name="leaguestand"),
     path("rleuro2020", views.rleuro2020, name="rleuro2020"),
+    path("moneymanager", views.moneymanager, name="moneymanager"),
 ]

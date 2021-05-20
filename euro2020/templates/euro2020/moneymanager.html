@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+{% block title %}MONEY MANAGER{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        {% if user.is_staff %}
+            {% if error %}
+                <table class="table" align="center">
+                    <tr>
+                        <th>{{ error }}</th>
+                    </tr>
+                </table>
+            {% endif %}
+
+            <table class="table" ALIGN="center">
+                {% if error %}
+                    <tr>
+                        <th>
+                            <div class="notification is-danger" ALIGN="center">
+                                <button class="delete"></button>
+                                {{ error }}
+                            </div>
+                        </th>
+                    </tr>
+                {% endif %}
+                <form action="" method="post">{% csrf_token %}
+                    <tr>
+                        <th>
+                            <div class="control has-icons-left">
+                                <div class="select is-primary">
+                                    <select name="teamname" class="input is-primary"
+                                            style="width: 300px; text-align:right"
+                                            id="id_teamname">
+                                        <option selected>Kies Team</option>
+                                        {% for team in allteams %}
+                                            <option value="{{ team.pk }}">{{ team.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    <span class="icon is-left is-small">
+                                        <i class="far fa-lightbulb" style="font-size:20px;color:black"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th style="text-align:center">
+                            <input style="width:250px" type="submit" class="button is-primary" name="boekinginschrijving" value="Verwerk inschrijving"/>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <div class="control has-icons-left">
+                                <div class="select is-primary">
+                                    <select name="leaguename" class="input is-primary"
+                                            style="width: 300px; text-align:right"
+                                            id="id_leaguename">
+                                        <option selected>Kies League</option>
+                                        {% for league in allleagues %}
+                                            <option value="{{ league }}">{{ league.leaguename }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    <span class="icon is-left is-small">
+                                        <i class="far fa-lightbulb" style="font-size:20px;color:black"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th style="text-align:center">
+                            <input style="width:250px" type="submit" class="button is-primary" name="groepsfaseleague" value="Verwerk Groepsfase 1000"/>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <div class="control has-icons-left">
+                                <div class="select is-primary">
+                                    <select name="teamname1" class="input is-primary"
+                                            style="width: 300px; text-align:right"
+                                            id="id_teamname1">
+                                        <option selected>Kies Team</option>
+                                        {% for team in allteams %}
+                                            <option value="{{ team.pk }}">{{ team.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    <span class="icon is-left is-small">
+                                        <i class="far fa-lightbulb" style="font-size:20px;color:black"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </th>
+                    </tr>
+            <tr>
+                    <th>
+                        <div class="control has-icons-left">
+                            <input class="input is-primary" style="width: 300px; color: black"
+                                   type="number"
+                                   name="betcoins1" id="betcoins1"
+                                   placeholder="Vul betcoins in"/>
+                            <span class="icon is-left">
+                                <i class="fas fa-coins" style="font-size:20px;color:black"></i>
+                            </span>
+                        </div>
+                    </th>
+                </tr>
+            <tr>
+                    <th>
+                        <div class="control has-icons-left">
+                            <input class="input is-primary" style="width: 300px; color: black"
+                                   type="text"
+                                   name="opmerking" id="opmerking"
+                                   placeholder="Opmerking"/>
+                            <span class="icon is-left">
+                                <i class="fas fa-coins" style="font-size:20px;color:black"></i>
+                            </span>
+                        </div>
+                    </th>
+                </tr>
+                    <tr>
+                        <th style="text-align:center">
+                            <input style="width:250px" type="submit" class="button is-primary" name="boeking" value="Verwerk boeking"/>
+                        </th>
+                    </tr>
+                </form>
+            </table>
+        {% endif %}
+    {% endif %}
+{% endblock %}

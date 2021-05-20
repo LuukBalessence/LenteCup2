@@ -3,7 +3,7 @@ from django.shortcuts import render, get_list_or_404, get_object_or_404, redirec
 
 from LenteCup2.models import GameSettings
 from euro2020 import models
-from euro2020.models import Bids, Player, League, GamePhase
+from euro2020.models import Bids, Player, League, GamePhase, Boekhouding, BoekhoudingLeague
 from .bid_functions import createbidlist, validbid, assignfinalbid, savebid, remove_sameplayer_bids, \
     saveteaminfo
 from .forms import ChangeFirstNameForm, ChangeTeamNameForm, AddGoalForm, BidsForm, CreateLeagueForm, PickLeagueForm
@@ -84,7 +84,9 @@ def euro2020(request):
     hoofdmelding3 = GameSettings.objects.get(gamesettings='hoofdmelding3').gamesettingsvalue
     hoofdmelding4 = GameSettings.objects.get(gamesettings='hoofdmelding4').gamesettingsvalue
     return render(request, template_name="euro2020/euro2020.html", context={"hoofdmelding1": hoofdmelding1,
-                                            "hoofdmelding2": hoofdmelding2,"hoofdmelding3": hoofdmelding3,"hoofdmelding4": hoofdmelding4})
+                                                                            "hoofdmelding2": hoofdmelding2,
+                                                                            "hoofdmelding3": hoofdmelding3,
+                                                                            "hoofdmelding4": hoofdmelding4})
 
 
 def changefirstname(request):
@@ -181,9 +183,11 @@ def myteam(request):
     try:
         team = Team.objects.get(owner=manager)
         return render(request, template_name="euro2020/myteam.html",
-                      context={"team": team, "tactics": team, "lineup": team, "league": league, "leaguephase": leaguephase,
-                               "betcoinbalance": betcoinbalance, "bidauction": bidauction, "bnumber": bnumber, "bname": bname
-                               , "leaguefee": leaguefee, "leaguedraw": leaguedraw})
+                      context={"team": team, "tactics": team, "lineup": team, "league": league,
+                               "leaguephase": leaguephase,
+                               "betcoinbalance": betcoinbalance, "bidauction": bidauction, "bnumber": bnumber,
+                               "bname": bname
+                          , "leaguefee": leaguefee, "leaguedraw": leaguedraw})
     except ObjectDoesNotExist:
         return redirect(to="changeteamname")
 
@@ -213,7 +217,7 @@ def myleague(request):
         betcoinbalance = ""
 
     return render(request, template_name="euro2020/myleague.html",
-                    context={"league": league, "teamdata": teamdata})
+                  context={"league": league, "teamdata": teamdata})
 
 
 def rleuro2020(request):
@@ -304,7 +308,7 @@ def leaguestand(request, league):
     currentleague = League.objects.get(pk=league)
     return render(
         request=request,
-        template_name="euro2020/leaguestand.html",context={"loting": currentleague.draw})
+        template_name="euro2020/leaguestand.html", context={"loting": currentleague.draw})
 
 
 def bidoverview(request):
@@ -323,9 +327,6 @@ def bidoverview(request):
             # We dienen te controleren of we in een spelfase zitten waarin we mogen bieden, anders een melding
     except ObjectDoesNotExist:
         error = "Je dient eerst een teamnaam aan te maken onder Jouw teamgegevens"
-
-
-
 
     return render(request, 'euro2020/bidoverview.html',
                   context={'countries': Country.objects.all(), 'groups': Country.Group.labels, "error": error})
@@ -368,7 +369,6 @@ def bids(request, country_name):
     # Deze lijst bestaat uit de reeds gedane beidingen aangevuld met lege biedingen voor de spelers
     # waarop nog niet is geboden
     initialbids = createbidlist(currentteam, country_name)
-
 
     # Bij versturen formulier controleren we of deze valide is.
     if request.method == 'POST':
@@ -416,7 +416,8 @@ def bids(request, country_name):
         formset = BidFormSet(initial=initialbids)
 
     return render(request, 'euro2020/bids.html',
-                  context={'formset': formset, 'countries': countries, 'countryname': country_name, 'countrybidopen': countrybidopen})
+                  context={'formset': formset, 'countries': countries, 'countryname': country_name,
+                           'countrybidopen': countrybidopen})
 
 
 def auction(request, league, gamephase):
@@ -580,8 +581,8 @@ def changephase(request, league):
             obj.save()
         return redirect(leaguemanager, league)
 
-    return render(request, 'euro2020/changephase.html',context={'league': leaguename, 'currentphase': currentphase,
-                            'nextphase': nextgamephase.gamephase, "error": error})
+    return render(request, 'euro2020/changephase.html', context={'league': leaguename, 'currentphase': currentphase,
+                                                                 'nextphase': nextgamephase.gamephase, "error": error})
 
 
 def setupteams(request, league):
@@ -621,7 +622,7 @@ def setupbids(request, league):
         error = "This League already contains bids. To setup bids for a League it should not contains bids"
         return redirect(leaguemanager, league)
 
-    setup_bids(league, 98)
+    setup_bids(league, 202)
     return redirect(leagueoverview)
 
 
@@ -668,8 +669,60 @@ def createleague(request):
 def regels(request):
     return render(request, "euro2020/regels.html")
 
+
 def programma(request):
     return render(request, "euro2020/programma.html")
 
 
+def moneymanager(request):
+    error = ""
+    allteams = Team.objects.all()
+    allleagues = League.objects.all()
+    if request.method == 'POST':
+        if request.POST.get("boeking"):
+            team = Team.objects.get(pk=request.POST['teamname1'])
+            betcoins = int(request.POST['betcoins1'])
+            team.betcoins += betcoins
+            team.save()
+            Boekhouding.objects.create(team=team, aantalbetcoins=betcoins, boekingsopmerking=request.POST['opmerking'])
+            league = League.objects.get(pk=team.league_id)
+            league.leaguebalance -= betcoins
+            league.save()
+            BoekhoudingLeague.objects.create(league=league, aantalbetcoins=-betcoins,
+                                             boekingsopmerking=request.POST['opmerking'])
+        elif request.POST.get("groepsfaseleague"):
+            league = League.objects.get(leaguename=request.POST['leaguename'])
+            leagueteams = Team.objects.filter(league=league)
+            for eachteam in leagueteams:
+                if eachteam.betcoins > 1000:
+                    penalty = eachteam.betcoins - 1000
+                    eachteam.betcoins -= penalty
+                    eachteam.save()
+                    comment = eachteam.name + " heeft te weinig betcoins uitgegeven in groepsfase. Gecorrigeerd naar 1000"
+                    print(comment)
+                    Boekhouding.objects.create(team=eachteam, aantalbetcoins=-penalty,
+                                               boekingsopmerking=comment)
+                    league.leaguebalance += penalty
+                    league.save()
+                    BoekhoudingLeague.objects.create(league=league, aantalbetcoins=penalty,
+                                                     boekingsopmerking=comment)
+                else:
+                    print(eachteam.name + " heeft te genoeg betcoins uitgegeven in groepsfase. NIET Gecorrigeerd naar 1000")
+        elif request.POST.get("boekinginschrijving"):
+            team = Team.objects.get(pk=request.POST['teamname'])
+            betcoins = 2000
+            team.betcoins += betcoins
+            team.paid = True
+            team.save()
+            Boekhouding.objects.create(team=team, aantalbetcoins=betcoins,
+                                       boekingsopmerking="Betaling ontvangen en verwerkt van team " + team.name)
+            league = League.objects.get(pk=team.league_id)
+            league.leaguebalance -= betcoins
+            league.save()
+            BoekhoudingLeague.objects.create(league=league, aantalbetcoins=-betcoins,
+                                             boekingsopmerking="Betaling ontvangen en verwerkt van team " + team.name)
+        else:
+            error = "Er is op een onbekende knop gedrukt of een onbekende fout is opgetreden"
+        return redirect(moneymanager)
 
+    return render(request, "euro2020/moneymanager.html", context={"allteams": allteams, "allleagues": allleagues})

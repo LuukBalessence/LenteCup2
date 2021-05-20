@@ -286,3 +286,15 @@ class Bids(models.Model):
 
     def __str__(self):
         return f"{self.team} {self.player} {self.playerbid}"
+
+
+class Boekhouding(models.Model):
+    team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name="boekhouding", blank=True)
+    boekingsopmerking = models.CharField(verbose_name=_("boekingsopmerking"), max_length=200)
+    aantalbetcoins = models.IntegerField(validators=([MinValueValidator(-1), MaxValueValidator(48000)]))
+
+
+class BoekhoudingLeague(models.Model):
+    league = models.ForeignKey(League, on_delete=models.CASCADE, related_name="boekhoudingleague", blank=True)
+    boekingsopmerking = models.CharField(verbose_name=_("boekingsopmerking"), max_length=200)
+    aantalbetcoins = models.IntegerField(validators=([MinValueValidator(-1), MaxValueValidator(48000)]))
