@@ -15,7 +15,7 @@
     "pk": "Belgium",
     "fields": {
         "shortname": "BEL",
-        "nlname": "België",
+        "nlname": "Belgie",
         "order": 1,
         "group": "B",
         "openforbid": true
@@ -26,7 +26,7 @@
     "pk": "Croatia",
     "fields": {
         "shortname": "HRV",
-        "nlname": "Kroatië",
+        "nlname": "Kroatie",
         "order": 1,
         "group": "D",
         "openforbid": true
@@ -37,7 +37,7 @@
     "pk": "Czech Republic",
     "fields": {
         "shortname": "CZE",
-        "nlname": "Tsjechië",
+        "nlname": "Tsjechie",
         "order": 2,
         "group": "D",
         "openforbid": true
@@ -114,7 +114,7 @@
     "pk": "Italy",
     "fields": {
         "shortname": "ITA",
-        "nlname": "Italië",
+        "nlname": "Italie",
         "order": 1,
         "group": "A",
         "openforbid": true
@@ -136,7 +136,7 @@
     "pk": "North Macedonia",
     "fields": {
         "shortname": "MKD",
-        "nlname": "Noord Macedonië",
+        "nlname": "Noord Macedonie",
         "order": 3,
         "group": "C",
         "openforbid": false
@@ -147,7 +147,7 @@
     "pk": "Poland",
     "fields": {
         "shortname": "POL",
-        "nlname": "Polem",
+        "nlname": "Polen",
         "order": 2,
         "group": "E",
         "openforbid": false
@@ -246,7 +246,7 @@
     "pk": "Ukraine",
     "fields": {
         "shortname": "UKR",
-        "nlname": "Oekraïne",
+        "nlname": "Oekraine",
         "order": 4,
         "group": "C",
         "openforbid": false
