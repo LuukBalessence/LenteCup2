@@ -63,12 +63,12 @@ class MatchAdmin(admin.ModelAdmin):
         # and the GoalInlines to keep track of the goals.
         self.exclude = None
         match = Match.objects.filter(pk=object_id)
-        if match.has_started:
-            self.inlines = [
-                GoalInline,
-            ]
-        else:
-            self.inlines = []
+        # if match.has_started:
+        #     self.inlines = [
+        #         GoalInline,
+        #     ]
+        # else:
+        #     self.inlines = []
         return super().change_view(request, object_id, form_url, extra_context)
 
 
