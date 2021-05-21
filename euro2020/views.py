@@ -552,22 +552,12 @@ def leaguemanager(request, league):
 
 
 def teams(request, league):
-    leagueteams = Team.objects.filter(league=league).order_by('name')
-    teamsinfo = []
-    for team in leagueteams:
-        bids = Bids.objects.select_related('player').filter(team=team, assigned=True)
-        gkecount = len(bids.filter(player__position__exact='G'))
-        defcount = len(bids.filter(player__position__exact='D'))
-        midcount = len(bids.filter(player__position__exact='M'))
-        attcount = len(bids.filter(player__position__exact='A'))
-        total = len(bids)
-        info = {'team': team, 'total': total, 'gkecount': gkecount, 'defcount': defcount, 'midcount': midcount,
-                'attcount': attcount}
-        teamsinfo.append(info)
+
+    leagueteams = Team.objects.filter(league=league).order_by('name').select_related("owner")
 
     return render(request, 'euro2020/teams.html',
                   context={'leagueteams': leagueteams, 'leaguename': League.objects.get(pk=league).leaguename,
-                           'teamsinfo': teamsinfo})
+                           })
 
 
 def changephase(request, league):

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}BIDDING{% endblock %}
+{% block title %}TEAMS IN JOUW LEAGUE{% endblock %}
 {% block content %}
     {% if user.is_authenticated %}
         <form action="" method="post">{% csrf_token %}
@@ -13,19 +13,18 @@
         <table class="table" align="center">
             <tr>
                 <th style="background-color: #00d1b2;color: white">Team</th>
-                <th style="background-color: #00d1b2;color: white">TOT</th>
-                <th style="background-color: #00d1b2;color: white">GKE</th>
-                <th style="background-color: #00d1b2;color: white">DEF</th>
-                <th style="background-color: #00d1b2;color: white">MID</th>
-                <th style="background-color: #00d1b2;color: white">ATT</th>
+                <th style="background-color: #00d1b2;color: white">Manager</th>
                 <th style="background-color: #00d1b2;color: white">Budget</th>
-                <th style="background-color: #00d1b2;color: white">Paid</th>
+                <th style="background-color: #00d1b2;color: white">Betaald</th>
+                <th style="background-color: #00d1b2;color: white">Groep</th>
             </tr>
             {% for team in leagueteams %}
                 <tr>
                     <td>{{ team.name }}</td>
+                    <td>{{ team.owner.first_name }}</td>
                     <td>{{ team.betcoins }}</td>
                     <td>{{ team.paid }}</td>
+                    <td>{{ team.group }}</td>
                 </tr>
             {% endfor %}
         </table>
