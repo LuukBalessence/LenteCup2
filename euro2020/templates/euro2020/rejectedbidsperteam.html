@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}REJECTED BIDS PER TEAM{% endblock %}
+{% block title %}AFGEWEZEN BIEDINGEN PER TEAM{% endblock %}
 {% block content %}
     {% if user.is_authenticated %}
         {% if error %}
@@ -7,7 +7,7 @@
         {% else %}
             <table class="table" align="center">
             <tr>
-                <th style="background-color: #00d1b2;color: white">Rejected for league: {{ league }}</th>
+                <th style="background-color: #00d1b2;color: white">Afgewezen biedingen voor: {{ league }}</th>
             </tr>
             </table>
             <table class="table" align="center">

@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}UNASSSIGNED PLAYERS PER LEAGUE{% endblock %}
+{% block title %}NIET TOEGEWEZEN SPELERS{% endblock %}
 {% block content %}
     {% if user.is_authenticated %}
         {% if error %}
@@ -7,13 +7,13 @@
         {% elif players %}
             <table class="table" align="center">
                 <tr>
-                    <th style="background-color: #00d1b2;color: white">league: {{ league }}</th>
+                    <th style="background-color: #00d1b2;color: white">Spelers zonder ploeg voor league: {{ league }}</th>
                 </tr>
             </table>
             <table class="table" align="center">
                 <tr>
-                    <th style="background-color: #00d1b2;color: white">Player</th>
-                    <th style="background-color: #00d1b2;color: white">Country</th>
+                    <th style="background-color: #00d1b2;color: white">Speler</th>
+                    <th style="background-color: #00d1b2;color: white">Land</th>
                     <th style="background-color: #00d1b2;color: white">Pos.</th>
                 </tr>
                 {% for player in players %}

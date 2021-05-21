@@ -2,6 +2,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, get_list_or_404, get_object_or_404, redirect
 
 from LenteCup2.models import GameSettings
+from common.models import AppAuthorisation, Apps
 from euro2020 import models
 from euro2020.models import Bids, Player, League, GamePhase, Boekhouding, BoekhoudingLeague
 from .bid_functions import createbidlist, validbid, assignfinalbid, savebid, remove_sameplayer_bids, \
@@ -107,6 +108,7 @@ def changefirstname(request):
 
 def changeteamname(request):
     error = ""
+    app = Apps.objects.get(appname="EURO 2020")
     try:
         currentuser = request.user
         teamcurrentuser = Team.objects.get(owner=currentuser)
@@ -131,10 +133,9 @@ def changeteamname(request):
                     # Als de teamnaam nog niet bestaat dient deze te worden geregistreerd bij degene die is aangemeld.
                     # Eerst kijken of de huidige gebruiker al een naam heeft geregistreerd.
                     Team.objects.filter(owner=currentuser).update(name=teamname)
-
                 else:
                     Team.objects.create(name=teamname, owner=currentuser)
-
+                    AppAuthorisation.objects.create(app=app, user=currentuser)
                 return redirect(to="myteam")
         else:
             return render(request, "euro2020/changeteamname.html", context={'form': ChangeTeamNameForm, "error": error})
@@ -707,7 +708,8 @@ def moneymanager(request):
                     BoekhoudingLeague.objects.create(league=league, aantalbetcoins=penalty,
                                                      boekingsopmerking=comment)
                 else:
-                    print(eachteam.name + " heeft te genoeg betcoins uitgegeven in groepsfase. NIET Gecorrigeerd naar 1000")
+                    print(
+                        eachteam.name + " heeft te genoeg betcoins uitgegeven in groepsfase. NIET Gecorrigeerd naar 1000")
         elif request.POST.get("boekinginschrijving"):
             team = Team.objects.get(pk=request.POST['teamname'])
             betcoins = 2000
@@ -726,3 +728,25 @@ def moneymanager(request):
         return redirect(moneymanager)
 
     return render(request, "euro2020/moneymanager.html", context={"allteams": allteams, "allleagues": allleagues})
+
+
+def tactiekopstelling(request):
+    bidauction = False
+    league = ""
+    manager = request.user
+    teamdata = Team.objects.get(owner=manager)
+    try:
+        league = teamdata.league
+        leaguephase = league.gamephase
+        if leaguephase.allowbidding or leaguephase.allowauction:
+            bidauction = True
+    except:
+        pass
+    allgke = ""
+    alldef = ""
+    allmid = ""
+    allatt = ""
+
+    return render(request, "euro2020/tactiekopstelling.html", context={"allgke": allgke, "alldef": alldef,
+                                                                       "allmid": allmid, "allatt": allatt,
+                                                                       "league": league, "bidauction": bidauction})
