@@ -3,7 +3,7 @@
     "model": "euro2020.gamephase",
     "pk": 1,
     "fields": {
-        "gamephase": "10 Registration and Preparation",
+        "gamephase": "10 Registratie en Voorbereiding",
         "allowbidding": false,
         "allowauction": false,
         "allowlineup": false,
@@ -14,7 +14,7 @@
     "model": "euro2020.gamephase",
     "pk": 2,
     "fields": {
-        "gamephase": "20 GroupPhaseBidding 1st Round",
+        "gamephase": "20 Groepsfase bieding 1",
         "allowbidding": true,
         "allowauction": false,
         "allowlineup": false,
@@ -25,7 +25,7 @@
     "model": "euro2020.gamephase",
     "pk": 4,
     "fields": {
-        "gamephase": "30 Groupphase M1 Lineup",
+        "gamephase": "30 Groepsfase Opstelling Ronde 1",
         "allowbidding": false,
         "allowauction": false,
         "allowlineup": true,
@@ -36,7 +36,7 @@
     "model": "euro2020.gamephase",
     "pk": 5,
     "fields": {
-        "gamephase": "31 Groupphase M1 Live",
+        "gamephase": "31 Groepsfase Ronde 1 Live",
         "allowbidding": false,
         "allowauction": false,
         "allowlineup": false,
@@ -47,7 +47,7 @@
     "model": "euro2020.gamephase",
     "pk": 6,
     "fields": {
-        "gamephase": "32 Groupphase M2 Lineup",
+        "gamephase": "32 Groepsfase Opstelling Ronde 2",
         "allowbidding": false,
         "allowauction": false,
         "allowlineup": true,
@@ -58,7 +58,7 @@
     "model": "euro2020.gamephase",
     "pk": 7,
     "fields": {
-        "gamephase": "33 Groupphase M2 Live",
+        "gamephase": "33 Groepsfase Ronde 2 Live",
         "allowbidding": false,
         "allowauction": false,
         "allowlineup": false,
@@ -69,7 +69,7 @@
     "model": "euro2020.gamephase",
     "pk": 8,
     "fields": {
-        "gamephase": "34 Groupphase M3 Lineup",
+        "gamephase": "34 Groepsfase Opstelling Ronde 2",
         "allowbidding": false,
         "allowauction": false,
         "allowlineup": true,
@@ -80,7 +80,7 @@
     "model": "euro2020.gamephase",
     "pk": 9,
     "fields": {
-        "gamephase": "35 Groupphase M3 Live",
+        "gamephase": "35 Groepsfase Ronde 3 Live",
         "allowbidding": false,
         "allowauction": false,
         "allowlineup": false,
@@ -91,7 +91,7 @@
     "model": "euro2020.gamephase",
     "pk": 10,
     "fields": {
-        "gamephase": "40 Last 16 Bid",
+        "gamephase": "40 Biedingsronde Achtste finales",
         "allowbidding": true,
         "allowauction": false,
         "allowlineup": true,
@@ -102,7 +102,7 @@
     "model": "euro2020.gamephase",
     "pk": 11,
     "fields": {
-        "gamephase": "41 Last 16 Auction",
+        "gamephase": "41Veiling Achtste Finales",
         "allowbidding": false,
         "allowauction": true,
         "allowlineup": true,
@@ -113,7 +113,7 @@
     "model": "euro2020.gamephase",
     "pk": 12,
     "fields": {
-        "gamephase": "43 Last 16 Live",
+        "gamephase": "43 Wedstrijden Achtste Finales Live",
         "allowbidding": false,
         "allowauction": false,
         "allowlineup": false,
@@ -124,7 +124,7 @@
     "model": "euro2020.gamephase",
     "pk": 13,
     "fields": {
-        "gamephase": "50 Last 8 Bid",
+        "gamephase": "50 Biedingsronde Kwart Finales",
         "allowbidding": true,
         "allowauction": false,
         "allowlineup": true,
@@ -135,7 +135,7 @@
     "model": "euro2020.gamephase",
     "pk": 14,
     "fields": {
-        "gamephase": "51 Last 8 Auction",
+        "gamephase": "51 Veiling Kwart Finales",
         "allowbidding": false,
         "allowauction": true,
         "allowlineup": true,
@@ -146,7 +146,7 @@
     "model": "euro2020.gamephase",
     "pk": 15,
     "fields": {
-        "gamephase": "53 Last 8 Live",
+        "gamephase": "53 Wedstrijden Kwart Finales Live",
         "allowbidding": false,
         "allowauction": false,
         "allowlineup": false,
@@ -157,7 +157,7 @@
     "model": "euro2020.gamephase",
     "pk": 16,
     "fields": {
-        "gamephase": "60 Semi-final Bid",
+        "gamephase": "60 Biedingsronde Halve Finales",
         "allowbidding": true,
         "allowauction": false,
         "allowlineup": true,
@@ -168,7 +168,7 @@
     "model": "euro2020.gamephase",
     "pk": 17,
     "fields": {
-        "gamephase": "61 Semi-final Auction",
+        "gamephase": "61 Veiling Halve Finales",
         "allowbidding": false,
         "allowauction": true,
         "allowlineup": true,
@@ -179,7 +179,7 @@
     "model": "euro2020.gamephase",
     "pk": 18,
     "fields": {
-        "gamephase": "63 Semi-final Live",
+        "gamephase": "63 Wedstrijden Halve Finales Live",
         "allowbidding": false,
         "allowauction": false,
         "allowlineup": false,
@@ -190,7 +190,7 @@
     "model": "euro2020.gamephase",
     "pk": 19,
     "fields": {
-        "gamephase": "70 FInal Bid",
+        "gamephase": "70 Biedingsronde Finale",
         "allowbidding": true,
         "allowauction": false,
         "allowlineup": true,
@@ -201,7 +201,7 @@
     "model": "euro2020.gamephase",
     "pk": 20,
     "fields": {
-        "gamephase": "71 Final Auction",
+        "gamephase": "71 Veiling Finale",
         "allowbidding": false,
         "allowauction": true,
         "allowlineup": true,
@@ -212,7 +212,7 @@
     "model": "euro2020.gamephase",
     "pk": 21,
     "fields": {
-        "gamephase": "73 Final Live",
+        "gamephase": "73 Wedstrijd Finale Live",
         "allowbidding": false,
         "allowauction": false,
         "allowlineup": false,
@@ -223,7 +223,7 @@
     "model": "euro2020.gamephase",
     "pk": 22,
     "fields": {
-        "gamephase": "80 Euro2020 Ceremony",
+        "gamephase": "80 Euro2020 Eind Ceremonie",
         "allowbidding": false,
         "allowauction": false,
         "allowlineup": false,
@@ -234,7 +234,7 @@
     "model": "euro2020.gamephase",
     "pk": 23,
     "fields": {
-        "gamephase": "21 GrouphaseAuction 1st Round",
+        "gamephase": "21 Groepsfase veiling 1",
         "allowbidding": false,
         "allowauction": true,
         "allowlineup": false,
@@ -245,7 +245,7 @@
     "model": "euro2020.gamephase",
     "pk": 24,
     "fields": {
-        "gamephase": "23 GrouphaseAuction 2nd Round",
+        "gamephase": "23 Groepsfase veiling 2",
         "allowbidding": false,
         "allowauction": true,
         "allowlineup": true,
@@ -256,7 +256,7 @@
     "model": "euro2020.gamephase",
     "pk": 25,
     "fields": {
-        "gamephase": "25 GrouphaseAuction 3rd Round",
+        "gamephase": "25 Groepsfase veiling 3",
         "allowbidding": false,
         "allowauction": true,
         "allowlineup": true,
@@ -267,7 +267,7 @@
     "model": "euro2020.gamephase",
     "pk": 26,
     "fields": {
-        "gamephase": "22 GroupPhaseBidding 2nd Round",
+        "gamephase": "22 Groepsfase bieding 2",
         "allowbidding": true,
         "allowauction": false,
         "allowlineup": true,
@@ -278,7 +278,7 @@
     "model": "euro2020.gamephase",
     "pk": 27,
     "fields": {
-        "gamephase": "24 GroupPhaseBidding 3rd Round",
+        "gamephase": "24 Groepsfase bieding 3",
         "allowbidding": true,
         "allowauction": false,
         "allowlineup": true,
@@ -289,7 +289,7 @@
     "model": "euro2020.gamephase",
     "pk": 28,
     "fields": {
-        "gamephase": "42 Last 16 Lineup",
+        "gamephase": "42 Opstelling Achtste Finales",
         "allowbidding": false,
         "allowauction": false,
         "allowlineup": false,
@@ -300,7 +300,7 @@
     "model": "euro2020.gamephase",
     "pk": 29,
     "fields": {
-        "gamephase": "52 Last 8 Lineup",
+        "gamephase": "52 Opstelling Kwart Finales",
         "allowbidding": false,
         "allowauction": false,
         "allowlineup": false,
@@ -311,7 +311,7 @@
     "model": "euro2020.gamephase",
     "pk": 30,
     "fields": {
-        "gamephase": "62 Semi-final Lineup",
+        "gamephase": "62 Opstelling Halve Finales",
         "allowbidding": false,
         "allowauction": false,
         "allowlineup": false,
@@ -322,7 +322,7 @@
     "model": "euro2020.gamephase",
     "pk": 31,
     "fields": {
-        "gamephase": "72 Final Lineup",
+        "gamephase": "72 Opstelling Finale",
         "allowbidding": false,
         "allowauction": false,
         "allowlineup": false,
@@ -333,7 +333,7 @@
     "model": "euro2020.gamephase",
     "pk": 32,
     "fields": {
-        "gamephase": "11 EURO 2020 Draw",
+        "gamephase": "11 Oxel EURO 2020 Groepsloting",
         "allowbidding": false,
         "allowauction": false,
         "allowlineup": false,
