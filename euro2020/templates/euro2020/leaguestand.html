@@ -19,8 +19,7 @@
             <h4 align="center" class="title is-4">Groep: {{ group }}</h4>
             <table class="table" align="center">
                 <tr>
-                    <th></th>
-                    <th>Land</th>
+                    <th>Team</th>
                     <th>GS</th>
                     <th>W</th>
                     <th>G</th>
@@ -30,23 +29,20 @@
                     <th>DT</th>
                     <th>DF</th>
                 </tr>
-                {% for country in groupdata %}
-                    {% if group == country.country.group %}
+                {% for team in leagueteams %}
+                    {% if group == team.group %}
                         <tr>
-                            <td>{% with 'images/'|add:country.country.name|add:'.jpg' as image_static %}
-                                <img src="{% static image_static %}" width="30" height="20">
-                            {% endwith %}</td>
-                            <th>{{ country.country.nlname }}</th>
-                            <td>{{ country.GS }}</td>
-                            <td>{{ country.W }}</td>
-                            <td>{{ country.G }}</td>
-                            <td>{{ country.V }}</td>
-                            <th>{{ country.PT }}</th>
-                            <td>{{ country.DV }}</td>
-                            <td>{{ country.DT }}</td>
-                            <td>{{ country.DF }}</td>
-                            <td>{{ country.PO }}</td>
-                            <td>{{ country.POCOMMENT }}</td>
+                            <th>{{ team.name }}</th>
+                            <td>{{ team.GS }}</td>
+                            <td>{{ team.W }}</td>
+                            <td>{{ team.G }}</td>
+                            <td>{{ team.V }}</td>
+                            <th>{{ team.PT }}</th>
+                            <td>{{ team.DV }}</td>
+                            <td>{{ team.DT }}</td>
+                            <td>{{ team.DF }}</td>
+                            <td>{{ team.order }}</td>
+                            <td>{{ team.POCOMMENT }}</td>
                         </tr>
                     {% endif %}
                 {% endfor %}

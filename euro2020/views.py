@@ -309,9 +309,10 @@ def groepstand(request):
 
 def leaguestand(request, league):
     currentleague = League.objects.get(pk=league)
+    leagueteams = Team.objects.filter(league=league).order_by("order")
     return render(
         request=request,
-        template_name="euro2020/leaguestand.html", context={"loting": currentleague.draw})
+        template_name="euro2020/leaguestand.html", context={"loting": currentleague.draw, "groups": Team.TeamGroup.labels, "leagueteams": leagueteams})
 
 
 def bidoverview(request):

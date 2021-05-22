@@ -124,9 +124,9 @@ class Team(models.Model):
     maxbidatt = models.PositiveSmallIntegerField(default=0,
                                                  validators=([MinValueValidator(0), MaxValueValidator(5)])
                                                  )
-    group = models.CharField(verbose_name=_("Group"), max_length=4, choices=TeamGroup.choices, null=True)
+    group = models.CharField(verbose_name=_("Group"), max_length=4, choices=TeamGroup.choices, null=True, blank=True)
     order = models.PositiveSmallIntegerField(
-        verbose_name=_("Order"), validators=[MinValueValidator(1), MaxValueValidator(5)], null=True)
+        verbose_name=_("Order"), validators=[MinValueValidator(1), MaxValueValidator(5)], null=True, blank=True)
     paid = models.BooleanField(default=False)
     eliminated = models.BooleanField(default=False)
 
@@ -286,7 +286,7 @@ class Boekhouding(models.Model):
 class BoekhoudingLeague(models.Model):
     league = models.ForeignKey(League, on_delete=models.CASCADE, related_name="boekhoudingleague", blank=True)
     boekingsopmerking = models.CharField(verbose_name=_("boekingsopmerking"), max_length=200)
-    aantalbetcoins = models.IntegerField(validators=([MinValueValidator(-1), MaxValueValidator(48000)]))
+    aantalbetcoins = models.IntegerField(validators=([MinValueValidator(-48000), MaxValueValidator(48000)]))
 
 
 class Opstelling(models.Model):
