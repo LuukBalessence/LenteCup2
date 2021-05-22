@@ -57,6 +57,7 @@ class Country(models.Model):
         verbose_name=_("Group"), max_length=1, choices=Group.choices
     )
     openforbid = models.BooleanField(default=False)
+    eliminated = models.BooleanField(default=False)
 
     class Meta:
         verbose_name = _("Country")
@@ -124,6 +125,8 @@ class Team(models.Model):
                                                  validators=([MinValueValidator(0), MaxValueValidator(5)])
                                                  )
     group = models.CharField(verbose_name=_("Group"), max_length=4, choices=TeamGroup.choices, null=True)
+    order = models.PositiveSmallIntegerField(
+        verbose_name=_("Order"), validators=[MinValueValidator(1), MaxValueValidator(5)], null=True)
     paid = models.BooleanField(default=False)
     eliminated = models.BooleanField(default=False)
 
@@ -161,20 +164,6 @@ class Player(models.Model):
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
-
-
-# class LeagueTable(models.Model):
-#     participant = models.OneToOneField(
-#         Team, on_delete=models.CASCADE,  related_name="league"
-#     )
-#     league = models.ForeignKey(
-#         League, on_delete=models.CASCADE, related_name="league"
-#     )
-#
-#     def __str__(self):
-#         return f"{self.participant} {self.league}"
-
-
 
 
 class Match(models.Model):
@@ -298,3 +287,9 @@ class BoekhoudingLeague(models.Model):
     league = models.ForeignKey(League, on_delete=models.CASCADE, related_name="boekhoudingleague", blank=True)
     boekingsopmerking = models.CharField(verbose_name=_("boekingsopmerking"), max_length=200)
     aantalbetcoins = models.IntegerField(validators=([MinValueValidator(-1), MaxValueValidator(48000)]))
+
+
+class Opstelling(models.Model):
+    team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name="opstelling")
+    phase = models.ForeignKey(GamePhase, on_delete=models.CASCADE, related_name="opstelling")
+    opgesteldespeler = models.ForeignKey(Player, on_delete=models.CASCADE, related_name="opstelling")

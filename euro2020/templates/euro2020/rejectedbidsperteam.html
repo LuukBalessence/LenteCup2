@@ -15,15 +15,16 @@
                 <tr><th></th><th></th><th></th><th></th><th></th></tr>
                 <tr>
                     <th style="background-color: #00d1b2;color: white">{{ team.name }}</th>
-                    <th style="background-color: #00d1b2;color: white"></th>
-                    <th style="background-color: #00d1b2;color: white"></th>
+                    <th style="background-color: #00d1b2;color: white">Land</th>
+                    <th style="background-color: #00d1b2;color: white">Pos.</th>
                     <th style="background-color: #00d1b2;color: white">{{ team.betcoins }}</th>
+                    <th style="background-color: #00d1b2;color: white">Reden afwijzing</th>
                 </tr>
                     {% for bid in bids %}
                         {% if bid.team_id == team.id %}
                         <tr>
                             <td>{{ bid.player.first_name }} {{ bid.player.last_name }}</td>
-                            <td>{{ bid.player.country }}</td>
+                            <td>{{ bid.player.country.nlname }}</td>
                             <td>{{ bid.player.position }}</td>
                             <td>{{ bid.playerbid }}</td>
                             <td>{{ bid.bidcomment }}</td>

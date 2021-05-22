@@ -109,7 +109,7 @@
                     <th>
                         <div class="control has-icons-left">
                             <input class="input is-primary" style="width: 300px; color: black"
-                                   value="{{ betcoinbalance }}"
+                                   value="{{ betcoinbalance }} betcoins"
                                    type="text"
                                    name="betcoinbalance" id="betcoinbalance"
                                    placeholder="Geen betaling gedaan of verwerk!" disabled/>
@@ -122,9 +122,23 @@
                 <tr>
                     <th style="text-align:center">
                         <a href=tactiekopstelling><input style="width:250px" type="submit" class="button is-primary"
-                                                value="Tactiek en Opstelling"/></a>
+                                                         value="Kies Tactiek en Opstelling"/></a>
                     </th>
                 </tr>
+                <table class="table" ALIGN="center">
+                    <tr>
+                        <td align="center" style="font-weight: bold">Jouw opstelling</td>
+                    </tr>
+                    {% if not players %}
+                        <tr>
+                            <th>
+                                <div class="notification is-info" ALIGN="center">
+                                    <button class="delete"></button>
+                                    Je hebt nog geen spelers
+                                </div>
+                            </th>
+                        </tr>
+                    {% endif %}
                 <tr>
                     <th style="text-align:center">
                         <a href=euro2020><input style="width:250px" type="submit" class="button is-primary"

@@ -115,6 +115,7 @@ class GoalAdmin(admin.ModelAdmin):
 class BidsAdmin(admin.ModelAdmin):
     list_display = (
         "team",
+        "gamephase",
         "player",
         "playerbid",
         "assigned",
@@ -131,3 +132,8 @@ class BoekhoudingsAdmin(admin.ModelAdmin):
 @admin.register(models.BoekhoudingLeague)
 class BoekhoudingsAdmin(admin.ModelAdmin):
     list_display = ("league", "boekingsopmerking", "aantalbetcoins")
+
+
+@admin.register(models.Opstelling)
+class OpstellingsAdmin(admin.ModelAdmin):
+    list_display = ("phase", "team", "opgesteldespeler")

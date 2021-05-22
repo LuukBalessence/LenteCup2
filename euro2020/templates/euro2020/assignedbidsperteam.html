@@ -23,7 +23,7 @@
                         {% if bid.team_id == team.id %}
                         <tr>
                             <td>{{ bid.player.first_name }} {{ bid.player.last_name }}</td>
-                            <td>{{ bid.player.country }}</td>
+                            <td>{{ bid.player.country.nlname }}</td>
                             <td>{{ bid.player.position }}</td>
                             <td>{{ bid.playerbid }}</td>
                         </tr>

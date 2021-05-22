@@ -1,3 +1,5 @@
+import random
+
 from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, get_list_or_404, get_object_or_404, redirect
 
@@ -313,8 +315,11 @@ def leaguestand(request, league):
 
 
 def bidoverview(request):
-    manager = request.user
+    league = ""
+    disabled = ""
     error = ""
+    manager = request.user
+    team = Team.objects.get(owner=manager)
     try:
         currentteam = Team.objects.get(owner=manager)
         # Als de huidige gebruiker een team heeft dienen we te controleren of deze toegewezen is aan een league
@@ -329,8 +334,32 @@ def bidoverview(request):
     except ObjectDoesNotExist:
         error = "Je dient eerst een teamnaam aan te maken onder Jouw teamgegevens"
 
-    return render(request, 'euro2020/bidoverview.html',
-                  context={'countries': Country.objects.all(), 'groups': Country.Group.labels, "error": error})
+    try:
+        league = team.league
+        leaguephase = league.gamephase
+        if leaguephase.allowauction:
+            disabled = "disabled"
+    except:
+        pass
+
+    if request.method == 'POST':
+        if request.POST.get("bewaarveiling"):
+            team.bidbudget = request.POST['maxbetcoin']
+            team.maxbidgke = request.POST['gke']
+            team.maxbiddef = request.POST['def']
+            team.maxbidmid = request.POST['mid']
+            team.maxbidatt = request.POST['att']
+            team.save()
+            error1 = "Je instellingen zijn opgeslagen"
+            return render(request, "euro2020/bidoverview.html",
+                          context={'countries': Country.objects.all(), 'groups': Country.Group.labels,
+                                   "league": league, "disabled": disabled, "team": team, "error": error, "error1": error1})
+        else:
+            pass
+
+    return render(request, "euro2020/bidoverview.html",
+                  context={'countries': Country.objects.all(), 'groups': Country.Group.labels,
+                           "league": league, "disabled": disabled, "team": team, "error": error})
 
 
 def bids(request, country_name):
@@ -384,9 +413,9 @@ def bids(request, country_name):
                         # Een bieding van 0 halen we weg uit de biedingenlijst.
                         currentplayer = Player.objects.get(pk=form.cleaned_data["playerpk"])
                         try:
-                            obj = Bids.objects.get(team=currentteam, player=currentplayer)
+                            obj = Bids.objects.get(team=currentteam, player=currentplayer, gamephase=currentleaguegamephase)
                             obj.playerbid = form.cleaned_data["bid"]
-                            if obj.playerbid == 0 or "None":
+                            if obj.playerbid == 0 or obj.playerbid == "None":
                                 obj.delete()
                             else:
                                 obj.save()
@@ -560,6 +589,29 @@ def teams(request, league):
                            })
 
 
+def lotingleague(request, league):
+    error = ""
+    drawlist = [["A", 1], ["A", 2], ["A", 3],["A", 4], ["B", 1], ["B", 2], ["B", 3],["B", 4], ["C", 1], ["C", 2], ["C", 3],["C", 4], ["D", 1], ["D", 2], ["D", 3], ["D", 4], ["E", 1], ["E", 2], ["E", 3],["E", 4], ["F", 1], ["F", 2], ["F", 3],["F", 4]]
+    currentleague = League.objects.get(pk=league)
+    leagueteams = Team.objects.filter(league=league).order_by('name').select_related("owner")
+    if currentleague.draw == False:
+        for team in leagueteams:
+            print(drawlist)
+            a = random.choice(drawlist)
+            print(a[0])
+            team.group = a[0]
+            team.order = a[1]
+            team.save()
+            drawlist.remove(a)
+        currentleague.draw = True
+        currentleague.save()
+    else:
+        error = "Er heeft al een loting voor deze league plaatsgevonden"
+        print(error)
+
+    return render(request, 'euro2020/leaguemanager.html',
+                  context={'league': currentleague})
+
 def changephase(request, league):
     error = ""
     leaguename = League.objects.get(id=league).leaguename
@@ -606,11 +658,10 @@ def setupbids(request, league):
                       context={'bids': "", 'teams': "", 'error': error})
 
     prefix = currentleague.leaguename + "_"
-    allleaguebids = Bids.objects.filter(team__name__istartswith=prefix)
-    allleaguebids.delete()
-    allleaguebids = Bids.objects.filter(team__name__istartswith=prefix)
+    allleaguebids = Bids.objects.filter(team__name__istartswith=prefix, gamephase=currentleague.gamephase)
     if len(allleaguebids) != 0:
-        error = "This League already contains bids. To setup bids for a League it should not contains bids"
+        error = "This League already contains bids for this phase. To setup bids for a League it should not contains bids"
+        print(error)
         return redirect(leaguemanager, league)
 
     setup_bids(league, 202)
@@ -721,22 +772,43 @@ def moneymanager(request):
 
 
 def tactiekopstelling(request):
+    error = ""
     bidauction = False
     league = ""
+    disabled = ""
     manager = request.user
-    teamdata = Team.objects.get(owner=manager)
-    try:
-        league = teamdata.league
-        leaguephase = league.gamephase
-        if leaguephase.allowbidding or leaguephase.allowauction:
-            bidauction = True
-    except:
-        pass
+    team = Team.objects.get(owner=manager)
     allgke = ""
     alldef = ""
     allmid = ""
     allatt = ""
+    try:
+        league = team.league
+        leaguephase = league.gamephase
+        if leaguephase.allowauction:
+            disabled = "disabled"
+        if leaguephase.allowbidding or leaguephase.allowauction:
+            bidauction = True
+    except:
+        pass
 
-    return render(request, "euro2020/tactiekopstelling.html", context={"allgke": allgke, "alldef": alldef,
-                                                                       "allmid": allmid, "allatt": allatt,
-                                                                       "league": league, "bidauction": bidauction})
+    if request.method == 'POST':
+        if request.POST.get("bewaarveiling"):
+            team.bidbudget = request.POST['maxbetcoin']
+            team.maxbidgke = request.POST['gke']
+            team.maxbiddef = request.POST['def']
+            team.maxbidmid = request.POST['mid']
+            team.maxbidatt = request.POST['att']
+            team.save()
+            error = "Je instellingen zijn opgeslagen"
+            return render(request, "euro2020/tactiekopstelling.html",
+                          context={"allgke": allgke, "alldef": alldef, "allmid": allmid, "allatt": allatt,                                                                           "league": league,
+                                    "bidauction": bidauction, "disabled": disabled, "team": team, "error": error})
+        elif request.POST.get("bewaaropstelling"):
+            team = Team.objects.get(pk=request.POST['teamname'])
+        else:
+            pass
+
+    return render(request, "euro2020/tactiekopstelling.html",
+                  context={"allgke": allgke, "alldef": alldef, "allmid": allmid, "allatt": allatt, "league": league,
+                           "bidauction": bidauction, "disabled": disabled, "team": team, "error": error})

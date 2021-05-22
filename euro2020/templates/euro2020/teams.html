@@ -17,6 +17,7 @@
                 <th style="background-color: #00d1b2;color: white">Budget</th>
                 <th style="background-color: #00d1b2;color: white">Betaald</th>
                 <th style="background-color: #00d1b2;color: white">Groep</th>
+                <th style="background-color: #00d1b2;color: white">Order</th>
             </tr>
             {% for team in leagueteams %}
                 <tr>
@@ -25,6 +26,7 @@
                     <td>{{ team.betcoins }}</td>
                     <td>{{ team.paid }}</td>
                     <td>{{ team.group }}</td>
+                    <td>{{ team.order }}</td>
                 </tr>
             {% endfor %}
         </table>

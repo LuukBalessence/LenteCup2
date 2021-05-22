@@ -4,24 +4,29 @@ import random
 
 def createbidlist(currentteam, country_name):
     initialbids = []
-    teamexistingbids = Bids.objects.filter(team=currentteam).values()
+    currentleague = League.objects.get(pk=currentteam.league.pk)
+    allleagueteams = Team.objects.filter(league_id=currentteam.league)
+    teamexistingbids = Bids.objects.filter(team=currentteam, gamephase=currentleague.gamephase.pk).values()
     players = Player.objects.filter(country__name=country_name).order_by('country', 'position')
     for player in players:
-        # We moeten hier de playername toch definieren omdat anders de initialbid niet overeenkomt met de
-        # cleaned data structuur
-        # Voorbeelden van de initialbid voor een speler en de form_cleaned data
-        # {'player': <Player: Kevin Lasagna>, 'playerpk': '755', 'position': 'A', 'bid': 8}
-        # {'position': 'A', 'player': 'Kevin Lasagna', 'playerpk': '755', 'bid': 8}
-        playername = player.first_name + " " + player.last_name
         try:
-            currentbid = teamexistingbids.get(player_id=player.id, team=currentteam)
-            initialbids.append(
-                {"player": playername, "playerpk": str(player.id),
-                 "position": player.position, "bid": currentbid["playerbid"]})
-            # print(currentbid['playerbid'])
+            Bids.objects.get(team__in=allleagueteams, player=player, assigned=True)
         except:
-            initialbids.append(
-                {"player": playername, "playerpk": str(player.id), "position": player.position, "bid": None})
+            # We moeten hier de playername toch definieren omdat anders de initialbid niet overeenkomt met de
+            # cleaned data structuur
+            # Voorbeelden van de initialbid voor een speler en de form_cleaned data
+            # {'player': <Player: Kevin Lasagna>, 'playerpk': '755', 'position': 'A', 'bid': 8}
+            # {'position': 'A', 'player': 'Kevin Lasagna', 'playerpk': '755', 'bid': 8}
+            playername = player.first_name + " " + player.last_name
+            try:
+                currentbid = teamexistingbids.get(player_id=player.id, team=currentteam)
+                initialbids.append(
+                    {"player": playername, "playerpk": str(player.id),
+                     "position": player.position, "bid": currentbid["playerbid"]})
+                # print(currentbid['playerbid'])
+            except:
+                initialbids.append(
+                    {"player": playername, "playerpk": str(player.id), "position": player.position, "bid": None})
     return initialbids
 
 
@@ -34,31 +39,32 @@ def validbid(bid, team, players):
     # betreffende linie is al toegewezen aan de manager
 
     if bid['playerbid'] > team['betcoins']:
-        return [False, "REJECTION 1a: Not enough betcoins(" + str(team['betcoins']) + ") to buy this player"]
+        return [False, "AFWIJZING 1a: Niet genoeg betcoins in kas(" + str(team['betcoins']) + ") om deze speler te kopen"]
     if bid['playerbid'] > team['bidbudget']:
-        return [False, "REJECTION 1b: Not enough budget in this phase(" + str(team['betcoins']) + ") to buy this player"]
+        return [False,
+                "AFWIJZING 1b: Er is niet genoeg van je ingestelde biedbudget over(" + str(team['bidbudget']) + ") om deze speler te kopen"]
 
     teamcount = team['gkecount'] + team['defcount'] + team['midcount'] + team['attcount']
     if teamcount >= 20:
-        return [False, "REJECTION 2: You have reached the maximum of 20 players"]
+        return [False, "AFWIJZING 2: Je hebt het maximum van 20 spelers bereikt"]
     player = list(filter(lambda x: x['id'] == bid['player_id'], players))[0]
     position = player['position']
     if position == 'G' and team['gkecount'] == 3:
-        return [False, "REJECTION 3a: You have reached the maximum of 3 goalkeepers for your team"]
+        return [False, "AFWIJZING 3a: Je hebt het teammaximum van 3 goalkeepers bereikt"]
     elif position == 'G' and team['budgetgkecount'] == team['maxbidgke']:
-        return [False, "REJECTION 3b: You have reached your maximum configured goalkeepers to buy for this phase "]
+        return [False, "AFWIJZING 3b: Je hebt het door jou ingestelde maximum aantal goalkeepers voor deze biedronde bereikt"]
     elif position == 'D' and team['defcount'] == 8:
-        return [False, "REJECTION 4a: You have reached the maximum of 8 defenders for your team"]
+        return [False, "AFWIJZING 4a: Je hebt het teammaximum van 8 verdedigers bereikt"]
     elif position == 'D' and team['budgetdefcount'] == team['maxbiddef']:
-        return [False, "REJECTION 4b: You have reached your maximum configured defenders to buy for this phase "]
+        return [False, "AFWIJZING 4b: Je hebt het door jou ingestelde maximum aantal verdedigers voor deze biedronde bereikt"]
     elif position == 'M' and team['midcount'] == 8:
-        return [False, "REJECTION 5a: You have reached the maximum of 8 midfielders for your team"]
+        return [False, "AFWIJZING 5a: Je hebt het teammaximum van 8 middenvelders bereikt"]
     elif position == 'M' and team['budgetmidcount'] == team['maxbidmid']:
-        return [False, "REJECTION 5b: You have reached your maximum configured midfielders to buy for this phase "]
+        return [False, "AFWIJZING 5b: Je hebt het door jou ingestelde maximum aantal middenvelders voor deze biedronde bereikt"]
     elif position == 'A' and team['attcount'] == 5:
-        return [False, "REJECTION 6a: You have reached the maximum of 5 attackers for your team"]
+        return [False, "AFWIJZING 6a: Je hebt het teammaximum van 5 aanvallers bereikt"]
     elif position == 'A' and team['budgetattcount'] == team['maxbidatt']:
-        return [False, "REJECTION 6b: You have reached your maximum configured attackers to buy for this phase "]
+        return [False, "AFWIJZING 6b: Je hebt het door jou ingestelde maximum aantal aanvallers voor deze biedronde bereikt"]
 
     # TODO Implement max player position entered by manager
     # TODO Use budget maximum entered by manager
@@ -78,14 +84,16 @@ def savebid(bid, assigned, bidcomment, team, players):
         currentbalance = team['betcoins']
         newbalance = currentbalance - bid['playerbid']
         team['betcoins'] = newbalance
-        Boekhouding.objects.create(team_id=team['id'], aantalbetcoins=- bid['playerbid'], boekingsopmerking=str(obj.player) + " gekocht")
+        Boekhouding.objects.create(team_id=team['id'], aantalbetcoins=- bid['playerbid'],
+                                   boekingsopmerking=str(obj.player) + " gekocht")
         currentbudget = team['bidbudget']
         newbudget = currentbudget - bid['playerbid']
         team['bidbudget'] = newbudget
         # TODO Als previousteam bestaat dient de opbrengst ten goede te komen aan het oude team en niet aan de league
         # TODO Als het previousteam niet bestaan dient de opbrengst ten goede te komen aan de league
-        league = League.objects.get(pk = team['league_id'])
-        BoekhoudingLeague.objects.create(league=league, aantalbetcoins= bid['playerbid'], boekingsopmerking=str(obj.player) + " gekocht")
+        league = League.objects.get(pk=team['league_id'])
+        BoekhoudingLeague.objects.create(league=league, aantalbetcoins=bid['playerbid'],
+                                         boekingsopmerking=str(obj.player) + " gekocht")
         league.leaguebalance += bid['playerbid']
         league.save()
         player = list(filter(lambda x: x['id'] == bid['player_id'], players))[0]
@@ -119,7 +127,7 @@ def assignfinalbid(bidlist, teamlist, players):
         bid = bidlist[0]
         print(bid)
         print(teamlist)
-        result = savebid(bid, True, "ASSIGNED 01: Highest bid", teamlist[0], players)
+        result = savebid(bid, True, "TOEGEWEZEN 01: Hoogste bod gedaan voor speler", teamlist[0], players)
         return result
 
     # Er zijn meer resultaten met dezelfde bieding.
@@ -143,8 +151,8 @@ def assignfinalbid(bidlist, teamlist, players):
     # Als er 1 team over is: Zoek een bieding uit de bidlist bij dit team, werk de biedlijst bij en geef de bieding terug
     if len(teamlist) == 1:
         bid = list(filter(lambda x: x['team_id'] == teamlist[0]['id'], bidlist))[0]
-        result = savebid(bid, True, "ASSIGNED 02: Highest equal bid but with the least players in the squad",
-                teamlist[0], players)
+        result = savebid(bid, True, "TOEGEWEZEN 02: Hoogste gelijke bod maar je had op dit punt het minst aantal spelers in je team",
+                         teamlist[0], players)
         return result
 
     # Als er meer teams zijn overgebleven gaan we kijken wie er nog het meeste totale budget heeft.
@@ -158,7 +166,8 @@ def assignfinalbid(bidlist, teamlist, players):
         if len(teamlist) == 1:
             for bid in bidlist:
                 if bid['team_id'] == teamlist[0]['id']:
-                    result = savebid(bid, True, "ASSIGNED 03: Highest equal bid but with higher budget", teamlist[0], players)
+                    result = savebid(bid, True, "TOEGEWEZEN 03: Hoogste gelijke bod, maar je had nog het hoogste budget over", teamlist[0],
+                                     players)
                     return result
         # Als er meer teams zijn overgebleven met even weinig spelers en een even hoog budget gaan we loten
         else:
@@ -172,8 +181,9 @@ def assignfinalbid(bidlist, teamlist, players):
             # Selecteer de eerste beiding van het winnende team.
             for bid in bidlist:
                 if bid['team_id'] == winningteam['id']:
-                    result = savebid(bid, True, 'ASSIGNED 04: Highest equal bid, but with highest random number.', winningteam,
-                    players)
+                    result = savebid(bid, True, 'TOEGEWEZEN 04: Hoogste gelijke bod met evenveel spelers en budget, maar je had het hoogste nummer bij loting.',
+                                     winningteam,
+                                     players)
                     return result
     print("Hier mogen we nooit komen")
 
@@ -182,7 +192,6 @@ def remove_sameplayer_bids(bids, player, teams):
     for bid in bids[::-1]:
         if bid['player_id'] == player:
             team = list(filter(lambda x: x['id'] == bid['team_id'], teams))
-            savebid(bid, False, "REJECTED 00: Not the highest bid", team, "")
+            savebid(bid, False, "AFGEWEZEN 00: Niet het hoogste bod", team, "")
             bids.remove(bid)
     return bids
-
