@@ -168,13 +168,13 @@ class Player(models.Model):
 
 class Match(models.Model):
     class Stage(models.TextChoices):
-        G1 = "G1", _("Group Stage Day 1")
-        G2 = "G2", _("Group Stage Day 2")
-        G3 = "G3", _("Group Stage Day 3")
-        Q6 = "Q6", _("Round of 16")
-        Q8 = "Q8", _("Quarter Final")
-        Q4 = "Q4", _("Semi Final")
-        Q2 = "Q2", _("Final")
+        G1 = "G1", _("Groepsronde 1")
+        G2 = "G2", _("Groepsronde 2")
+        G3 = "G3", _("Groepsronde 3")
+        Q6 = "Q6", _("Achtste Finales")
+        Q8 = "Q8", _("Kwart Finales")
+        Q4 = "Q4", _("Halve Finales")
+        Q2 = "Q2", _("Finale")
 
     stage = models.CharField(
         verbose_name=_("Stage"), max_length=2, choices=Stage.choices

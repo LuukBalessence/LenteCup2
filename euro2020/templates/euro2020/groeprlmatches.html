@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Real Life EURO2020{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        {% if error %}
+            <table class="table" align="center">
+                <tr>
+                    <th>{{ error }}</th>
+                </tr>
+            </table>
+        {% endif %}
+        <table class="table" align="center">
+            {% for stage in allstages %}
+                <tr>
+                    <th style="font-size: large">{{ stage.label }}</th>
+                </tr>
+                <tr>
+                    <th>Westrijddatum</th>
+                    <th>Groep</th>
+                    <th></th>
+                    <th>Thuis</th>
+                    <th></th>
+                    <th>Uit</th>
+                    <th>:</th>
+                    <th>Stand</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                {% for match in allgroupmatches %}
+                    {% for group in groups %}
+                        {% if group == match.home.group %}
+                            {% if stage == match.stage %}
+                                <tr>
+                                    <td>
+                                        {{ match.start }}
+                                    </td>
+                                    <td>
+                                        {{ match.home.group }}
+                                    </td>
+                                    <td>
+                                        {% with 'images/'|add:match.home.name|add:'.jpg' as image_static %}
+                                            <img src="{% static image_static %}" width="30" height="20">
+                                        {% endwith %}</td>
+                                    <td>{{ match.home.nlname }}</td>
+                                    <td>
+                                        {% with 'images/'|add:match.away.name|add:'.jpg' as image_static %}
+                                            <img src="{% static image_static %}" width="30" height="20">
+                                        {% endwith %}
+                                    </td>
+                                    <td>{{ match.away.nlname }}</td>
+                                    {% if match.has_ended %}
+                                        <td>:</td>
+                                        <td>0</td>
+                                        <th>-</th>
+                                        <td>0</td>
+                                    {% elif match.has_started %}
+                                        <td> LIVE </td>
+                                        <td>0</td>
+                                        <th>-</th>
+                                        <td>0</td>
+                                    {% else %}
+                                        <td>:</td>
+                                        <td>Nog</td>
+                                        <td>niet</td>
+                                        <td>gestart</td>
+                                    {% endif %}
+                                </tr>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+            {% endfor %}
+        </table>
+        <table class="table" align="center">
+            <tr>
+                <th style="text-align:center;width: 300px">
+                    <a href="/euro2020/myleague"><input style="width:250px" type="submit" class="button is-primary"
+                                                        value="Terug naar Mijn League"/></a>
+                </th>
+            </tr>
+        </table>
+    {% endif %}
+{% endblock %}
