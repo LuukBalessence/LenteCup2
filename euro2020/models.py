@@ -293,3 +293,10 @@ class Opstelling(models.Model):
     team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name="opstelling")
     phase = models.ForeignKey(GamePhase, on_delete=models.CASCADE, related_name="opstelling")
     opgesteldespeler = models.ForeignKey(Player, on_delete=models.CASCADE, related_name="opstelling")
+
+
+class OpstellingLog(models.Model):
+    tijdopgesteld = models.DateTimeField()
+    team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name="opstellinglog")
+    phase = models.ForeignKey(GamePhase, on_delete=models.CASCADE, related_name="opstellinglog")
+    opgesteldespeler = models.ForeignKey(Player, on_delete=models.CASCADE, related_name="opstellinglog")

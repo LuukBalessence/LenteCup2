@@ -137,3 +137,8 @@ class BoekhoudingsAdmin(admin.ModelAdmin):
 @admin.register(models.Opstelling)
 class OpstellingsAdmin(admin.ModelAdmin):
     list_display = ("phase", "team", "opgesteldespeler")
+
+
+@admin.register(models.OpstellingLog)
+class OpstellingsLogAdmin(admin.ModelAdmin):
+    list_display = ("tijdopgesteld", "phase", "team", "opgesteldespeler")

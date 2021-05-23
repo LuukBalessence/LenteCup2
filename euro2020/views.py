@@ -6,7 +6,7 @@ from django.shortcuts import render, get_list_or_404, get_object_or_404, redirec
 from LenteCup2.models import GameSettings
 from common.models import AppAuthorisation, Apps
 from euro2020 import models
-from euro2020.models import Bids, Player, League, GamePhase, Boekhouding, BoekhoudingLeague
+from euro2020.models import Bids, Player, League, GamePhase, Boekhouding, BoekhoudingLeague, Opstelling
 from .bid_functions import createbidlist, validbid, assignfinalbid, savebid, remove_sameplayer_bids, \
     saveteaminfo
 from .forms import ChangeFirstNameForm, ChangeTeamNameForm, AddGoalForm, BidsForm, CreateLeagueForm, PickLeagueForm
@@ -153,6 +153,8 @@ def myteam(request):
     bnumber = GameSettings.objects.get(gamesettings='bnumber').gamesettingsvalue
     bname = GameSettings.objects.get(gamesettings='bname').gamesettingsvalue
     leaguefee = "Onbekend"
+    players = ""
+    listplayers = []
     try:
         teamdata = Team.objects.get(owner=manager)
     except:
@@ -185,12 +187,24 @@ def myteam(request):
 
     try:
         team = Team.objects.get(owner=manager)
+        try:
+            truebids = Bids.objects.filter(team__owner=manager, assigned=True)
+            opstelling = Opstelling.objects.filter(team=team)
+            for bid in truebids:
+                try:
+                    Opstelling.objects.get(opgesteldespeler=bid.player)
+                except:
+                    listplayers.append(bid.player)
+            print(listplayers)
+        except:
+            players = ""
+
         return render(request, template_name="euro2020/myteam.html",
                       context={"team": team, "tactics": team, "lineup": team, "league": league,
                                "leaguephase": leaguephase,
                                "betcoinbalance": betcoinbalance, "bidauction": bidauction, "bnumber": bnumber,
-                               "bname": bname
-                          , "leaguefee": leaguefee, "leaguedraw": leaguedraw})
+                               "bname": bname, "leaguefee": leaguefee, "leaguedraw": leaguedraw,
+                               "players": listplayers, "opstelling": opstelling})
     except ObjectDoesNotExist:
         return redirect(to="changeteamname")
 
@@ -312,7 +326,8 @@ def leaguestand(request, league):
     leagueteams = Team.objects.filter(league=league).order_by("order")
     return render(
         request=request,
-        template_name="euro2020/leaguestand.html", context={"loting": currentleague.draw, "groups": Team.TeamGroup.labels, "leagueteams": leagueteams})
+        template_name="euro2020/leaguestand.html",
+        context={"loting": currentleague.draw, "groups": Team.TeamGroup.labels, "leagueteams": leagueteams})
 
 
 def bidoverview(request):
@@ -354,7 +369,8 @@ def bidoverview(request):
             error1 = "Je instellingen zijn opgeslagen"
             return render(request, "euro2020/bidoverview.html",
                           context={'countries': Country.objects.all(), 'groups': Country.Group.labels,
-                                   "league": league, "disabled": disabled, "team": team, "error": error, "error1": error1})
+                                   "league": league, "disabled": disabled, "team": team, "error": error,
+                                   "error1": error1})
         else:
             pass
 
@@ -414,7 +430,8 @@ def bids(request, country_name):
                         # Een bieding van 0 halen we weg uit de biedingenlijst.
                         currentplayer = Player.objects.get(pk=form.cleaned_data["playerpk"])
                         try:
-                            obj = Bids.objects.get(team=currentteam, player=currentplayer, gamephase=currentleaguegamephase)
+                            obj = Bids.objects.get(team=currentteam, player=currentplayer,
+                                                   gamephase=currentleaguegamephase)
                             obj.playerbid = form.cleaned_data["bid"]
                             if obj.playerbid == 0 or obj.playerbid == "None":
                                 obj.delete()
@@ -582,7 +599,6 @@ def leaguemanager(request, league):
 
 
 def teams(request, league):
-
     leagueteams = Team.objects.filter(league=league).order_by('name').select_related("owner")
 
     return render(request, 'euro2020/teams.html',
@@ -592,7 +608,9 @@ def teams(request, league):
 
 def lotingleague(request, league):
     error = ""
-    drawlist = [["A", 1], ["A", 2], ["A", 3],["A", 4], ["B", 1], ["B", 2], ["B", 3],["B", 4], ["C", 1], ["C", 2], ["C", 3],["C", 4], ["D", 1], ["D", 2], ["D", 3], ["D", 4], ["E", 1], ["E", 2], ["E", 3],["E", 4], ["F", 1], ["F", 2], ["F", 3],["F", 4]]
+    drawlist = [["A", 1], ["A", 2], ["A", 3], ["A", 4], ["B", 1], ["B", 2], ["B", 3], ["B", 4], ["C", 1], ["C", 2],
+                ["C", 3], ["C", 4], ["D", 1], ["D", 2], ["D", 3], ["D", 4], ["E", 1], ["E", 2], ["E", 3], ["E", 4],
+                ["F", 1], ["F", 2], ["F", 3], ["F", 4]]
     currentleague = League.objects.get(pk=league)
     leagueteams = Team.objects.filter(league=league).order_by('name').select_related("owner")
     if currentleague.draw == False:
@@ -612,6 +630,7 @@ def lotingleague(request, league):
 
     return render(request, 'euro2020/leaguemanager.html',
                   context={'league': currentleague})
+
 
 def changephase(request, league):
     error = ""
@@ -719,8 +738,8 @@ def programma(request):
 
 def moneymanager(request):
     error = ""
-    allteams = Team.objects.all()
-    allleagues = League.objects.all()
+    allteams = Team.objects.filter(paid=False)
+    allleagues = League.objects.filter(draw=False)
     if request.method == 'POST':
         if request.POST.get("boeking"):
             team = Team.objects.get(pk=request.POST['teamname1'])
@@ -803,8 +822,9 @@ def tactiekopstelling(request):
             team.save()
             error = "Je instellingen zijn opgeslagen"
             return render(request, "euro2020/tactiekopstelling.html",
-                          context={"allgke": allgke, "alldef": alldef, "allmid": allmid, "allatt": allatt,                                                                           "league": league,
-                                    "bidauction": bidauction, "disabled": disabled, "team": team, "error": error})
+                          context={"allgke": allgke, "alldef": alldef, "allmid": allmid, "allatt": allatt,
+                                   "league": league,
+                                   "bidauction": bidauction, "disabled": disabled, "team": team, "error": error})
         elif request.POST.get("bewaaropstelling"):
             team = Team.objects.get(pk=request.POST['teamname'])
         else:
@@ -833,3 +853,12 @@ def groeprlmatches(request):
     groups = models.Country.Group.names
     return render(request, "euro2020/groeprlmatches.html",
                   context={"allgroupmatches": allgroupmatches, "allstages": allstages, "groups": groups})
+
+
+def myledger(request):
+    manager = request.user
+    currentteam = Team.objects.get(owner=manager)
+    jouwboekhouding = Boekhouding.objects.filter(team=currentteam)
+
+    return render(request, "euro2020/myledger.html",
+                  context={"jouwboekhouding": jouwboekhouding, "currentteam": currentteam})

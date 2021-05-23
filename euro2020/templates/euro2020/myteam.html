@@ -129,6 +129,30 @@
                     <tr>
                         <td align="center" style="font-weight: bold">Jouw opstelling</td>
                     </tr>
+                {% if not opstelling %}
+                        <tr>
+                            <th>
+                                <div class="notification is-info" ALIGN="center">
+                                    <button class="delete"></button>
+                                    Je hebt nog geen opstelling
+                                </div>
+                            </th>
+                        </tr>
+                    {% else %}
+                        {% for speler in opstelling %}
+                            <tr>
+                                <td>
+                                    {{ speler.opgesteldespeler }}
+                                </td>
+                                <td>
+                                    {{ speler.opgesteldespeler.position }}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    {% endif %}
+                    <tr>
+                        <td align="center" style="font-weight: bold">Jouw wisselspelers</td>
+                    </tr>
                     {% if not players %}
                         <tr>
                             <th>
@@ -138,6 +162,17 @@
                                 </div>
                             </th>
                         </tr>
+                    {% else %}
+                        {% for player in players %}
+                            <tr>
+                                <td>
+                                    {{ player }}
+                                </td>
+                                <td>
+                                    {{ player.position }}
+                                </td>
+                            </tr>
+                        {% endfor %}
                     {% endif %}
                 <tr>
                     <th style="text-align:center">
