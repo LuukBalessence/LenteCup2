@@ -30,151 +30,193 @@
                 {% endif %}
             </table>
             <table class="table" ALIGN="center">
-                <tr>
-                    <td align="center" style="font-weight: bold">Algemeen</td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="field">
-                            <p class="control has-icons-left">
-                                <input class="input is-primary" id="id_team"
-                                       name="team"
-                                       placeholder="Please enter team name..." type="text" value="{{ team }}"
-                                       style="width: 300px;color: black" disabled/>
-                                <span class="icon is-left is-small">
+            <tr>
+                <td align="center" style="font-weight: bold">Algemeen</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="field">
+                        <p class="control has-icons-left">
+                            <input class="input is-primary" id="id_team"
+                                   name="team"
+                                   placeholder="Please enter team name..." type="text" value="{{ team }}"
+                                   style="width: 300px;color: black" disabled/>
+                            <span class="icon is-left is-small">
                                     <i class="fas fa-users" style="font-size:20px;color:black"></i>
                                 </span>
-                            </p>
-                        </div>
-                    </td>
-                </tr>
-                {% if not leaguedraw %}
-                    <tr>
-                        <th>
-                            <div class="field has-addons">
-                                <div class="control has-icons-left">
-                                    <input class="input is-primary" style="width: 200px; color: black"
-                                           value="{{ league }}"
-                                           type="text"
-                                           name="leaguename"
-                                           id="leaguename"
-                                           placeholder="Kies hier een league" disabled>
-                                    <span class="icon is-left">
+                        </p>
+                    </div>
+                </td>
+            </tr>
+            {% if not leaguedraw %}
+                <tr>
+                    <th>
+                        <div class="field has-addons">
+                            <div class="control has-icons-left">
+                                <input class="input is-primary" style="width: 200px; color: black"
+                                       value="{{ league }}"
+                                       type="text"
+                                       name="leaguename"
+                                       id="leaguename"
+                                       placeholder="Kies hier een league" disabled>
+                                <span class="icon is-left">
                                     <i class="fas fa-list-ol" style="font-size:20px;color:black"></i>
                                 </span>
-                                </div>
+                            </div>
 
-                                <div class="control">
-                                    <a class="button is-primary" style="width: 100px" href={% url 'pickleague' %}>
-                                        Kies League
-                                    </a>
-                                </div>
+                            <div class="control">
+                                <a class="button is-primary" style="width: 100px" href={% url 'pickleague' %}>
+                                    Kies League
+                                </a>
+                            </div>
+                        </div>
+                    </th>
+                </tr>
+            {% else %}
+                <tr>
+                    <th>
+                        <div class="field has-addons">
+                            <div class="control has-icons-left">
+                                <input class="input is-primary" style="width: 300px; color: black"
+                                       value="{{ league }}"
+                                       type="text"
+                                       name="leaguename"
+                                       id="leaguename"
+                                       placeholder="Kies hier een league" disabled>
+                                <span class="icon is-left">
+                                    <i class="fas fa-list-ol" style="font-size:20px;color:black"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </th>
+                </tr>
+            {% endif %}
+            <tr>
+                <th>
+                    <div class="control has-icons-left">
+                        <input class="input is-primary" style="width: 300px; color: black" value="{{ leaguephase }}"
+                               type="text"
+                               name="currentphase"
+                               id="currentphase"
+                               placeholder="League fase onbekend" disabled/>
+                        <span class="icon is-left">
+                                <i class="fas fa-history" style="font-size:20px;color:black"></i>
+                            </span>
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <div class="control has-icons-left">
+                        <input class="input is-primary" style="width: 300px; color: black"
+                               value="{{ betcoinbalance }} betcoins"
+                               type="text"
+                               name="betcoinbalance" id="betcoinbalance"
+                               placeholder="Geen betaling gedaan of verwerk!" disabled/>
+                        <span class="icon is-left">
+                                <i class="fas fa-coins" style="font-size:20px;color:black"></i>
+                            </span>
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <th style="text-align:center">
+                    <a href=tactiekopstelling><input style="width:250px" type="submit" class="button is-primary"
+                                                     value="Kies Tactiek en Opstelling"/></a>
+                </th>
+            </tr>
+            <table class="table" ALIGN="center">
+                <tr>
+                    <td></td>
+                    <td align="center" style="font-weight: bold">Jouw opstelling</td>
+                </tr>
+                {% if not opstelling %}
+                    <tr>
+                        <th>
+                            <div class="notification is-info" ALIGN="center">
+                                <button class="delete"></button>
+                                Je hebt nog geen opstelling
                             </div>
                         </th>
                     </tr>
                 {% else %}
-                    <tr>
-                        <th>
-                            <div class="field has-addons">
-                                <div class="control has-icons-left">
-                                    <input class="input is-primary" style="width: 300px; color: black"
-                                           value="{{ league }}"
-                                           type="text"
-                                           name="leaguename"
-                                           id="leaguename"
-                                           placeholder="Kies hier een league" disabled>
-                                    <span class="icon is-left">
-                                    <i class="fas fa-list-ol" style="font-size:20px;color:black"></i>
-                                </span>
-                                </div>
-                            </div>
-                        </th>
-                    </tr>
-                {% endif %}
-                <tr>
-                    <th>
-                        <div class="control has-icons-left">
-                            <input class="input is-primary" style="width: 300px; color: black" value="{{ leaguephase }}"
-                                   type="text"
-                                   name="currentphase"
-                                   id="currentphase"
-                                   placeholder="League fase onbekend" disabled/>
-                            <span class="icon is-left">
-                                <i class="fas fa-history" style="font-size:20px;color:black"></i>
-                            </span>
-                        </div>
-                    </th>
-                </tr>
-                <tr>
-                    <th>
-                        <div class="control has-icons-left">
-                            <input class="input is-primary" style="width: 300px; color: black"
-                                   value="{{ betcoinbalance }} betcoins"
-                                   type="text"
-                                   name="betcoinbalance" id="betcoinbalance"
-                                   placeholder="Geen betaling gedaan of verwerk!" disabled/>
-                            <span class="icon is-left">
-                                <i class="fas fa-coins" style="font-size:20px;color:black"></i>
-                            </span>
-                        </div>
-                    </th>
-                </tr>
-                <tr>
-                    <th style="text-align:center">
-                        <a href=tactiekopstelling><input style="width:250px" type="submit" class="button is-primary"
-                                                         value="Kies Tactiek en Opstelling"/></a>
-                    </th>
-                </tr>
-                <table class="table" ALIGN="center">
-                    <tr>
-                        <td align="center" style="font-weight: bold">Jouw opstelling</td>
-                    </tr>
-                {% if not opstelling %}
-                        <tr>
-                            <th>
-                                <div class="notification is-info" ALIGN="center">
-                                    <button class="delete"></button>
-                                    Je hebt nog geen opstelling
-                                </div>
-                            </th>
-                        </tr>
-                    {% else %}
-                        {% for speler in opstelling %}
+                    {% for speler in opstelling %}
+                        {% if speler.opgesteldespeler.position == 'G' %}
                             <tr>
-                                <td>
-                                    {{ speler.opgesteldespeler }}
-                                </td>
                                 <td>
                                     {{ speler.opgesteldespeler.position }}
                                 </td>
+                                <td>
+                                    {{ speler.opgesteldespeler }}
+                                </td>
                             </tr>
-                        {% endfor %}
-                    {% endif %}
-                    <tr>
-                        <td align="center" style="font-weight: bold">Jouw wisselspelers</td>
-                    </tr>
-                    {% if not players %}
-                        <tr>
-                            <th>
-                                <div class="notification is-info" ALIGN="center">
-                                    <button class="delete"></button>
-                                    Je hebt nog geen spelers
-                                </div>
-                            </th>
-                        </tr>
-                    {% else %}
-                        {% for player in players %}
+                        {% endif %}
+                    {% endfor %}
+                    {% for speler in opstelling %}
+                        {% if speler.opgesteldespeler.position == 'D' %}
                             <tr>
                                 <td>
-                                    {{ player }}
+                                    {{ speler.opgesteldespeler.position }}
                                 </td>
                                 <td>
-                                    {{ player.position }}
+                                    {{ speler.opgesteldespeler }}
                                 </td>
                             </tr>
-                        {% endfor %}
-                    {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                    {% for speler in opstelling %}
+                        {% if speler.opgesteldespeler.position == 'M' %}
+                            <tr>
+                                <td>
+                                    {{ speler.opgesteldespeler.position }}
+                                </td>
+                                <td>
+                                    {{ speler.opgesteldespeler }}
+                                </td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                    {% for speler in opstelling %}
+                        {% if speler.opgesteldespeler.position == 'A' %}
+                            <tr>
+                                <td>
+                                    {{ speler.opgesteldespeler.position }}
+                                </td>
+                                <td>
+                                    {{ speler.opgesteldespeler }}
+                                </td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
                 <tr>
+                    <td></td>
+                    <td align="center" style="font-weight: bold">Jouw wisselspelers</td>
+                </tr>
+                {% if not players %}
+                    <tr>
+                        <th>
+                            <div class="notification is-info" ALIGN="center">
+                                <button class="delete"></button>
+                                Je hebt nog geen spelers
+                            </div>
+                        </th>
+                    </tr>
+                {% else %}
+                    {% for player in players %}
+                        <tr>
+                            <td>
+                                {{ player.position }}
+                            </td>
+                            <td>
+                                {{ player }}
+                            </td>
+
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+                <tr>
+                    <th></th>
                     <th style="text-align:center">
                         <a href=euro2020><input style="width:250px" type="submit" class="button is-primary"
                                                 value="Terug naar EURO2020"/></a>

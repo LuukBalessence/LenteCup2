@@ -47,14 +47,73 @@
                     {% endif %}
                 {% endfor %}
             </table>
+            <table class="table" align="center">
+                <tr>
+                    <th>Wedstrijdschema</th>
+                    <th>Thuisteam</th>
+                    <th></th>
+                    <th>Uitteam</th>
+                    <th></th>
+                    <th></th>
+                    <th>Stand</th>
+                    <th></th>
+
+                </tr>
+                {% for listitem in schemalist %}
+                    <tr>
+                        <th>{{ listitem.0 }}</th>
+                        {% for team1 in leagueteams %}
+                            {% if team1.order == listitem.1 %}
+                                {% if team1.group == group %}
+                                    <td>{{ team1.name }}</td>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                        <td> -</td>
+                        {% for team2 in leagueteams %}
+                            {% if team2.order == listitem.2 %}
+                                {% if team2.group == group %}
+                                    <td> {{ team2.name }} </td>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                        <td></td>
+                        <td>Nog</td>
+                        <td>Niet</td>
+                        <td>gestart</td>
+                    </tr>
+                    <tr>
+                        <th>{{ listitem.0 }}</th>
+                        {% for team3 in leagueteams %}
+                            {% if team3.order == listitem.3 %}
+                                {% if team3.group == group %}
+                                    <td>{{ team3.name }}</td>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                        <td> -</td>
+                        {% for team4 in leagueteams %}
+                            {% if team4.order == listitem.4 %}
+                                {% if team4.group == group %}
+                                    <td> {{ team4.name }} </td>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                        <td></td>
+                        <td>Nog</td>
+                        <td>Niet</td>
+                        <td>gestart</td>
+                    </tr>
+                {% endfor %}
+            </table>
         {% endfor %}
+        <table class="table" align="center">
+            <tr>
+                <th style="text-align:center">
+                    <a href=/euro2020/myleague><input style="width:250px" type="submit" class="button is-primary"
+                                                      value="Terug naar Jouw League"/></a>
+                </th>
+            </tr>
+        </table>
     {% endif %}
-    <table class="table" align="center">
-        <tr>
-            <th style="text-align:center">
-                <a href=/euro2020/myleague><input style="width:250px" type="submit" class="button is-primary"
-                                                  value="Terug naar Jouw League"/></a>
-            </th>
-        </tr>
-    </table>
 {% endblock content %}

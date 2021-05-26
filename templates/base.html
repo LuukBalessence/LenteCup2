@@ -3,14 +3,17 @@
 <!-- Bulma Navbar JS -->
 <script src="{% static 'js/navbarburger.js' %}"></script>
 <script src="{% static 'js/notification.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/bulma-collapsible.min.js' %}"></script>
 <html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Oxelgames: Enjoy!</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    {#    <link rel="stylesheet" type="text/css" href="{% static 'css/bulma-collapsible-docs.css' %}">#}
     <link rel="stylesheet" type="text/css" href="{% static 'css/tooltip.css' %}">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
     {% block style %}{% endblock style %}
 </head>
 <body>
@@ -112,5 +115,11 @@
 <div class="container">
     {% block content %}Deze content tekst zou je nooit moeten zien!{% endblock content %}
 </div>
+<script type="text/javascript">
+    $('#menu > a').click(function () {
+        $(this).next().next().slideToggle();
+        return false;
+    });
+</script>
 </body>
 </html>

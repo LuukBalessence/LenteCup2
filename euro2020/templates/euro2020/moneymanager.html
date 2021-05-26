@@ -44,7 +44,8 @@
                     </tr>
                     <tr>
                         <th style="text-align:center">
-                            <input style="width:250px" type="submit" class="button is-primary" name="boekinginschrijving" value="Verwerk inschrijving"/>
+                            <input style="width:250px" type="submit" class="button is-primary"
+                                   name="boekinginschrijving" value="Verwerk inschrijving"/>
                         </th>
                     </tr>
                     <tr>
@@ -68,7 +69,8 @@
                     </tr>
                     <tr>
                         <th style="text-align:center">
-                            <input style="width:250px" type="submit" class="button is-primary" name="groepsfaseleague" value="Verwerk Groepsfase 1000"/>
+                            <input style="width:250px" type="submit" class="button is-primary" name="groepsfaseleague"
+                                   value="Verwerk Groepsfase 1000"/>
                         </th>
                     </tr>
                     <tr>
@@ -90,39 +92,57 @@
                             </div>
                         </th>
                     </tr>
-            <tr>
-                    <th>
-                        <div class="control has-icons-left">
-                            <input class="input is-primary" style="width: 300px; color: black"
-                                   type="number"
-                                   name="betcoins1" id="betcoins1"
-                                   placeholder="Vul betcoins in"/>
-                            <span class="icon is-left">
+                    <tr>
+                        <th>
+                            <div class="control has-icons-left">
+                                <input class="input is-primary" style="width: 300px; color: black"
+                                       type="number"
+                                       name="betcoins1" id="betcoins1"
+                                       placeholder="Vul betcoins in"/>
+                                <span class="icon is-left">
                                 <i class="fas fa-coins" style="font-size:20px;color:black"></i>
                             </span>
-                        </div>
-                    </th>
-                </tr>
-            <tr>
-                    <th>
-                        <div class="control has-icons-left">
-                            <input class="input is-primary" style="width: 300px; color: black"
-                                   type="text"
-                                   name="opmerking" id="opmerking"
-                                   placeholder="Opmerking"/>
-                            <span class="icon is-left">
+                            </div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <div class="control has-icons-left">
+                                <input class="input is-primary" style="width: 300px; color: black"
+                                       type="text"
+                                       name="opmerking" id="opmerking"
+                                       placeholder="Opmerking"/>
+                                <span class="icon is-left">
                                 <i class="fas fa-coins" style="font-size:20px;color:black"></i>
                             </span>
-                        </div>
-                    </th>
-                </tr>
+                            </div>
+                        </th>
+                    </tr>
                     <tr>
                         <th style="text-align:center">
-                            <input style="width:250px" type="submit" class="button is-primary" name="boeking" value="Verwerk boeking"/>
+                            <input style="width:250px" type="submit" class="button is-primary" name="boeking"
+                                   value="Verwerk boeking"/>
                         </th>
                     </tr>
                 </form>
             </table>
         {% endif %}
+        <table class="table" ALIGN="center">
+            <th>
+                <th><div id="menu">
+                    <a>Teachers</a><br/>
+                    <div style="display: none">
+                        Edit<br/>
+                        Delete<br/>
+                    </div>
+                    <a>Schools</a><br/>
+                    <div style="display: none">
+                        <a href="">Edit</a><br/>
+                        <a href="">Delete</a><br/>
+                    </div>
+            </div></th>
+            </tr>
+        </table>
+
     {% endif %}
 {% endblock %}

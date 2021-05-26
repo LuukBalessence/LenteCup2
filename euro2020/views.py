@@ -324,10 +324,11 @@ def groepstand(request):
 def leaguestand(request, league):
     currentleague = League.objects.get(pk=league)
     leagueteams = Team.objects.filter(league=league).order_by("order")
+    schemalist = [["vr 11 t/m di 15 juni", 1,2,3,4],["wo 16 t/m 19 za juni", 1,3,2,4],["zo 20 t/m wo 23 juni", 1,4,2,3]]
     return render(
         request=request,
         template_name="euro2020/leaguestand.html",
-        context={"loting": currentleague.draw, "groups": Team.TeamGroup.labels, "leagueteams": leagueteams})
+        context={"loting": currentleague.draw, "groups": Team.TeamGroup.labels, "leagueteams": leagueteams, "schemalist": schemalist})
 
 
 def bidoverview(request):
@@ -335,7 +336,10 @@ def bidoverview(request):
     disabled = ""
     error = ""
     manager = request.user
-    team = Team.objects.get(owner=manager)
+    try:
+        team = Team.objects.get(owner=manager)
+    except:
+        error = "Je dient eerst een teamnaam aan te maken in het menu Jouw Team"
     try:
         currentteam = Team.objects.get(owner=manager)
         # Als de huidige gebruiker een team heeft dienen we te controleren of deze toegewezen is aan een league
@@ -798,28 +802,67 @@ def tactiekopstelling(request):
     disabled = ""
     manager = request.user
     team = Team.objects.get(owner=manager)
-    allgke = ""
-    alldef = ""
-    allmid = ""
-    allatt = ""
+    allplayers = []
+    allgke = []
+    alldef = []
+    allmid = []
+    allatt = []
+    listopstelling = []
     try:
         league = team.league
-        leaguephase = league.gamephase
-        if leaguephase.allowauction:
-            disabled = "disabled"
-        if leaguephase.allowbidding or leaguephase.allowauction:
-            bidauction = True
     except:
         pass
 
+    leaguephase = league.gamephase
+    if leaguephase.allowauction:
+        disabled = "disabled"
+    if leaguephase.allowbidding or leaguephase.allowauction:
+        bidauction = True
+    if leaguephase.gamephase.__contains__("Groep"):
+        truebids = Bids.objects.filter(team=team, assigned=True, gamephase__gamephase__icontains="Groep").select_related("player")
+        print(truebids)
+    if leaguephase.gamephase.__contains__("Achtste"):
+        truebids = Bids.objects.filter(team=team, assigned=True, gamephase__gamephase__icontains="Achtste").select_related("player")
+        print(truebids)
+    if leaguephase.gamephase.__contains__("Kwart"):
+        truebids = Bids.objects.filter(team=team, assigned=True, gamephase__gamephase__icontains="Kwart").select_related("player")
+        print(truebids)
+    if leaguephase.gamephase.__contains__("Halve"):
+        truebids = Bids.objects.filter(team=team, assigned=True, gamephase__gamephase__icontains="Halve").select_related("player")
+        print(truebids)
+    if leaguephase.gamephase.__contains__("Grand Finale"):
+        truebids = Bids.objects.filter(team=team, assigned=True, gamephase__gamephase__icontains="Grande Finale").select_related("player")
+        print(truebids)
+    for bid in truebids:
+        allplayers.append(Player.objects.get(pk=bid.player_id))
+        if bid.player.position == "G":
+            allgke.append(Player.objects.get(pk=bid.player_id))
+        if bid.player.position == "D":
+            alldef.append(Player.objects.get(pk=bid.player_id))
+        if bid.player.position == "M":
+            allmid.append(Player.objects.get(pk=bid.player_id))
+        if bid.player.position == "A":
+            allatt.append(Player.objects.get(pk=bid.player_id))
+
+    print(allgke)
+    print(alldef)
+    print(allmid)
+    print(allatt)
+
     if request.method == 'POST':
-        if request.POST.get("bewaarveiling"):
-            team.bidbudget = request.POST['maxbetcoin']
-            team.maxbidgke = request.POST['gke']
-            team.maxbiddef = request.POST['def']
-            team.maxbidmid = request.POST['mid']
-            team.maxbidatt = request.POST['att']
-            team.save()
+        if request.POST.get("bewaaropstelling"):
+            listopstelling[0] = request.POST['keeper1']
+            listopstelling[1] = request.POST['verdediger1']
+            listopstelling[2] = request.POST['verdediger2']
+            listopstelling[3] = request.POST['verdediger3']
+            listopstelling[4] = request.POST['verdediger4']
+            listopstelling[5] = request.POST['middenvelder1']
+            listopstelling[6] = request.POST['middenvelder2']
+            listopstelling[7] = request.POST['middenvelder3']
+            listopstelling[8] = request.POST['middenvelder4']
+            listopstelling[9] = request.POST['aanvaller1']
+            listopstelling[10] = request.POST['aanvaller2']
+
             error = "Je instellingen zijn opgeslagen"
             return render(request, "euro2020/tactiekopstelling.html",
                           context={"allgke": allgke, "alldef": alldef, "allmid": allmid, "allatt": allatt,
