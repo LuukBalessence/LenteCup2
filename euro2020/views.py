@@ -808,6 +808,7 @@ def tactiekopstelling(request):
     allmid = []
     allatt = []
     listopstelling = []
+    truebids = ""
     try:
         league = team.league
     except:
@@ -844,32 +845,29 @@ def tactiekopstelling(request):
         if bid.player.position == "A":
             allatt.append(Player.objects.get(pk=bid.player_id))
 
-    print(allgke)
-    print(alldef)
-    print(allmid)
-    print(allatt)
-
     if request.method == 'POST':
         if request.POST.get("bewaaropstelling"):
-            listopstelling[0] = request.POST['keeper1']
-            listopstelling[1] = request.POST['verdediger1']
-            listopstelling[2] = request.POST['verdediger2']
-            listopstelling[3] = request.POST['verdediger3']
-            listopstelling[4] = request.POST['verdediger4']
-            listopstelling[5] = request.POST['middenvelder1']
-            listopstelling[6] = request.POST['middenvelder2']
-            listopstelling[7] = request.POST['middenvelder3']
-            listopstelling[8] = request.POST['middenvelder4']
-            listopstelling[9] = request.POST['aanvaller1']
-            listopstelling[10] = request.POST['aanvaller2']
-
-            error = "Je instellingen zijn opgeslagen"
-            return render(request, "euro2020/tactiekopstelling.html",
-                          context={"allgke": allgke, "alldef": alldef, "allmid": allmid, "allatt": allatt,
-                                   "league": league,
-                                   "bidauction": bidauction, "disabled": disabled, "team": team, "error": error})
-        elif request.POST.get("bewaaropstelling"):
-            team = Team.objects.get(pk=request.POST['teamname'])
+            listopstelling.append(request.POST['keeper1'])
+            listopstelling.append(request.POST['verdediger1'])
+            listopstelling.append(request.POST['verdediger2'])
+            listopstelling.append(request.POST['verdediger3'])
+            listopstelling.append(request.POST['verdediger4'])
+            listopstelling.append(request.POST['middenvelder1'])
+            listopstelling.append(request.POST['middenvelder2'])
+            listopstelling.append(request.POST['middenvelder3'])
+            listopstelling.append(request.POST['middenvelder4'])
+            listopstelling.append(request.POST['aanvaller1'])
+            listopstelling.append(request.POST['aanvaller2'])
+            lst = len(set(listopstelling))
+            if lst < 11:
+                error = "Niet opgeslagen: Je hebt 1 of meerdere spelers dubbel geselecteerd"
+                return render(request, "euro2020/tactiekopstelling.html",
+                              context={"allgke": allgke, "alldef": alldef, "allmid": allmid, "allatt": allatt,
+                                       "league": league,
+                                       "bidauction": bidauction, "disabled": disabled, "team": team, "error": error})
+            else:
+                error = "Je instellingen zijn opgeslagen"
+                return redirect(to="myteam")
         else:
             pass
 
