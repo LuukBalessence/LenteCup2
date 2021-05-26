@@ -809,6 +809,7 @@ def tactiekopstelling(request):
     allatt = []
     listopstelling = []
     truebids = ""
+    phasetext=""
     try:
         league = team.league
     except:
@@ -821,17 +822,22 @@ def tactiekopstelling(request):
         bidauction = True
     if leaguephase.gamephase.__contains__("Groep"):
         truebids = Bids.objects.filter(team=team, assigned=True, gamephase__gamephase__icontains="Groep").select_related("player")
+        phasetext="Groep"
         print(truebids)
     if leaguephase.gamephase.__contains__("Achtste"):
         truebids = Bids.objects.filter(team=team, assigned=True, gamephase__gamephase__icontains="Achtste").select_related("player")
+        phasetext = "Achtste"
         print(truebids)
     if leaguephase.gamephase.__contains__("Kwart"):
+        phasetext = "Kwart"
         truebids = Bids.objects.filter(team=team, assigned=True, gamephase__gamephase__icontains="Kwart").select_related("player")
         print(truebids)
     if leaguephase.gamephase.__contains__("Halve"):
+        phasetext = "Halve"
         truebids = Bids.objects.filter(team=team, assigned=True, gamephase__gamephase__icontains="Halve").select_related("player")
         print(truebids)
     if leaguephase.gamephase.__contains__("Grand Finale"):
+        phasetext = "Grande Finale"
         truebids = Bids.objects.filter(team=team, assigned=True, gamephase__gamephase__icontains="Grande Finale").select_related("player")
         print(truebids)
     for bid in truebids:
@@ -866,8 +872,41 @@ def tactiekopstelling(request):
                                        "league": league,
                                        "bidauction": bidauction, "disabled": disabled, "team": team, "error": error})
             else:
-                error = "Je instellingen zijn opgeslagen"
+                try:
+                    todelete = Opstelling.objects.filter(team=team, phase__gamephase__icontains=phasetext)
+                    todelete.delete()
+                except:
+                    pass
+                for n in range (0,11):
+                    Opstelling.objects.create(team=team, opgesteldespeler_id=listopstelling[n], phase=leaguephase)
                 return redirect(to="myteam")
+        elif request.POST.get("bewaarveiling"):
+            if request.POST['maxbetcoin'] == "":
+                team.bidbudget = 0
+            else:
+                team.bidbudget = request.POST['maxbetcoin']
+            if request.POST['gke'] == "":
+                team.maxbidgke = 0
+            else:
+                team.maxbidgke = request.POST['gke']
+            if request.POST['def'] == "":
+                team.maxbiddef = 0
+            else:
+                team.maxbiddef = request.POST['def']
+            if request.POST['mid'] == "":
+                team.maxbidmid = 0
+            else:
+                team.maxbidmid = request.POST['mid']
+            if request.POST['att'] == "":
+                team.maxbidatt = 0
+            else:
+                team.maxbidatt = request.POST['att']
+            team.save()
+            error = "Je veilinginstellingen zijn opgeslagen"
+            return render(request, "euro2020/tactiekopstelling.html",
+                          context={"allgke": allgke, "alldef": alldef, "allmid": allmid, "allatt": allatt,
+                               "league": league,
+                               "bidauction": bidauction, "disabled": disabled, "team": team, "error": error})
         else:
             pass
 

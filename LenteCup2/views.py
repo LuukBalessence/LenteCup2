@@ -172,9 +172,8 @@ def overallstandlc(request):
         totalscore=0
         for everyscore in userscores:
             totalscore = totalscore + everyscore.finalscore
-        if totalscore == 0:
-            totalscore = 0.00
-        tempscore += [[everyuser.first_name, totalscore]]
+        if not totalscore == 0:
+            tempscore += [[everyuser.first_name, totalscore]]
     sorted_score = OrderedDict()
     for username, score in sorted(tempscore, key=lambda x: x[1], reverse=True):
         sorted_score[username] = score
