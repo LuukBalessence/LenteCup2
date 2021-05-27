@@ -3,6 +3,20 @@
 {% block title %}JOUW TEAMGEGEVENS{% endblock %}
 {% block content %}
     {% if user.is_authenticated %}
+        {% if error %}
+            <table class="table" ALIGN="center">
+                {% if not league %}
+                    <tr>
+                        <th>
+                            <div class="notification is-info" ALIGN="center">
+                                <button class="delete"></button>
+                                {{ error }}.
+                            </div>
+                        </th>
+                    </tr>
+                {% endif %}
+            </table>
+        {% endif %}
         {% if team %}
             <table class="table" ALIGN="center">
                 {% if not league %}
@@ -30,101 +44,104 @@
                 {% endif %}
             </table>
             <table class="table" ALIGN="center">
-            <tr>
-                <td align="center" style="font-weight: bold">Algemeen</td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="field">
-                        <p class="control has-icons-left">
-                            <input class="input is-primary" id="id_team"
-                                   name="team"
-                                   placeholder="Please enter team name..." type="text" value="{{ team }}"
-                                   style="width: 300px;color: black" disabled/>
-                            <span class="icon is-left is-small">
+                <tr>
+                    <td align="center" style="font-weight: bold">Algemeen</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="field">
+                            <p class="control has-icons-left">
+                                <input class="input is-primary" id="id_team"
+                                       name="team"
+                                       placeholder="Please enter team name..." type="text" value="{{ team }}"
+                                       style="width: 300px;color: black" disabled/>
+                                <span class="icon is-left is-small">
                                     <i class="fas fa-users" style="font-size:20px;color:black"></i>
                                 </span>
-                        </p>
-                    </div>
-                </td>
-            </tr>
-            {% if not leaguedraw %}
-                <tr>
-                    <th>
-                        <div class="field has-addons">
-                            <div class="control has-icons-left">
-                                <input class="input is-primary" style="width: 200px; color: black"
-                                       value="{{ league }}"
-                                       type="text"
-                                       name="leaguename"
-                                       id="leaguename"
-                                       placeholder="Kies hier een league" disabled>
-                                <span class="icon is-left">
+                            </p>
+                        </div>
+                    </td>
+                </tr>
+                {% if not leaguedraw %}
+                    <tr>
+                        <th>
+                            <div class="field has-addons">
+                                <div class="control has-icons-left">
+                                    <input class="input is-primary" style="width: 200px; color: black"
+                                           value="{{ league }}"
+                                           type="text"
+                                           name="leaguename"
+                                           id="leaguename"
+                                           placeholder="Kies hier een league" disabled>
+                                    <span class="icon is-left">
                                     <i class="fas fa-list-ol" style="font-size:20px;color:black"></i>
                                 </span>
-                            </div>
+                                </div>
 
-                            <div class="control">
-                                <a class="button is-primary" style="width: 100px" href={% url 'pickleague' %}>
-                                    Kies League
-                                </a>
+                                <div class="control">
+                                    <a class="button is-primary" style="width: 100px" href={% url 'pickleague' %}>
+                                        Kies League
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                    </th>
-                </tr>
-            {% else %}
-                <tr>
-                    <th>
-                        <div class="field has-addons">
-                            <div class="control has-icons-left">
-                                <input class="input is-primary" style="width: 300px; color: black"
-                                       value="{{ league }}"
-                                       type="text"
-                                       name="leaguename"
-                                       id="leaguename"
-                                       placeholder="Kies hier een league" disabled>
-                                <span class="icon is-left">
+                        </th>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <th>
+                            <div class="field has-addons">
+                                <div class="control has-icons-left">
+                                    <input class="input is-primary" style="width: 300px; color: black"
+                                           value="{{ league }}"
+                                           type="text"
+                                           name="leaguename"
+                                           id="leaguename"
+                                           placeholder="Kies hier een league" disabled>
+                                    <span class="icon is-left">
                                     <i class="fas fa-list-ol" style="font-size:20px;color:black"></i>
                                 </span>
+                                </div>
                             </div>
-                        </div>
-                    </th>
-                </tr>
-            {% endif %}
-            <tr>
-                <th>
-                    <div class="control has-icons-left">
-                        <input class="input is-primary" style="width: 300px; color: black" value="{{ leaguephase }}"
-                               type="text"
-                               name="currentphase"
-                               id="currentphase"
-                               placeholder="League fase onbekend" disabled/>
-                        <span class="icon is-left">
+                        </th>
+                    </tr>
+                {% endif %}
+                <tr>
+                    <th>
+                        <div class="control has-icons-left">
+                            <input class="input is-primary" style="width: 300px; color: black" value="{{ leaguephase }}"
+                                   type="text"
+                                   name="currentphase"
+                                   id="currentphase"
+                                   placeholder="League fase onbekend" disabled/>
+                            <span class="icon is-left">
                                 <i class="fas fa-history" style="font-size:20px;color:black"></i>
                             </span>
-                    </div>
-                </th>
-            </tr>
-            <tr>
-                <th>
-                    <div class="control has-icons-left">
-                        <input class="input is-primary" style="width: 300px; color: black"
-                               value="{{ betcoinbalance }} betcoins"
-                               type="text"
-                               name="betcoinbalance" id="betcoinbalance"
-                               placeholder="Geen betaling gedaan of verwerk!" disabled/>
-                        <span class="icon is-left">
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <div class="control has-icons-left">
+                            <input class="input is-primary" style="width: 300px; color: black"
+                                   value="{{ betcoinbalance }} betcoins"
+                                   type="text"
+                                   name="betcoinbalance" id="betcoinbalance"
+                                   placeholder="Geen betaling gedaan of verwerk!" disabled/>
+                            <span class="icon is-left">
                                 <i class="fas fa-coins" style="font-size:20px;color:black"></i>
                             </span>
-                    </div>
-                </th>
-            </tr>
-            <tr>
-                <th style="text-align:center">
-                    <a href=tactiekopstelling><input style="width:250px" type="submit" class="button is-primary"
-                                                     value="Kies Tactiek en Opstelling"/></a>
-                </th>
-            </tr>
+                        </div>
+                    </th>
+                </tr>
+                {% if leaguedraw %}
+                    <tr>
+                        <th style="text-align:center">
+                            <a href=tactiekopstelling><input style="width:250px" type="submit" class="button is-primary"
+                                                             value="Kies Tactiek en Opstelling"/></a>
+                        </th>
+                    </tr>
+                {% endif %}
+            </table>
             <table class="table" ALIGN="center">
                 <tr>
                     <th></th>
