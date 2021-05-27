@@ -155,7 +155,6 @@
                                     <span class="icon is-left is-small">
                                     <i class="far fa-lightbulb" style="font-size:20px;color:black"></i>
                                 </span>
-
                                 </div>
                             </div>
                         </td>
@@ -168,7 +167,7 @@
                             <div class="control has-icons-left">
                                 <div class="select is-primary">
                                     <select name="keeper1" id="id_keeper1" style="width: 300px">
-                                        <option>Selecteer een keeper</option>
+                                        <option value="99999">Selecteer een keeper</option>
                                         {% for keeper in allgke %}
                                             <option value="{{ keeper.pk }}">{{ keeper.country.shortname }} {{ keeper }}</option>
                                         {% endfor %}
@@ -185,7 +184,7 @@
                             <div class="control has-icons-left">
                                 <div class="select is-primary">
                                     <select name="verdediger1" id="id_verdediger1" style="width: 300px">
-                                        <option>Selecteer een verdediger</option>
+                                        <option value="99999">Selecteer een verdediger</option>
                                         {% for verdediger in alldef %}
                                             <option value="{{ verdediger.pk }}">{{ verdediger.country.shortname }} {{ verdediger }}</option>
                                         {% endfor %}
@@ -193,7 +192,6 @@
                                     <span class="icon is-left">
                                     <img src="{% static 'images/def.png' %}" width="30" height="20">
                                 </span>
-
                                 </div>
                             </div>
                         </td>
@@ -203,7 +201,7 @@
                             <div class="control has-icons-left">
                                 <div class="select is-primary">
                                     <select name="verdediger2" id="id_verdediger2" style="width: 300px">
-                                        <option>Selecteer een verdediger</option>
+                                        <option value="99999">Selecteer een verdediger</option>
                                         {% for verdediger in alldef %}
                                             <option value="{{ verdediger.pk }}">{{ verdediger.country.shortname }} {{ verdediger }}</option>
                                         {% endfor %}
@@ -211,7 +209,6 @@
                                     <span class="icon is-left">
                                     <img src="{% static 'images/def.png' %}" width="30" height="20">
                                 </span>
-
                                 </div>
                             </div>
                         </td>
@@ -221,7 +218,7 @@
                             <div class="control has-icons-left">
                                 <div class="select is-primary">
                                     <select name="verdediger3" id="id_verdediger3" style="width: 300px">
-                                        <option>Selecteer een verdediger</option>
+                                        <option value="99999">Selecteer een verdediger</option>
                                         {% for verdediger in alldef %}
                                             <option value="{{ verdediger.pk }}">{{ verdediger.country.shortname }} {{ verdediger }}</option>
                                         {% endfor %}
@@ -229,7 +226,6 @@
                                     <span class="icon is-left">
                                     <img src="{% static 'images/def.png' %}" width="30" height="20">
                                 </span>
-
                                 </div>
                             </div>
                         </td>
@@ -239,7 +235,7 @@
                             <div class="control has-icons-left">
                                 <div class="select is-primary">
                                     <select name="verdediger4" id="id_verdediger4" style="width: 300px">
-                                        <option>Selecteer een verdediger</option>
+                                        <option value="99999">Selecteer een verdediger</option>
                                         {% for verdediger in alldef %}
                                             <option value="{{ verdediger.pk }}">{{ verdediger.country.shortname }} {{ verdediger }}</option>
                                         {% endfor %}
@@ -247,7 +243,6 @@
                                     <span class="icon is-left">
                                     <img src="{% static 'images/def.png' %}" width="30" height="20">
                                 </span>
-
                                 </div>
                             </div>
                         </td>
@@ -257,7 +252,7 @@
                             <div class="control has-icons-left">
                                 <div class="select is-primary">
                                     <select name="middenvelder1" id="id_middenvelder1" style="width: 300px">
-                                        <option>Selecteer een middenvelder</option>
+                                        <option value="99999">Selecteer een middenvelder</option>
                                         {% for middenvelder in allmid %}
                                             <option value="{{ middenvelder.pk }}">{{ middenvelder.country.shortname }} {{ middenvelder }}</option>
                                         {% endfor %}
@@ -275,7 +270,7 @@
                             <div class="control has-icons-left">
                                 <div class="select is-primary">
                                     <select name="middenvelder2" id="id_middenvelder2" style="width: 300px">
-                                        <option>Selecteer een middenvelder</option>
+                                        <option value="99999">Selecteer een middenvelder</option>
                                         {% for middenvelder in allmid %}
                                             <option value="{{ middenvelder.pk }}">{{ middenvelder.country.shortname }} {{ middenvelder }}</option>
                                         {% endfor %}
@@ -283,7 +278,6 @@
                                     <span class="icon is-left">
                                     <img src="{% static 'images/mid.png' %}" width="30" height="20">
                                 </span>
-
                                 </div>
                             </div>
                         </td>
@@ -293,7 +287,7 @@
                             <div class="control has-icons-left">
                                 <div class="select is-primary">
                                     <select name="middenvelder3" id="id_middenvelder3" style="width: 300px">
-                                        <option>Selecteer een middenvelder</option>
+                                        <option value="99999">Selecteer een middenvelder</option>
                                         {% for middenvelder in allmid %}
                                             <option value="{{ middenvelder.pk }}">{{ middenvelder.country.shortname }} {{ middenvelder }}</option>
                                         {% endfor %}
@@ -311,7 +305,7 @@
                             <div class="control has-icons-left">
                                 <div class="select is-primary">
                                     <select name="middenvelder4" id="id_middenvelder4" style="width: 300px">
-                                        <option>Selecteer een middenvelder</option>
+                                        <option value="99999">Selecteer een middenvelder</option>
                                         {% for middenvelder in allmid %}
                                             <option value="{{ middenvelder.pk }}">{{ middenvelder.country.shortname }} {{ middenvelder }}</option>
                                         {% endfor %}
@@ -319,7 +313,6 @@
                                     <span class="icon is-left">
                                     <img src="{% static 'images/mid.png' %}" width="30" height="20">
                                 </span>
-
                                 </div>
                             </div>
                         </td>
@@ -329,7 +322,7 @@
                             <div class="control has-icons-left">
                                 <div class="select is-primary">
                                     <select name="aanvaller1" id="id_aanvaller1" style="width: 300px">
-                                        <option>Selecteer een aanvaller</option>
+                                        <option value="99999">Selecteer een aanvaller</option>
                                         {% for aanvaller in allatt %}
                                             <option value="{{ aanvaller.pk }}">{{ aanvaller.country.shortname }} {{ aanvaller }}</option>
                                         {% endfor %}
@@ -337,7 +330,6 @@
                                     <span class="icon is-left">
                                     <img src="{% static 'images/att.png' %}" width="30" height="20">
                                 </span>
-
                                 </div>
                             </div>
                         </td>
@@ -347,7 +339,7 @@
                             <div class="control has-icons-left">
                                 <div class="select is-primary">
                                     <select name="aanvaller2" id="id_aanvaller2" style="width: 300px">
-                                        <option>Selecteer een aanvaller</option>
+                                        <option value="99999">Selecteer een aanvaller</option>
                                         {% for aanvaller in allatt %}
                                             <option value="{{ aanvaller.pk }}">{{ aanvaller.country.shortname }} {{ aanvaller }}</option>
                                         {% endfor %}
@@ -355,7 +347,6 @@
                                     <span class="icon is-left">
                                     <img src="{% static 'images/att.png' %}" width="30" height="20">
                                 </span>
-
                                 </div>
                             </div>
                         </td>

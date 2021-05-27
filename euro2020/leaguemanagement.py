@@ -4,11 +4,18 @@ import random
 
 
 def setup_bids(league, maxbet):
+    players = []
     currentleague = League.objects.get(pk=league)
     userprefix = currentleague.leaguename + "_"
     playerbidpercentage = 0.8
     teams = Team.objects.filter(name__istartswith=userprefix)
-    players = Player.objects.select_related('country').filter(country__openforbid=True)
+    players1 = Player.objects.select_related('country').filter(country__openforbid=True)
+    assignedbids = Bids.objects.select_related('player').filter(team__in=list(teams.values_list()),
+                                                                assigned=True).order_by(
+        '-playerbid').values()
+    for player in players1:
+        if not any(bid['player_id'] == player.id for bid in assignedbids):
+            players.append(player)
     print("setup bids is going to make bids for " + str(len(players)) + " players.")
     bidcount = 0
     for team in teams:
@@ -90,3 +97,10 @@ def previousphase(currentgamephase):
         else:
             previousphase = "The previous gamephase did not exist"
     return previousphase
+
+
+def tkas(teams):
+    tkas = 0
+    for team in teams:
+        tkas = tkas + team.betcoins
+    return tkas

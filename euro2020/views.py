@@ -1,3 +1,4 @@
+import datetime
 import random
 
 from django.core.exceptions import ObjectDoesNotExist
@@ -6,11 +7,11 @@ from django.shortcuts import render, get_list_or_404, get_object_or_404, redirec
 from LenteCup2.models import GameSettings
 from common.models import AppAuthorisation, Apps
 from euro2020 import models
-from euro2020.models import Bids, Player, League, GamePhase, Boekhouding, BoekhoudingLeague, Opstelling
+from euro2020.models import Bids, Player, League, GamePhase, Boekhouding, BoekhoudingLeague, Opstelling, OpstellingLog
 from .bid_functions import createbidlist, validbid, assignfinalbid, savebid, remove_sameplayer_bids, \
     saveteaminfo
 from .forms import ChangeFirstNameForm, ChangeTeamNameForm, AddGoalForm, BidsForm, CreateLeagueForm, PickLeagueForm
-from .leaguemanagement import setup_teams, setup_bids, delete_league, previousphase, nextphase
+from .leaguemanagement import setup_teams, setup_bids, delete_league, previousphase, nextphase, tkas
 from .scoring_functions import (
     match_results,
     group_standings,
@@ -278,12 +279,13 @@ def listallbids(request):
     manager = request.user
     try:
         currentteam = Team.objects.get(owner=manager)
+        league = League.objects.get(leaguename=currentteam.league)
     except ObjectDoesNotExist:
         error = "Please create a team first. Go to the Change Team page located in My Account"
         return render(request, 'euro2020/listallbids.html',
                       context={'countries': "", 'bids': "", 'error': error})
 
-    allteambids = Bids.objects.filter(team=currentteam).order_by('playerbid').reverse()
+    allteambids = Bids.objects.filter(team=currentteam, gamephase=league.gamephase).order_by('playerbid').reverse()
     return render(request, 'euro2020/listallbids.html',
                   context={'countries': Country.objects.all(), 'bids': allteambids, 'error': ""})
 
@@ -557,11 +559,15 @@ def auction(request, league, gamephase):
     return redirect(leagueoverview)
 
 
+def assignedplayersperleague(teams):
+    bids = Bids.objects.select_related('player').filter(team__in=list(teams.values_list()), assigned=True).order_by(
+        '-playerbid')
+    return bids
+
 def assignedbidsperteam(request, league):
     currentleague = League.objects.get(pk=league)
     teams = Team.objects.filter(league=currentleague).values()
-    bids = Bids.objects.select_related('player').filter(team__in=list(teams.values_list()), assigned=True).order_by(
-        '-playerbid')
+    bids = assignedplayersperleague(teams)
     return render(request, 'euro2020/assignedbidsperteam.html',
                   context={'league': currentleague.leaguename, 'teams': teams, 'bids': bids})
 
@@ -575,9 +581,7 @@ def rejectedbidsperteam(request, league):
                   context={'league': currentleague.leaguename, 'teams': teams, 'bids': bids})
 
 
-def unassignedplayersperleague(request, league):
-    currentleague = League.objects.get(pk=league)
-    teams = Team.objects.filter(league=currentleague).values()
+def unassignedplayers1(league, teams):
     unassignedplayers = []
     players = Player.objects.all()
     assignedbids = Bids.objects.select_related('player').filter(team__in=list(teams.values_list()),
@@ -586,14 +590,40 @@ def unassignedplayersperleague(request, league):
     for player in players:
         if not any(bid['player_id'] == player.id for bid in assignedbids):
             unassignedplayers.append(player)
+    return unassignedplayers
+
+
+def unassignedplayersperleague(request, league):
+    currentleague = League.objects.get(pk=league)
+    teams = Team.objects.filter(league=currentleague).values()
+    unassignedplayers = unassignedplayers1(currentleague, teams)
+    # players = Player.objects.all()
+    # assignedbids = Bids.objects.select_related('player').filter(team__in=list(teams.values_list()),
+    #                                                             assigned=True).order_by(
+    #     '-playerbid').values()
+    # for player in players:
+    #     if not any(bid['player_id'] == player.id for bid in assignedbids):
+    #         unassignedplayers.append(player)
     return render(request, 'euro2020/unassignedplayersperleague.html',
                   context={'league': currentleague.leaguename, 'players': unassignedplayers})
 
 
 def leagueoverview(request):
     leagues = League.objects.all().order_by('leaguename')
+    leaguedata = []
+
+
+    for currentleague in leagues:
+        teams = Team.objects.filter(league=currentleague)
+        teamskas = tkas(teams)
+        totaal = teamskas + currentleague.leaguebalance
+        unassignedplayers = len(unassignedplayers1(currentleague, teams))
+        assignedplayers = len(assignedplayersperleague(teams))
+        totplayers = assignedplayers + unassignedplayers
+        leaguedata.append([currentleague, teamskas, totaal, unassignedplayers, assignedplayers, totplayers])
+
     return render(request, 'euro2020/leagueoverview.html',
-                  context={'leagues': leagues})
+                  context={'leagues': leagues, 'leaguedata': leaguedata})
 
 
 def leaguemanager(request, league):
@@ -742,8 +772,16 @@ def programma(request):
 
 def moneymanager(request):
     error = ""
+    allteams1 = []
+    allteams2 = Team.objects.all()
+    for team2 in allteams2:
+        bids = Bids.objects.filter(assigned=True, team=team2)
+        teamcount = len(bids)
+        if teamcount < 11:
+            allteams1.append(team2)
+    allplayers = Player.objects.all()
     allteams = Team.objects.filter(paid=False)
-    allleagues = League.objects.filter(draw=False)
+    allleagues = League.objects.filter(draw=True)
     if request.method == 'POST':
         if request.POST.get("boeking"):
             team = Team.objects.get(pk=request.POST['teamname1'])
@@ -788,11 +826,24 @@ def moneymanager(request):
             league.save()
             BoekhoudingLeague.objects.create(league=league, aantalbetcoins=-betcoins,
                                              boekingsopmerking="Betaling ontvangen en verwerkt van team " + team.name)
+        elif request.POST.get("Verwerk spelertoewijzing"):
+            team = Team.objects.get(pk=request.POST['teamname2'])
+            league2 = League.objects.get(pk=team.league_id)
+            player2=Player.objects.get(pk=request.POST['player1'])
+            Bids.objects.create(gamephase=league2.gamephase, team=team, bidcomment=str(player2) + " Toegewezen vanwege te weinig spelers in " + str(league2.gamephase),
+                                assigned=True, player=player2, playerbid=1)
+            team.betcoins = team.betcoins - 1
+            team.save()
+            league2.leaguebalance = league2.leaguebalance + 1
+            league2.save()
+            Boekhouding.objects.create(team=team, aantalbetcoins=-1, boekingsopmerking=str(player2) + "Toegewezen vanwege te weinig spelers in " + str(league2.gamephase))
+            BoekhoudingLeague.objects.create(league=league2, aantalbetcoins=1,
+                                       boekingsopmerking=str(player2) + " Toegewezen aan team " + team.name + " vanwege te weinig spelers in " + str(league2.gamephase))
         else:
             error = "Er is op een onbekende knop gedrukt of een onbekende fout is opgetreden"
         return redirect(moneymanager)
 
-    return render(request, "euro2020/moneymanager.html", context={"allteams": allteams, "allleagues": allleagues})
+    return render(request, "euro2020/moneymanager.html", context={"allteams": allteams, "allleagues": allleagues, "allteams1": allteams1, "allplayers": allplayers})
 
 
 def tactiekopstelling(request):
@@ -866,7 +917,7 @@ def tactiekopstelling(request):
             listopstelling.append(request.POST['aanvaller2'])
             lst = len(set(listopstelling))
             if lst < 11:
-                error = "Niet opgeslagen: Je hebt 1 of meerdere spelers dubbel geselecteerd"
+                error = "Niet opgeslagen: Je hebt spelers dubbel geselecteerd of niet ingevuld"
                 return render(request, "euro2020/tactiekopstelling.html",
                               context={"allgke": allgke, "alldef": alldef, "allmid": allmid, "allatt": allatt,
                                        "league": league,
@@ -878,7 +929,18 @@ def tactiekopstelling(request):
                 except:
                     pass
                 for n in range (0,11):
+                    if int(listopstelling[n]) == 99999:
+                        error = "Niet opgeslagen: Je hebt geen waarde geselecteerd"
+                        return render(request, "euro2020/tactiekopstelling.html",
+                                      context={"allgke": allgke, "alldef": alldef, "allmid": allmid, "allatt": allatt,
+                                               "league": league,
+                                               "bidauction": bidauction, "disabled": disabled, "team": team,
+                                               "error": error})
+                now = datetime.datetime.now()
+                for n in range(0, 11):
                     Opstelling.objects.create(team=team, opgesteldespeler_id=listopstelling[n], phase=leaguephase)
+
+                    OpstellingLog.objects.create(tijdopgesteld=now, team=team, opgesteldespeler_id=listopstelling[n], phase=leaguephase)
                 return redirect(to="myteam")
         elif request.POST.get("bewaarveiling"):
             if request.POST['maxbetcoin'] == "":

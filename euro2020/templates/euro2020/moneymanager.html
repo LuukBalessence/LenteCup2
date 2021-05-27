@@ -124,6 +124,50 @@
                                    value="Verwerk boeking"/>
                         </th>
                     </tr>
+                <tr>
+                        <th>
+                            <div class="control has-icons-left">
+                                <div class="select is-primary">
+                                    <select name="teamname2" class="input is-primary"
+                                            style="width: 300px; text-align:right"
+                                            id="id_teamname2">
+                                        <option selected>Kies Team</option>
+                                        {% for team2 in allteams1 %}
+                                            <option value="{{ team2.pk }}">{{ team2.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    <span class="icon is-left is-small">
+                                        <i class="far fa-lightbulb" style="font-size:20px;color:black"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </th>
+                    </tr>
+                <tr>
+                        <th>
+                            <div class="control has-icons-left">
+                                <div class="select is-primary">
+                                    <select name="player1" class="input is-primary"
+                                            style="width: 300px; text-align:right"
+                                            id="id_player1">
+                                        <option selected>Kies Speler</option>
+                                        {% for player1 in allplayers %}
+                                            <option value="{{ player1.pk }}">{{ player1 }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    <span class="icon is-left is-small">
+                                        <i class="far fa-lightbulb" style="font-size:20px;color:black"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </th>
+                    </tr>
+                <tr>
+                        <th style="text-align:center">
+                            <input style="width:250px" type="submit" class="button is-primary" name="Verwerk spelertoewijzing"
+                                   value="Verwerk spelertoewijzing"/>
+                        </th>
+                    </tr>
                 </form>
             </table>
         {% endif %}
@@ -143,6 +187,5 @@
             </div></th>
             </tr>
         </table>
-
     {% endif %}
 {% endblock %}
