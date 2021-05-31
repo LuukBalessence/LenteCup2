@@ -154,7 +154,7 @@ def myteam(request):
     bnumber = GameSettings.objects.get(gamesettings='bnumber').gamesettingsvalue
     bname = GameSettings.objects.get(gamesettings='bname').gamesettingsvalue
     leaguefee = "Onbekend"
-    players = ""
+    phasetext=""
     listplayers = []
     try:
         teamdata = Team.objects.get(owner=manager)
@@ -190,10 +190,29 @@ def myteam(request):
         team = Team.objects.get(owner=manager)
         try:
             truebids = Bids.objects.filter(team__owner=manager, assigned=True)
-            opstelling = Opstelling.objects.filter(team=team)
+            if leaguephase.gamephase.__contains__("Groep"):
+                if leaguephase.gamephase.__contains__("Ronde 1"):
+                    phasetext = "Ronde 1"
+                if leaguephase.gamephase.__contains__("Ronde 2"):
+                    phasetext = "Ronde 2"
+                if leaguephase.gamephase.__contains__("Ronde 3"):
+                    phasetext = "Ronde 3"
+                print(truebids)
+            if leaguephase.gamephase.__contains__("Achtste"):
+                phasetext = "Achtste"
+                print(truebids)
+            if leaguephase.gamephase.__contains__("Kwart"):
+                phasetext = "Kwart"
+                print(truebids)
+            if leaguephase.gamephase.__contains__("Halve"):
+                phasetext = "Halve"
+                print(truebids)
+            if leaguephase.gamephase.__contains__("Grand Finale"):
+                phasetext = "Grande Finale"
+            opstelling = Opstelling.objects.filter(team=team, phase__gamephase__icontains=phasetext)
             for bid in truebids:
                 try:
-                    Opstelling.objects.get(opgesteldespeler=bid.player)
+                    Opstelling.objects.get(opgesteldespeler=bid.player, phase__gamephase__icontains=phasetext)
                 except:
                     listplayers.append(bid.player)
             print(listplayers)
@@ -872,25 +891,26 @@ def tactiekopstelling(request):
     if leaguephase.allowbidding or leaguephase.allowauction:
         bidauction = True
     if leaguephase.gamephase.__contains__("Groep"):
-        truebids = Bids.objects.filter(team=team, assigned=True, gamephase__gamephase__icontains="Groep").select_related("player")
-        phasetext="Groep"
+        if leaguephase.gamephase.__contains__("Ronde 1"):
+            phasetext="Ronde 1"
+        if leaguephase.gamephase.__contains__("Ronde 2"):
+            phasetext="Ronde 2"
+        if leaguephase.gamephase.__contains__("Ronde 3"):
+            phasetext="Ronde 3"
         print(truebids)
     if leaguephase.gamephase.__contains__("Achtste"):
-        truebids = Bids.objects.filter(team=team, assigned=True, gamephase__gamephase__icontains="Achtste").select_related("player")
         phasetext = "Achtste"
         print(truebids)
     if leaguephase.gamephase.__contains__("Kwart"):
         phasetext = "Kwart"
-        truebids = Bids.objects.filter(team=team, assigned=True, gamephase__gamephase__icontains="Kwart").select_related("player")
         print(truebids)
     if leaguephase.gamephase.__contains__("Halve"):
         phasetext = "Halve"
-        truebids = Bids.objects.filter(team=team, assigned=True, gamephase__gamephase__icontains="Halve").select_related("player")
         print(truebids)
     if leaguephase.gamephase.__contains__("Grand Finale"):
         phasetext = "Grande Finale"
-        truebids = Bids.objects.filter(team=team, assigned=True, gamephase__gamephase__icontains="Grande Finale").select_related("player")
-        print(truebids)
+    truebids = Bids.objects.filter(team=team, assigned=True).select_related("player")
+    print(truebids)
     for bid in truebids:
         allplayers.append(Player.objects.get(pk=bid.player_id))
         if bid.player.position == "G":
