@@ -145,3 +145,8 @@ EMAIL_PORT = 465
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 EMAIL_USE_SSL = True
+
+# Setting used for export in utf-8. If settings does not exist, dumpdata will fail on special characters
+# https://stackoverflow.com/questions/64457733/django-dumpdata-fails-on-special-characters/65186947#65186947
+# import _locale
+# _locale._getdefaultlocale = (lambda *args: ['en_US', 'utf8'])
