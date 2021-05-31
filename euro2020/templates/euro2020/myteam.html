@@ -170,6 +170,9 @@
                                 <td>
                                     {{ speler.opgesteldespeler }}
                                 </td>
+                                <td>
+                                    {{ speler.opgesteldespeler.country.shortname }}
+                                </td>
                             </tr>
                         {% endif %}
                     {% endfor %}
@@ -182,6 +185,9 @@
                                 </td>
                                 <td>
                                     {{ speler.opgesteldespeler }}
+                                </td>
+                                <td>
+                                    {{ speler.opgesteldespeler.country.shortname }}
                                 </td>
                             </tr>
                         {% endif %}
@@ -196,6 +202,9 @@
                                 <td>
                                     {{ speler.opgesteldespeler }}
                                 </td>
+                                <td>
+                                    {{ speler.opgesteldespeler.country.shortname }}
+                                </td>
                             </tr>
                         {% endif %}
                     {% endfor %}
@@ -208,6 +217,9 @@
                                 </td>
                                 <td>
                                     {{ speler.opgesteldespeler }}
+                                </td>
+                                <td>
+                                    {{ speler.opgesteldespeler.country.shortname }}
                                 </td>
                             </tr>
                         {% endif %}
@@ -239,7 +251,9 @@
                             <td>
                                 {{ player }}
                             </td>
-
+                            <td>
+                                {{ player.country.shortname }}
+                            </td>
                         </tr>
                     {% endfor %}
                 {% endif %}

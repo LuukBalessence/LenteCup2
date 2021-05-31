@@ -18,6 +18,7 @@
                     <th style="background-color: #00d1b2;color: white"></th>
                     <th style="background-color: #00d1b2;color: white"></th>
                     <th style="background-color: #00d1b2;color: white">{{ team.betcoins }}</th>
+                    <th style="background-color: #00d1b2;color: white">Gekocht in fase</th>
                 </tr>
                     {% for bid in bids %}
                         {% if bid.team_id == team.id %}
@@ -26,6 +27,7 @@
                             <td>{{ bid.player.country.nlname }}</td>
                             <td>{{ bid.player.position }}</td>
                             <td>{{ bid.playerbid }}</td>
+                            <td>{{ bid.gamephase }}</td>
                         </tr>
                         {% endif %}
                     {% endfor %}
