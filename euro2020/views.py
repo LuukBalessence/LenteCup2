@@ -458,7 +458,7 @@ def bids(request, country_name):
                             obj = Bids.objects.get(team=currentteam, player=currentplayer,
                                                    gamephase=currentleaguegamephase)
                             obj.playerbid = form.cleaned_data["bid"]
-                            if obj.playerbid == 0 or obj.playerbid == "None":
+                            if obj.playerbid == 0 or obj.playerbid is None:
                                 obj.delete()
                             else:
                                 obj.save()
