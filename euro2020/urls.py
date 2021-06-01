@@ -38,4 +38,5 @@ urlpatterns = [
     path("moneymanager", views.moneymanager, name="moneymanager"),
     path("tactiekopstelling", views.tactiekopstelling, name="tactiekopstelling"),
     path("myledger", views.myledger, name="myledger"),
+    path("hulpbieden", views.hulpbieden, name="hulpbieden"),
 ]

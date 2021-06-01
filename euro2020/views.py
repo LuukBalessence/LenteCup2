@@ -1024,3 +1024,7 @@ def myledger(request):
 
     return render(request, "euro2020/myledger.html",
                   context={"jouwboekhouding": jouwboekhouding, "currentteam": currentteam})
+
+
+def hulpbieden(request):
+    return render(request, "euro2020/hulpbieden.html")

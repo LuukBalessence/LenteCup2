@@ -150,3 +150,5 @@ EMAIL_USE_SSL = True
 # https://stackoverflow.com/questions/64457733/django-dumpdata-fails-on-special-characters/65186947#65186947
 # import _locale
 # _locale._getdefaultlocale = (lambda *args: ['en_US', 'utf8'])
+
+DATA_UPLOAD_MAX_NUMBER_FIELDS = 20000
