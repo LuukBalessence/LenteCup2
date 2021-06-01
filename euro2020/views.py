@@ -385,11 +385,26 @@ def bidoverview(request):
 
     if request.method == 'POST':
         if request.POST.get("bewaarveiling"):
-            team.bidbudget = request.POST['maxbetcoin']
-            team.maxbidgke = request.POST['gke']
-            team.maxbiddef = request.POST['def']
-            team.maxbidmid = request.POST['mid']
-            team.maxbidatt = request.POST['att']
+            if request.POST['maxbetcoin'] == "":
+                team.bidbudget = 0
+            else:
+                team.bidbudget = request.POST['maxbetcoin']
+            if request.POST['gke'] == "":
+                team.maxbidgke = 0
+            else:
+                team.maxbidgke = request.POST['gke']
+            if request.POST['def'] == "":
+                team.maxbiddef = 0
+            else:
+                team.maxbiddef = request.POST['def']
+            if request.POST['mid'] == "":
+                team.maxbidmid = 0
+            else:
+                team.maxbidmid = request.POST['mid']
+            if request.POST['att'] == "":
+                team.maxbidatt = 0
+            else:
+                team.maxbidatt = request.POST['att']
             team.save()
             error1 = "Je instellingen zijn opgeslagen"
             return render(request, "euro2020/bidoverview.html",
