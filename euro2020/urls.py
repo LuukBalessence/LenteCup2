@@ -20,6 +20,7 @@ urlpatterns = [
     path("rejectedbidsperteam/<int:league>", views.rejectedbidsperteam, name="rejectedbidsperteam"),
     path("unassignedplayersperleague/<int:league>", views.unassignedplayersperleague, name="unassignedplayersperleague"),
     path("auction/<int:league>/<str:gamephase>", views.auction, name="auction"),
+    path("minplayerpositions/<int:league>", views.minplayerpositions, name="minplayerpositions"),
     path("leaguemanager/<int:league>", views.leaguemanager, name="leaguemanager"),
     path("leagueoverview", views.leagueoverview, name="leagueoverview"),
     path("teams/<int:league>", views.teams, name="teamsperleague"),

@@ -224,7 +224,7 @@ def myteam(request):
                                "leaguephase": leaguephase,
                                "betcoinbalance": betcoinbalance, "bidauction": bidauction, "bnumber": bnumber,
                                "bname": bname, "leaguefee": leaguefee, "leaguedraw": leaguedraw,
-                               "players": listplayers, "opstelling": opstelling})
+                               "players": listplayers, "opstelling": opstelling, "paid": team.paid})
     except ObjectDoesNotExist:
         return redirect(to="changeteamname")
 
@@ -895,6 +895,14 @@ def tactiekopstelling(request):
     listopstelling = []
     truebids = ""
     phasetext=""
+    lineup = False
+    currentlineup = []
+    lineupnumbergke = 0
+    lineupnumberdef = 0
+    lineupnumbermid = 0
+    lineupnumberatt = 0
+    tactiekkeuze = "disabled"
+
     try:
         league = team.league
     except:
@@ -905,6 +913,8 @@ def tactiekopstelling(request):
         disabled = "disabled"
     if leaguephase.allowbidding or leaguephase.allowauction:
         bidauction = True
+    if leaguephase.gamephase.__contains__("Opstelling"):
+        tactiekkeuze = ""
     if leaguephase.gamephase.__contains__("Groep"):
         if leaguephase.gamephase.__contains__("Ronde 1"):
             phasetext="Ronde 1"
@@ -912,30 +922,53 @@ def tactiekopstelling(request):
             phasetext="Ronde 2"
         if leaguephase.gamephase.__contains__("Ronde 3"):
             phasetext="Ronde 3"
-        print(truebids)
     if leaguephase.gamephase.__contains__("Achtste"):
         phasetext = "Achtste"
-        print(truebids)
     if leaguephase.gamephase.__contains__("Kwart"):
         phasetext = "Kwart"
-        print(truebids)
     if leaguephase.gamephase.__contains__("Halve"):
         phasetext = "Halve"
-        print(truebids)
     if leaguephase.gamephase.__contains__("Grand Finale"):
         phasetext = "Grande Finale"
     truebids = Bids.objects.filter(team=team, assigned=True).select_related("player")
     print(truebids)
+    currentlineup = Opstelling.objects.filter(team=team, phase__gamephase__icontains=phasetext)
+    if len(currentlineup) != 11 and len(currentlineup) > 0:
+        error = "Fatale fout: Je opstellling bestaat niet uit 11 personen. Meld dit aan je beheerder"
+        return render(request, "euro2020/tactiekopstelling.html",
+                      context={"allgke": allgke, "alldef": alldef, "allmid": allmid, "allatt": allatt,
+                               "league": league,
+                               "bidauction": bidauction, "disabled": disabled, "team": team, "lineup": lineup,
+                               "error": error, "tactiekkeuze": tactiekkeuze})
+    else:
+        lineup = True
+
     for bid in truebids:
         allplayers.append(Player.objects.get(pk=bid.player_id))
         if bid.player.position == "G":
-            allgke.append(Player.objects.get(pk=bid.player_id))
+            if currentlineup.filter(team=team, phase__gamephase__icontains=phasetext, opgesteldespeler=Player.objects.get(pk=bid.player_id)).exists():
+                lineupnumbergke += 1
+                allgke.append([Player.objects.get(pk=bid.player_id), lineupnumbergke])
+            else:
+                allgke.append([Player.objects.get(pk=bid.player_id), 0])
         if bid.player.position == "D":
-            alldef.append(Player.objects.get(pk=bid.player_id))
+            if currentlineup.filter(team=team, phase__gamephase__icontains=phasetext, opgesteldespeler=Player.objects.get(pk=bid.player_id)).exists():
+                lineupnumberdef += 1
+                alldef.append([Player.objects.get(pk=bid.player_id), lineupnumberdef])
+            else:
+                alldef.append([Player.objects.get(pk=bid.player_id), 0])
         if bid.player.position == "M":
-            allmid.append(Player.objects.get(pk=bid.player_id))
+            if currentlineup.filter(team=team, phase__gamephase__icontains=phasetext, opgesteldespeler=Player.objects.get(pk=bid.player_id)).exists():
+                lineupnumbermid += 1
+                allmid.append([Player.objects.get(pk=bid.player_id), lineupnumbermid])
+            else:
+                allmid.append([Player.objects.get(pk=bid.player_id), 0])
         if bid.player.position == "A":
-            allatt.append(Player.objects.get(pk=bid.player_id))
+            if currentlineup.filter(team=team, phase__gamephase__icontains=phasetext, opgesteldespeler=Player.objects.get(pk=bid.player_id)).exists():
+                lineupnumberatt += 1
+                allatt.append([Player.objects.get(pk=bid.player_id), lineupnumberatt])
+            else:
+                allatt.append([Player.objects.get(pk=bid.player_id), 0])
 
     if request.method == 'POST':
         if request.POST.get("bewaaropstelling"):
@@ -951,32 +984,32 @@ def tactiekopstelling(request):
             listopstelling.append(request.POST['aanvaller1'])
             listopstelling.append(request.POST['aanvaller2'])
             lst = len(set(listopstelling))
+            for i in listopstelling:
+                if int(i) == 99999:
+                    error = "Niet opgeslagen: Je hebt niet in alle velden een speler geselecteerd"
+                    return render(request, "euro2020/tactiekopstelling.html",
+                                  context={"allgke": allgke, "alldef": alldef, "allmid": allmid, "allatt": allatt,
+                                           "league": league,
+                                           "bidauction": bidauction, "disabled": disabled, "team": team, "error": error,
+                                           "tactiekkeuze": tactiekkeuze})
             if lst < 11:
-                error = "Niet opgeslagen: Je hebt spelers dubbel geselecteerd of niet ingevuld"
+                error = "Niet opgeslagen: Je hebt spelers dubbel geselecteerd"
                 return render(request, "euro2020/tactiekopstelling.html",
                               context={"allgke": allgke, "alldef": alldef, "allmid": allmid, "allatt": allatt,
                                        "league": league,
-                                       "bidauction": bidauction, "disabled": disabled, "team": team, "error": error})
+                                       "bidauction": bidauction, "disabled": disabled, "team": team, "error": error, "tactiekkeuze": tactiekkeuze})
             else:
                 try:
                     todelete = Opstelling.objects.filter(team=team, phase__gamephase__icontains=phasetext)
                     todelete.delete()
                 except:
                     pass
-                for n in range (0,11):
-                    if int(listopstelling[n]) == 99999:
-                        error = "Niet opgeslagen: Je hebt geen waarde geselecteerd"
-                        return render(request, "euro2020/tactiekopstelling.html",
-                                      context={"allgke": allgke, "alldef": alldef, "allmid": allmid, "allatt": allatt,
-                                               "league": league,
-                                               "bidauction": bidauction, "disabled": disabled, "team": team,
-                                               "error": error})
                 now = datetime.datetime.now()
                 for n in range(0, 11):
                     Opstelling.objects.create(team=team, opgesteldespeler_id=listopstelling[n], phase=leaguephase)
-
                     OpstellingLog.objects.create(tijdopgesteld=now, team=team, opgesteldespeler_id=listopstelling[n], phase=leaguephase)
                 return redirect(to="myteam")
+
         elif request.POST.get("bewaarveiling"):
             if request.POST['maxbetcoin'] == "":
                 team.bidbudget = 0
@@ -1003,13 +1036,13 @@ def tactiekopstelling(request):
             return render(request, "euro2020/tactiekopstelling.html",
                           context={"allgke": allgke, "alldef": alldef, "allmid": allmid, "allatt": allatt,
                                "league": league,
-                               "bidauction": bidauction, "disabled": disabled, "team": team, "error": error})
+                               "bidauction": bidauction, "disabled": disabled, "team": team, "error": error, "tactiekkeuze": tactiekkeuze})
         else:
             pass
 
     return render(request, "euro2020/tactiekopstelling.html",
                   context={"allgke": allgke, "alldef": alldef, "allmid": allmid, "allatt": allatt, "league": league,
-                           "bidauction": bidauction, "disabled": disabled, "team": team, "error": error})
+                           "bidauction": bidauction, "disabled": disabled, "team": team, "error": error, "tactiekkeuze": tactiekkeuze})
 
 
 def groeprlmatches(request):
@@ -1043,3 +1076,26 @@ def myledger(request):
 
 def hulpbieden(request):
     return render(request, "euro2020/hulpbieden.html")
+
+
+def minplayerpositions(request, league):
+    error = ""
+    allteams = Team.objects.filter(league=league)
+    for team in allteams:
+        truebids = Bids.objects.filter(team=team, assigned=True).select_related("player")
+        if len(truebids.filter(player__position="G")) < 1:
+            print(team.name + " heeft te weinig keepers")
+            error = error + team.name + " heeft te weinig keepers "
+        if len(truebids.filter(player__position="D")) < 4:
+            print(team.name + " heeft te weinig verdedigers ")
+            error = error + team.name + " heeft te weinig verdedigers "
+        if len(truebids.filter(player__position="M")) < 4:
+            print(team.name + " heeft te weinig middenvelders ")
+            error = error + team.name + " heeft te weinig middenvelders "
+        if len(truebids.filter(player__position="A")) < 2:
+            print(team.name + " heeft te weinig aanvallers ")
+            error = error + team.name + " heeft te weinig aanvallers "
+        if len(truebids.filter()) < 11:
+            print(team.name + " heeft te weinig spelers ")
+            error = error + team.name + " heeft te weinig spelers "
+    return render(request, "euro2020/minplayerpositions.html", context={"error": error})
