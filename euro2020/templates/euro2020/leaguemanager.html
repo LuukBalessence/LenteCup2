@@ -64,6 +64,16 @@
                 </tr>
                 <tr>
                     <th style="text-align:center">
+                        <a href="{% url 'initiallineup' league.pk %}" class="button is-primary">Initialiseer Opstelling en Tactiek</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th style="text-align:center">
+                        <a href="{% url 'fillteams' league.pk %}" class="button is-primary">Vul spelers aan</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th style="text-align:center">
                         <a href="{% url 'assignedbidsperteam' league.pk %}" class="button is-primary">Bids per team</a>
                     </th>
                 </tr>

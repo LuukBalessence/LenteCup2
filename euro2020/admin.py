@@ -142,3 +142,7 @@ class OpstellingsAdmin(admin.ModelAdmin):
 @admin.register(models.OpstellingLog)
 class OpstellingsLogAdmin(admin.ModelAdmin):
     list_display = ("tijdopgesteld", "phase", "team", "opgesteldespeler")
+
+@admin.register(models.Tactiek)
+class TactiekAdmin(admin.ModelAdmin):
+    list_display = ("phase", "team", "tactiek")

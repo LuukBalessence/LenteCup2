@@ -300,3 +300,14 @@ class OpstellingLog(models.Model):
     team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name="opstellinglog")
     phase = models.ForeignKey(GamePhase, on_delete=models.CASCADE, related_name="opstellinglog")
     opgesteldespeler = models.ForeignKey(Player, on_delete=models.CASCADE, related_name="opstellinglog")
+
+
+class Tactiek(models.Model):
+    class TactiekKeuze(models.TextChoices):
+        G1 = "Normaal", _("Normaal")
+        G2 = "Aanvallend", _("Aanvallend")
+    tactiek = models.CharField(
+        max_length=20, choices=TactiekKeuze.choices
+    )
+    team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name="tactiek")
+    phase = models.ForeignKey(GamePhase, on_delete=models.CASCADE, related_name="tactiek")

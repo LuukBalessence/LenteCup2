@@ -150,21 +150,35 @@
                     <tr>
                         <td align="center" style="font-weight: bold">Kies je Tactiek</td>
                     </tr>
-                    <tr>
-                        <td>
-                            <div class="control has-icons-left">
-                                <div class="select is-primary">
-                                    <select style="width: 300px" {{ tactiekkeuze }}>
-                                        <option value="Normaal" selected>Normaal</option>
-                                        <option value="Offensief">Offensief (0 -pt, 25% +aanvalpt</option>
-                                    </select>
-                                    <span class="icon is-left is-small">
-                                    <i class="far fa-lightbulb" style="font-size:20px;color:black"></i>
-                                </span>
+                    {% if tactiekkeuze %}
+                        <tr>
+                            <td>
+                                <div class="control has-icons-left">
+                                    <div class="select is-primary">
+                                        <select name="tactiek1" id="id_tactiek1" style="width: 300px">
+                                            {% if tactiek == "Normaal" %}
+                                                <option value="Normaal" selected>Normaal</option>
+                                                <option value="Aanvallend">Aanvallend(0 min.pt, 25% +aanvalpt</option>
+                                            {% elif tactiek == "Aanvallend" %}
+                                                <option value="Normaal">Normaal</option>
+                                                <option value="Aanvallend" selected>Aanvallend(0 min.pt, 25% +aanvalpt</option>
+                                            {% else %}
+                                                <option value="Normaal">Normaal</option>
+                                                <option value="Aanvallend" selected>Aanvallend(0 min.pt, 25% +aanvalpt</option>
+                                            {% endif %}
+                                        </select>
+                                        <span class="icon is-left is-small">
+                                        <i class="far fa-lightbulb" style="font-size:20px;color:black"></i>
+                                    </span>
+                                    </div>
                                 </div>
-                            </div>
-                        </td>
-                    </tr>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td align="center" style="font-weight: bold">{{ tactiek }}</td>
+                        </tr>
+                    {% endif %}
                     <tr>
                         <td align="center" style="font-weight: bold">Je opstelling</td>
                     </tr>

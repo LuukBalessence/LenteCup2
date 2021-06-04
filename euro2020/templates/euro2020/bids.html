@@ -104,7 +104,7 @@
                                             <select name="selectcountry">
                                                 {% for country in countries %}
                                                     {% if country.name == countryname %}
-                                                        <option value={{ country.name }} selected>{{ country.nlname }}</option>
+                                                        <option value={{ countryname }} selected>{{ country.nlname }}</option>
                                                     {% else %}
                                                         <option value={{ country.name }}>{{ country.nlname }}</option>
                                                     {% endif %}
