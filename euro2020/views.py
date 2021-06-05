@@ -406,6 +406,13 @@ def bidoverview(request):
                 team.maxbidatt = 0
             else:
                 team.maxbidatt = request.POST['att']
+            # To do, ook checks invoeren voor max aantal gke,d,m,a etc.
+            if team.betcoins < int(team.bidbudget):
+                error1 = "Instellingen niet opgeslagen. je kan niet meer dan je biedbudget uitgeven."
+                return render(request, "euro2020/bidoverview.html",
+                              context={'countries': Country.objects.all(), 'groups': Country.Group.labels,
+                                       "league": league, "disabled": disabled, "team": team, "error": error,
+                                       "error1": error1, "leaguephase": leaguephase})
             team.save()
             error1 = "Je instellingen zijn opgeslagen"
             return render(request, "euro2020/bidoverview.html",
@@ -1043,9 +1050,17 @@ def tactiekopstelling(request):
                 team.maxbidatt = 0
             else:
                 team.maxbidatt = request.POST['att']
-            team.save()
-            error = "Je veilinginstellingen zijn opgeslagen"
-            return render(request, "euro2020/tactiekopstelling.html",
+            if team.betcoins < int(team.bidbudget):
+                error = "Je veilinginstellingen zijn niet opgeslagen. Je biedbudget mag niet hoger zijn dan je totale budget"
+                return render(request, "euro2020/tactiekopstelling.html",
+                              context={"allgke": allgke, "alldef": alldef, "allmid": allmid, "allatt": allatt,
+                                       "league": league,
+                                       "bidauction": bidauction, "disabled": disabled, "team": team, "error": error,
+                                       "tactiekkeuze": tactiekkeuze, "tactiek": tactiek})
+            else:
+                team.save()
+                error = "Je veilinginstellingen zijn opgeslagen"
+                return render(request, "euro2020/tactiekopstelling.html",
                           context={"allgke": allgke, "alldef": alldef, "allmid": allmid, "allatt": allatt,
                                "league": league,
                                "bidauction": bidauction, "disabled": disabled, "team": team, "error": error, "tactiekkeuze": tactiekkeuze, "tactiek": tactiek})

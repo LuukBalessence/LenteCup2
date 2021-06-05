@@ -52,7 +52,7 @@
                                     <input class="input is-primary" id="id_maxbetcoin"
                                            name="maxbetcoin"
                                            placeholder="Maximaal uit te geven betcoins..." type="number" min="0"
-                                           max="2000"
+                                               max={{ team.betcoins }}
                                            value="{{ team.bidbudget }}"
                                            style="width: 300px;" {{ disabled }}/>
                                     <span class="icon is-left is-small">
