@@ -3,34 +3,66 @@
 {% block title %}TEAMS IN JOUW LEAGUE{% endblock %}
 {% block content %}
     {% if user.is_authenticated %}
-        <form action="" method="post">{% csrf_token %}
-        <table class="table" align="center">
-            <tr>
-                <th>
-                    {{ leaguename }}
-                </th>
-            </tr>
-        <table class="table" align="center">
-            <tr>
-                <th style="background-color: #00d1b2;color: white">Team</th>
-                <th style="background-color: #00d1b2;color: white">Manager</th>
-                <th style="background-color: #00d1b2;color: white">Budget</th>
-                <th style="background-color: #00d1b2;color: white">Betaald</th>
-                <th style="background-color: #00d1b2;color: white">Groep</th>
-                <th style="background-color: #00d1b2;color: white">Order</th>
-            </tr>
-            {% for team in leagueteams %}
+            <table class="table" align="center">
                 <tr>
-                    <td>{{ team.name }}</td>
-                    <td>{{ team.owner.first_name }}</td>
-                    <td>{{ team.betcoins }}</td>
-                    <td>{{ team.paid }}</td>
-                    <td>{{ team.group }}</td>
-                    <td>{{ team.order }}</td>
+                    <th>
+                        {{ leaguename }}
+                    </th>
                 </tr>
-            {% endfor %}
-        </table>
-        </form>
+                <table class="table" align="center">
+                    <tr>
+                        <th style="background-color: #00d1b2;color: white">Team</th>
+                        <th style="background-color: #00d1b2;color: white">Manager</th>
+                        <th style="background-color: #00d1b2;color: white">Budget</th>
+                        <th style="background-color: #00d1b2;color: white">Betaald</th>
+                        <th style="background-color: #00d1b2;color: white">Groep</th>
+                        <th style="background-color: #00d1b2;color: white">Order</th>
+                        <th style="background-color: #00d1b2;color: white">G</th>
+                        <th style="background-color: #00d1b2;color: white">D</th>
+                        <th style="background-color: #00d1b2;color: white">M</th>
+                        <th style="background-color: #00d1b2;color: white">A</th>
+                        <th style="background-color: #00d1b2;color: white">Tot.</th>
+                    </tr>
+                    {% for team in leagueteams %}
+                        <tr>
+                            <td>{{ team.name }}</td>
+                            <td>{{ team.owner.first_name }}</td>
+                            <td>{{ team.betcoins }}</td>
+                            <td>{{ team.paid }}</td>
+                            <td>{{ team.group }}</td>
+                            <td>{{ team.order }}</td>
+                            {% for team1 in teamsinfo %}
+                                {% if team1.0 == team.pk %}
+                                    {% if team1.1 < 1 %}
+                                        <td style="color: crimson">{{ team1.1 }}</td>
+                                    {% else %}
+                                        <td >{{ team1.1 }}</td>
+                                    {% endif %}
+                                    {% if team1.2 < 4 %}
+                                        <td style="color: crimson">{{ team1.2 }}</td>
+                                    {% else %}
+                                        <td >{{ team1.2 }}</td>
+                                    {% endif %}
+                                    {% if team1.3 < 4 %}
+                                        <td style="color: crimson">{{ team1.3 }}</td>
+                                    {% else %}
+                                        <td >{{ team1.3 }}</td>
+                                    {% endif %}
+                                    {% if team1.4 < 2 %}
+                                        <td style="color: crimson">{{ team1.4 }}</td>
+                                    {% else %}
+                                        <td >{{ team1.4 }}</td>
+                                    {% endif %}
+                                    {% if team1.5 < 11 %}
+                                        <td style="color: crimson">{{ team1.5 }}</td>
+                                    {% else %}
+                                        <td >{{ team1.5 }}</td>
+                                    {% endif %}
+                                    </tr>
+                                {% endif %}
+                            {% endfor %}
+                    {% endfor %}
+                </table>
     {% endif %}
 {% endblock %}
 {% block helptext %}

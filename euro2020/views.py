@@ -1,6 +1,7 @@
-import datetime
+from datetime import datetime, timezone
 import random
 
+import pytz
 from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, get_list_or_404, get_object_or_404, redirect
 
@@ -559,10 +560,15 @@ def auction(request, league, gamephase):
         bid['assigned'] = None
     teamsinfo = list(allteams.values())
     for team in teamsinfo:
-        team['gkecount'] = 0
-        team['defcount'] = 0
-        team['midcount'] = 0
-        team['attcount'] = 0
+        truebids = Bids.objects.filter(team=team['id'], assigned=True)
+        # team['gkecount'] = 0
+        # team['defcount'] = 0
+        # team['midcount'] = 0
+        # team['attcount'] = 0
+        team['gkecount'] = len(truebids.filter(player__position="G"))
+        team['defcount'] = len(truebids.filter(player__position="D"))
+        team['midcount'] = len(truebids.filter(player__position="M"))
+        team['attcount'] = len(truebids.filter(player__position="A"))
         team['budgetgkecount'] = 0
         team['budgetdefcount'] = 0
         team['budgetmidcount'] = 0
@@ -675,11 +681,20 @@ def leaguemanager(request, league):
 
 
 def teams(request, league):
+    teamsinfo = []
     leagueteams = Team.objects.filter(league=league).order_by('name').select_related("owner")
+    for team in leagueteams:
+        truebids = Bids.objects.filter(team=team, assigned=True).select_related("player")
+        gkecount = len(truebids.filter(player__position="G"))
+        defcount = len(truebids.filter(player__position="D"))
+        midcount = len(truebids.filter(player__position="M"))
+        attcount = len(truebids.filter(player__position="A"))
+        total = gkecount +  defcount + midcount + attcount
+        teamsinfo.append([team.pk, gkecount, defcount, midcount, attcount, total])
 
     return render(request, 'euro2020/teams.html',
                   context={'leagueteams': leagueteams, 'leaguename': League.objects.get(pk=league).leaguename,
-                           })
+                           "teamsinfo": teamsinfo})
 
 
 def lotingleague(request, league):
@@ -901,16 +916,13 @@ def tactiekopstelling(request):
     allmid = []
     allatt = []
     listopstelling = []
-    truebids = ""
     phasetext=""
     lineup = False
-    currentlineup = []
     lineupnumbergke = 0
     lineupnumberdef = 0
     lineupnumbermid = 0
     lineupnumberatt = 0
     tactiekkeuze = False
-    tactiek = ""
 
     try:
         league = team.league
@@ -955,35 +967,82 @@ def tactiekopstelling(request):
                                "error": error, "tactiekkeuze": tactiekkeuze, "tactiek": tactiek})
     else:
         lineup = True
-
+    now1 = datetime.now(timezone.utc)
+    for y in Match.Stage.choices:
+        if phasetext in y[1]:
+            currentstage = y[0]
     for bid in truebids:
+        playerlocked = False
+        started = False
+        # We maken een verschil tussen alle spelers en opgestelde spelers
+        #  Als de speler met de positie G, D, M, A opgesteld is geven we deze een nummer mee, verhogen we het positienummer en voegen we hem toe aan de positielist
+        # Is een speler niet opgesteld, dan krijgt hij nummer 0 en wordt hij toegevoegd aan de positielijst.
+        # Voor elke speler bepalen we ook of de match van het land van die speler is begonnen.
         allplayers.append(Player.objects.get(pk=bid.player_id))
+        try:
+            started = False
+            matchplayerhome = Match.objects.get(home=Country.objects.get(pk=bid.player.country), stage=currentstage)
+            matchstarts = matchplayerhome.start
+            mstarts = matchstarts.astimezone(pytz.timezone("UTC"))
+            if now1 > mstarts:
+                print("Match has started")
+                started = True
+            else:
+                print("Match has not started yet")
+
+            if matchplayerhome.has_started or started:
+                playerlocked = True
+                print(str(bid.player) + " speelt HOME: Player locked: "+ str(playerlocked))
+                print("Match gestart: " + str(matchplayerhome.has_started))
+                print("Tijd wedstrijd: " + str(matchplayerhome.start) + ". Tijd nu: " + str(now1))
+        except:
+            print(str(bid.player) + " speelt NIET thuis")
+        try:
+            started = False
+            matchplayeraway = Match.objects.get(away=Country.objects.get(pk=bid.player.country), stage=currentstage)
+            matchstarts = matchplayeraway.start
+            mstarts = matchstarts.astimezone(pytz.timezone("UTC"))
+            if now1 > mstarts:
+                print("Match has started")
+                started = True
+            else:
+                print("Match has not started yet")
+            if matchplayeraway.has_started or started:
+                playerlocked = True
+                print(bid.player + " speelt AWAY: Player locked: " + str(playerlocked) + ". Match gestart: " + str(
+                    matchplayeraway.has_started) + ". Tijd wedstrijd: " + str(matchplayeraway.start) + ". Tijd nu: " + str(
+                    now1))
+        except:
+            print(str(bid.player) + " speelt NIET uit")
+
         if bid.player.position == "G":
-            if currentlineup.filter(team=team, phase__gamephase__icontains=phasetext, opgesteldespeler=Player.objects.get(pk=bid.player_id)).exists():
+            if currentlineup.filter(team=team, phase__gamephase__icontains=phasetext,
+                                        opgesteldespeler=Player.objects.get(pk=bid.player_id)).exists():
                 lineupnumbergke += 1
-                allgke.append([Player.objects.get(pk=bid.player_id), lineupnumbergke])
+                allgke.append([Player.objects.get(pk=bid.player_id), lineupnumbergke, playerlocked])
             else:
-                allgke.append([Player.objects.get(pk=bid.player_id), 0])
+                allgke.append([Player.objects.get(pk=bid.player_id), 0, playerlocked])
         if bid.player.position == "D":
-            if currentlineup.filter(team=team, phase__gamephase__icontains=phasetext, opgesteldespeler=Player.objects.get(pk=bid.player_id)).exists():
+            if currentlineup.filter(team=team, phase__gamephase__icontains=phasetext,
+                                    opgesteldespeler=Player.objects.get(pk=bid.player_id)).exists():
                 lineupnumberdef += 1
-                alldef.append([Player.objects.get(pk=bid.player_id), lineupnumberdef])
+                alldef.append([Player.objects.get(pk=bid.player_id), lineupnumberdef, playerlocked])
             else:
-                alldef.append([Player.objects.get(pk=bid.player_id), 0])
+                alldef.append([Player.objects.get(pk=bid.player_id), 0, playerlocked])
         if bid.player.position == "M":
-            if currentlineup.filter(team=team, phase__gamephase__icontains=phasetext, opgesteldespeler=Player.objects.get(pk=bid.player_id)).exists():
+            if currentlineup.filter(team=team, phase__gamephase__icontains=phasetext,
+                                    opgesteldespeler=Player.objects.get(pk=bid.player_id)).exists():
                 lineupnumbermid += 1
-                allmid.append([Player.objects.get(pk=bid.player_id), lineupnumbermid])
+                allmid.append([Player.objects.get(pk=bid.player_id), lineupnumbermid, playerlocked])
             else:
-                allmid.append([Player.objects.get(pk=bid.player_id), 0])
+                allmid.append([Player.objects.get(pk=bid.player_id), 0, playerlocked])
         if bid.player.position == "A":
-            if currentlineup.filter(team=team, phase__gamephase__icontains=phasetext, opgesteldespeler=Player.objects.get(pk=bid.player_id)).exists():
+            if currentlineup.filter(team=team, phase__gamephase__icontains=phasetext,
+                                    opgesteldespeler=Player.objects.get(pk=bid.player_id)).exists():
                 lineupnumberatt += 1
-                allatt.append([Player.objects.get(pk=bid.player_id), lineupnumberatt])
+                allatt.append([Player.objects.get(pk=bid.player_id), lineupnumberatt, playerlocked])
             else:
-                allatt.append([Player.objects.get(pk=bid.player_id), 0])
-
-
+                allatt.append([Player.objects.get(pk=bid.player_id), 0, playerlocked])
     if request.method == 'POST':
         if request.POST.get("bewaaropstelling"):
             listopstelling.append(request.POST['keeper1'])
@@ -1022,10 +1081,10 @@ def tactiekopstelling(request):
                     todeletetactic.delete()
                 except:
                     pass
-                now = datetime.datetime.now()
+                now = datetime.now()
+                Tactiek.objects.create(team=team, tactiek=tactiek, phase=leaguephase)
                 for n in range(0, 11):
                     Opstelling.objects.create(team=team, opgesteldespeler_id=listopstelling[n], phase=leaguephase)
-                    Tactiek.objects.create(team=team, tactiek=tactiek, phase=leaguephase)
                     OpstellingLog.objects.create(tijdopgesteld=now, team=team, opgesteldespeler_id=listopstelling[n], phase=leaguephase)
                 return redirect(to="myteam")
 
@@ -1135,8 +1194,8 @@ def voegspelertoe(aantal, positie, team):
         cost = 1
         positielijst = []
         currentleague = League.objects.get(pk=team.league_id)
-        teams = Team.objects.filter(league=currentleague).values()
-        lijstspelerszonderploeg = unassignedplayers1(currentleague, teams)
+        teams1 = Team.objects.filter(league=currentleague).values()
+        lijstspelerszonderploeg = unassignedplayers1(currentleague, teams1)
         for speler in lijstspelerszonderploeg:
             if speler.position == positie:
                 positielijst.append(speler)

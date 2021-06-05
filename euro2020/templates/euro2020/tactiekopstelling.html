@@ -52,8 +52,8 @@
                                     <input class="input is-primary" id="id_maxbetcoin"
                                            name="maxbetcoin"
                                            placeholder="Maximaal uit te geven betcoins..." type="number" min="0"
-                                               max={{ team.betcoins }}
-                                           value="{{ team.bidbudget }}"
+                                           max={{ team.betcoins }}
+                                                   value="{{ team.bidbudget }}"
                                            style="width: 300px;" {{ disabled }}/>
                                     <span class="icon is-left is-small">
                                         <i class="fas fa-coins" style="font-size:20px;color:black"></i>
@@ -161,10 +161,8 @@
                                                 <option value="Aanvallend">Aanvallend(0 min.pt, 25% +aanvalpt</option>
                                             {% elif tactiek == "Aanvallend" %}
                                                 <option value="Normaal">Normaal</option>
-                                                <option value="Aanvallend" selected>Aanvallend(0 min.pt, 25% +aanvalpt</option>
-                                            {% else %}
-                                                <option value="Normaal">Normaal</option>
-                                                <option value="Aanvallend" selected>Aanvallend(0 min.pt, 25% +aanvalpt</option>
+                                                <option value="Aanvallend" selected>Aanvallend(0 min.pt, 25% +aanvalpt
+                                                </option>
                                             {% endif %}
                                         </select>
                                         <span class="icon is-left is-small">
@@ -189,18 +187,29 @@
                                 <div class="select is-primary">
                                     <select name="keeper1" id="id_keeper1" style="width: 300px">
                                         <option value="99999">Selecteer een keeper</option>
-                                        {% for keeper, number in allgke %}
+                                        {% for keeper, number, locked in allgke %}
                                             {% if number == 1 %}
-                                                <option value="{{ keeper.pk }}"
-                                                        selected>{{ keeper.country.shortname }} {{ keeper }}</option>
-                                            {% else %}
-                                                <option value="{{ keeper.pk }}">{{ keeper.country.shortname }} {{ keeper }}</option>
+                                                {% if locked %}
+                                                    <option style="color: crimson" value="{{ keeper.pk }}"
+                                                            selected>{{ keeper.country.shortname }} {{ keeper }} BLOCKED</option>
+                                                {% else %}
+                                                    {% for keeperx, numberx, lockedx in allgke %}
+                                                        {% if numberx == 1 %}
+                                                            <option value="{{ keeperx.pk }}"
+                                                                    selected>{{ keeperx.country.shortname }} {{ keeperx }}</option>
+                                                        {% else %}
+                                                            {% if not lockedx %}
+                                                                <option value="{{ keeperx.pk }}">{{ keeperx.country.shortname }} {{ keeperx }}</option>
+                                                            {% endif %}
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                {% endif %}
                                             {% endif %}
                                         {% endfor %}
                                     </select>
                                     <span class="icon is-left">
                                     <img src="{% static 'images/gke.png' %}" width="30" height="20">
-                                </span>
+                                    </span>
                                 </div>
                             </div>
                         </td>
@@ -211,83 +220,131 @@
                                 <div class="select is-primary">
                                     <select name="verdediger1" id="id_verdediger1" style="width: 300px">
                                         <option value="99999">Selecteer een verdediger</option>
-                                        {% for verdediger, number in alldef %}
+                                        {% for verdediger, number, locked in alldef %}
                                             {% if number == 1 %}
-                                                <option value="{{ verdediger.pk }}"
-                                                        selected>{{ verdediger.country.shortname }} {{ verdediger }}</option>
-                                            {% else %}
-                                                <option value="{{ verdediger.pk }}">{{ verdediger.country.shortname }} {{ verdediger }}</option>
+                                                {% if locked %}
+                                                    <option style="color: crimson" value="{{ verdediger.pk }}"
+                                                            selected>{{ verdediger.country.shortname }} {{ verdediger }} BLOCKED</option>
+                                                {% else %}
+                                                    {% for verdedigerx, numberx, lockedx in alldef %}
+                                                        {% if numberx == 1 %}
+                                                            <option value="{{ verdedigerx.pk }}"
+                                                                    selected>{{ verdedigerx.country.shortname }} {{ verdedigerx }}</option>
+                                                        {% else %}
+                                                            {% if not lockedx %}
+                                                                <option value="{{ verdedigerx.pk }}">{{ verdedigerx.country.shortname }} {{ verdedigerx }}</option>
+                                                            {% endif %}
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                {% endif %}
                                             {% endif %}
                                         {% endfor %}
                                     </select>
                                     <span class="icon is-left">
                                     <img src="{% static 'images/def.png' %}" width="30" height="20">
-                                </span>
+                                    </span>
                                 </div>
                             </div>
                         </td>
                     </tr>
+
                     <tr>
                         <td>
                             <div class="control has-icons-left">
                                 <div class="select is-primary">
                                     <select name="verdediger2" id="id_verdediger2" style="width: 300px">
                                         <option value="99999">Selecteer een verdediger</option>
-                                        {% for verdediger, number in alldef %}
+                                        {% for verdediger, number, locked in alldef %}
                                             {% if number == 2 %}
-                                                <option value="{{ verdediger.pk }}"
-                                                        selected>{{ verdediger.country.shortname }} {{ verdediger }}</option>
-                                            {% else %}
-                                                <option value="{{ verdediger.pk }}">{{ verdediger.country.shortname }} {{ verdediger }}</option>
+                                                {% if locked %}
+                                                    <option style="color: crimson" value="{{ verdediger.pk }}"
+                                                            selected>{{ verdediger.country.shortname }} {{ verdediger }}  BLOCKED</option>
+                                                {% else %}
+                                                    {% for verdedigerx, numberx, lockedx in alldef %}
+                                                        {% if numberx == 2 %}
+                                                            <option value="{{ verdedigerx.pk }}"
+                                                                    selected>{{ verdedigerx.country.shortname }} {{ verdedigerx }}</option>
+                                                        {% else %}
+                                                            {% if not lockedx %}
+                                                                <option value="{{ verdedigerx.pk }}">{{ verdedigerx.country.shortname }} {{ verdedigerx }}</option>
+                                                            {% endif %}
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                {% endif %}
                                             {% endif %}
                                         {% endfor %}
                                     </select>
                                     <span class="icon is-left">
                                     <img src="{% static 'images/def.png' %}" width="30" height="20">
-                                </span>
+                                    </span>
                                 </div>
                             </div>
                         </td>
                     </tr>
+
                     <tr>
                         <td>
                             <div class="control has-icons-left">
                                 <div class="select is-primary">
                                     <select name="verdediger3" id="id_verdediger3" style="width: 300px">
                                         <option value="99999">Selecteer een verdediger</option>
-                                        {% for verdediger, number in alldef %}
+                                        {% for verdediger, number, locked in alldef %}
                                             {% if number == 3 %}
-                                                <option value="{{ verdediger.pk }}"
-                                                        selected>{{ verdediger.country.shortname }} {{ verdediger }}</option>
-                                            {% else %}
-                                                <option value="{{ verdediger.pk }}">{{ verdediger.country.shortname }} {{ verdediger }}</option>
+                                                {% if locked %}
+                                                    <option style="color: crimson" value="{{ verdediger.pk }}"
+                                                            selected>{{ verdediger.country.shortname }} {{ verdediger }} BLOCKED</option>
+                                                {% else %}
+                                                    {% for verdedigerx, numberx, lockedx in alldef %}
+                                                        {% if numberx == 3 %}
+                                                            <option value="{{ verdedigerx.pk }}"
+                                                                    selected>{{ verdedigerx.country.shortname }} {{ verdedigerx }}</option>
+                                                        {% else %}
+                                                            {% if not lockedx %}
+                                                                <option value="{{ verdedigerx.pk }}">{{ verdedigerx.country.shortname }} {{ verdedigerx }}</option>
+                                                            {% endif %}
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                {% endif %}
                                             {% endif %}
                                         {% endfor %}
                                     </select>
                                     <span class="icon is-left">
                                     <img src="{% static 'images/def.png' %}" width="30" height="20">
-                                </span>
+                                    </span>
                                 </div>
                             </div>
                         </td>
                     </tr>
+
                     <tr>
                         <td>
                             <div class="control has-icons-left">
-                                <div class="select is-primary is-static">
-                                    <select name="verdediger4" id="id_verdediger4" style="width: 300px" readonly>
+                                <div class="select is-primary">
+                                    <select name="verdediger4" id="id_verdediger4" style="width: 300px">
                                         <option value="99999">Selecteer een verdediger</option>
-                                        {% for verdediger, number in alldef %}
+                                        {% for verdediger, number, locked in alldef %}
                                             {% if number == 4 %}
-                                                <option value="{{ verdediger.pk }}" selected>{{ verdediger.country.shortname }} {{ verdediger }}</option>
-                                            {% else %}
-                                                <option value="{{ verdediger.pk }}">{{ verdediger.country.shortname }} {{ verdediger }}</option>
+                                                {% if locked %}
+                                                    <option style="color: crimson" value="{{ verdediger.pk }}"
+                                                            selected>{{ verdediger.country.shortname }} {{ verdediger }} BLOCKED</option>
+                                                {% else %}
+                                                    {% for verdedigerx, numberx, lockedx in alldef %}
+                                                        {% if numberx == 4 %}
+                                                            <option value="{{ verdedigerx.pk }}"
+                                                                    selected>{{ verdedigerx.country.shortname }} {{ verdedigerx }}</option>
+                                                        {% else %}
+                                                            {% if not lockedx %}
+                                                                <option value="{{ verdedigerx.pk }}">{{ verdedigerx.country.shortname }} {{ verdedigerx }}</option>
+                                                            {% endif %}
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                {% endif %}
                                             {% endif %}
                                         {% endfor %}
                                     </select>
                                     <span class="icon is-left">
                                     <img src="{% static 'images/def.png' %}" width="30" height="20">
-                                </span>
+                                    </span>
                                 </div>
                             </div>
                         </td>
@@ -298,82 +355,131 @@
                                 <div class="select is-primary">
                                     <select name="middenvelder1" id="id_middenvelder1" style="width: 300px">
                                         <option value="99999">Selecteer een middenvelder</option>
-                                        {% for middenvelder, number in allmid %}
+                                        {% for middenvelder, number, locked in allmid %}
                                             {% if number == 1 %}
-                                                <option value="{{ middenvelder.pk }}" selected>{{ middenvelder.country.shortname }} {{ middenvelder }}</option>
-                                            {% else %}
-                                                <option value="{{ middenvelder.pk }}">{{ middenvelder.country.shortname }} {{ middenvelder }}</option>
+                                                {% if locked %}
+                                                    <option style="color: crimson" value="{{ middenvelder.pk }}"
+                                                            selected>{{ middenvelder.country.shortname }} {{ middenvelder }} BLOCKED</option>
+                                                {% else %}
+                                                    {% for middenvelderx, numberx, lockedx in allmid %}
+                                                        {% if numberx == 1 %}
+                                                            <option value="{{ middenvelderx.pk }}"
+                                                                    selected>{{ middenvelderx.country.shortname }} {{ middenvelderx }}</option>
+                                                        {% else %}
+                                                            {% if not lockedx %}
+                                                                <option value="{{ middenvelderx.pk }}">{{ middenvelderx.country.shortname }} {{ middenvelderx }}</option>
+                                                            {% endif %}
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                {% endif %}
                                             {% endif %}
                                         {% endfor %}
                                     </select>
                                     <span class="icon is-left">
                                     <img src="{% static 'images/mid.png' %}" width="30" height="20">
-                                </span>
-
+                                    </span>
                                 </div>
                             </div>
                         </td>
                     </tr>
-                    <tr>
+
+<tr>
                         <td>
                             <div class="control has-icons-left">
                                 <div class="select is-primary">
                                     <select name="middenvelder2" id="id_middenvelder2" style="width: 300px">
                                         <option value="99999">Selecteer een middenvelder</option>
-                                        {% for middenvelder, number in allmid %}
+                                        {% for middenvelder, number, locked in allmid %}
                                             {% if number == 2 %}
-                                                <option value="{{ middenvelder.pk }}" selected>{{ middenvelder.country.shortname }} {{ middenvelder }}</option>
-                                            {% else %}
-                                                <option value="{{ middenvelder.pk }}">{{ middenvelder.country.shortname }} {{ middenvelder }}</option>
+                                                {% if locked %}
+                                                    <option style="color: crimson" value="{{ middenvelder.pk }}"
+                                                            selected>{{ middenvelder.country.shortname }} {{ middenvelder }} BLOCKED</option>
+                                                {% else %}
+                                                    {% for middenvelderx, numberx, lockedx in allmid %}
+                                                        {% if numberx == 2 %}
+                                                            <option value="{{ middenvelderx.pk }}"
+                                                                    selected>{{ middenvelderx.country.shortname }} {{ middenvelderx }}</option>
+                                                        {% else %}
+                                                            {% if not lockedx %}
+                                                                <option value="{{ middenvelderx.pk }}">{{ middenvelderx.country.shortname }} {{ middenvelderx }}</option>
+                                                            {% endif %}
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                {% endif %}
                                             {% endif %}
                                         {% endfor %}
                                     </select>
                                     <span class="icon is-left">
                                     <img src="{% static 'images/mid.png' %}" width="30" height="20">
-                                </span>
+                                    </span>
                                 </div>
                             </div>
                         </td>
                     </tr>
-                    <tr>
+
+<tr>
                         <td>
                             <div class="control has-icons-left">
                                 <div class="select is-primary">
                                     <select name="middenvelder3" id="id_middenvelder3" style="width: 300px">
                                         <option value="99999">Selecteer een middenvelder</option>
-                                        {% for middenvelder, number in allmid %}
+                                        {% for middenvelder, number, locked in allmid %}
                                             {% if number == 3 %}
-                                                <option value="{{ middenvelder.pk }}" selected>{{ middenvelder.country.shortname }} {{ middenvelder }}</option>
-                                            {% else %}
-                                                <option value="{{ middenvelder.pk }}">{{ middenvelder.country.shortname }} {{ middenvelder }}</option>
+                                                {% if locked %}
+                                                    <option style="color: crimson" value="{{ middenvelder.pk }}"
+                                                            selected>{{ middenvelder.country.shortname }} {{ middenvelder }} BLOCKED</option>
+                                                {% else %}
+                                                    {% for middenvelderx, numberx, lockedx in allmid %}
+                                                        {% if numberx == 3 %}
+                                                            <option value="{{ middenvelderx.pk }}"
+                                                                    selected>{{ middenvelderx.country.shortname }} {{ middenvelderx }}</option>
+                                                        {% else %}
+                                                            {% if not lockedx %}
+                                                                <option value="{{ middenvelderx.pk }}">{{ middenvelderx.country.shortname }} {{ middenvelderx }}</option>
+                                                            {% endif %}
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                {% endif %}
                                             {% endif %}
                                         {% endfor %}
                                     </select>
                                     <span class="icon is-left">
                                     <img src="{% static 'images/mid.png' %}" width="30" height="20">
-                                </span>
-
+                                    </span>
                                 </div>
                             </div>
                         </td>
                     </tr>
-                    <tr>
+
+<tr>
                         <td>
                             <div class="control has-icons-left">
                                 <div class="select is-primary">
                                     <select name="middenvelder4" id="id_middenvelder4" style="width: 300px">
                                         <option value="99999">Selecteer een middenvelder</option>
-                                        {% for middenvelder, number in allmid %}
+                                        {% for middenvelder, number, locked in allmid %}
                                             {% if number == 4 %}
-                                                <option value="{{ middenvelder.pk }}" selected>{{ middenvelder.country.shortname }} {{ middenvelder }}</option>
-                                            {% else %}
-                                                <option value="{{ middenvelder.pk }}">{{ middenvelder.country.shortname }} {{ middenvelder }}</option>
+                                                {% if locked %}
+                                                    <option style="color: crimson" value="{{ middenvelder.pk }}"
+                                                            selected>{{ middenvelder.country.shortname }} {{ middenvelder }} BLOCKED</option>
+                                                {% else %}
+                                                    {% for middenvelderx, numberx, lockedx in allmid %}
+                                                        {% if numberx == 4 %}
+                                                            <option value="{{ middenvelderx.pk }}"
+                                                                    selected>{{ middenvelderx.country.shortname }} {{ middenvelderx }}</option>
+                                                        {% else %}
+                                                            {% if not lockedx %}
+                                                                <option value="{{ middenvelderx.pk }}">{{ middenvelderx.country.shortname }} {{ middenvelderx }}</option>
+                                                            {% endif %}
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                {% endif %}
                                             {% endif %}
                                         {% endfor %}
                                     </select>
                                     <span class="icon is-left">
                                     <img src="{% static 'images/mid.png' %}" width="30" height="20">
-                                </span>
+                                    </span>
                                 </div>
                             </div>
                         </td>
@@ -384,38 +490,63 @@
                                 <div class="select is-primary">
                                     <select name="aanvaller1" id="id_aanvaller1" style="width: 300px">
                                         <option value="99999">Selecteer een aanvaller</option>
-                                        {% for aanvaller, number in allatt %}
+                                        {% for aanvaller, number, locked in allatt %}
                                             {% if number == 1 %}
-                                                <option value="{{ aanvaller.pk }}" selected>{{ aanvaller.country.shortname }} {{ aanvaller }}</option>
-                                            {% else %}
-                                                <option value="{{ aanvaller.pk }}">{{ aanvaller.country.shortname }} {{ aanvaller }}</option>
+                                                {% if locked %}
+                                                    <option style="color: crimson" value="{{ aanvaller.pk }}"
+                                                            selected>{{ aanvaller.country.shortname }} {{ aanvaller }} BLOCKED</option>
+                                                {% else %}
+                                                    {% for aanvallerx, numberx, lockedx in allatt %}
+                                                        {% if numberx == 1 %}
+                                                            <option value="{{ aanvallerx.pk }}"
+                                                                    selected>{{ aanvallerx.country.shortname }} {{ aanvallerx }}</option>
+                                                        {% else %}
+                                                            {% if not lockedx %}
+                                                                <option value="{{ aanvallerx.pk }}">{{ aanvallerx.country.shortname }} {{ aanvallerx }}</option>
+                                                            {% endif %}
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                {% endif %}
                                             {% endif %}
                                         {% endfor %}
                                     </select>
                                     <span class="icon is-left">
                                     <img src="{% static 'images/att.png' %}" width="30" height="20">
-                                </span>
+                                    </span>
                                 </div>
                             </div>
                         </td>
                     </tr>
-                    <tr>
+
+<tr>
                         <td>
                             <div class="control has-icons-left">
                                 <div class="select is-primary">
                                     <select name="aanvaller2" id="id_aanvaller2" style="width: 300px">
                                         <option value="99999">Selecteer een aanvaller</option>
-                                        {% for aanvaller, number in allatt %}
+                                        {% for aanvaller, number, locked in allatt %}
                                             {% if number == 2 %}
-                                                <option value="{{ aanvaller.pk }}" selected>{{ aanvaller.country.shortname }} {{ aanvaller }}</option>
-                                            {% else %}
-                                                <option value="{{ aanvaller.pk }}">{{ aanvaller.country.shortname }} {{ aanvaller }}</option>
+                                                {% if locked %}
+                                                    <option style="color: crimson" value="{{ aanvaller.pk }}"
+                                                            selected>{{ aanvaller.country.shortname }} {{ aanvaller }} BLOCKED</option>
+                                                {% else %}
+                                                    {% for aanvallerx, numberx, lockedx in allatt %}
+                                                        {% if numberx == 2 %}
+                                                            <option value="{{ aanvallerx.pk }}"
+                                                                    selected>{{ aanvallerx.country.shortname }} {{ aanvallerx }}</option>
+                                                        {% else %}
+                                                            {% if not lockedx %}
+                                                                <option value="{{ aanvallerx.pk }}">{{ aanvallerx.country.shortname }} {{ aanvallerx }}</option>
+                                                            {% endif %}
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                {% endif %}
                                             {% endif %}
                                         {% endfor %}
                                     </select>
                                     <span class="icon is-left">
                                     <img src="{% static 'images/att.png' %}" width="30" height="20">
-                                </span>
+                                    </span>
                                 </div>
                             </div>
                         </td>
