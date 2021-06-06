@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}MATCHES GECREEERD{% endblock %}
+{% block content %}
+<table class="table" align="center">
+    <tr>
+        <th style="text-align:center">
+            <a href=/euro2020/leagueoverview><input style="width:250px" type="submit" class="button is-primary"
+                                              value="Terug naar leaguemanager"/></a>
+        </th>
+    </tr>
+    <tr>
+        <th style="text-align:center">
+            {{ error }}
+        </th>
+    </tr>
+</table>
+{% endblock content %}

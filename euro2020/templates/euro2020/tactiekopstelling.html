@@ -35,116 +35,120 @@
         </table>
         {% if bidauction %}
             <table class="table" ALIGN="center">
-                <form action="" method="post">{% csrf_token %}
-                    <tr>
-                        <td align="center" style="font-weight: bold">Jouw veiling instellingen deze biedronde</td>
-                    </tr>
-                    <tr>
-                        <td align="center" style="font-weight: bold">(Instelling wordt op 0 gezet als je niets invult)
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="center">
-                            <div class="field">
-                                <label style="font-weight: normal" class="label">Maximaal uit te geven betcoins deze
-                                    ronde:</label>
-                                <div class="control has-icons-left">
-                                    <input class="input is-primary" id="id_maxbetcoin"
-                                           name="maxbetcoin"
-                                           placeholder="Maximaal uit te geven betcoins..." type="number" min="0"
-                                           max={{ team.betcoins }}
-                                                   value="{{ team.bidbudget }}"
-                                           style="width: 300px;" {{ disabled }}/>
-                                    <span class="icon is-left is-small">
+                    <form action="
+                " method="post">{% csrf_token %}
+                <tr>
+                    <td align="center" style="font-weight: bold">Jouw veiling instellingen deze biedronde</td>
+                </tr>
+                <tr>
+                    <td align="center" style="font-weight: bold">(Instelling wordt op 0 gezet als je niets
+                        invult)
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <div class="field">
+                            <label style="font-weight: normal" class="label">Maximaal uit te geven betcoins deze
+                                ronde:</label>
+                            <div class="control has-icons-left">
+                                <input class="input is-primary" id="id_maxbetcoin"
+                                       name="maxbetcoin"
+                                       placeholder="Maximaal uit te geven betcoins..." type="number" min="0"
+                                       max={{ team.betcoins }}
+                                               value="{{ team.bidbudget }}"
+                                       style="width: 300px;" {{ disabled }}/>
+                                <span class="icon is-left is-small">
                                         <i class="fas fa-coins" style="font-size:20px;color:black"></i>
                                     </span>
-                                </div>
                             </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="field">
-                                <label style="font-weight: normal" class="label">Maximaal aan te kopen keepers:</label>
-                                <p class="control has-icons-left">
-                                    <input class="input is-primary" id="id_gke"
-                                           name="gke"
-                                           placeholder="Maximaal te kopen keepers..." type="number" min="0" max="3"
-                                           value="{{ team.maxbidgke }}"
-                                           style="width: 300px" {{ disabled }}/>
-                                    <span class="icon is-left">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="field">
+                            <label style="font-weight: normal" class="label">Maximaal aan te kopen
+                                keepers:</label>
+                            <p class="control has-icons-left">
+                                <input class="input is-primary" id="id_gke"
+                                       name="gke"
+                                       placeholder="Maximaal te kopen keepers..." type="number" min="0" max="3"
+                                       value="{{ team.maxbidgke }}"
+                                       style="width: 300px" {{ disabled }}/>
+                                <span class="icon is-left">
                                     <img src="{% static 'images/gke.png' %}" width="30" height="20">
                                 </span>
-                                </p>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="field">
-                                <label style="font-weight: normal" class="label">Maximaal aan te kopen
-                                    verdedigers:</label>
-                                <p class="control has-icons-left">
-                                    <input class="input is-primary" id="id_def"
-                                           name="def"
-                                           placeholder="Maximaal te kopen verdedigers..." type="number" min="0" max="8"
-                                           value="{{ team.maxbiddef }}"
-                                           style="width: 300px" {{ disabled }}/>
-                                    <span class="icon is-left">
+                            </p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="field">
+                            <label style="font-weight: normal" class="label">Maximaal aan te kopen
+                                verdedigers:</label>
+                            <p class="control has-icons-left">
+                                <input class="input is-primary" id="id_def"
+                                       name="def"
+                                       placeholder="Maximaal te kopen verdedigers..." type="number" min="0"
+                                       max="8"
+                                       value="{{ team.maxbiddef }}"
+                                       style="width: 300px" {{ disabled }}/>
+                                <span class="icon is-left">
                                     <img src="{% static 'images/def.png' %}" width="30" height="20">
                                 </span>
-                                </p>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="field">
-                                <label style="font-weight: normal" class="label">Maximaal aan te kopen
-                                    middenvelders:</label>
-                                <p class="control has-icons-left">
-                                    <input class="input is-primary" id="id_mid"
-                                           name="mid"
-                                           placeholder="Maximaal te kopen middenvelders..." type="number" min="0"
-                                           max="8"
-                                           value="{{ team.maxbidmid }}"
-                                           style="width: 300px" {{ disabled }}/>
-                                    <span class="icon is-left">
+                            </p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="field">
+                            <label style="font-weight: normal" class="label">Maximaal aan te kopen
+                                middenvelders:</label>
+                            <p class="control has-icons-left">
+                                <input class="input is-primary" id="id_mid"
+                                       name="mid"
+                                       placeholder="Maximaal te kopen middenvelders..." type="number" min="0"
+                                       max="8"
+                                       value="{{ team.maxbidmid }}"
+                                       style="width: 300px" {{ disabled }}/>
+                                <span class="icon is-left">
                                     <img src="{% static 'images/mid.png' %}" width="30" height="20">
                                 </span>
-                                </p>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="field">
-                                <label style="font-weight: normal" class="label">Maximaal aan te kopen
-                                    aanvallers:</label>
-                                <p class="control has-icons-left">
-                                    <input class="input is-primary" id="id_att"
-                                           name="att"
-                                           placeholder="Maximaal te kopen aanvallers..." type="number" min="0"
-                                           max="5"
-                                           value="{{ team.maxbidatt }}"
-                                           style="width: 300px" {{ disabled }}/>
-                                    <span class="icon is-left">
+                            </p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="field">
+                            <label style="font-weight: normal" class="label">Maximaal aan te kopen
+                                aanvallers:</label>
+                            <p class="control has-icons-left">
+                                <input class="input is-primary" id="id_att"
+                                       name="att"
+                                       placeholder="Maximaal te kopen aanvallers..." type="number" min="0"
+                                       max="5"
+                                       value="{{ team.maxbidatt }}"
+                                       style="width: 300px" {{ disabled }}/>
+                                <span class="icon is-left">
                                     <img src="{% static 'images/att.png' %}" width="30" height="20">
                                 </span>
-                                </p>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th style="text-align:center">
-                            <input style="width:250px" type="submit" class="button is-primary" name="bewaarveiling"
-                                   value="Bewaar Veiling instellingen"/>
-                        </th>
-                    </tr>
+                            </p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th style="text-align:center">
+                        <input style="width:250px" type="submit" class="button is-primary" name="bewaarveiling"
+                               value="Bewaar Veiling instellingen"/>
+                    </th>
+                </tr>
                 </form>
+
             </table>
         {% else %}
-
             <table class="table" ALIGN="center">
                 <form action="" method="post">{% csrf_token %}
                     <tr>
@@ -191,7 +195,8 @@
                                             {% if number == 1 %}
                                                 {% if locked %}
                                                     <option style="color: crimson" value="{{ keeper.pk }}"
-                                                            selected>{{ keeper.country.shortname }} {{ keeper }} BLOCKED</option>
+                                                            selected>{{ keeper.country.shortname }} {{ keeper }} BLOCKED
+                                                    </option>
                                                 {% else %}
                                                     {% for keeperx, numberx, lockedx in allgke %}
                                                         {% if numberx == 1 %}
@@ -224,7 +229,9 @@
                                             {% if number == 1 %}
                                                 {% if locked %}
                                                     <option style="color: crimson" value="{{ verdediger.pk }}"
-                                                            selected>{{ verdediger.country.shortname }} {{ verdediger }} BLOCKED</option>
+                                                            selected>{{ verdediger.country.shortname }} {{ verdediger }}
+                                                        BLOCKED
+                                                    </option>
                                                 {% else %}
                                                     {% for verdedigerx, numberx, lockedx in alldef %}
                                                         {% if numberx == 1 %}
@@ -258,7 +265,9 @@
                                             {% if number == 2 %}
                                                 {% if locked %}
                                                     <option style="color: crimson" value="{{ verdediger.pk }}"
-                                                            selected>{{ verdediger.country.shortname }} {{ verdediger }}  BLOCKED</option>
+                                                            selected>{{ verdediger.country.shortname }} {{ verdediger }}
+                                                        BLOCKED
+                                                    </option>
                                                 {% else %}
                                                     {% for verdedigerx, numberx, lockedx in alldef %}
                                                         {% if numberx == 2 %}
@@ -292,7 +301,9 @@
                                             {% if number == 3 %}
                                                 {% if locked %}
                                                     <option style="color: crimson" value="{{ verdediger.pk }}"
-                                                            selected>{{ verdediger.country.shortname }} {{ verdediger }} BLOCKED</option>
+                                                            selected>{{ verdediger.country.shortname }} {{ verdediger }}
+                                                        BLOCKED
+                                                    </option>
                                                 {% else %}
                                                     {% for verdedigerx, numberx, lockedx in alldef %}
                                                         {% if numberx == 3 %}
@@ -326,7 +337,9 @@
                                             {% if number == 4 %}
                                                 {% if locked %}
                                                     <option style="color: crimson" value="{{ verdediger.pk }}"
-                                                            selected>{{ verdediger.country.shortname }} {{ verdediger }} BLOCKED</option>
+                                                            selected>{{ verdediger.country.shortname }} {{ verdediger }}
+                                                        BLOCKED
+                                                    </option>
                                                 {% else %}
                                                     {% for verdedigerx, numberx, lockedx in alldef %}
                                                         {% if numberx == 4 %}
@@ -359,7 +372,9 @@
                                             {% if number == 1 %}
                                                 {% if locked %}
                                                     <option style="color: crimson" value="{{ middenvelder.pk }}"
-                                                            selected>{{ middenvelder.country.shortname }} {{ middenvelder }} BLOCKED</option>
+                                                            selected>{{ middenvelder.country.shortname }} {{ middenvelder }}
+                                                        BLOCKED
+                                                    </option>
                                                 {% else %}
                                                     {% for middenvelderx, numberx, lockedx in allmid %}
                                                         {% if numberx == 1 %}
@@ -383,7 +398,7 @@
                         </td>
                     </tr>
 
-<tr>
+                    <tr>
                         <td>
                             <div class="control has-icons-left">
                                 <div class="select is-primary">
@@ -393,7 +408,9 @@
                                             {% if number == 2 %}
                                                 {% if locked %}
                                                     <option style="color: crimson" value="{{ middenvelder.pk }}"
-                                                            selected>{{ middenvelder.country.shortname }} {{ middenvelder }} BLOCKED</option>
+                                                            selected>{{ middenvelder.country.shortname }} {{ middenvelder }}
+                                                        BLOCKED
+                                                    </option>
                                                 {% else %}
                                                     {% for middenvelderx, numberx, lockedx in allmid %}
                                                         {% if numberx == 2 %}
@@ -417,7 +434,7 @@
                         </td>
                     </tr>
 
-<tr>
+                    <tr>
                         <td>
                             <div class="control has-icons-left">
                                 <div class="select is-primary">
@@ -427,7 +444,9 @@
                                             {% if number == 3 %}
                                                 {% if locked %}
                                                     <option style="color: crimson" value="{{ middenvelder.pk }}"
-                                                            selected>{{ middenvelder.country.shortname }} {{ middenvelder }} BLOCKED</option>
+                                                            selected>{{ middenvelder.country.shortname }} {{ middenvelder }}
+                                                        BLOCKED
+                                                    </option>
                                                 {% else %}
                                                     {% for middenvelderx, numberx, lockedx in allmid %}
                                                         {% if numberx == 3 %}
@@ -451,7 +470,7 @@
                         </td>
                     </tr>
 
-<tr>
+                    <tr>
                         <td>
                             <div class="control has-icons-left">
                                 <div class="select is-primary">
@@ -461,7 +480,9 @@
                                             {% if number == 4 %}
                                                 {% if locked %}
                                                     <option style="color: crimson" value="{{ middenvelder.pk }}"
-                                                            selected>{{ middenvelder.country.shortname }} {{ middenvelder }} BLOCKED</option>
+                                                            selected>{{ middenvelder.country.shortname }} {{ middenvelder }}
+                                                        BLOCKED
+                                                    </option>
                                                 {% else %}
                                                     {% for middenvelderx, numberx, lockedx in allmid %}
                                                         {% if numberx == 4 %}
@@ -494,7 +515,9 @@
                                             {% if number == 1 %}
                                                 {% if locked %}
                                                     <option style="color: crimson" value="{{ aanvaller.pk }}"
-                                                            selected>{{ aanvaller.country.shortname }} {{ aanvaller }} BLOCKED</option>
+                                                            selected>{{ aanvaller.country.shortname }} {{ aanvaller }}
+                                                        BLOCKED
+                                                    </option>
                                                 {% else %}
                                                     {% for aanvallerx, numberx, lockedx in allatt %}
                                                         {% if numberx == 1 %}
@@ -518,7 +541,7 @@
                         </td>
                     </tr>
 
-<tr>
+                    <tr>
                         <td>
                             <div class="control has-icons-left">
                                 <div class="select is-primary">
@@ -528,7 +551,9 @@
                                             {% if number == 2 %}
                                                 {% if locked %}
                                                     <option style="color: crimson" value="{{ aanvaller.pk }}"
-                                                            selected>{{ aanvaller.country.shortname }} {{ aanvaller }} BLOCKED</option>
+                                                            selected>{{ aanvaller.country.shortname }} {{ aanvaller }}
+                                                        BLOCKED
+                                                    </option>
                                                 {% else %}
                                                     {% for aanvallerx, numberx, lockedx in allatt %}
                                                         {% if numberx == 2 %}

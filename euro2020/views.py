@@ -9,7 +9,7 @@ from LenteCup2.models import GameSettings
 from common.models import AppAuthorisation, Apps
 from euro2020 import models
 from euro2020.models import Bids, Player, League, GamePhase, Boekhouding, BoekhoudingLeague, Opstelling, OpstellingLog, \
-    Tactiek
+    Tactiek, VirtualMatch
 from .bid_functions import createbidlist, validbid, assignfinalbid, savebid, remove_sameplayer_bids, \
     saveteaminfo
 from .forms import ChangeFirstNameForm, ChangeTeamNameForm, AddGoalForm, BidsForm, CreateLeagueForm, PickLeagueForm
@@ -345,13 +345,45 @@ def groepstand(request):
 
 
 def leaguestand(request, league):
+    loting = League.objects.get(pk=league).draw
+    stages = ["G1", "G2", "G3"]
     currentleague = League.objects.get(pk=league)
     leagueteams = Team.objects.filter(league=league).order_by("order")
-    schemalist = [["vr 11 t/m di 15 juni", 1,2,3,4],["wo 16 t/m 19 za juni", 1,3,2,4],["zo 20 t/m wo 23 juni", 1,4,2,3]]
+    allleaguematches = VirtualMatch.objects.filter(home__in=leagueteams)
     return render(
         request=request,
         template_name="euro2020/leaguestand.html",
-        context={"loting": currentleague.draw, "groups": Team.TeamGroup.labels, "leagueteams": leagueteams, "schemalist": schemalist})
+        context={"groups": Team.TeamGroup.labels, "leagueteams": leagueteams, "leaguewedstrijden": allleaguematches, "stages": stages, "loting": loting})
+
+
+def createleaguematches(request, league):
+    error = ""
+    currentuser = request.user
+    if currentuser.is_superuser:
+        leagueteams = Team.objects.filter(league=league).order_by("order")
+        if VirtualMatch.objects.filter(home__in=leagueteams).exists():
+            error = "Er bestaan al matches voor deze league"
+            return render(request=request, template_name="euro2020/createleaguematches.html", context={"error": error})
+        groups = Team.TeamGroup.labels
+        r1start = datetime(year=2021, month=6, day=11, hour=21, minute=00, second=00)
+        r1end = datetime(year=2021, month=6, day=15, hour=23, minute=50, second=00)
+        r2start = datetime(year=2021, month=6, day=16, hour=15, minute=00, second=00)
+        r2end = datetime(year=2021, month=6, day=19, hour=23, minute=50, second=00)
+        r3start = datetime(year=2021, month=6, day=20, hour=21, minute=00, second=00)
+        r3end = datetime(year=2021, month=6, day=23, hour=23, minute=50, second=00)
+        schemalist = [["G1", r1start, r1end, 1,2,3,4],["G2", r2start, r2end, 3,1,4,2],["G3", r3start, r3end, 1,4,2,3]]
+        for schema1 in schemalist:
+            for group in groups:
+                hometeam = leagueteams.get(group=group, order=schema1[3])
+                awayteam = leagueteams.get(group=group, order=schema1[4])
+                VirtualMatch.objects.create(stage=schema1[0], home=hometeam, away=awayteam, start=schema1[1], end=schema1[2], has_started=False, has_ended=False)
+                hometeam = leagueteams.get(group=group, order=schema1[5])
+                awayteam = leagueteams.get(group=group, order=schema1[6])
+                VirtualMatch.objects.create(stage=schema1[0], home=hometeam, away=awayteam, start=schema1[1],
+                                            end=schema1[2], has_started=False, has_ended=False)
+    else:
+        error = "Je bent geen superuser"
+    return render(request=request, template_name="euro2020/createleaguematches.html", context={"error": error})
 
 
 def bidoverview(request):
@@ -952,7 +984,7 @@ def tactiekopstelling(request):
     if leaguephase.gamephase.__contains__("Grand Finale"):
         phasetext = "Grande Finale"
     try:
-        tactiek = Tactiek.objects.get(team=team, phase__gamephase__icontains=phasetext)
+        tactiek = Tactiek.objects.get(team=team, phase__gamephase__icontains=phasetext).tactiek
     except:
         tactiek="Normaal"
     truebids = Bids.objects.filter(team=team, assigned=True).select_related("player")

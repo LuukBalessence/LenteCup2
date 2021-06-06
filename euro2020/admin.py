@@ -51,6 +51,7 @@ class MatchAdmin(admin.ModelAdmin):
     )
     list_editable = ("has_started", "has_ended")
 
+
     def add_view(self, request, form_url='', extra_context=None):
         # when we add a match, we don't show the players because we don't know the countries yet
         # also, no GoalInlines because we don't know the countries.
@@ -70,6 +71,20 @@ class MatchAdmin(admin.ModelAdmin):
         # else:
         #     self.inlines = []
         return super().change_view(request, object_id, form_url, extra_context)
+
+
+@admin.register(models.VirtualMatch)
+class VirtualMatchAdmin(admin.ModelAdmin):
+    list_display = (
+        "stage",
+        "start",
+        "end",
+        "home",
+        "away",
+        "has_started",
+        "has_ended",
+    )
+    list_editable = ("has_started", "has_ended")
 
 
 @admin.register(Team)

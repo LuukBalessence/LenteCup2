@@ -36,6 +36,7 @@ urlpatterns = [
     path("programma", views.programma, name="programma"),
     path("myleague", views.myleague, name="myleague"),
     path("leaguestand/<int:league>", views.leaguestand, name="leaguestand"),
+    path("createleaguematches/<int:league>", views.createleaguematches, name="createleaguematches"),
     path("rleuro2020", views.rleuro2020, name="rleuro2020"),
     path("groeprlmatches", views.groeprlmatches, name="groeprlmatches"),
     path("moneymanager", views.moneymanager, name="moneymanager"),

@@ -204,6 +204,45 @@ class Match(models.Model):
         return self.stage in [Match.Stage.G1, Match.Stage.G2, Match.Stage.G3]
 
 
+class VirtualMatch(models.Model):
+    class Stage(models.TextChoices):
+        G1 = "G1", _("GroepsRonde 1")
+        G2 = "G2", _("GroepsRonde 2")
+        G3 = "G3", _("GroepsRonde 3")
+        Q6 = "Q6", _("Achtste Finales")
+        Q8 = "Q8", _("Kwart Finales")
+        Q4 = "Q4", _("Halve Finales")
+        Q2 = "Q2", _("Grande Finale")
+
+    stage = models.CharField(
+        verbose_name=_("Stage"), max_length=2, choices=Stage.choices
+    )
+    home = models.ForeignKey(
+        Team, on_delete=models.CASCADE, related_name="hometeam_matches"
+    )
+    away = models.ForeignKey(
+        Team, on_delete=models.CASCADE, related_name="awayteam_matches"
+    )
+    start = models.DateTimeField(verbose_name=_("Gestart"))
+    end = models.DateTimeField(verbose_name=_("Afgelopen"))
+    has_started = models.BooleanField(verbose_name=_("Gestart"), default=False)
+    has_ended = models.BooleanField(verbose_name=_("Afgelopen"), default=False)
+    homescore = models.PositiveSmallIntegerField(null=True)
+    awayscore = models.PositiveSmallIntegerField(null=True)
+    decimalhomescore = models.DecimalField(max_digits=5, decimal_places=3, null=True)
+    decimalawayscore = models.DecimalField(max_digits=5, decimal_places=3, null=True)
+    minusdecimalhomescore = models.DecimalField(max_digits=5, decimal_places=3, null=True)
+    minusdecimalawayscore = models.DecimalField(max_digits=5, decimal_places=3, null=True)
+
+    class Meta:
+        verbose_name = _("Virtuele Wedstrijd")
+        verbose_name_plural = _("Wedstrijden")
+        ordering = ["start", "id"]
+
+    def __str__(self):
+        return f"{self.home} - {self.away}"
+
+
 class Goal(models.Model):
     class Type(models.TextChoices):
         GOAL = "GO", _("Goal")
