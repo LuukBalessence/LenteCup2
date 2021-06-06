@@ -42,11 +42,11 @@ def getgoallist(matches):
     return goallist
 
 
-def match_results(matches, goals):
+def match_results(wedstrijden, goals):
     results = {}
     # start with 0-0 for each match
-    for match in matches:
-        results[match] = [0, 0]
+    for wedstrijd in wedstrijden:
+        results[wedstrijd] = [0, 0]
 
     # add goals
     for goal in goals:

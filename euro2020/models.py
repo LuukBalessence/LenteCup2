@@ -1,7 +1,8 @@
+from datetime import datetime, timezone
+
+import pytz
 from django.core.exceptions import ValidationError
 from django.utils import timezone
-from datetime import timedelta
-
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 from django.db.models import UniqueConstraint
@@ -290,7 +291,11 @@ class Goal(models.Model):
                 {"phase": _("Group stages don't have a Penalty Shootout phase.")}
             )
         # check if match has started, otherwise goals cannot be added
-        if not self.match.has_started:
+        now = datetime.now(timezone.utc)
+        mstarts = self.match.start.astimezone(pytz.timezone("UTC"))
+        if (self.match.has_started) or (now > mstarts):
+            print("match started")
+        else:
             raise ValidationError(
                 {"minute": _("Goals can not be scored when match has not started yet")}
             )
@@ -332,6 +337,10 @@ class Opstelling(models.Model):
     team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name="opstelling")
     phase = models.ForeignKey(GamePhase, on_delete=models.CASCADE, related_name="opstelling")
     opgesteldespeler = models.ForeignKey(Player, on_delete=models.CASCADE, related_name="opstelling")
+    nulscore = models.DecimalField(max_digits=4, decimal_places=2, null=True)
+    minscore = models.DecimalField(max_digits=4, decimal_places=2, null=True)
+    plusscore = models.DecimalField(max_digits=4, decimal_places=2, null=True)
+    goalscore = models.DecimalField(max_digits=4, decimal_places=2, null=True)
 
 
 class OpstellingLog(models.Model):

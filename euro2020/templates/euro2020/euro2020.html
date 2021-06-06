@@ -63,6 +63,14 @@
                     </th>
                 </tr>
             {% endif %}
+            {% if live %}
+                <tr>
+                    <th style="text-align:center">
+                        <a href="{% url 'livescoring'%}"><input style="width:250px" type="submit" class="button is-danger is-large"
+                                                 value="LIVE SCORING"/></a>
+                    </th>
+                </tr>
+            {% endif %}
             <tr>
                 <th style="text-align:center">
                     <a href=/euro2020/myteam><input style="width:250px" type="submit" class="button is-primary"

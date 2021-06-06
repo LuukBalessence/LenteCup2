@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}LIVE SCORING{% endblock %}
+{% block content %}
+    <hr>
+    {% for group in groups %}
+        <h4 align="center" class="title is-4">Groep: {{ group }}</h4>
+            {% for wedstrijd, e,f,g,h,i,j,k,l,m,n,o,p in allewedstrijden %}
+                {% if wedstrijd.home.group == group %}
+                    <table class="table" align="center">
+                    <tr>
+                        <th style="font-size: large;">{{ wedstrijd.home }}</th>
+                        <th style="font-size: x-large;">{{ m }}</th>
+                        <th bgcolor="#00d1b2" style="color: white">Plus:</th>
+                        <th bgcolor="#00d1b2" style="color: white">{{ k }}</th>
+                        <th bgcolor="#00d1b2" style="color: white">Min:</th>
+                        <th bgcolor="#00d1b2" style="color: white">{{ e }}</th>
+                    </tr>
+                    <tr>
+                        <th style="font-size: large;">{{ wedstrijd.away }}</th>
+                        <th style="font-size: x-large;">{{ n }}</th>
+                        <th bgcolor="#00d1b2" style="color: white">Plus:</th>
+                        <th bgcolor="#00d1b2" style="color: white">{{ l }}</th>
+                        <th bgcolor="#00d1b2" style="color: white">Min:</th>
+                        <th bgcolor="#00d1b2" style="color: white">{{ f }}</th>
+                    </tr>
+                    <tr bgcolor="#00d1b2">
+                        <th style="color: white">Opstelling Thuis</th>
+                        <th style="color: white">Land</th>
+                        <th style="color: white">Pos.</th>
+                        <th style="color: white">Min</th>
+                        <th style="color: white">Plus</th>
+                        <th style="color: white">Goal</th>
+                    </tr>
+                    {% for opstel,a,b,c in teamopstellingen %}
+                        {% if opstel.team == wedstrijd.home %}
+                             <tr>
+                                <td>{{ opstel.opgesteldespeler }}</td>
+                                <td>{{ opstel.opgesteldespeler.country.shortname }}</td>
+                                <td>{{ opstel.opgesteldespeler.position }}</td>
+                                <td>{{ a }}</td>
+                                <td>{{ b }}</td>
+                                <td>{{ c }}</td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                    <tr>
+                        <th>Tactiek: {{ o }}</th>
+                        <th></th>
+                        <th>Tot.</th>
+                        <th>{{ e }}</th>
+                        <th>{{ g }}</th>
+                        <th>{{ i }}</th>
+                    </tr>
+                    <tr bgcolor="#00d1b2">
+                        <th style="color: white">Opstelling Uit</th>
+                        <th style="color: white">Land</th>
+                        <th style="color: white">Pos.</th>
+                        <th style="color: white">Min</th>
+                        <th style="color: white">Plus</th>
+                        <th style="color: white">Goal</th>
+                    </tr>
+                    {% for opstel,a,b,c in teamopstellingen %}
+                        {% if opstel.team == wedstrijd.away %}
+                             <tr>
+                                <td>{{ opstel.opgesteldespeler }}</td>
+                                <td>{{ opstel.opgesteldespeler.country.shortname }}</td>
+                                <td>{{ opstel.opgesteldespeler.position }}</td>
+                                <td>{{ a }}</td>
+                                <td>{{ b }}</td>
+                                <td>{{ c }}</td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                    <tr>
+                        <th>Tactiek: {{ p }}</th>
+                        <th></th>
+                        <th>Tot.</th>
+                        <th>{{ f }}</th>
+                        <th>{{ h }}</th>
+                        <th>{{ j }}</th>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+    {% endfor %}
+    <table class="table" align="center">
+            <tr>
+                <th style="text-align:center">
+                    <a href=euro2020><input style="width:250px" type="submit" class="button is-primary"
+                                            value="Terug naar EURO2020"/></a>
+                </th>
+            </tr>
+        </table>
+{% endblock content %}

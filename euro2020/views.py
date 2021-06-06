@@ -50,12 +50,13 @@ def index(request):
 
 
 def standenbeheer(request):
-    matches = Match.objects.all().prefetch_related("home", "away")
+    groups = Country.Group.labels
+    matches = Match.objects.filter(has_ended=False).order_by("start").prefetch_related("home", "away")
 
     return render(
         request,
         template_name="euro2020/standenbeheer.html",
-        context={"matches": matches, },
+        context={"matches": matches, "groups": groups}
     )
 
 
@@ -85,6 +86,15 @@ def add_goal(request, pk: int):
 
 
 def euro2020(request):
+    live = False
+    currentuser = request.user
+    try:
+        team=Team.objects.get(owner=currentuser)
+        currentleague=League.objects.get(pk=team.league_id)
+        if currentleague.gamephase.allowlineup:
+            live = True
+    except:
+        pass
     hoofdmelding1 = GameSettings.objects.get(gamesettings='hoofdmelding1').gamesettingsvalue
     hoofdmelding2 = GameSettings.objects.get(gamesettings='hoofdmelding2').gamesettingsvalue
     hoofdmelding3 = GameSettings.objects.get(gamesettings='hoofdmelding3').gamesettingsvalue
@@ -92,7 +102,8 @@ def euro2020(request):
     return render(request, template_name="euro2020/euro2020.html", context={"hoofdmelding1": hoofdmelding1,
                                                                             "hoofdmelding2": hoofdmelding2,
                                                                             "hoofdmelding3": hoofdmelding3,
-                                                                            "hoofdmelding4": hoofdmelding4})
+                                                                            "hoofdmelding4": hoofdmelding4,
+                                                                            "live": live})
 
 
 def changefirstname(request):
@@ -1320,6 +1331,180 @@ def initiallineup(request, league):
     return render(request, "euro2020/initiallineup.html", context={"error": error})
 
 
+def livescoring(request):
+    verlenging = False
+    shootout = False
+    error=""
+    scoring = False
+    currentuser = request.user
+    team = Team.objects.get(owner=currentuser)
+    currentleague = League.objects.get(pk=team.league_id)
+    if "Opstelling" in currentleague.gamephase.gamephase or "Live" in currentleague.gamephase.gamephase:
+        scoring = True
+    groups = Country.Group.labels
+    allteams = Team.objects.filter(league_id=currentleague.pk)
+    phasetext = getphasetext(currentleague.gamephase)
+    if not phasetext:
+        return redirect(to="home")
+    for y in VirtualMatch.Stage.choices:
+        if phasetext in y[1]:
+            currentstage = y[0]
+    allewedstrijden = VirtualMatch.objects.filter(stage=currentstage, home__in=allteams).select_related("home")
+    teamopstellingen = Opstelling.objects.filter(team__in=allteams, phase__gamephase__icontains=phasetext)
+    opstellingsinfo = []
+    for opstelling in teamopstellingen:
+        try:
+            wedstrijd = Match.objects.get(stage=currentstage, home=opstelling.opgesteldespeler.country)
+            home = True
+        except:
+            wedstrijd = Match.objects.get(stage=currentstage, away=opstelling.opgesteldespeler.country)
+            home = False
+        spelerinfo = resultaatperspeler(opstelling, wedstrijd, home, verlenging, shootout)
+        opstellingsinfo.append(spelerinfo)
+    wedstrijdeninfo = []
+    for wedstrijd in allewedstrijden:
+        wedstrijdinfo = resultaatperwedstrijd(wedstrijd, phasetext, currentstage, verlenging, shootout)
+        wedstrijdeninfo.append(wedstrijdinfo)
+    return render(request, "euro2020/livescoring.html", context={"error": error, "groups": groups, "allewedstrijden": wedstrijdeninfo, "teamopstellingen": opstellingsinfo, "scoring": scoring})
+
+def resultaatperspeler(opstelling, wedstrijd, thuiswedstrijd, verlenging, shootout):
+    minpunten = 0
+    pluspunten = 0
+    scorepunten = 0
+    homescore = 0
+    awayscore = 0
+    started = False
+    now = datetime.now(timezone.utc)
+    matchstarts = wedstrijd.start
+    mstarts = matchstarts.astimezone(pytz.timezone("UTC"))
+    if now > mstarts:
+        started = True
+    if wedstrijd.has_started or started:
+        wedstrijdspelers = wedstrijd.players.all()
+        goals = Goal.objects.filter(match=wedstrijd)
+        if goals:
+            for goal in goals:
+                # Eerst de score van de wedstrijd berekenen
+                if (
+                        goal.player.country == goal.match.home and goal.type != Goal.Type.OWN_GOAL
+                ) or (
+                        goal.player.country == goal.match.away and goal.type == Goal.Type.OWN_GOAL
+                ):
+                    homescore += 1
+                else:
+                    awayscore += 1
+
+                if opstelling.opgesteldespeler in wedstrijdspelers:
+                    print(str(opstelling.opgesteldespeler) + "staat opgesteld")
+                    if opstelling.opgesteldespeler == goal.player:
+                        if goal.phase == "1R":
+                            if goal.type == Goal.Type.GOAL:
+                                scorepunten += 1
+                            elif goal.type == Goal.Type.PENALTY:
+                                scorepunten += 0.5
+                else:
+                    print(str(opstelling.opgesteldespeler) + "staat niet opgesteld")
+        if opstelling.opgesteldespeler in wedstrijdspelers:
+            print(str(opstelling.opgesteldespeler) + "staat opgesteld")
+            if (thuiswedstrijd and awayscore == 0) or (not thuiswedstrijd and homescore == 0):
+                if opstelling.opgesteldespeler.position == "G":
+                    minpunten = 1.5
+                if opstelling.opgesteldespeler.position == "D":
+                    minpunten = 0.25
+                if opstelling.opgesteldespeler.position == "M":
+                    minpunten = 0.1
+            if homescore == awayscore:
+                pluspunten += 0.1
+            if (homescore > awayscore and thuiswedstrijd) or (homescore < awayscore and not thuiswedstrijd):
+                pluspunten += 0.2
+            return [opstelling, minpunten, pluspunten, scorepunten]
+        else:
+            print(str(opstelling.opgesteldespeler) + "staat niet opgesteld")
+            return [opstelling, "-", "-", "-"]
+    else:
+        return [opstelling, "-", "-", "-"]
+
+def resultaatperwedstrijd(virtualmatch, phasetext, currentstage, verlenging, shootout):
+
+    totminpuntenhome = 0
+    totminpuntenaway = 0
+    totpluspuntenhome = 0
+    totpluspuntenaway = 0
+    totscorepuntenhome = 0
+    totscorepuntenaway = 0
+
+    homeopstelling = Opstelling.objects.filter(team=virtualmatch.home, phase__gamephase__icontains=phasetext)
+    awayopstelling = Opstelling.objects.filter(team=virtualmatch.away, phase__gamephase__icontains=phasetext)
+    for opstelling in homeopstelling:
+        try:
+            wedstrijd = Match.objects.get(stage=currentstage, home=opstelling.opgesteldespeler.country)
+            home = True
+        except:
+            wedstrijd = Match.objects.get(stage=currentstage, away=opstelling.opgesteldespeler.country)
+            home = False
+        homeresultaat = resultaatperspeler(opstelling, wedstrijd, home, verlenging, shootout)
+        if homeresultaat[1] != "-":
+            totminpuntenhome = totminpuntenhome + homeresultaat[1]
+            totpluspuntenhome = totpluspuntenhome + homeresultaat[2]
+            totscorepuntenhome = totscorepuntenhome + homeresultaat[3]
+    for opstelling in awayopstelling:
+        try:
+            wedstrijd = Match.objects.get(stage=currentstage, home=opstelling.opgesteldespeler.country)
+            home = True
+        except:
+            wedstrijd = Match.objects.get(stage=currentstage, away=opstelling.opgesteldespeler.country)
+            home = False
+        awayresultaat = resultaatperspeler(opstelling, wedstrijd, home, verlenging, shootout)
+        if awayresultaat[1] != "-":
+            totminpuntenaway = totminpuntenaway + awayresultaat[1]
+            totscorepuntenaway = totscorepuntenaway + awayresultaat[3]
+            totpluspuntenaway = totpluspuntenaway + awayresultaat[2]
+    hometactiek = Tactiek.objects.get(team=virtualmatch.home, phase__gamephase__icontains=phasetext).tactiek
+    awaytactiek = Tactiek.objects.get(team=virtualmatch.away, phase__gamephase__icontains=phasetext).tactiek
+    if hometactiek == "Aanvallend":
+        poshome = 1.25 * (totpluspuntenhome + totscorepuntenhome)
+        scorehome = 1.25 * (totpluspuntenhome + totscorepuntenhome) - totminpuntenaway
+    else:
+        poshome = totpluspuntenhome + totscorepuntenhome
+        scorehome = totpluspuntenhome + totscorepuntenhome - totminpuntenaway
+    if scorehome < 0:
+        scorehome=0
+    else:
+        scorehome=round(scorehome)
+    if awaytactiek == "Aanvallend":
+        posaway = 1.25 * (totpluspuntenaway + totscorepuntenaway)
+        scoreaway = 1.25 * (totpluspuntenaway + totscorepuntenaway) - totminpuntenhome
+    else:
+        posaway = totpluspuntenaway + totscorepuntenaway
+        scoreaway = totpluspuntenaway + totscorepuntenaway - totminpuntenhome
+    if scoreaway < 0:
+        scoreaway=0
+    else:
+        scoreaway=round(scorehome)
+    return [virtualmatch, round(totminpuntenhome,4), round(totminpuntenaway,4), round(totpluspuntenhome,4), round(totpluspuntenaway,4), round(totscorepuntenhome,4)
+                ,round(totscorepuntenaway,4), round(poshome,4), round(posaway,4), scorehome, scoreaway, hometactiek, awaytactiek]
+
+
+
+
+def getphasetext(leaguephase):
+    phasetext=""
+    if leaguephase.gamephase.__contains__("Groep"):
+        if leaguephase.gamephase.__contains__("Ronde 1"):
+            phasetext="Ronde 1"
+        if leaguephase.gamephase.__contains__("Ronde 2"):
+            phasetext="Ronde 2"
+        if leaguephase.gamephase.__contains__("Ronde 3"):
+            phasetext="Ronde 3"
+    if leaguephase.gamephase.__contains__("Achtste"):
+        phasetext = "Achtste"
+    if leaguephase.gamephase.__contains__("Kwart"):
+        phasetext = "Kwart"
+    if leaguephase.gamephase.__contains__("Halve"):
+        phasetext = "Halve"
+    if leaguephase.gamephase.__contains__("Grand Finale"):
+        phasetext = "Grande Finale"
+    return phasetext
 
 
 

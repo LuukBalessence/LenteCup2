@@ -1,6 +1,5 @@
 from django.contrib import admin
 from django import forms
-
 from euro2020 import models
 from .forms import MatchForm, GoalInlineFormSet
 from .models import Goal, Match, Team
