@@ -89,8 +89,8 @@ def euro2020(request):
     live = False
     currentuser = request.user
     try:
-        team=Team.objects.get(owner=currentuser)
-        currentleague=League.objects.get(pk=team.league_id)
+        team = Team.objects.get(owner=currentuser)
+        currentleague = League.objects.get(pk=team.league_id)
         if currentleague.gamephase.allowlineup:
             live = True
     except:
@@ -167,7 +167,7 @@ def myteam(request):
     bnumber = GameSettings.objects.get(gamesettings='bnumber').gamesettingsvalue
     bname = GameSettings.objects.get(gamesettings='bname').gamesettingsvalue
     leaguefee = "Onbekend"
-    phasetext=""
+    phasetext = ""
     listplayers = []
     try:
         teamdata = Team.objects.get(owner=manager)
@@ -225,7 +225,8 @@ def myteam(request):
             opstelling = Opstelling.objects.filter(team=team, phase__gamephase__icontains=phasetext)
             for bid in truebids:
                 try:
-                    Opstelling.objects.get(team=team, opgesteldespeler=bid.player, phase__gamephase__icontains=phasetext)
+                    Opstelling.objects.get(team=team, opgesteldespeler=bid.player,
+                                           phase__gamephase__icontains=phasetext)
                 except:
                     listplayers.append(bid.player)
             print(listplayers)
@@ -364,7 +365,8 @@ def leaguestand(request, league):
     return render(
         request=request,
         template_name="euro2020/leaguestand.html",
-        context={"groups": Team.TeamGroup.labels, "leagueteams": leagueteams, "leaguewedstrijden": allleaguematches, "stages": stages, "loting": loting})
+        context={"groups": Team.TeamGroup.labels, "leagueteams": leagueteams, "leaguewedstrijden": allleaguematches,
+                 "stages": stages, "loting": loting})
 
 
 def createleaguematches(request, league):
@@ -382,12 +384,14 @@ def createleaguematches(request, league):
         r2end = datetime(year=2021, month=6, day=19, hour=23, minute=50, second=00)
         r3start = datetime(year=2021, month=6, day=20, hour=21, minute=00, second=00)
         r3end = datetime(year=2021, month=6, day=23, hour=23, minute=50, second=00)
-        schemalist = [["G1", r1start, r1end, 1,2,3,4],["G2", r2start, r2end, 3,1,4,2],["G3", r3start, r3end, 1,4,2,3]]
+        schemalist = [["G1", r1start, r1end, 1, 2, 3, 4], ["G2", r2start, r2end, 3, 1, 4, 2],
+                      ["G3", r3start, r3end, 1, 4, 2, 3]]
         for schema1 in schemalist:
             for group in groups:
                 hometeam = leagueteams.get(group=group, order=schema1[3])
                 awayteam = leagueteams.get(group=group, order=schema1[4])
-                VirtualMatch.objects.create(stage=schema1[0], home=hometeam, away=awayteam, start=schema1[1], end=schema1[2], has_started=False, has_ended=False)
+                VirtualMatch.objects.create(stage=schema1[0], home=hometeam, away=awayteam, start=schema1[1],
+                                            end=schema1[2], has_started=False, has_ended=False)
                 hometeam = leagueteams.get(group=group, order=schema1[5])
                 awayteam = leagueteams.get(group=group, order=schema1[6])
                 VirtualMatch.objects.create(stage=schema1[0], home=hometeam, away=awayteam, start=schema1[1],
@@ -468,7 +472,8 @@ def bidoverview(request):
 
     return render(request, "euro2020/bidoverview.html",
                   context={'countries': Country.objects.all(), 'groups': Country.Group.labels,
-                           "league": league, "disabled": disabled, "team": team, "error": error, "leaguephase": leaguephase})
+                           "league": league, "disabled": disabled, "team": team, "error": error,
+                           "leaguephase": leaguephase})
 
 
 def bids(request, country_name):
@@ -655,6 +660,7 @@ def assignedplayersperleague(teams):
         '-playerbid')
     return bids
 
+
 def assignedbidsperteam(request, league):
     currentleague = League.objects.get(pk=league)
     teams = Team.objects.filter(league=currentleague).values()
@@ -703,7 +709,6 @@ def leagueoverview(request):
     leagues = League.objects.all().order_by('leaguename')
     leaguedata = []
 
-
     for currentleague in leagues:
         teams = Team.objects.filter(league=currentleague)
         teamskas = tkas(teams)
@@ -732,7 +737,7 @@ def teams(request, league):
         defcount = len(truebids.filter(player__position="D"))
         midcount = len(truebids.filter(player__position="M"))
         attcount = len(truebids.filter(player__position="A"))
-        total = gkecount +  defcount + midcount + attcount
+        total = gkecount + defcount + midcount + attcount
         teamsinfo.append([team.pk, gkecount, defcount, midcount, attcount, total])
 
     return render(request, 'euro2020/teams.html',
@@ -929,21 +934,28 @@ def moneymanager(request):
         elif request.POST.get("Verwerk spelertoewijzing"):
             team = Team.objects.get(pk=request.POST['teamname2'])
             league2 = League.objects.get(pk=team.league_id)
-            player2=Player.objects.get(pk=request.POST['player1'])
-            Bids.objects.create(gamephase=league2.gamephase, team=team, bidcomment=str(player2) + " Toegewezen vanwege te weinig spelers in " + str(league2.gamephase),
+            player2 = Player.objects.get(pk=request.POST['player1'])
+            Bids.objects.create(gamephase=league2.gamephase, team=team,
+                                bidcomment=str(player2) + " Toegewezen vanwege te weinig spelers in " + str(
+                                    league2.gamephase),
                                 assigned=True, player=player2, playerbid=1)
             team.betcoins = team.betcoins - 1
             team.save()
             league2.leaguebalance = league2.leaguebalance + 1
             league2.save()
-            Boekhouding.objects.create(team=team, aantalbetcoins=-1, boekingsopmerking=str(player2) + "Toegewezen vanwege te weinig spelers in " + str(league2.gamephase))
+            Boekhouding.objects.create(team=team, aantalbetcoins=-1, boekingsopmerking=str(
+                player2) + "Toegewezen vanwege te weinig spelers in " + str(league2.gamephase))
             BoekhoudingLeague.objects.create(league=league2, aantalbetcoins=1,
-                                       boekingsopmerking=str(player2) + " Toegewezen aan team " + team.name + " vanwege te weinig spelers in " + str(league2.gamephase))
+                                             boekingsopmerking=str(
+                                                 player2) + " Toegewezen aan team " + team.name + " vanwege te weinig spelers in " + str(
+                                                 league2.gamephase))
         else:
             error = "Er is op een onbekende knop gedrukt of een onbekende fout is opgetreden"
         return redirect(moneymanager)
 
-    return render(request, "euro2020/moneymanager.html", context={"allteams": allteams, "allleagues": allleagues, "allteams1": allteams1, "allplayers": allplayers})
+    return render(request, "euro2020/moneymanager.html",
+                  context={"allteams": allteams, "allleagues": allleagues, "allteams1": allteams1,
+                           "allplayers": allplayers})
 
 
 def tactiekopstelling(request):
@@ -959,7 +971,7 @@ def tactiekopstelling(request):
     allmid = []
     allatt = []
     listopstelling = []
-    phasetext=""
+    phasetext = ""
     lineup = False
     lineupnumbergke = 0
     lineupnumberdef = 0
@@ -981,11 +993,11 @@ def tactiekopstelling(request):
         tactiekkeuze = "True"
     if leaguephase.gamephase.__contains__("Groep"):
         if leaguephase.gamephase.__contains__("Ronde 1"):
-            phasetext="Ronde 1"
+            phasetext = "Ronde 1"
         if leaguephase.gamephase.__contains__("Ronde 2"):
-            phasetext="Ronde 2"
+            phasetext = "Ronde 2"
         if leaguephase.gamephase.__contains__("Ronde 3"):
-            phasetext="Ronde 3"
+            phasetext = "Ronde 3"
     if leaguephase.gamephase.__contains__("Achtste"):
         phasetext = "Achtste"
     if leaguephase.gamephase.__contains__("Kwart"):
@@ -997,7 +1009,7 @@ def tactiekopstelling(request):
     try:
         tactiek = Tactiek.objects.get(team=team, phase__gamephase__icontains=phasetext).tactiek
     except:
-        tactiek="Normaal"
+        tactiek = "Normaal"
     truebids = Bids.objects.filter(team=team, assigned=True).select_related("player")
     print(truebids)
     currentlineup = Opstelling.objects.filter(team=team, phase__gamephase__icontains=phasetext)
@@ -1035,7 +1047,7 @@ def tactiekopstelling(request):
 
             if matchplayerhome.has_started or started:
                 playerlocked = True
-                print(str(bid.player) + " speelt HOME: Player locked: "+ str(playerlocked))
+                print(str(bid.player) + " speelt HOME: Player locked: " + str(playerlocked))
                 print("Match gestart: " + str(matchplayerhome.has_started))
                 print("Tijd wedstrijd: " + str(matchplayerhome.start) + ". Tijd nu: " + str(now1))
         except:
@@ -1053,14 +1065,15 @@ def tactiekopstelling(request):
             if matchplayeraway.has_started or started:
                 playerlocked = True
                 print(bid.player + " speelt AWAY: Player locked: " + str(playerlocked) + ". Match gestart: " + str(
-                    matchplayeraway.has_started) + ". Tijd wedstrijd: " + str(matchplayeraway.start) + ". Tijd nu: " + str(
+                    matchplayeraway.has_started) + ". Tijd wedstrijd: " + str(
+                    matchplayeraway.start) + ". Tijd nu: " + str(
                     now1))
         except:
             print(str(bid.player) + " speelt NIET uit")
 
         if bid.player.position == "G":
             if currentlineup.filter(team=team, phase__gamephase__icontains=phasetext,
-                                        opgesteldespeler=Player.objects.get(pk=bid.player_id)).exists():
+                                    opgesteldespeler=Player.objects.get(pk=bid.player_id)).exists():
                 lineupnumbergke += 1
                 allgke.append([Player.objects.get(pk=bid.player_id), lineupnumbergke, playerlocked])
             else:
@@ -1115,8 +1128,35 @@ def tactiekopstelling(request):
                 return render(request, "euro2020/tactiekopstelling.html",
                               context={"allgke": allgke, "alldef": alldef, "allmid": allmid, "allatt": allatt,
                                        "league": league,
-                                       "bidauction": bidauction, "disabled": disabled, "team": team, "error": error, "tactiekkeuze": tactiekkeuze, "tactiek": tactiek})
+                                       "bidauction": bidauction, "disabled": disabled, "team": team, "error": error,
+                                       "tactiekkeuze": tactiekkeuze, "tactiek": tactiek})
             else:
+                # We gaan eerst nog een check uitvoeren of tijdens het openen van de tactiekopstelling geen reallife wedstrijden zijn  gestart. We kijken daartoe of
+                # van de gewijzigde spelers de wedstrijd gestart is
+                now2 = datetime.now(timezone.utc)
+                for n in range(0, 11):
+                    started1 = False
+                    if not currentlineup.filter(opgesteldespeler=listopstelling[n]).exists():
+                        try:
+                            checkwedstrijd = Match.objects.get(
+                                home=Country.objects.get(name=Player.objects.get(pk=listopstelling[n]).country.pk),
+                                stage=currentstage)
+                        except:
+                            checkwedstrijd = Match.objects.get(
+                                away=Country.objects.get(name=Player.objects.get(pk=listopstelling[n]).country.pk),
+                                stage=currentstage)
+                        matchstarts = checkwedstrijd.start
+                        mstarts = matchstarts.astimezone(pytz.timezone("UTC"))
+                        if now2 > mstarts:
+                            started1 = True
+                        if started1 == True or checkwedstrijd.has_started:
+                            error = "Je hebt een speler gewijzigd waarvan de wedstrijd begonnen is"
+                            return render(request, "euro2020/tactiekopstelling.html",
+                                          context={"allgke": allgke, "alldef": alldef, "allmid": allmid,
+                                                   "allatt": allatt,
+                                                   "league": league,
+                                                   "bidauction": bidauction, "disabled": disabled, "team": team,
+                                                   "error": error, "tactiekkeuze": tactiekkeuze, "tactiek": tactiek})
                 try:
                     todelete = Opstelling.objects.filter(team=team, phase__gamephase__icontains=phasetext)
                     todelete.delete()
@@ -1128,7 +1168,8 @@ def tactiekopstelling(request):
                 Tactiek.objects.create(team=team, tactiek=tactiek, phase=leaguephase)
                 for n in range(0, 11):
                     Opstelling.objects.create(team=team, opgesteldespeler_id=listopstelling[n], phase=leaguephase)
-                    OpstellingLog.objects.create(tijdopgesteld=now, team=team, opgesteldespeler_id=listopstelling[n], phase=leaguephase)
+                    OpstellingLog.objects.create(tijdopgesteld=now, team=team, opgesteldespeler_id=listopstelling[n],
+                                                 phase=leaguephase)
                 return redirect(to="myteam")
 
         elif request.POST.get("bewaarveiling"):
@@ -1163,15 +1204,17 @@ def tactiekopstelling(request):
                 team.save()
                 error = "Je veilinginstellingen zijn opgeslagen"
                 return render(request, "euro2020/tactiekopstelling.html",
-                          context={"allgke": allgke, "alldef": alldef, "allmid": allmid, "allatt": allatt,
-                               "league": league,
-                               "bidauction": bidauction, "disabled": disabled, "team": team, "error": error, "tactiekkeuze": tactiekkeuze, "tactiek": tactiek})
+                              context={"allgke": allgke, "alldef": alldef, "allmid": allmid, "allatt": allatt,
+                                       "league": league,
+                                       "bidauction": bidauction, "disabled": disabled, "team": team, "error": error,
+                                       "tactiekkeuze": tactiekkeuze, "tactiek": tactiek})
         else:
             pass
 
     return render(request, "euro2020/tactiekopstelling.html",
                   context={"allgke": allgke, "alldef": alldef, "allmid": allmid, "allatt": allatt, "league": league,
-                           "bidauction": bidauction, "disabled": disabled, "team": team, "error": error, "tactiekkeuze": tactiekkeuze, "tactiek": tactiek})
+                           "bidauction": bidauction, "disabled": disabled, "team": team, "error": error,
+                           "tactiekkeuze": tactiekkeuze, "tactiek": tactiek})
 
 
 def groeprlmatches(request):
@@ -1231,7 +1274,6 @@ def minplayerpositions(request, league):
 
 
 def voegspelertoe(aantal, positie, team):
-
     for n in range(0, aantal):
         x = 0
         cost = 1
@@ -1247,15 +1289,18 @@ def voegspelertoe(aantal, positie, team):
         toegewezenspeler = positielijst[x]
         if team.betcoins == 0:
             cost = 0
-        Bids.objects.create(team=team, gamephase=currentleague.gamephase, player_id=toegewezenspeler.id, playerbid=cost, assigned=True,
-                            bidcomment="VULLEN TEAMS " + currentleague.gamephase.gamephase + " .Speler : " + str(toegewezenspeler) + " positie: " + positie)
+        Bids.objects.create(team=team, gamephase=currentleague.gamephase, player_id=toegewezenspeler.id, playerbid=cost,
+                            assigned=True,
+                            bidcomment="VULLEN TEAMS " + currentleague.gamephase.gamephase + " .Speler : " + str(
+                                toegewezenspeler) + " positie: " + positie)
 
         team.betcoins = team.betcoins - cost
         team.save()
         currentleague.leaguebalance = currentleague.leaguebalance + cost
         currentleague.save()
         Boekhouding.objects.create(team=team, aantalbetcoins=-cost,
-                                   boekingsopmerking=str(toegewezenspeler) + "Toegewezen vanwege te weinig spelers in " + str(
+                                   boekingsopmerking=str(
+                                       toegewezenspeler) + "Toegewezen vanwege te weinig spelers in " + str(
                                        currentleague.gamephase))
         BoekhoudingLeague.objects.create(league=currentleague, aantalbetcoins=cost,
                                          boekingsopmerking=str(
@@ -1278,7 +1323,7 @@ def fillteams(request, league):
             aantaltoevoegen = 4 - len(truebids.filter(player__position="D"))
             voegspelertoe(aantaltoevoegen, "D", team)
         if len(truebids.filter(player__position="M")) < 4:
-            aantaltoevoegen = 4 -len(truebids.filter(player__position="M"))
+            aantaltoevoegen = 4 - len(truebids.filter(player__position="M"))
             voegspelertoe(aantaltoevoegen, "M", team)
         if len(truebids.filter(player__position="A")) < 2:
             aantaltoevoegen = 2 - len(truebids.filter(player__position="A"))
@@ -1295,11 +1340,11 @@ def initiallineup(request, league):
     leaguephase = currentleague.gamephase
     if leaguephase.gamephase.__contains__("Groep"):
         if leaguephase.gamephase.__contains__("Ronde 1"):
-            phasetext="Ronde 1"
+            phasetext = "Ronde 1"
         if leaguephase.gamephase.__contains__("Ronde 2"):
-            phasetext="Ronde 2"
+            phasetext = "Ronde 2"
         if leaguephase.gamephase.__contains__("Ronde 3"):
-            phasetext="Ronde 3"
+            phasetext = "Ronde 3"
     if leaguephase.gamephase.__contains__("Achtste"):
         phasetext = "Achtste"
     if leaguephase.gamephase.__contains__("Kwart"):
@@ -1319,22 +1364,26 @@ def initiallineup(request, league):
         todeletetactic = Tactiek.objects.filter(team=team, phase__gamephase__icontains=phasetext)
         todeletetactic.delete()
         Tactiek.objects.create(team=team, tactiek="Normaal",
-                                  phase=leaguephase)
+                               phase=leaguephase)
         for keep in keeper:
-            Opstelling.objects.create(team=team, opgesteldespeler=Player.objects.get(pk=keep.player_id), phase=leaguephase)
+            Opstelling.objects.create(team=team, opgesteldespeler=Player.objects.get(pk=keep.player_id),
+                                      phase=leaguephase)
         for defend in defender:
-            Opstelling.objects.create(team=team, opgesteldespeler=Player.objects.get(pk=defend.player_id), phase=leaguephase)
+            Opstelling.objects.create(team=team, opgesteldespeler=Player.objects.get(pk=defend.player_id),
+                                      phase=leaguephase)
         for midfield in midfielder:
-            Opstelling.objects.create(team=team, opgesteldespeler=Player.objects.get(pk=midfield.player_id), phase=leaguephase)
+            Opstelling.objects.create(team=team, opgesteldespeler=Player.objects.get(pk=midfield.player_id),
+                                      phase=leaguephase)
         for attack in attacker:
-            Opstelling.objects.create(team=team, opgesteldespeler=Player.objects.get(pk=attack.player_id), phase=leaguephase)
+            Opstelling.objects.create(team=team, opgesteldespeler=Player.objects.get(pk=attack.player_id),
+                                      phase=leaguephase)
     return render(request, "euro2020/initiallineup.html", context={"error": error})
 
 
 def livescoring(request):
     verlenging = False
     shootout = False
-    error=""
+    error = ""
     scoring = False
     currentuser = request.user
     team = Team.objects.get(owner=currentuser)
@@ -1365,7 +1414,10 @@ def livescoring(request):
     for wedstrijd in allewedstrijden:
         wedstrijdinfo = resultaatperwedstrijd(wedstrijd, phasetext, currentstage, verlenging, shootout)
         wedstrijdeninfo.append(wedstrijdinfo)
-    return render(request, "euro2020/livescoring.html", context={"error": error, "groups": groups, "allewedstrijden": wedstrijdeninfo, "teamopstellingen": opstellingsinfo, "scoring": scoring})
+    return render(request, "euro2020/livescoring.html",
+                  context={"error": error, "groups": groups, "allewedstrijden": wedstrijdeninfo,
+                           "teamopstellingen": opstellingsinfo, "scoring": scoring})
+
 
 def resultaatperspeler(opstelling, wedstrijd, thuiswedstrijd, verlenging, shootout):
     minpunten = 0
@@ -1424,8 +1476,8 @@ def resultaatperspeler(opstelling, wedstrijd, thuiswedstrijd, verlenging, shooto
     else:
         return [opstelling, "-", "-", "-"]
 
-def resultaatperwedstrijd(virtualmatch, phasetext, currentstage, verlenging, shootout):
 
+def resultaatperwedstrijd(virtualmatch, phasetext, currentstage, verlenging, shootout):
     totminpuntenhome = 0
     totminpuntenaway = 0
     totpluspuntenhome = 0
@@ -1468,9 +1520,9 @@ def resultaatperwedstrijd(virtualmatch, phasetext, currentstage, verlenging, sho
         poshome = totpluspuntenhome + totscorepuntenhome
         scorehome = totpluspuntenhome + totscorepuntenhome - totminpuntenaway
     if scorehome < 0:
-        scorehome=0
+        scorehome = 0
     else:
-        scorehome=round(scorehome)
+        scorehome = round(scorehome)
     if awaytactiek == "Aanvallend":
         posaway = 1.25 * (totpluspuntenaway + totscorepuntenaway)
         scoreaway = 1.25 * (totpluspuntenaway + totscorepuntenaway) - totminpuntenhome
@@ -1478,24 +1530,24 @@ def resultaatperwedstrijd(virtualmatch, phasetext, currentstage, verlenging, sho
         posaway = totpluspuntenaway + totscorepuntenaway
         scoreaway = totpluspuntenaway + totscorepuntenaway - totminpuntenhome
     if scoreaway < 0:
-        scoreaway=0
+        scoreaway = 0
     else:
-        scoreaway=round(scorehome)
-    return [virtualmatch, round(totminpuntenhome,4), round(totminpuntenaway,4), round(totpluspuntenhome,4), round(totpluspuntenaway,4), round(totscorepuntenhome,4)
-                ,round(totscorepuntenaway,4), round(poshome,4), round(posaway,4), scorehome, scoreaway, hometactiek, awaytactiek]
-
-
+        scoreaway = round(scoreaway)
+    return [virtualmatch, round(totminpuntenhome, 4), round(totminpuntenaway, 4), round(totpluspuntenhome, 4),
+            round(totpluspuntenaway, 4), round(totscorepuntenhome, 4)
+        , round(totscorepuntenaway, 4), round(poshome, 4), round(posaway, 4), round(scorehome), round(scoreaway),
+            hometactiek, awaytactiek]
 
 
 def getphasetext(leaguephase):
-    phasetext=""
+    phasetext = ""
     if leaguephase.gamephase.__contains__("Groep"):
         if leaguephase.gamephase.__contains__("Ronde 1"):
-            phasetext="Ronde 1"
+            phasetext = "Ronde 1"
         if leaguephase.gamephase.__contains__("Ronde 2"):
-            phasetext="Ronde 2"
+            phasetext = "Ronde 2"
         if leaguephase.gamephase.__contains__("Ronde 3"):
-            phasetext="Ronde 3"
+            phasetext = "Ronde 3"
     if leaguephase.gamephase.__contains__("Achtste"):
         phasetext = "Achtste"
     if leaguephase.gamephase.__contains__("Kwart"):
@@ -1505,6 +1557,3 @@ def getphasetext(leaguephase):
     if leaguephase.gamephase.__contains__("Grand Finale"):
         phasetext = "Grande Finale"
     return phasetext
-
-
-
