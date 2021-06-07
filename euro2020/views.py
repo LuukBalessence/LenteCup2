@@ -672,8 +672,7 @@ def assignedbidsperteam(request, league):
 def rejectedbidsperteam(request, league):
     currentleague = League.objects.get(pk=league)
     teams = Team.objects.filter(league=currentleague).values()
-    bids = Bids.objects.select_related('player').filter(team__in=list(teams.values_list()), assigned=False).order_by(
-        '-playerbid')
+    bids = Bids.objects.select_related('player').filter(team__in=list(teams.values_list()), assigned=False).order_by('-gamephase', "-playerbid")
     return render(request, 'euro2020/rejectedbidsperteam.html',
                   context={'league': currentleague.leaguename, 'teams': teams, 'bids': bids})
 
