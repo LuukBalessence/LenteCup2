@@ -1,4 +1,4 @@
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 import random
 
 import pytz
@@ -169,6 +169,7 @@ def myteam(request):
     leaguefee = "Onbekend"
     phasetext = ""
     listplayers = []
+    opstelling1 = []
     try:
         teamdata = Team.objects.get(owner=manager)
     except:
@@ -203,33 +204,20 @@ def myteam(request):
         team = Team.objects.get(owner=manager)
         try:
             truebids = Bids.objects.filter(team__owner=manager, assigned=True)
-            if leaguephase.gamephase.__contains__("Groep"):
-                if leaguephase.gamephase.__contains__("Ronde 1"):
-                    phasetext = "Ronde 1"
-                if leaguephase.gamephase.__contains__("Ronde 2"):
-                    phasetext = "Ronde 2"
-                if leaguephase.gamephase.__contains__("Ronde 3"):
-                    phasetext = "Ronde 3"
-                print(truebids)
-            if leaguephase.gamephase.__contains__("Achtste"):
-                phasetext = "Achtste"
-                print(truebids)
-            if leaguephase.gamephase.__contains__("Kwart"):
-                phasetext = "Kwart"
-                print(truebids)
-            if leaguephase.gamephase.__contains__("Halve"):
-                phasetext = "Halve"
-                print(truebids)
-            if leaguephase.gamephase.__contains__("Grand Finale"):
-                phasetext = "Grande Finale"
+            phasetext = getphasetext(league.gamephase)
+            for y in Match.Stage.choices:
+                if phasetext in y[1]:
+                    currentstage = y[0]
             opstelling = Opstelling.objects.filter(team=team, phase__gamephase__icontains=phasetext)
             for bid in truebids:
+                speelt = matchhasstarted(bid.player, currentstage)
                 try:
-                    Opstelling.objects.get(team=team, opgesteldespeler=bid.player,
-                                           phase__gamephase__icontains=phasetext)
+                    opstelling1.append([Opstelling.objects.get(team=team, opgesteldespeler=bid.player,
+                                           phase__gamephase__icontains=phasetext),speelt])
+
                 except:
-                    listplayers.append(bid.player)
-            print(listplayers)
+                    listplayers.append([bid.player, speelt])
+            print(listplayers,speelt)
         except:
             players = ""
         try:
@@ -242,7 +230,7 @@ def myteam(request):
                                "leaguephase": leaguephase,
                                "betcoinbalance": betcoinbalance, "bidauction": bidauction, "bnumber": bnumber,
                                "bname": bname, "leaguefee": leaguefee, "leaguedraw": leaguedraw,
-                               "players": listplayers, "opstelling": opstelling, "paid": team.paid, "tactiek": tactiek})
+                               "players": listplayers, "opstelling": opstelling1, "paid": team.paid, "tactiek": tactiek})
     except ObjectDoesNotExist:
         return redirect(to="changeteamname")
 
@@ -961,26 +949,42 @@ def moneymanager(request):
                            "allplayers": allplayers})
 
 
-def matchhasstarted(country, currentstage):
+def matchhasstarted(player, currentstage):
     wedstrijdgestart = False
     playerlocked = False
+    speelt = False
     now1 = datetime.now(timezone.utc)
     try:
-        matchplayer = Match.objects.get(home=Country.objects.get(pk=country), stage=currentstage)
+        matchplayer = Match.objects.get(home=Country.objects.get(pk=player.country), stage=currentstage)
     except:
-        matchplayer = Match.objects.get(away=Country.objects.get(pk=country), stage=currentstage)
+        matchplayer = Match.objects.get(away=Country.objects.get(pk=player.country), stage=currentstage)
+    wedstrijdspelers = matchplayer.players.all()
+    if player in wedstrijdspelers:
+        speelt = True
     matchstarts = matchplayer.start
-    mstarts = matchstarts.astimezone(pytz.timezone("UTC"))
+    # We halen 2 uur van de nederlandse aanvangstijden af (die eigenlijk in utc ingegeven zijn) zodat deze met utc worden vergeleken
+    mstarts = matchstarts - timedelta(hours=2)
     if now1 > mstarts:
         print("Match has started")
         started = True
     else:
         print("Match has not started yet")
+        print(str(now1))
+        print(str(matchstarts))
+        print(str(mstarts))
         started = False
     if matchplayer.has_started or started:
         playerlocked = True
         wedstrijdgestart = True
-    return [playerlocked, wedstrijdgestart]
+    return [playerlocked, wedstrijdgestart, speelt]
+
+def converteerutctijd(datumtijd):
+    utc_datetime = datetime(2020, 1, 1, 10, 0, 0, 0, tzinfo=timezone.utc)
+    local_timezone = pytz.timezone("Europe/Amsterdam")
+    local_datetime = utc_datetime.replace(tzinfo=pytz.utc)
+    local_datetime = local_datetime.astimezone(local_timezone)
+    print(utc_datetime)
+    print(local_datetime)
 
 
 def tactiekopstelling(request):
@@ -1055,7 +1059,7 @@ def tactiekopstelling(request):
         # Is een speler niet opgesteld, dan krijgt hij nummer 0 en wordt hij toegevoegd aan de positielijst.
         # Voor elke speler bepalen we ook of de match van het land van die speler is begonnen.
         allplayers.append(Player.objects.get(pk=bid.player_id))
-        playerlocked = matchhasstarted(bid.player.country, currentstage)
+        playerlocked = matchhasstarted(bid.player, currentstage)
         if bid.player.position == "G":
             if currentlineup.filter(team=team, phase__gamephase__icontains=phasetext,
                                     opgesteldespeler=Player.objects.get(pk=bid.player_id)).exists():
@@ -1112,7 +1116,7 @@ def tactiekopstelling(request):
                 # van de gewijzigde spelers de wedstrijd gestart is
                 for n in range(0, 11):
                     if not currentlineup.filter(opgesteldespeler=listopstelling[n]).exists():
-                        wedstrijdgestart = matchhasstarted(Player.objects.get(pk=listopstelling[n]).country.pk, currentstage)
+                        wedstrijdgestart = matchhasstarted(Player.objects.get(pk=listopstelling[n]), currentstage)
                         if wedstrijdgestart[1]:
                             error = "Je hebt een speler gewijzigd waarvan de wedstrijd begonnen is"
                             return render(request, "euro2020/tactiekopstelling.html",
@@ -1390,12 +1394,15 @@ def resultaatperspeler(opstelling, wedstrijd, thuiswedstrijd, verlenging, shooto
     homescore = 0
     awayscore = 0
     started = False
+    speelt = False
+    wedstrijdgestart = False
     now = datetime.now(timezone.utc)
     matchstarts = wedstrijd.start
-    mstarts = matchstarts.astimezone(pytz.timezone("UTC"))
+    mstarts = matchstarts - timedelta(hours=2)
     if now > mstarts:
         started = True
-    if wedstrijd.has_started or started:
+    wedstrijdgestart = wedstrijd.has_started or started
+    if wedstrijdgestart:
         wedstrijdspelers = wedstrijd.players.all()
         goals = Goal.objects.filter(match=wedstrijd)
         if goals:
@@ -1411,6 +1418,7 @@ def resultaatperspeler(opstelling, wedstrijd, thuiswedstrijd, verlenging, shooto
                     awayscore += 1
 
                 if opstelling.opgesteldespeler in wedstrijdspelers:
+                    speelt = True
                     print(str(opstelling.opgesteldespeler) + "staat opgesteld")
                     if opstelling.opgesteldespeler == goal.player:
                         if goal.phase == "1R":
@@ -1421,6 +1429,7 @@ def resultaatperspeler(opstelling, wedstrijd, thuiswedstrijd, verlenging, shooto
                 else:
                     print(str(opstelling.opgesteldespeler) + "staat niet opgesteld")
         if opstelling.opgesteldespeler in wedstrijdspelers:
+            speelt = True
             print(str(opstelling.opgesteldespeler) + "staat opgesteld")
             if (thuiswedstrijd and awayscore == 0) or (not thuiswedstrijd and homescore == 0):
                 if opstelling.opgesteldespeler.position == "G":
@@ -1433,12 +1442,13 @@ def resultaatperspeler(opstelling, wedstrijd, thuiswedstrijd, verlenging, shooto
                 pluspunten += 0.1
             if (homescore > awayscore and thuiswedstrijd) or (homescore < awayscore and not thuiswedstrijd):
                 pluspunten += 0.2
-            return [opstelling, minpunten, pluspunten, scorepunten]
+            return [opstelling, minpunten, pluspunten, scorepunten, wedstrijdgestart, speelt]
         else:
+            speelt = False
             print(str(opstelling.opgesteldespeler) + "staat niet opgesteld")
-            return [opstelling, "-", "-", "-"]
+            return [opstelling, "-", "-", "-", wedstrijdgestart, speelt]
     else:
-        return [opstelling, "-", "-", "-"]
+        return [opstelling, "-", "-", "-", wedstrijdgestart, speelt]
 
 
 def resultaatperwedstrijd(virtualmatch, phasetext, currentstage, verlenging, shootout):

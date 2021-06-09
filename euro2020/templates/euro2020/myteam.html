@@ -152,7 +152,7 @@
                 <tr>
                     <th></th>
                     <th></th>
-                    <td align="center">{{ tactiek}}</td>
+                    <td align="center">{{ tactiek }}</td>
                     <td></td>
                 </tr>
                 <tr>
@@ -173,64 +173,112 @@
                         </th>
                     </tr>
                 {% else %}
-                    {% for speler in opstelling %}
+                    {% for speler, speelt in opstelling %}
                         {% if speler.opgesteldespeler.position == 'G' %}
                             <tr>
-                                <td>{{ forloop.counter }}</td>
+                                <td></td>
                                 <td>
                                     {{ speler.opgesteldespeler.position }}
                                 </td>
-                                <td>
-                                    {{ speler.opgesteldespeler }}
-                                </td>
+                                {% if not speelt.1 %}
+                                    <td>
+                                        {{ speler.opgesteldespeler }}
+                                    </td>
+                                {% else %}
+                                    {% if not speelt.2 %}
+                                        <td style="color: crimson">
+                                            {{ speler.opgesteldespeler }}
+                                        </td>
+                                    {% else %}
+                                        <td style="color: limegreen">
+                                            {{ speler.opgesteldespeler }}
+                                        </td>
+                                    {% endif %}
+                                {% endif %}
                                 <td>
                                     {{ speler.opgesteldespeler.country.shortname }}
                                 </td>
                             </tr>
                         {% endif %}
                     {% endfor %}
-                    {% for speler in opstelling %}
+                    {% for speler, speelt in opstelling %}
                         {% if speler.opgesteldespeler.position == 'D' %}
                             <tr>
-                                <td>{{ forloop.counter }}</td>
+                                <td></td>
                                 <td>
                                     {{ speler.opgesteldespeler.position }}
                                 </td>
-                                <td>
-                                    {{ speler.opgesteldespeler }}
-                                </td>
+                                {% if not speelt.1 %}
+                                    <td>
+                                        {{ speler.opgesteldespeler }}
+                                    </td>
+                                {% else %}
+                                    {% if not speelt.2 %}
+                                        <td style="color: crimson">
+                                            {{ speler.opgesteldespeler }}
+                                        </td>
+                                    {% else %}
+                                        <td style="color: limegreen">
+                                            {{ speler.opgesteldespeler }}
+                                        </td>
+                                    {% endif %}
+                                {% endif %}
                                 <td>
                                     {{ speler.opgesteldespeler.country.shortname }}
                                 </td>
                             </tr>
                         {% endif %}
                     {% endfor %}
-                    {% for speler in opstelling %}
+                    {% for speler, speelt in opstelling %}
                         {% if speler.opgesteldespeler.position == 'M' %}
                             <tr>
-                                <td>{{ forloop.counter }}</td>
+                                <td></td>
                                 <td>
                                     {{ speler.opgesteldespeler.position }}
                                 </td>
-                                <td>
-                                    {{ speler.opgesteldespeler }}
-                                </td>
+                                {% if not speelt.1 %}
+                                    <td>
+                                        {{ speler.opgesteldespeler }}
+                                    </td>
+                                {% else %}
+                                    {% if not speelt.2 %}
+                                        <td style="color: crimson">
+                                            {{ speler.opgesteldespeler }}
+                                        </td>
+                                    {% else %}
+                                        <td style="color: limegreen">
+                                            {{ speler.opgesteldespeler }}
+                                        </td>
+                                    {% endif %}
+                                {% endif %}
                                 <td>
                                     {{ speler.opgesteldespeler.country.shortname }}
                                 </td>
                             </tr>
                         {% endif %}
                     {% endfor %}
-                    {% for speler in opstelling %}
+                    {% for speler, speelt in opstelling %}
                         {% if speler.opgesteldespeler.position == 'A' %}
                             <tr>
-                                <td>{{ forloop.counter }}</td>
+                                <td></td>
                                 <td>
                                     {{ speler.opgesteldespeler.position }}
                                 </td>
-                                <td>
-                                    {{ speler.opgesteldespeler }}
-                                </td>
+                                {% if not speelt.1 %}
+                                    <td>
+                                        {{ speler.opgesteldespeler }}
+                                    </td>
+                                {% else %}
+                                    {% if not speelt.2 %}
+                                        <td style="color: crimson">
+                                            {{ speler.opgesteldespeler }}
+                                        </td>
+                                    {% else %}
+                                        <td style="color: limegreen">
+                                            {{ speler.opgesteldespeler }}
+                                        </td>
+                                    {% endif %}
+                                {% endif %}
                                 <td>
                                     {{ speler.opgesteldespeler.country.shortname }}
                                 </td>
@@ -255,15 +303,27 @@
                         </th>
                     </tr>
                 {% else %}
-                    {% for player in players %}
+                    {% for player, speelt1 in players %}
                         <tr>
                             <td>Wis{{ forloop.counter }}</td>
                             <td>
                                 {{ player.position }}
                             </td>
-                            <td>
-                                {{ player }}
-                            </td>
+                            {% if not speelt1.1 %}
+                                <td>
+                                    {{ player }}
+                                </td>
+                            {% else %}
+                                {% if not speelt1.2 %}
+                                    <td style="color: crimson">
+                                        {{ player }}
+                                    </td>
+                                {% else %}
+                                    <td style="color: limegreen">
+                                        {{ player }}
+                                    </td>
+                                {% endif %}
+                            {% endif %}
                             <td>
                                 {{ player.country.shortname }}
                             </td>
