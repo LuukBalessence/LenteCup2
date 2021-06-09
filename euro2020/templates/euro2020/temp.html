@@ -1,0 +1,40 @@
+{% for keeper, number, locked in allgke %}
+    {% if number == 1 %}
+        {% if locked %}
+            <div class="control has-icons-left">
+                <div class="select is-danger">
+                    <select name="keeper1" id="id_keeper1" style="width: 300px">
+                        <option value="99999">Selecteer een keeper</option>
+                        <option style="color: crimson" value="{{ keeper.pk }}"
+                                selected>{{ keeper.country.shortname }} {{ keeper }}
+                            BLOCKED
+                        </option>
+                    </select>
+                    <span class="icon is-left">
+                        <img src="{% static 'images/gke.png' %}" width="30" height="20">
+                    </span>
+                </div>
+            </div>
+        {% else %}
+            <div class="control has-icons-left">
+                <div class="select is-primary">
+                    <select name="keeper1" id="id_keeper1" style="width: 300px">
+                        {% for keeperx, numberx, lockedx in allgke %}
+                            {% if numberx == 1 %}
+                                <option value="{{ keeperx.pk }}"
+                                        selected>{{ keeperx.country.shortname }} {{ keeperx }}</option>
+                            {% else %}
+                                {% if not lockedx %}
+                                    <option value="{{ keeperx.pk }}">{{ keeperx.country.shortname }} {{ keeperx }}</option>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                    <span class="icon is-left">
+                        <img src="{% static 'images/gke.png' %}" width="30" height="20">
+                    </span>
+                </div>
+            </div>
+        {% endif %}
+    {% endif %}
+{% endfor %}

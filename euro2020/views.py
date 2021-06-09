@@ -232,13 +232,17 @@ def myteam(request):
             print(listplayers)
         except:
             players = ""
+        try:
+            tactiek = Tactiek.objects.get(team=team, phase__gamephase__icontains=phasetext).tactiek
+        except:
+            tactiek = ""
 
         return render(request, template_name="euro2020/myteam.html",
                       context={"team": team, "tactics": team, "lineup": team, "league": league,
                                "leaguephase": leaguephase,
                                "betcoinbalance": betcoinbalance, "bidauction": bidauction, "bnumber": bnumber,
                                "bname": bname, "leaguefee": leaguefee, "leaguedraw": leaguedraw,
-                               "players": listplayers, "opstelling": opstelling, "paid": team.paid})
+                               "players": listplayers, "opstelling": opstelling, "paid": team.paid, "tactiek": tactiek})
     except ObjectDoesNotExist:
         return redirect(to="changeteamname")
 
@@ -957,6 +961,28 @@ def moneymanager(request):
                            "allplayers": allplayers})
 
 
+def matchhasstarted(country, currentstage):
+    wedstrijdgestart = False
+    playerlocked = False
+    now1 = datetime.now(timezone.utc)
+    try:
+        matchplayer = Match.objects.get(home=Country.objects.get(pk=country), stage=currentstage)
+    except:
+        matchplayer = Match.objects.get(away=Country.objects.get(pk=country), stage=currentstage)
+    matchstarts = matchplayer.start
+    mstarts = matchstarts.astimezone(pytz.timezone("UTC"))
+    if now1 > mstarts:
+        print("Match has started")
+        started = True
+    else:
+        print("Match has not started yet")
+        started = False
+    if matchplayer.has_started or started:
+        playerlocked = True
+        wedstrijdgestart = True
+    return [playerlocked, wedstrijdgestart]
+
+
 def tactiekopstelling(request):
     error = ""
     bidauction = False
@@ -1019,57 +1045,17 @@ def tactiekopstelling(request):
                                "league": league,
                                "bidauction": bidauction, "disabled": disabled, "team": team, "lineup": lineup,
                                "error": error, "tactiekkeuze": tactiekkeuze, "tactiek": tactiek})
-    else:
-        lineup = True
-    now1 = datetime.now(timezone.utc)
+
     for y in Match.Stage.choices:
         if phasetext in y[1]:
             currentstage = y[0]
     for bid in truebids:
-        playerlocked = False
-        started = False
         # We maken een verschil tussen alle spelers en opgestelde spelers
         #  Als de speler met de positie G, D, M, A opgesteld is geven we deze een nummer mee, verhogen we het positienummer en voegen we hem toe aan de positielist
         # Is een speler niet opgesteld, dan krijgt hij nummer 0 en wordt hij toegevoegd aan de positielijst.
         # Voor elke speler bepalen we ook of de match van het land van die speler is begonnen.
         allplayers.append(Player.objects.get(pk=bid.player_id))
-        try:
-            started = False
-            matchplayerhome = Match.objects.get(home=Country.objects.get(pk=bid.player.country), stage=currentstage)
-            matchstarts = matchplayerhome.start
-            mstarts = matchstarts.astimezone(pytz.timezone("UTC"))
-            if now1 > mstarts:
-                print("Match has started")
-                started = True
-            else:
-                print("Match has not started yet")
-
-            if matchplayerhome.has_started or started:
-                playerlocked = True
-                print(str(bid.player) + " speelt HOME: Player locked: " + str(playerlocked))
-                print("Match gestart: " + str(matchplayerhome.has_started))
-                print("Tijd wedstrijd: " + str(matchplayerhome.start) + ". Tijd nu: " + str(now1))
-        except:
-            print(str(bid.player) + " speelt NIET thuis")
-        try:
-            started = False
-            matchplayeraway = Match.objects.get(away=Country.objects.get(pk=bid.player.country), stage=currentstage)
-            matchstarts = matchplayeraway.start
-            mstarts = matchstarts.astimezone(pytz.timezone("UTC"))
-            if now1 > mstarts:
-                print("Match has started")
-                started = True
-            else:
-                print("Match has not started yet")
-            if matchplayeraway.has_started or started:
-                playerlocked = True
-                print(bid.player + " speelt AWAY: Player locked: " + str(playerlocked) + ". Match gestart: " + str(
-                    matchplayeraway.has_started) + ". Tijd wedstrijd: " + str(
-                    matchplayeraway.start) + ". Tijd nu: " + str(
-                    now1))
-        except:
-            print(str(bid.player) + " speelt NIET uit")
-
+        playerlocked = matchhasstarted(bid.player.country, currentstage)
         if bid.player.position == "G":
             if currentlineup.filter(team=team, phase__gamephase__icontains=phasetext,
                                     opgesteldespeler=Player.objects.get(pk=bid.player_id)).exists():
@@ -1114,14 +1100,6 @@ def tactiekopstelling(request):
             if tactiekkeuze:
                 tactiek = request.POST['tactiek1']
             lst = len(set(listopstelling))
-            for i in listopstelling:
-                if int(i) == 99999:
-                    error = "Niet opgeslagen: Je hebt niet in alle velden een speler geselecteerd"
-                    return render(request, "euro2020/tactiekopstelling.html",
-                                  context={"allgke": allgke, "alldef": alldef, "allmid": allmid, "allatt": allatt,
-                                           "league": league,
-                                           "bidauction": bidauction, "disabled": disabled, "team": team, "error": error,
-                                           "tactiekkeuze": tactiekkeuze, "tactiek": tactiek})
             if lst < 11:
                 error = "Niet opgeslagen: Je hebt spelers dubbel geselecteerd"
                 return render(request, "euro2020/tactiekopstelling.html",
@@ -1132,23 +1110,10 @@ def tactiekopstelling(request):
             else:
                 # We gaan eerst nog een check uitvoeren of tijdens het openen van de tactiekopstelling geen reallife wedstrijden zijn  gestart. We kijken daartoe of
                 # van de gewijzigde spelers de wedstrijd gestart is
-                now2 = datetime.now(timezone.utc)
                 for n in range(0, 11):
-                    started1 = False
                     if not currentlineup.filter(opgesteldespeler=listopstelling[n]).exists():
-                        try:
-                            checkwedstrijd = Match.objects.get(
-                                home=Country.objects.get(name=Player.objects.get(pk=listopstelling[n]).country.pk),
-                                stage=currentstage)
-                        except:
-                            checkwedstrijd = Match.objects.get(
-                                away=Country.objects.get(name=Player.objects.get(pk=listopstelling[n]).country.pk),
-                                stage=currentstage)
-                        matchstarts = checkwedstrijd.start
-                        mstarts = matchstarts.astimezone(pytz.timezone("UTC"))
-                        if now2 > mstarts:
-                            started1 = True
-                        if started1 == True or checkwedstrijd.has_started:
+                        wedstrijdgestart = matchhasstarted(Player.objects.get(pk=listopstelling[n]).country.pk, currentstage)
+                        if wedstrijdgestart[1]:
                             error = "Je hebt een speler gewijzigd waarvan de wedstrijd begonnen is"
                             return render(request, "euro2020/tactiekopstelling.html",
                                           context={"allgke": allgke, "alldef": alldef, "allmid": allmid,
