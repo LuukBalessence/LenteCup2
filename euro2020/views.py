@@ -1535,7 +1535,6 @@ def getphasetext(leaguephase):
 
 def premies(request):
     error = ""
-    leaguepremies = []
     currentuser = request.user
     currentleague = Team.objects.get(owner=currentuser).league
     leaguepremie=currentleague.premiebasis
