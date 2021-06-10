@@ -90,6 +90,7 @@ class League(models.Model):
     leaguefee = models.DecimalField(max_digits=4, decimal_places=2, default=10.00)
     secretnumber = models.PositiveIntegerField(verbose_name=_("Secret key"), validators=[MinValueValidator(10000), MaxValueValidator(99999)], default=10000)
     draw = models.BooleanField(verbose_name=_("Loting plaatsgevonden"), default=False)
+    premiebasis = models.IntegerField(default=0)
 
     def __str__(self):
         return f"{self.leaguename}"

@@ -1531,3 +1531,18 @@ def getphasetext(leaguephase):
     if leaguephase.gamephase.__contains__("Grand Finale"):
         phasetext = "Grande Finale"
     return phasetext
+
+
+def premies(request):
+    error = ""
+    leaguepremies = []
+    currentuser = request.user
+    currentleague = Team.objects.get(owner=currentuser).league
+    leaguepremie=currentleague.premiebasis
+    leaguepremies = [["winst groepsfase wedstrijd", round(leaguepremie/5/36)],
+                         ["Gelijkspel groepsfase wedstrijd", round(leaguepremie/5/36/2)],
+                         ["Behalen Kwart Finale", round(leaguepremie/5/8)],
+                         ["Behalen Halve Finale", round(leaguepremie/5/4)],
+                         ["Behalen Finale", round(leaguepremie/5/2)],
+                         ["Europees Kampioen", round(leaguepremie/5)]]
+    return render(request, "euro2020/premies.html", context={"error": error, "leaguepremies": leaguepremies})
