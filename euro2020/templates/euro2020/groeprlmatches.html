@@ -50,22 +50,26 @@
                                         {% endwith %}
                                     </td>
                                     <td>{{ match.away.nlname }}</td>
-                                    {% if match.has_ended %}
-                                        <td>:</td>
-                                        <td>0</td>
-                                        <th>-</th>
-                                        <td>0</td>
-                                    {% elif match.has_started %}
-                                        <td> LIVE </td>
-                                        <td>0</td>
-                                        <th>-</th>
-                                        <td>0</td>
-                                    {% else %}
-                                        <td>:</td>
-                                        <td>Nog</td>
-                                        <td>niet</td>
-                                        <td>gestart</td>
-                                    {% endif %}
+                                    {% for key, value in resultaat.items %}
+                                        {% if key == match %}
+                                            {% if match.has_ended %}
+                                                <td>:</td>
+                                                <td>{{ value.0 }}</td>
+                                                <th>-</th>
+                                                <td>{{ value.1 }}</td>
+                                            {% elif match.has_started %}
+                                                <td> LIVE </td>
+                                                <td>{{ value.0 }}</td>
+                                                <th>-</th>
+                                                <td>{{ value.1 }}</td>
+                                            {% else %}
+                                                <td>:</td>
+                                                <td>Nog</td>
+                                                <td>niet</td>
+                                                <td>gestart</td>
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endfor %}
                                 </tr>
                             {% endif %}
                         {% endif %}

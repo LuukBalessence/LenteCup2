@@ -1188,21 +1188,11 @@ def tactiekopstelling(request):
 def groeprlmatches(request):
     allgroupmatches = Match.objects.filter(stage__startswith="G").order_by("start")
     allstages = Match.Stage
-
-    # now = datetime.now(timezone.utc)
-    # tournamentstarts = GameSettings.objects.get(gamesettings='tourstarttime').gamesettingsvalue
-    # tourstarts = datetime.strptime(tournamentstarts, '%Y-%m-%d %H:%M:%S.%f')
-    # tourstarts = tourstarts.astimezone(pytz.timezone("UTC"))
-    # if now > tourstarts:
-    #     print("Tournament has started")
-    #     return True
-    # else:
-    #     print("Tournament has not started yet")
-    #     return False
-
+    allgoals = Goal.objects.all()
+    resultaat = match_results(allgroupmatches, allgoals)
     groups = models.Country.Group.names
     return render(request, "euro2020/groeprlmatches.html",
-                  context={"allgroupmatches": allgroupmatches, "allstages": allstages, "groups": groups})
+                  context={"allgroupmatches": allgroupmatches, "allstages": allstages, "groups": groups, "resultaat": resultaat})
 
 
 def myledger(request):
