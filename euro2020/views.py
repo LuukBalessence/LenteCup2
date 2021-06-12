@@ -1343,6 +1343,7 @@ def livescoring(request):
     shootout = False
     error = ""
     scoring = False
+    opslaan = False
     currentuser = request.user
     team = Team.objects.get(owner=currentuser)
     currentleague = League.objects.get(pk=team.league_id)
@@ -1366,18 +1367,18 @@ def livescoring(request):
         except:
             wedstrijd = Match.objects.get(stage=currentstage, away=opstelling.opgesteldespeler.country)
             home = False
-        spelerinfo = resultaatperspeler(opstelling, wedstrijd, home, verlenging, shootout)
+        spelerinfo = resultaatperspeler(opstelling, wedstrijd, home, verlenging, shootout, opslaan)
         opstellingsinfo.append(spelerinfo)
     wedstrijdeninfo = []
     for wedstrijd in allewedstrijden:
-        wedstrijdinfo = resultaatperwedstrijd(wedstrijd, phasetext, currentstage, verlenging, shootout)
+        wedstrijdinfo = resultaatperwedstrijd(wedstrijd, phasetext, currentstage, verlenging, shootout, opslaan)
         wedstrijdeninfo.append(wedstrijdinfo)
     return render(request, "euro2020/livescoring.html",
                   context={"error": error, "groups": groups, "allewedstrijden": wedstrijdeninfo,
                            "teamopstellingen": opstellingsinfo, "scoring": scoring})
 
 
-def resultaatperspeler(opstelling, wedstrijd, thuiswedstrijd, verlenging, shootout):
+def resultaatperspeler(opstelling, wedstrijd, thuiswedstrijd, verlenging, shootout, opslaan):
     minpunten = 0
     pluspunten = 0
     scorepunten = 0
@@ -1441,7 +1442,7 @@ def resultaatperspeler(opstelling, wedstrijd, thuiswedstrijd, verlenging, shooto
         return [opstelling, "-", "-", "-", wedstrijdgestart, speelt]
 
 
-def resultaatperwedstrijd(virtualmatch, phasetext, currentstage, verlenging, shootout):
+def resultaatperwedstrijd(virtualmatch, phasetext, currentstage, verlenging, shootout, opslaan):
     totminpuntenhome = 0
     totminpuntenaway = 0
     totpluspuntenhome = 0
@@ -1451,6 +1452,8 @@ def resultaatperwedstrijd(virtualmatch, phasetext, currentstage, verlenging, sho
 
     homeopstelling = Opstelling.objects.filter(team=virtualmatch.home, phase__gamephase__icontains=phasetext)
     awayopstelling = Opstelling.objects.filter(team=virtualmatch.away, phase__gamephase__icontains=phasetext)
+    hometactiek = Tactiek.objects.get(team=virtualmatch.home, phase__gamephase__icontains=phasetext).tactiek
+    awaytactiek = Tactiek.objects.get(team=virtualmatch.away, phase__gamephase__icontains=phasetext).tactiek
     for opstelling in homeopstelling:
         try:
             wedstrijd = Match.objects.get(stage=currentstage, home=opstelling.opgesteldespeler.country)
@@ -1458,7 +1461,7 @@ def resultaatperwedstrijd(virtualmatch, phasetext, currentstage, verlenging, sho
         except:
             wedstrijd = Match.objects.get(stage=currentstage, away=opstelling.opgesteldespeler.country)
             home = False
-        homeresultaat = resultaatperspeler(opstelling, wedstrijd, home, verlenging, shootout)
+        homeresultaat = resultaatperspeler(opstelling, wedstrijd, home, verlenging, shootout, opslaan)
         if homeresultaat[1] != "-":
             totminpuntenhome = totminpuntenhome + homeresultaat[1]
             totpluspuntenhome = totpluspuntenhome + homeresultaat[2]
@@ -1470,13 +1473,16 @@ def resultaatperwedstrijd(virtualmatch, phasetext, currentstage, verlenging, sho
         except:
             wedstrijd = Match.objects.get(stage=currentstage, away=opstelling.opgesteldespeler.country)
             home = False
-        awayresultaat = resultaatperspeler(opstelling, wedstrijd, home, verlenging, shootout)
+        awayresultaat = resultaatperspeler(opstelling, wedstrijd, home, verlenging, shootout, opslaan)
         if awayresultaat[1] != "-":
             totminpuntenaway = totminpuntenaway + awayresultaat[1]
             totscorepuntenaway = totscorepuntenaway + awayresultaat[3]
             totpluspuntenaway = totpluspuntenaway + awayresultaat[2]
-    hometactiek = Tactiek.objects.get(team=virtualmatch.home, phase__gamephase__icontains=phasetext).tactiek
-    awaytactiek = Tactiek.objects.get(team=virtualmatch.away, phase__gamephase__icontains=phasetext).tactiek
+
+    if hometactiek == "Aanvallend":
+        totminpuntenhome = 0
+    if awaytactiek == "Aanvallend":
+        totminpuntenaway = 0
     if hometactiek == "Aanvallend":
         poshome = 1.25 * (totpluspuntenhome + totscorepuntenhome)
         scorehome = 1.25 * (totpluspuntenhome + totscorepuntenhome) - totminpuntenaway
