@@ -213,11 +213,11 @@ def myteam(request):
                 speelt = matchhasstarted(bid.player, currentstage)
                 try:
                     opstelling1.append([Opstelling.objects.get(team=team, opgesteldespeler=bid.player,
-                                           phase__gamephase__icontains=phasetext),speelt])
+                                                               phase__gamephase__icontains=phasetext), speelt])
 
                 except:
                     listplayers.append([bid.player, speelt])
-            print(listplayers,speelt)
+            print(listplayers, speelt)
         except:
             players = ""
         try:
@@ -230,7 +230,8 @@ def myteam(request):
                                "leaguephase": leaguephase,
                                "betcoinbalance": betcoinbalance, "bidauction": bidauction, "bnumber": bnumber,
                                "bname": bname, "leaguefee": leaguefee, "leaguedraw": leaguedraw,
-                               "players": listplayers, "opstelling": opstelling1, "paid": team.paid, "tactiek": tactiek})
+                               "players": listplayers, "opstelling": opstelling1, "paid": team.paid,
+                               "tactiek": tactiek})
     except ObjectDoesNotExist:
         return redirect(to="changeteamname")
 
@@ -664,7 +665,8 @@ def assignedbidsperteam(request, league):
 def rejectedbidsperteam(request, league):
     currentleague = League.objects.get(pk=league)
     teams = Team.objects.filter(league=currentleague).values()
-    bids = Bids.objects.select_related('player').filter(team__in=list(teams.values_list()), assigned=False).order_by('-gamephase', "-playerbid")
+    bids = Bids.objects.select_related('player').filter(team__in=list(teams.values_list()), assigned=False).order_by(
+        '-gamephase', "-playerbid")
     return render(request, 'euro2020/rejectedbidsperteam.html',
                   context={'league': currentleague.leaguename, 'teams': teams, 'bids': bids})
 
@@ -978,6 +980,7 @@ def matchhasstarted(player, currentstage):
         wedstrijdgestart = True
     return [playerlocked, wedstrijdgestart, speelt]
 
+
 def converteerutctijd(datumtijd):
     utc_datetime = datetime(2020, 1, 1, 10, 0, 0, 0, tzinfo=timezone.utc)
     local_timezone = pytz.timezone("Europe/Amsterdam")
@@ -1192,7 +1195,8 @@ def groeprlmatches(request):
     resultaat = match_results(allgroupmatches, allgoals)
     groups = models.Country.Group.names
     return render(request, "euro2020/groeprlmatches.html",
-                  context={"allgroupmatches": allgroupmatches, "allstages": allstages, "groups": groups, "resultaat": resultaat})
+                  context={"allgroupmatches": allgroupmatches, "allstages": allstages, "groups": groups,
+                           "resultaat": resultaat})
 
 
 def myledger(request):
@@ -1463,9 +1467,14 @@ def resultaatperwedstrijd(virtualmatch, phasetext, currentstage, verlenging, sho
             home = False
         homeresultaat = resultaatperspeler(opstelling, wedstrijd, home, verlenging, shootout, opslaan)
         if homeresultaat[1] != "-":
-            totminpuntenhome = totminpuntenhome + homeresultaat[1]
-            totpluspuntenhome = totpluspuntenhome + homeresultaat[2]
-            totscorepuntenhome = totscorepuntenhome + homeresultaat[3]
+            if hometactiek == "Aanvallend":
+                totminpuntenhome = totminpuntenhome + homeresultaat[1]
+                totpluspuntenhome = totpluspuntenhome + 1.25 * homeresultaat[2]
+                totscorepuntenhome = totscorepuntenhome + 1.25 * homeresultaat[3]
+            else:
+                totminpuntenhome = totminpuntenhome + homeresultaat[1]
+                totpluspuntenhome = totpluspuntenhome + homeresultaat[2]
+                totscorepuntenhome = totscorepuntenhome + homeresultaat[3]
     for opstelling in awayopstelling:
         try:
             wedstrijd = Match.objects.get(stage=currentstage, home=opstelling.opgesteldespeler.country)
@@ -1475,32 +1484,33 @@ def resultaatperwedstrijd(virtualmatch, phasetext, currentstage, verlenging, sho
             home = False
         awayresultaat = resultaatperspeler(opstelling, wedstrijd, home, verlenging, shootout, opslaan)
         if awayresultaat[1] != "-":
-            totminpuntenaway = totminpuntenaway + awayresultaat[1]
-            totscorepuntenaway = totscorepuntenaway + awayresultaat[3]
-            totpluspuntenaway = totpluspuntenaway + awayresultaat[2]
+            if awaytactiek == "Aanvallend":
+                totminpuntenaway = totminpuntenaway + awayresultaat[1]
+                totscorepuntenaway = totscorepuntenaway + 1.25 * awayresultaat[3]
+                totpluspuntenaway = totpluspuntenaway + 1.25 * awayresultaat[2]
+            else:
+                totminpuntenaway = totminpuntenaway + awayresultaat[1]
+                totscorepuntenaway = totscorepuntenaway + awayresultaat[3]
+                totpluspuntenaway = totpluspuntenaway + awayresultaat[2]
 
     if hometactiek == "Aanvallend":
         totminpuntenhome = 0
     if awaytactiek == "Aanvallend":
         totminpuntenaway = 0
-    if hometactiek == "Aanvallend":
-        poshome = 1.25 * (totpluspuntenhome + totscorepuntenhome)
-        scorehome = 1.25 * (totpluspuntenhome + totscorepuntenhome) - totminpuntenaway
-    else:
-        poshome = totpluspuntenhome + totscorepuntenhome
-        scorehome = totpluspuntenhome + totscorepuntenhome - totminpuntenaway
+    poshome = totpluspuntenhome + totscorepuntenhome
+    scorehome = totpluspuntenhome + totscorepuntenhome - totminpuntenaway
     if scorehome < 0:
         scorehome = 0
+    elif scorehome == 0.5:
+        scorehome = 1
     else:
         scorehome = round(scorehome)
-    if awaytactiek == "Aanvallend":
-        posaway = 1.25 * (totpluspuntenaway + totscorepuntenaway)
-        scoreaway = 1.25 * (totpluspuntenaway + totscorepuntenaway) - totminpuntenhome
-    else:
-        posaway = totpluspuntenaway + totscorepuntenaway
-        scoreaway = totpluspuntenaway + totscorepuntenaway - totminpuntenhome
+    posaway = totpluspuntenaway + totscorepuntenaway
+    scoreaway = totpluspuntenaway + totscorepuntenaway - totminpuntenhome
     if scoreaway < 0:
         scoreaway = 0
+    elif scoreaway == 0.5:
+        scoreaway = 1
     else:
         scoreaway = round(scoreaway)
     return [virtualmatch, round(totminpuntenhome, 4), round(totminpuntenaway, 4), round(totpluspuntenhome, 4),
@@ -1534,11 +1544,11 @@ def premies(request):
     leaguepremies = []
     currentuser = request.user
     currentleague = Team.objects.get(owner=currentuser).league
-    leaguepremie=currentleague.premiebasis
-    leaguepremies = [["winst groepsfase wedstrijd", round(leaguepremie/5/36)],
-                         ["Gelijkspel groepsfase wedstrijd", round(leaguepremie/5/36/2)],
-                         ["Behalen Kwart Finale", round(leaguepremie/5/8)],
-                         ["Behalen Halve Finale", round(leaguepremie/5/4)],
-                         ["Behalen Finale", round(leaguepremie/5/2)],
-                         ["Europees Kampioen", round(leaguepremie/5)]]
+    leaguepremie = currentleague.premiebasis
+    leaguepremies = [["winst groepsfase wedstrijd", round(leaguepremie / 5 / 36)],
+                     ["Gelijkspel groepsfase wedstrijd", round(leaguepremie / 5 / 36 / 2)],
+                     ["Behalen Kwart Finale", round(leaguepremie / 5 / 8)],
+                     ["Behalen Halve Finale", round(leaguepremie / 5 / 4)],
+                     ["Behalen Finale", round(leaguepremie / 5 / 2)],
+                     ["Europees Kampioen", round(leaguepremie / 5)]]
     return render(request, "euro2020/premies.html", context={"error": error, "leaguepremies": leaguepremies})
