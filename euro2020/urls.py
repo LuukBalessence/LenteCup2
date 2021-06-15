@@ -31,6 +31,7 @@ urlpatterns = [
     path("changephase/<int:league>", views.changephase, name="changephase"),
     path("setupteams/<int:league>", views.setupteams, name="setupleagueteams"),
     path("setupbids/<int:league>", views.setupbids, name="setupleaguebids"),
+    path("saveroundscores/<int:league>", views.saveroundscores, name="saveroundscores"),
     path("deleteleaguedata/<int:league>", views.deleteleaguedata, name="deleteleaguedata"),
     path("createleague", views.createleague, name="createleague"),
     path("regels", views.regels, name="regels"),

@@ -5,24 +5,24 @@
     <hr>
     {% for group in groups %}
         <h4 align="center" class="title is-4">Groep: {{ group }}</h4>
-        {% for wedstrijd, e,f,g,h,i,j,k,l,m,n,o,p in allewedstrijden %}
+        {% for wedstrijd, plushome, plusaway, hometactiek, awaytactiek in allewedstrijden %}
             {% if wedstrijd.home.group == group %}
                 <table class="table" align="center">
                 <tr>
                     <th style="font-size: large;">{{ wedstrijd.home }}</th>
-                    <th style="font-size: x-large;">{{ m }}</th>
+                    <th style="font-size: x-large;">{{ wedstrijd.homescore }}</th>
                     <th bgcolor="#00d1b2" style="color: white">Plus:</th>
-                    <th bgcolor="#00d1b2" style="color: white">{{ k }}</th>
+                    <th bgcolor="#00d1b2" style="color: white">{{ plushome }}</th>
                     <th bgcolor="#00d1b2" style="color: white">Min:</th>
-                    <th bgcolor="#00d1b2" style="color: white">{{ e }}</th>
+                    <th bgcolor="#00d1b2" style="color: white">{{ wedstrijd.minusdecimalhomescore }}</th>
                 </tr>
                 <tr>
                     <th style="font-size: large;">{{ wedstrijd.away }}</th>
-                    <th style="font-size: x-large;">{{ n }}</th>
+                    <th style="font-size: x-large;">{{ wedstrijd.awayscore }}</th>
                     <th bgcolor="#00d1b2" style="color: white">Plus:</th>
-                    <th bgcolor="#00d1b2" style="color: white">{{ l }}</th>
+                    <th bgcolor="#00d1b2" style="color: white">{{ plusaway }}</th>
                     <th bgcolor="#00d1b2" style="color: white">Min:</th>
-                    <th bgcolor="#00d1b2" style="color: white">{{ f }}</th>
+                    <th bgcolor="#00d1b2" style="color: white">{{ wedstrijd.minusdecimalawayscore }}</th>
                 </tr>
                 <tr bgcolor="#00d1b2">
                     <th style="color: white">Opstelling Thuis</th>
@@ -32,7 +32,7 @@
                     <th style="color: white">Plus</th>
                     <th style="color: white">Goal</th>
                 </tr>
-                {% for opstel,a,b,c, gestart, gespeeld in teamopstellingen %}
+                {% for opstel, gestart, gespeeld in teamopstellingen %}
                     {% if opstel.team == wedstrijd.home %}
                         <tr>
                             {% if not gestart %}
@@ -52,19 +52,25 @@
                             {% endif %}
                             <td>{{ opstel.opgesteldespeler.country.shortname }}</td>
                             <td>{{ opstel.opgesteldespeler.position }}</td>
-                            <td>{{ a }}</td>
-                            <td>{{ b }}</td>
-                            <td>{{ c }}</td>
+                            {% if opstel.minscore == None %}
+                                <td> - </td>
+                                <td> - </td>
+                                <td> - </td>
+                            {% else %}
+                                <td> {{ opstel.minscore }}</td>
+                                <td>{{ opstel.plusscore }}</td>
+                                <td>{{ opstel.goalscore }}</td>
+                            {% endif %}
                         </tr>
                     {% endif %}
                 {% endfor %}
                 <tr>
-                    <th>Tactiek: {{ o }}</th>
+                    <th>Tactiek: {{ hometactiek }}</th>
                     <th></th>
                     <th>Tot.</th>
-                    <th>{{ e }}</th>
-                    <th>{{ g }}</th>
-                    <th>{{ i }}</th>
+                    <th>{{ wedstrijd.minusdecimalhomescore }}</th>
+                    <th>{{ wedstrijd.decimalhomescore }}</th>
+                    <th>{{ wedstrijd.decimalhomegoalscore }}</th>
                 </tr>
                 <tr bgcolor="#00d1b2">
                     <th style="color: white">Opstelling Uit</th>
@@ -74,7 +80,7 @@
                     <th style="color: white">Plus</th>
                     <th style="color: white">Goal</th>
                 </tr>
-                {% for opstel,a,b,c, gestart, gespeeld in teamopstellingen %}
+                {% for opstel, gestart, gespeeld in teamopstellingen %}
                     {% if opstel.team == wedstrijd.away %}
                         <tr>
                             {% if not gestart %}
@@ -94,19 +100,25 @@
                             {% endif %}
                             <td>{{ opstel.opgesteldespeler.country.shortname }}</td>
                             <td>{{ opstel.opgesteldespeler.position }}</td>
-                            <td>{{ a }}</td>
-                            <td>{{ b }}</td>
-                            <td>{{ c }}</td>
+                            {% if opstel.minscore == None %}
+                                <td> - </td>
+                                <td> - </td>
+                                <td> - </td>
+                            {% else %}
+                                <td> {{ opstel.minscore }}</td>
+                                <td>{{ opstel.plusscore }}</td>
+                                <td>{{ opstel.goalscore }}</td>
+                            {% endif %}
                         </tr>
                     {% endif %}
                 {% endfor %}
                 <tr>
-                    <th>Tactiek: {{ p }}</th>
+                    <th>Tactiek: {{ awaytactiek }}</th>
                     <th></th>
                     <th>Tot.</th>
-                    <th>{{ f }}</th>
-                    <th>{{ h }}</th>
-                    <th>{{ j }}</th>
+                    <th>{{ wedstrijd.minusdecimalawayscore }}</th>
+                    <th>{{ wedstrijd.decimalawayscore }}</th>
+                    <th>{{ wedstrijd.decimalawaygoalscore }}</th>
                 </tr>
             {% endif %}
         {% endfor %}

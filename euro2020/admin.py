@@ -50,7 +50,6 @@ class MatchAdmin(admin.ModelAdmin):
     )
     list_editable = ("has_started", "has_ended")
 
-
     def add_view(self, request, form_url='', extra_context=None):
         # when we add a match, we don't show the players because we don't know the countries yet
         # also, no GoalInlines because we don't know the countries.
@@ -80,10 +79,17 @@ class VirtualMatchAdmin(admin.ModelAdmin):
         "end",
         "home",
         "away",
-        "has_started",
-        "has_ended",
+        "homescore",
+        "awayscore",
+        "minusdecimalhomescore",
+        "minusdecimalawayscore",
+        "decimalhomescore",
+        "decimalawayscore",
+        "decimalhomegoalscore",
+        "decimalawaygoalscore",
     )
-    list_editable = ("has_started", "has_ended")
+    list_editable = (
+    "homescore", "awayscore", "minusdecimalhomescore", "minusdecimalawayscore", "decimalhomescore", "decimalawayscore", "decimalhomegoalscore", "decimalawaygoalscore")
 
 
 @admin.register(Team)
@@ -150,12 +156,14 @@ class BoekhoudingsAdmin(admin.ModelAdmin):
 
 @admin.register(models.Opstelling)
 class OpstellingsAdmin(admin.ModelAdmin):
-    list_display = ("phase", "team", "opgesteldespeler")
+    list_display = ("phase", "team", "opgesteldespeler", "minscore", "plusscore", "goalscore")
+    list_editable = ("minscore", "plusscore", "goalscore")
 
 
 @admin.register(models.OpstellingLog)
 class OpstellingsLogAdmin(admin.ModelAdmin):
     list_display = ("tijdopgesteld", "phase", "team", "opgesteldespeler")
+
 
 @admin.register(models.Tactiek)
 class TactiekAdmin(admin.ModelAdmin):

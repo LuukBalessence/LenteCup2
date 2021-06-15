@@ -235,6 +235,8 @@ class VirtualMatch(models.Model):
     decimalawayscore = models.DecimalField(max_digits=5, decimal_places=3, null=True)
     minusdecimalhomescore = models.DecimalField(max_digits=5, decimal_places=3, null=True)
     minusdecimalawayscore = models.DecimalField(max_digits=5, decimal_places=3, null=True)
+    decimalhomegoalscore = models.DecimalField(max_digits=5, decimal_places=3, null=True)
+    decimalawaygoalscore = models.DecimalField(max_digits=5, decimal_places=3, null=True)
 
     class Meta:
         verbose_name = _("Virtuele Wedstrijd")
