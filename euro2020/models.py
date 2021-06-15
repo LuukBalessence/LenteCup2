@@ -1,4 +1,4 @@
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 
 import pytz
 from django.core.exceptions import ValidationError
@@ -229,14 +229,14 @@ class VirtualMatch(models.Model):
     end = models.DateTimeField(verbose_name=_("Afgelopen"))
     has_started = models.BooleanField(verbose_name=_("Gestart"), default=False)
     has_ended = models.BooleanField(verbose_name=_("Afgelopen"), default=False)
-    homescore = models.PositiveSmallIntegerField(null=True)
-    awayscore = models.PositiveSmallIntegerField(null=True)
-    decimalhomescore = models.DecimalField(max_digits=5, decimal_places=3, null=True)
-    decimalawayscore = models.DecimalField(max_digits=5, decimal_places=3, null=True)
-    minusdecimalhomescore = models.DecimalField(max_digits=5, decimal_places=3, null=True)
-    minusdecimalawayscore = models.DecimalField(max_digits=5, decimal_places=3, null=True)
-    decimalhomegoalscore = models.DecimalField(max_digits=5, decimal_places=3, null=True)
-    decimalawaygoalscore = models.DecimalField(max_digits=5, decimal_places=3, null=True)
+    homescore = models.PositiveSmallIntegerField(null=True, blank=True)
+    awayscore = models.PositiveSmallIntegerField(null=True, blank=True)
+    decimalhomescore = models.DecimalField(max_digits=5, decimal_places=3, null=True, blank=True)
+    decimalawayscore = models.DecimalField(max_digits=5, decimal_places=3, null=True, blank=True)
+    minusdecimalhomescore = models.DecimalField(max_digits=5, decimal_places=3, null=True, blank=True)
+    minusdecimalawayscore = models.DecimalField(max_digits=5, decimal_places=3, null=True, blank=True)
+    decimalhomegoalscore = models.DecimalField(max_digits=5, decimal_places=3, null=True, blank=True)
+    decimalawaygoalscore = models.DecimalField(max_digits=5, decimal_places=3, null=True, blank=True)
 
     class Meta:
         verbose_name = _("Virtuele Wedstrijd")
@@ -295,7 +295,9 @@ class Goal(models.Model):
             )
         # check if match has started, otherwise goals cannot be added
         now = datetime.now(timezone.utc)
-        mstarts = self.match.start.astimezone(pytz.timezone("UTC"))
+        matchstarts = self.match.start.astimezone(pytz.timezone("UTC"))
+        mstarts = matchstarts - timedelta(hours=2)
+
         if (self.match.has_started) or (now > mstarts):
             print("match started")
         else:

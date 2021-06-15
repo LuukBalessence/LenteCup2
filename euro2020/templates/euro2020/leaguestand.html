@@ -27,22 +27,20 @@
                     <th>PT</th>
                     <th>DV</th>
                     <th>DT</th>
-                    <th>DF</th>
+                    <th>+/-</th>
                 </tr>
-                {% for team in leagueteams %}
+                {% for team, gespeeld, punten, winst, verlies, gelijk, voor, tegen, verschil in leagueteams %}
                     {% if group == team.group %}
                         <tr>
-                            <th>{{ team.name }}</th>
-                            <td>{{ team.GS }}</td>
-                            <td>{{ team.W }}</td>
-                            <td>{{ team.G }}</td>
-                            <td>{{ team.V }}</td>
-                            <th>{{ team.PT }}</th>
-                            <td>{{ team.DV }}</td>
-                            <td>{{ team.DT }}</td>
-                            <td>{{ team.DF }}</td>
-                            <td>{{ team.order }}</td>
-                            <td>{{ team.POCOMMENT }}</td>
+                            <th>{{ team }}</th>
+                            <td>{{ gespeeld }}</td>
+                            <td>{{ winst }}</td>
+                            <td>{{ gelijk }}</td>
+                            <td>{{ verlies }}</td>
+                            <th>{{ punten }}</th>
+                            <td>{{ voor }}</td>
+                            <td>{{ tegen }}</td>
+                            <td>{{ verschil }}</td>
                         </tr>
                     {% endif %}
                 {% endfor %}
@@ -62,16 +60,40 @@
                     {% for wedstrijd1 in leaguewedstrijden %}
                         {% if wedstrijd1.home.group == group %}
                             {% if wedstrijd1.stage == stage %}
-                                <tr>
-                                    <th>{{ wedstrijd1.start }}</th>
-                                    <td>{{ wedstrijd1.home }}</td>
-                                    <td> -</td>
-                                    <td>{{ wedstrijd1.away }}</td>
-                                    <td></td>
-                                    <td>Nog</td>
-                                    <td>Niet</td>
-                                    <td>gestart</td>
-                                </tr>
+                                {% if wedstrijd1.has_ended %}
+                                    <tr>
+                                        <th>{{ wedstrijd1.start }}</th>
+                                        <td>{{ wedstrijd1.home }}</td>
+                                        <td> -</td>
+                                        <td>{{ wedstrijd1.away }}</td>
+                                        <td></td>
+                                        <td>{{ wedstrijd1.homescore }}</td>
+                                        <td>-</td>
+                                        <td>{{ wedstrijd1.awayscore }}</td>
+                                    </tr>
+                                {% elif wedstrijd1.has_started %}
+                                    <tr>
+                                        <th>{{ wedstrijd1.start }}</th>
+                                        <td>{{ wedstrijd1.home }}</td>
+                                        <td> -</td>
+                                        <td>{{ wedstrijd1.away }}</td>
+                                        <th style="color: limegreen">LIVE</th>
+                                        <td>{{ wedstrijd1.homescore }}</td>
+                                        <td>-</td>
+                                        <td>{{ wedstrijd1.awayscore }}</td>
+                                    </tr>
+                                {% else %}
+                                    <tr>
+                                        <th>{{ wedstrijd1.start }}</th>
+                                        <td>{{ wedstrijd1.home }}</td>
+                                        <td> -</td>
+                                        <td>{{ wedstrijd1.away }}</td>
+                                        <td></td>
+                                        <td>Wedstrijd</td>
+                                        <td>niet</td>
+                                        <td>gestart</td>
+                                    </tr>
+                                {% endif %}
                             {% endif %}
                         {% endif %}
                     {% endfor %}

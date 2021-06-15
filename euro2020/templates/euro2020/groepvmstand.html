@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}STAND ECHTE EURO2020{% endblock %}
+{% block content %}
+
+    <hr>
+    {% for group in groups %}
+
+        <h4 align="center" class="title is-4">Groep: {{ group }}</h4>
+        <table class="table" align="center">
+            <tr>
+                <th>Team</th>
+                <th>GS</th>
+                <th>W</th>
+                <th>G</th>
+                <th>V</th>
+                <th>PT</th>
+                <th>DV</th>
+                <th>DT</th>
+                <th>+/-</th>
+            </tr>
+            {% for team, gespeeld, punten, winst, verlies, gelijk, voor, tegen, verschil in groupdata %}
+                {% if group == team.group %}
+                    <tr>
+                        <th>{{ team.name }}</th>
+                        <th>{{ gespeeld }}</th>
+                        <td>{{ winst }}</td>
+                        <td>{{ gelijk }}</td>
+                        <td>{{ verlies }}</td>
+                        <th>{{ punten }}</th>
+                        <td>{{ voor }}</td>
+                        <td>{{ tegen }}</td>
+                        <td>{{ verschil }}</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+    {% endfor %}
+{% endblock content %}

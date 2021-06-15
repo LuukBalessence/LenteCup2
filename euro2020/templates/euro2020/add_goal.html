@@ -22,7 +22,9 @@
                 </div>
             {% endfor %}
         {% endif %}
+        <table>
         <div class="field is-grouped">
+            <tr>
             <div class="field">
                 <label class="label">Player</label>
                 <div class="control has-icons-left">
@@ -34,6 +36,8 @@
                     </div>
                 </div>
             </div>
+            </tr>
+            <tr>
             <div class="field">
                 <label class="label">Game Phase</label>
                 <div class="control has-icons-left">
@@ -45,6 +49,8 @@
                     </div>
                 </div>
             </div>
+            </tr>
+            <tr>
             <div class="field">
                 <label class="label">Scoring time</label>
                 <div class="control has-icons-left">
@@ -54,6 +60,8 @@
                     </span>
                 </div>
             </div>
+            </tr>
+            <tr>
             <div class="field">
                 <label class="label">Type of Goal</label>
                 <div class="control has-icons-left">
@@ -65,6 +73,7 @@
                     </div>
                 </div>
             </div>
+            </tr>
         </div>
         <div class="field is-grouped">
             <div class="control">
@@ -74,5 +83,6 @@
                 <a href="{% url "standenbeheer" %}" class="button is-medium is-link is-light">Cancel</a>
             </div>
         </div>
+        </table>
     </form>
 {% endblock %}

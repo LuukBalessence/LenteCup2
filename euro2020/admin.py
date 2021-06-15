@@ -79,6 +79,8 @@ class VirtualMatchAdmin(admin.ModelAdmin):
         "end",
         "home",
         "away",
+        "has_started",
+        "has_ended",
         "homescore",
         "awayscore",
         "minusdecimalhomescore",
@@ -86,16 +88,17 @@ class VirtualMatchAdmin(admin.ModelAdmin):
         "decimalhomescore",
         "decimalawayscore",
         "decimalhomegoalscore",
-        "decimalawaygoalscore",
+        "decimalawaygoalscore"
     )
     list_editable = (
-    "homescore", "awayscore", "minusdecimalhomescore", "minusdecimalawayscore", "decimalhomescore", "decimalawayscore", "decimalhomegoalscore", "decimalawaygoalscore")
+    "homescore", "awayscore", "minusdecimalhomescore", "minusdecimalawayscore", "decimalhomescore", "decimalawayscore", "decimalhomegoalscore", "decimalawaygoalscore",
+    "has_started", "has_ended")
 
 
 @admin.register(Team)
 class TeamAdmin(admin.ModelAdmin):
-    list_display = ("name", "owner", "betcoins", "bidbudget", "maxbidgke", "maxbiddef", "maxbidmid", "maxbidatt")
-    list_editable = ("betcoins", "betcoins")
+    list_display = ("name", "owner", "group", "order", "betcoins", "bidbudget", "maxbidgke", "maxbiddef", "maxbidmid", "maxbidatt")
+    list_editable = ("betcoins", "group", "order")
 
 
 @admin.register(models.League)

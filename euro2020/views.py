@@ -316,6 +316,64 @@ def listallbids(request):
                   context={'countries': Country.objects.all(), 'bids': allteambids, 'error': ""})
 
 
+def groepvmstand(manager):
+    thuiswedstrijden = ""
+    uitwedstrijden = ""
+    nogames = False
+    groepstandinfo = []
+    currentteam = Team.objects.get(owner=manager)
+    currentleague = League.objects.get(leaguename=currentteam.league)
+    alleleagueteams = Team.objects.filter(league=currentleague)
+    for ploeg in alleleagueteams:
+        gs = 0
+        pt = 0
+        wi = 0
+        vl = 0
+        gl = 0
+        dp = 0
+        dt = 0
+        try:
+            thuiswedstrijden = VirtualMatch.objects.filter(home=ploeg, stage__istartswith="G", has_ended=True)
+        except:
+            nogames = True
+        try:
+            uitwedstrijden = VirtualMatch.objects.filter(away=ploeg, stage__istartswith="G", has_ended=True)
+        except:
+            if nogames:
+                nogames = True
+        ploegwedstrijden = thuiswedstrijden | uitwedstrijden
+        if nogames:
+            groepstandinfo.append([ploeg, 0, 0, 0, 0, 0, 0, 0, 0])
+        else:
+            for wedstrijd in ploegwedstrijden:
+                gs = gs + 1
+                if ploeg == wedstrijd.home:
+                    dp = dp + wedstrijd.homescore
+                    dt = dt + wedstrijd.awayscore
+                    if wedstrijd.homescore > wedstrijd.awayscore:
+                        pt = pt + 3
+                        wi = wi + 1
+                    elif wedstrijd.homescore < wedstrijd.awayscore:
+                        vl = vl + 1
+                    else:
+                        gl = gl + 1
+                        pt = pt + 1
+                if ploeg == wedstrijd.away:
+                    dp = dp + wedstrijd.awayscore
+                    dt = dt + wedstrijd.homescore
+                    if wedstrijd.awayscore > wedstrijd.homescore:
+                        pt = pt + 3
+                        wi = wi + 1
+                    elif wedstrijd.awayscore < wedstrijd.homescore:
+                        vl = vl + 1
+                    else:
+                        gl = gl + 1
+                        pt = pt + 1
+            groepstandinfo.append([ploeg, gs, pt, wi, vl, gl, dp, dt, dp - dt])
+    groepstandinfo.sort(key=lambda x: (x[0].order, -x[2], -x[8], -x[6]))
+    return groepstandinfo
+
+
 def groepstand(request):
     results = match_results(Match.objects.all(), Goal.objects.all())
     standings = group_standings(results, Country.objects.all())
@@ -352,13 +410,14 @@ def groepstand(request):
 def leaguestand(request, league):
     loting = League.objects.get(pk=league).draw
     stages = ["G1", "G2", "G3"]
-    currentleague = League.objects.get(pk=league)
+    manager = request.user
     leagueteams = Team.objects.filter(league=league).order_by("order")
     allleaguematches = VirtualMatch.objects.filter(home__in=leagueteams)
+    leagueinfo = groepvmstand(manager)
     return render(
         request=request,
         template_name="euro2020/leaguestand.html",
-        context={"groups": Team.TeamGroup.labels, "leagueteams": leagueteams, "leaguewedstrijden": allleaguematches,
+        context={"groups": Team.TeamGroup.labels, "leagueteams": leagueinfo, "leaguewedstrijden": allleaguematches,
                  "stages": stages, "loting": loting})
 
 
@@ -1389,7 +1448,8 @@ def livescoring(request):
         hometactiek = Tactiek.objects.get(team=virtualmatch.home, phase__gamephase__icontains=phasetext).tactiek
         awaytactiek = Tactiek.objects.get(team=virtualmatch.away, phase__gamephase__icontains=phasetext).tactiek
         wedstrijdeninfo.append([virtualmatch, virtualmatch.decimalhomegoalscore + virtualmatch.decimalhomescore,
-                                virtualmatch.decimalawaygoalscore + virtualmatch.decimalawayscore, hometactiek, awaytactiek])
+                                virtualmatch.decimalawaygoalscore + virtualmatch.decimalawayscore, hometactiek,
+                                awaytactiek])
     return render(request, "euro2020/livescoring.html",
                   context={"error": error, "groups": groups, "allewedstrijden": wedstrijdeninfo,
                            "teamopstellingen": opstellingsinfo, "scoring": scoring})
