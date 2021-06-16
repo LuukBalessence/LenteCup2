@@ -1444,53 +1444,13 @@ def livescoring(request):
         else:
             speelt = True
         opstellingsinfo.append([opstelling, wedstrijdgestart, speelt])
+        opstellingsinfo.sort(key=lambda x: (x[0].opgesteldespeler.position == "A", x[0].opgesteldespeler.position == "M", x[0].opgesteldespeler.position == "D", x[0].opgesteldespeler.position == "G"))
     for virtualmatch in allewedstrijden:
         hometactiek = Tactiek.objects.get(team=virtualmatch.home, phase__gamephase__icontains=phasetext).tactiek
         awaytactiek = Tactiek.objects.get(team=virtualmatch.away, phase__gamephase__icontains=phasetext).tactiek
         wedstrijdeninfo.append([virtualmatch, virtualmatch.decimalhomegoalscore + virtualmatch.decimalhomescore,
                                 virtualmatch.decimalawaygoalscore + virtualmatch.decimalawayscore, hometactiek,
                                 awaytactiek])
-    return render(request, "euro2020/livescoring.html",
-                  context={"error": error, "groups": groups, "allewedstrijden": wedstrijdeninfo,
-                           "teamopstellingen": opstellingsinfo, "scoring": scoring})
-
-
-def livescoring1(request):
-    verlenging = False
-    shootout = False
-    error = ""
-    scoring = False
-    opslaan = False
-    opstellingsinfo = []
-    wedstrijdeninfo = []
-    currentuser = request.user
-    team = Team.objects.get(owner=currentuser)
-    currentleague = League.objects.get(pk=team.league_id)
-    if "Opstelling" in currentleague.gamephase.gamephase or "Live" in currentleague.gamephase.gamephase:
-        scoring = True
-    groups = Country.Group.labels
-    allteams = Team.objects.filter(league_id=currentleague.pk)
-    phasetext = getphasetext(currentleague.gamephase)
-    if not phasetext:
-        return redirect(to="home")
-    for y in VirtualMatch.Stage.choices:
-        if phasetext in y[1]:
-            currentstage = y[0]
-    allewedstrijden = VirtualMatch.objects.filter(stage=currentstage, home__in=allteams).select_related("home")
-    teamopstellingen = Opstelling.objects.filter(team__in=allteams, phase__gamephase__icontains=phasetext)
-    for opstelling in teamopstellingen:
-        try:
-            wedstrijd = Match.objects.get(stage=currentstage, home=opstelling.opgesteldespeler.country)
-            home = True
-        except:
-            wedstrijd = Match.objects.get(stage=currentstage, away=opstelling.opgesteldespeler.country)
-            home = False
-        spelerinfo = resultaatperspeler(opstelling, wedstrijd, home, verlenging, shootout, opslaan)
-        opstellingsinfo.append(spelerinfo)
-
-    for wedstrijd in allewedstrijden:
-        wedstrijdinfo = resultaatperwedstrijd(wedstrijd, phasetext, currentstage, verlenging, shootout, opslaan)
-        wedstrijdeninfo.append(wedstrijdinfo)
     return render(request, "euro2020/livescoring.html",
                   context={"error": error, "groups": groups, "allewedstrijden": wedstrijdeninfo,
                            "teamopstellingen": opstellingsinfo, "scoring": scoring})
