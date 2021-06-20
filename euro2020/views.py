@@ -377,26 +377,26 @@ def groepvmstand(manager):
 def groepstand(request):
     results = match_results(Match.objects.all(), Goal.objects.all())
     standings = group_standings(results, Country.objects.all())
-    standings.sort(key=lambda x: (x.country.group, -x.GS, -x.PT, x.DF, -x.DV))
-    rankproperty = "PT"
+    standings.sort(key=lambda x: (-x.PT, -x.DV, -x.DF))
+    # rankproperty = "PT"
     # standings.sort(key=eufa_sort)
     # We mark the countries who have equal points with equalPT, False means that countries with 0 matches are discarded
-    equalcountries = equalityofpoints(standings, rankproperty, False)
-    print("First", equalcountries)
+    # equalcountries = equalityofpoints(standings, rankproperty, False)
+    # print("First", equalcountries)
 
     # a) Get the teams in the same group with same results define by POCOMMENT,
     # a) and calculate standings among teams in question
     #
-    matches_a_c = getmatchlist(equalcountries)
-    goals_a_c = getgoallist(matches_a_c)
-    print(goals_a_c)
-    results1 = match_results(matches_a_c, goals_a_c)
-    standings1 = group_standings(results1, equalcountries)
-    standings1.sort(key=lambda x: (x.country.group, -x.GS, -x.PT, x.DF, -x.DV))
-    equalcountries1 = equalityofpoints(standings1, rankproperty, True)
-    print("First", equalcountries1)
-    recalculateposition(standings, equalcountries1)
-    standings.sort(key=lambda x: (x.country.group, x.PO))
+    # matches_a_c = getmatchlist(equalcountries)
+    # goals_a_c = getgoallist(matches_a_c)
+    # print(goals_a_c)
+    # results1 = match_results(matches_a_c, goals_a_c)
+    # standings1 = group_standings(results1, equalcountries)
+    # standings1.sort(key=lambda x: (x.country.group, -x.GS, -x.PT, x.DF, -x.DV))
+    # equalcountries1 = equalityofpoints(standings1, rankproperty, True)
+    # print("First", equalcountries1)
+    # recalculateposition(standings, equalcountries1)
+    # standings.sort(key=lambda x: (x.country.group, x.PO))
 
     # After first calculation of standings, also matches.GS==0 must be displayed. Check. Done
 
