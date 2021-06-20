@@ -231,7 +231,7 @@ def myteam(request):
                                "betcoinbalance": betcoinbalance, "bidauction": bidauction, "bnumber": bnumber,
                                "bname": bname, "leaguefee": leaguefee, "leaguedraw": leaguedraw,
                                "players": listplayers, "opstelling": opstelling1, "paid": team.paid,
-                               "tactiek": tactiek})
+                               "tactiek": tactiek, "spelersteontslaan": truebids.filter(ontslaan=True)})
     except ObjectDoesNotExist:
         return redirect(to="changeteamname")
 
@@ -377,7 +377,7 @@ def groepvmstand(manager):
 def groepstand(request):
     results = match_results(Match.objects.all(), Goal.objects.all())
     standings = group_standings(results, Country.objects.all())
-    standings.sort(key=lambda x: (-x.PT, -x.DV, -x.DF))
+    standings.sort(key=lambda x: (x.country.order, -x.PT, -x.DF, -x.DV))
     # rankproperty = "PT"
     # standings.sort(key=eufa_sort)
     # We mark the countries who have equal points with equalPT, False means that countries with 0 matches are discarded
@@ -1692,3 +1692,22 @@ def saveroundscores(request, league):
     return render(request, "euro2020/saveroundscores.html",
                   context={"error": error, "groups": groups, "allewedstrijden": wedstrijdeninfo,
                            "teamopstellingen": opstellingsinfo, "scoring": scoring})
+
+
+def spelersontslaan(request):
+    error = ""
+    currentuser = request.user
+    currentteam = Team.objects.get(owner=currentuser)
+    if currentteam.eliminated:
+        error = "Je kunt geen spelers meer ontslaan omdat je niet meer actief bent in het toernooi"
+    truebids = Bids.objects.filter(team=currentteam, assigned=True, ontslaan=False)
+    if request.method == 'POST':
+        if request.POST['selectontslaspeler'] == "nochoice":
+            error = "Je hebt geen speler gekozen"
+            return render(request, "euro2020/spelersontslaan.html", context={"error": error, "jouwspelers": truebids})
+        spelerteontslaan = Bids.objects.get(team=currentteam, assigned=True, player=request.POST['selectontslaspeler'])
+        spelerteontslaan.ontslaan = True
+        spelerteontslaan.save()
+        return redirect(to="myteam")
+
+    return render(request, "euro2020/spelersontslaan.html", context={"error": error, "jouwspelers": truebids})

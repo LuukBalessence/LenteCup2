@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block title %}ONTSLA SPELER{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+
+        {% if error %}
+            <table class="table" align="center">
+                <tr>
+                    <th>{{ error }}</th>
+                </tr>
+            </table>
+        {% endif %}
+
+        <table class="table" ALIGN="center">
+            <tr>
+                <td align="center">
+                    Ontslag gaat in na het einde van de speelronde
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    De speler heeft dan geen team meer
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    De speler is beschikbaar in de eerstvolgende veiling
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    Je krijgt geen geld voor het ontslag
+                </td>
+            </tr>
+
+            <form action="" method="post">{% csrf_token %}
+                <tr>
+                    <th align="center">
+                        <div class="control has-icons-left">
+                            <div class="select is-primary">
+                                <select name="selectontslaspeler" class="input is-primary"
+                                        style="width: 300px; text-align:right"
+                                        id="id_selectontslaspeler">
+                                    <option value="nochoice" selected>Kies Speler om te ontslaan</option>
+                                    {% for speler in jouwspelers %}
+                                        <option value="{{ speler.player.pk }}">{{ speler.player }} {{ speler.player.country }}</option>
+                                    {% endfor %}
+                                </select>
+                                <span class="icon is-left is-small">
+                                        <i class="far fa-lightbulb" style="font-size:20px;color:black"></i>
+                                    </span>
+                            </div>
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th style="text-align:center">
+                        <input style="width:250px" type="submit" class="button is-danger" name="Ontsla speler"
+                               value="LET OP!: Ontsla deze speler!"/>
+                    </th>
+                </tr>
+            </form>
+            <tr>
+                    <th style="text-align:center">
+                        <a href=euro2020><input style="width:250px" type="submit" class="button is-primary"
+                                                value="Terug naar EURO2020"/></a>
+                    </th>
+                </tr>
+        </table>
+    {% endif %}
+{% endblock %}

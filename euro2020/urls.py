@@ -43,6 +43,7 @@ urlpatterns = [
     path("groeprlmatches", views.groeprlmatches, name="groeprlmatches"),
     path("moneymanager", views.moneymanager, name="moneymanager"),
     path("tactiekopstelling", views.tactiekopstelling, name="tactiekopstelling"),
+    path("spelersontslaan", views.spelersontslaan, name="spelersontslaan"),
     path("myledger", views.myledger, name="myledger"),
     path("hulpbieden", views.hulpbieden, name="hulpbieden"),
     path("premies", views.premies, name="premies"),

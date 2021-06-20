@@ -52,7 +52,7 @@ class Country(models.Model):
     shortname = models.CharField(verbose_name=_("Ctry"), max_length=3, default="NUL")
     nlname = models.CharField(verbose_name=_("NL naam"), max_length=30, default="")
     order = models.PositiveSmallIntegerField(
-        verbose_name=_("Order"), validators=[MinValueValidator(1), MaxValueValidator(5)]
+        verbose_name=_("Order"), validators=[MinValueValidator(1), MaxValueValidator(5)], null=True, blank=True
     )
     group = models.CharField(
         verbose_name=_("Group"), max_length=1, choices=Group.choices
@@ -316,6 +316,7 @@ class Bids(models.Model):
     assigned = models.BooleanField(null=True)
     bidcomment = models.CharField(verbose_name=_("Bid Comment"), max_length=200, default="Bid Created", null=True)
     previousteam = models.ForeignKey(Team, on_delete=models.CASCADE, related_name="bidsprevious", null=True, default=None)
+    ontslaan = models.BooleanField(default=False)
 
     class Meta:
         verbose_name = _("Bid")
