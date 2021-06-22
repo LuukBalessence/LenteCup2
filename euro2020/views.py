@@ -17,10 +17,6 @@ from .leaguemanagement import setup_teams, setup_bids, delete_league, previousph
 from .scoring_functions import (
     match_results,
     group_standings,
-    equalityofpoints,
-    getmatchlist,
-    getgoallist,
-    recalculateposition,
 )
 from .models import Match, Goal, Country, Team
 from django.forms import formset_factory
@@ -316,14 +312,12 @@ def listallbids(request):
                   context={'countries': Country.objects.all(), 'bids': allteambids, 'error': ""})
 
 
-def groepvmstand(manager):
+def groepstandcalc(league):
     thuiswedstrijden = ""
     uitwedstrijden = ""
     nogames = False
     groepstandinfo = []
-    currentteam = Team.objects.get(owner=manager)
-    currentleague = League.objects.get(leaguename=currentteam.league)
-    alleleagueteams = Team.objects.filter(league=currentleague)
+    alleleagueteams = Team.objects.filter(league=league)
     for ploeg in alleleagueteams:
         gs = 0
         pt = 0
@@ -374,32 +368,18 @@ def groepvmstand(manager):
     return groepstandinfo
 
 
+def groepvmstand(manager):
+    groepstandinfo1 = []
+    currentteam = Team.objects.get(owner=manager)
+    currentleague = League.objects.get(leaguename=currentteam.league)
+    groepstandinfo1 = groepstandcalc(currentleague)
+    return groepstandinfo1
+
+
 def groepstand(request):
     results = match_results(Match.objects.all(), Goal.objects.all())
     standings = group_standings(results, Country.objects.all())
     standings.sort(key=lambda x: (x.country.order, -x.PT, -x.DF, -x.DV))
-    # rankproperty = "PT"
-    # standings.sort(key=eufa_sort)
-    # We mark the countries who have equal points with equalPT, False means that countries with 0 matches are discarded
-    # equalcountries = equalityofpoints(standings, rankproperty, False)
-    # print("First", equalcountries)
-
-    # a) Get the teams in the same group with same results define by POCOMMENT,
-    # a) and calculate standings among teams in question
-    #
-    # matches_a_c = getmatchlist(equalcountries)
-    # goals_a_c = getgoallist(matches_a_c)
-    # print(goals_a_c)
-    # results1 = match_results(matches_a_c, goals_a_c)
-    # standings1 = group_standings(results1, equalcountries)
-    # standings1.sort(key=lambda x: (x.country.group, -x.GS, -x.PT, x.DF, -x.DV))
-    # equalcountries1 = equalityofpoints(standings1, rankproperty, True)
-    # print("First", equalcountries1)
-    # recalculateposition(standings, equalcountries1)
-    # standings.sort(key=lambda x: (x.country.group, x.PO))
-
-    # After first calculation of standings, also matches.GS==0 must be displayed. Check. Done
-
     return render(
         request=request,
         template_name="euro2020/groepstand.html",
@@ -1711,3 +1691,67 @@ def spelersontslaan(request):
         return redirect(to="myteam")
 
     return render(request, "euro2020/spelersontslaan.html", context={"error": error, "jouwspelers": truebids})
+
+
+def ontslaspelers(request, league, alleenlijst):
+    error = ""
+    allteams = Team.objects.filter(league=league)
+    currentleague = League.objects.get(pk=league)
+    spelersteontslaan = Bids.objects.filter(team__in=allteams, assigned=True, ontslaan=True)
+    if len(spelersteontslaan) == 0:
+        error = "Er zijn geen spelers meer te ontslaan"
+        return render(request, "euro2020/ontslaspelers.html",
+                      context={"error": error, "spelersteontslaan": spelersteontslaan})
+    else:
+        if alleenlijst != "True":
+            for spelerteontslaan in spelersteontslaan:
+                print(spelerteontslaan)
+                spelerteontslaan.assigned = False
+                spelerteontslaan.ontslaan = False
+                spelerteontslaan.bidcomment = "SPELER ONTSLAGEN in fase: " + currentleague.gamephase.gamephase + ". " + spelerteontslaan.bidcomment
+                spelerteontslaan.save()
+            return redirect(to="ontslaspelers", league=league, alleenlijst="True")
+        else:
+            return render(request, "euro2020/ontslaspelers.html", context={"error": error, "spelersteontslaan": spelersteontslaan})
+
+
+def statusontslaan(request, league):
+    error = ""
+    allteams = Team.objects.filter(league=league)
+    currentleague = League.objects.get(pk=league)
+    spelerstatusontslaan = Bids.objects.filter(team__in=allteams, assigned=True, player__country__eliminated=True)
+    if len(spelerstatusontslaan) == 0:
+        error = "Er zijn geen van geelimineerde landen op status ontslaan gezet"
+        return render(request, "euro2020/statusontslaan.html",
+                      context={"error": error, "spelerstatusontslaan": spelerstatusontslaan})
+    else:
+        for spelerteontslaan in spelerstatusontslaan:
+            print(spelerteontslaan)
+            spelerteontslaan.ontslaan = True
+            spelerteontslaan.save()
+        return render(request, "euro2020/statusontslaan.html",
+                      context={"error": error, "spelerstatusontslaan": spelerstatusontslaan})
+
+
+def keerpremieuit(request, league, alleenlijst):
+    error = ""
+    teampremies = []
+    currentleague=League.objects.get(pk=league)
+    leagueinfo = groepstandcalc(currentleague)
+    basis = currentleague.premiebasis
+    for leagueteam in leagueinfo:
+        currentteam = leagueteam[0]
+        premie = (leagueteam[3] + 0.5*leagueteam[5])*basis/5/36
+        teampremies.append([leagueteam[0], leagueteam[3], leagueteam[5],round(premie)])
+        if alleenlijst != "True":
+            Boekhouding.objects.create(team=leagueteam[0], boekingsopmerking="Premies voor bereiken Achtse Finales", aantalbetcoins=premie)
+            BoekhoudingLeague.objects.create(league=currentleague, boekingsopmerking=str(currentteam.name) + "Premie uitkering voor bereiken Achtse Finales",
+                                       aantalbetcoins=premie)
+            currentleague.leaguebalance=currentleague.leaguebalance - premie
+            currentleague.save()
+            currentteam.betcoins = currentteam.betcoins + premie
+            currentteam.save()
+
+    return render(request, "euro2020/keerpremieuit.html",
+                      context={"error": error, "teampremies": teampremies})
+

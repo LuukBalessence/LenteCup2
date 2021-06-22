@@ -5,7 +5,7 @@ import random
 def createbidlist(currentteam, country_name):
     initialbids = []
     currentleague = League.objects.get(pk=currentteam.league.pk)
-    allleagueteams = Team.objects.filter(league_id=currentteam.league)
+    allleagueteams = Team.objects.filter(league_id=currentteam.league, eliminated=False)
     teamexistingbids = Bids.objects.filter(team=currentteam, gamephase=currentleague.gamephase.pk).values()
     players = Player.objects.filter(country__name=country_name).order_by('country', 'position')
     for player in players:

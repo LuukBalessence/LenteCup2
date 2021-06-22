@@ -54,6 +54,31 @@
                 </tr>
                 <tr>
                     <th style="text-align:center">
+                        <a href="{% url 'ontslaspelers' league.pk True %}" class="button is-primary">Lijst met spelers te ontslaan</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th style="text-align:center">
+                        <a href="{% url 'statusontslaan' league.pk %}" class="button is-primary">Status ontslaan</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th style="text-align:center">
+                        <a href="{% url 'ontslaspelers' league.pk False %}" class="button is-primary">Ontsla spelers</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th style="text-align:center">
+                        <a href="{% url 'keerpremieuit' league.pk True%}" class="button is-primary">Bekijk premie uitkeringen</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th style="text-align:center">
+                        <a href="{% url 'keerpremieuit' league.pk False%}" class="button is-primary">Effectueer premie uitkeringen</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th style="text-align:center">
                         <a href="{% url 'setupleaguebids' league.pk %}" class="button is-primary">Setup bids</a>
                     </th>
                 </tr>

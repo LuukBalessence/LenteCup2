@@ -7,8 +7,8 @@ from .models import Goal, Match, Team
 
 @admin.register(models.Country)
 class CountryAdmin(admin.ModelAdmin):
-    list_display = ("name", "nlname", "group", "order", "openforbid")
-    list_editable = ("openforbid", "openforbid", "nlname", "order")
+    list_display = ("name", "nlname", "group", "order", "openforbid", "eliminated")
+    list_editable = ("openforbid", "openforbid", "nlname", "order", "eliminated")
 
 
 @admin.register(models.GamePhase)

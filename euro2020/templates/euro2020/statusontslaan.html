@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}SPELERS TE ONTSLAAN{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        <table class="table" align="center">
+            {% if error %}
+                <tr>
+                    <th>{{ error }}</th>
+                </tr>
+            {% else %}
+                <tr>
+                    <th>Team</th>
+                    <th>Speler te ontslaan</th>
+                    <th>land</th>
+                </tr>
+                {% for speler in spelerstatusontslaan %}
+
+                    <tr>
+                        <th>{{ speler.team }}</th>
+                        <td>{{ speler.player }}</td>
+                        <td>{{ speler.player.country }}</td>
+                    </tr>
+
+                {% endfor %}
+            {% endif %}
+        </table>
+        <table class="table" align="center">
+            <tr>
+                <th style="text-align:center">
+                    <a href=/euro2020/leaguemanager><input style="width:250px" type="submit" class="button is-primary"
+                                                           value="Terug naar Leaguemanager"/></a>
+                </th>
+            </tr>
+        </table>
+    {% endif %}
+{% endblock content %}
