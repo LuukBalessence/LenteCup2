@@ -1755,3 +1755,22 @@ def keerpremieuit(request, league, alleenlijst):
     return render(request, "euro2020/keerpremieuit.html",
                       context={"error": error, "teampremies": teampremies})
 
+
+def rlkofase(request):
+    error = ""
+    komatches = Match.objects.filter(stage="Q6")
+    allstages = Match.Stage
+    return render(request, "euro2020/rlkofase.html",
+                  context={"error": error, "komatches": komatches, "allstages": allstages})
+
+
+def kofase(request):
+    error = ""
+    currentuser = request.user
+    currentteam = Team.objects.get(owner=currentuser)
+    currentleague = currentteam.league
+    allleagueteams = Team.objects.filter(league=currentleague, eliminated=False)
+    komatches = VirtualMatch.objects.filter(stage="Q6", home__in=allleagueteams)
+    allstages = Match.Stage
+    return render(request, "euro2020/kofase.html",
+                  context={"error": error, "komatches": komatches, "allstages": allstages})

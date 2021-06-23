@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}KO FASE EURO2020{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        {% if error %}
+            <table class="table" align="center">
+                <tr>
+                    <th>{{ error }}</th>
+                </tr>
+            </table>
+        {% endif %}
+        <table class="table" align="center">
+            {% for stage in allstages %}
+                {% if stage == "Q6" %}
+                    <tr>
+                        <th style="font-size: large">{{ stage.label }}</th>
+                    </tr>
+                    <tr>
+                        <th>Wedstrijddatum</th>
+                        <th>Thuis</th>
+                        <th>Uit</th>
+                        <th>:</th>
+                        <th>Stand</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    {% for match in komatches %}
+                        <tr>
+                            <td>
+                                {{ match.start }}
+                            </td>
+                            <td>{{ match.home }}</td>
+                            <td>{{ match.away }}</td>
+                            {% for key, value in resultaat.items %}
+                                {% if key == match %}
+                                    {% if match.has_ended %}
+                                        <td>:</td>
+                                        <td>{{ value.0 }}</td>
+                                        <th>-</th>
+                                        <td>{{ value.1 }}</td>
+                                    {% elif match.has_started %}
+                                        <td>LIVE</td>
+                                        <td>{{ value.0 }}</td>
+                                        <th>-</th>
+                                        <td>{{ value.1 }}</td>
+                                    {% else %}
+                                        <td>:</td>
+                                        <td>Nog</td>
+                                        <td>niet</td>
+                                        <td>gestart</td>
+                                    {% endif %}
+                                {% endif %}
+                                </tr>
+                            {% endfor %}
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+        </table>
+        <table class="table" align="center">
+            <tr>
+                <th style="text-align:center;width: 300px">
+                    <a href="/euro2020/euro2020"><input style="width:250px" type="submit" class="button is-primary"
+                                                        value="Terug naar EURO2020"/></a>
+                </th>
+            </tr>
+        </table>
+    {% endif %}
+{% endblock %}
