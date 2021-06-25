@@ -166,6 +166,7 @@ def myteam(request):
     phasetext = ""
     listplayers = []
     opstelling1 = []
+    uitgeschakeld = False
     try:
         teamdata = Team.objects.get(owner=manager)
     except:
@@ -198,6 +199,7 @@ def myteam(request):
 
     try:
         team = Team.objects.get(owner=manager)
+        uitgeschakeld = team.eliminated
         try:
             truebids = Bids.objects.filter(team__owner=manager, assigned=True)
             phasetext = getphasetext(league.gamephase)
@@ -227,7 +229,7 @@ def myteam(request):
                                "betcoinbalance": betcoinbalance, "bidauction": bidauction, "bnumber": bnumber,
                                "bname": bname, "leaguefee": leaguefee, "leaguedraw": leaguedraw,
                                "players": listplayers, "opstelling": opstelling1, "paid": team.paid,
-                               "tactiek": tactiek, "spelersteontslaan": truebids.filter(ontslaan=True)})
+                               "tactiek": tactiek, "spelersteontslaan": truebids.filter(ontslaan=True), "uitgeschakeld": uitgeschakeld})
     except ObjectDoesNotExist:
         return redirect(to="changeteamname")
 
@@ -307,7 +309,7 @@ def listallbids(request):
         return render(request, 'euro2020/listallbids.html',
                       context={'countries': "", 'bids': "", 'error': error})
 
-    allteambids = Bids.objects.filter(team=currentteam, gamephase=league.gamephase).order_by('playerbid').reverse()
+    allteambids = Bids.objects.filter(team=currentteam, gamephase=league.gamephase, assigned=None).order_by('playerbid').reverse()
     return render(request, 'euro2020/listallbids.html',
                   context={'countries': Country.objects.all(), 'bids': allteambids, 'error': ""})
 
@@ -438,8 +440,10 @@ def bidoverview(request):
     disabled = ""
     error = ""
     manager = request.user
+    uitgeschakeld = False
     try:
         team = Team.objects.get(owner=manager)
+        uitgeschakeld = team.eliminated
     except:
         error = "Je dient eerst een teamnaam aan te maken in het menu Jouw Team"
     try:
@@ -492,20 +496,20 @@ def bidoverview(request):
                 return render(request, "euro2020/bidoverview.html",
                               context={'countries': Country.objects.all(), 'groups': Country.Group.labels,
                                        "league": league, "disabled": disabled, "team": team, "error": error,
-                                       "error1": error1, "leaguephase": leaguephase})
+                                       "error1": error1, "leaguephase": leaguephase, "uitgeschakeld": uitgeschakeld})
             team.save()
             error1 = "Je instellingen zijn opgeslagen"
             return render(request, "euro2020/bidoverview.html",
                           context={'countries': Country.objects.all(), 'groups': Country.Group.labels,
                                    "league": league, "disabled": disabled, "team": team, "error": error,
-                                   "error1": error1, "leaguephase": leaguephase})
+                                   "error1": error1, "leaguephase": leaguephase, "uitgeschakeld": uitgeschakeld})
         else:
             pass
 
     return render(request, "euro2020/bidoverview.html",
                   context={'countries': Country.objects.all(), 'groups': Country.Group.labels,
                            "league": league, "disabled": disabled, "team": team, "error": error,
-                           "leaguephase": leaguephase})
+                           "leaguephase": leaguephase, "uitgeschakeld": uitgeschakeld})
 
 
 def bids(request, country_name):
@@ -560,7 +564,7 @@ def bids(request, country_name):
                         currentplayer = Player.objects.get(pk=form.cleaned_data["playerpk"])
                         try:
                             obj = Bids.objects.get(team=currentteam, player=currentplayer,
-                                                   gamephase=currentleaguegamephase)
+                                                   gamephase=currentleaguegamephase, assigned=None)
                             obj.playerbid = form.cleaned_data["bid"]
                             if obj.playerbid == 0 or obj.playerbid is None:
                                 obj.delete()
@@ -628,7 +632,7 @@ def auction(request, league, gamephase):
         return render(request, 'euro2020/assignedbidsperteam.html',
                       context={'bids': "", 'teams': "", 'error': error})
 
-    allteams = Team.objects.filter(league__leaguename=currentleague.leaguename).values()
+    allteams = Team.objects.filter(league__leaguename=currentleague.leaguename, eliminated=False).values()
     players = list(Player.objects.filter().values())
     currentphase = currentleague.gamephase
     previousgamephase = previousphase(currentphase)
@@ -1314,7 +1318,7 @@ def voegspelertoe(aantal, positie, team):
 def fillteams(request, league):
     error = ""
     aantaltoevoegen = 0
-    allteams = Team.objects.filter(league=league)
+    allteams = Team.objects.filter(league=league, eliminated=False)
     for team in allteams:
         truebids = Bids.objects.filter(team=team, assigned=True).select_related("player")
         if len(truebids.filter(player__position="G")) < 1:
@@ -1336,7 +1340,7 @@ def initiallineup(request, league):
     phasetext = ""
     error = ""
     opstellingtactiek = []
-    allteams = Team.objects.filter(league=league)
+    allteams = Team.objects.filter(league=league, eliminated=False)
     currentleague = League.objects.get(pk=league)
     leaguephase = currentleague.gamephase
     if leaguephase.gamephase.__contains__("Groep"):
@@ -1658,6 +1662,8 @@ def saveroundscores(request, league):
     allewedstrijden = VirtualMatch.objects.filter(stage=currentstage, home__in=allteams).select_related("home")
     teamopstellingen = Opstelling.objects.filter(team__in=allteams, phase__gamephase__icontains=phasetext)
     for opstelling in teamopstellingen:
+        print(opstelling.opgesteldespeler.country)
+        print(opstelling.opgesteldespeler)
         try:
             wedstrijd = Match.objects.get(stage=currentstage, home=opstelling.opgesteldespeler.country)
             home = True
@@ -1774,3 +1780,14 @@ def kofase(request):
     allstages = Match.Stage
     return render(request, "euro2020/kofase.html",
                   context={"error": error, "komatches": komatches, "allstages": allstages})
+
+
+def listleaguebids(request, league):
+    error = ""
+    allleagueteams = Team.objects.filter(league_id=league, eliminated=False)
+    allelimleagueteams = Team.objects.filter(league_id=league, eliminated=True)
+    allbids = Bids.objects.filter(team__in=allleagueteams, assigned=None)
+    allelimbids = Bids.objects.filter(team__in=allelimleagueteams, assigned=True)
+
+    return render(request, "euro2020/listleaguebids.html",
+                  context={"error": error, "allbids": allbids, "allelimbids": allelimbids})

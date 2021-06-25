@@ -20,6 +20,23 @@
                     </th>
                 </tr>
             </table>
+        {% elif uitgeschakeld %}
+             <table class="table" align="center">
+                <tr>
+                    <th>
+                        <div class="notification is-info" ALIGN="center">
+                            <button class="delete"></button>
+                            Je bent uitgeschakeld in het toernooi en kunt niet meer bieden
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th style="text-align:center">
+                        <a href=euro2020><input style="width:250px" type="submit" class="button is-primary"
+                                                value="Terug naar EURO2020"/></a>
+                    </th>
+                </tr>
+            </table>
         {% else %}
             <table class="table" ALIGN="center">
                 <tr>

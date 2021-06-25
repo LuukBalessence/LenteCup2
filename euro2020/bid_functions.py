@@ -6,7 +6,7 @@ def createbidlist(currentteam, country_name):
     initialbids = []
     currentleague = League.objects.get(pk=currentteam.league.pk)
     allleagueteams = Team.objects.filter(league_id=currentteam.league, eliminated=False)
-    teamexistingbids = Bids.objects.filter(team=currentteam, gamephase=currentleague.gamephase.pk).values()
+    teamexistingbids = Bids.objects.filter(team=currentteam, gamephase=currentleague.gamephase.pk, assigned=None).values()
     players = Player.objects.filter(country__name=country_name).order_by('country', 'position')
     for player in players:
         try:
@@ -89,13 +89,25 @@ def savebid(bid, assigned, bidcomment, team, players):
         currentbudget = team['bidbudget']
         newbudget = currentbudget - bid['playerbid']
         team['bidbudget'] = newbudget
-        # TODO Als previousteam bestaat dient de opbrengst ten goede te komen aan het oude team en niet aan de league
-        # TODO Als het previousteam niet bestaan dient de opbrengst ten goede te komen aan de league
+        # TODO Als de speler voorkomt als toegewezen bieding van een uitgeschakeld team dan dienen de opbrengsten naar dat team te gaan en de speler dara te worden afgemeld
+        # TODO Als dat niet het geval is dient de opbrengst ten goede te komen aan de league
         league = League.objects.get(pk=team['league_id'])
-        BoekhoudingLeague.objects.create(league=league, aantalbetcoins=bid['playerbid'],
-                                         boekingsopmerking=str(obj.player) + " gekocht")
-        league.leaguebalance += bid['playerbid']
-        league.save()
+        uitgeschakeldeteams = Team.objects.filter(league_id=team['league_id'], eliminated=True)
+        try:
+            trueelimplayerbid = Bids.objects.get(team__in=uitgeschakeldeteams, assigned=True, player=bid['player_id'])
+            Boekhouding.objects.create(team_id=trueelimplayerbid.team.pk, aantalbetcoins= bid['playerbid'],
+                                       boekingsopmerking=str(obj.player) + " verkocht aan " + team['name'])
+            elimteam = Team.objects.get(pk=trueelimplayerbid.team.pk)
+            elimteam.betcoins += bid['playerbid']
+            elimteam.save()
+            trueelimplayerbid.assigned = False
+            trueelimplayerbid.bidcomment = "SPELER VERKOCHT VOOR "+ str(bid['playerbid']) + " COINS AAN " + team['name'] + " " + trueelimplayerbid.bidcomment
+            trueelimplayerbid.save()
+        except:
+            BoekhoudingLeague.objects.create(league=league, aantalbetcoins=bid['playerbid'],
+                                     boekingsopmerking=str(obj.player) + " gekocht")
+            league.leaguebalance += bid['playerbid']
+            league.save()
         player = list(filter(lambda x: x['id'] == bid['player_id'], players))[0]
         position = player['position']
         if position == 'G':

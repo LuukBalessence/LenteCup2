@@ -3,10 +3,10 @@
 {% block title %}LIVE SCORING{% endblock %}
 {% block content %}
     <hr>
-    {% for group in groups %}
-        <h4 align="center" class="title is-4">Groep: {{ group }}</h4>
+{#    {% for group in groups %}#}
+{#        <h4 align="center" class="title is-4">Groep: {{ group }}</h4>#}
         {% for wedstrijd, plushome, plusaway, hometactiek, awaytactiek in allewedstrijden %}
-            {% if wedstrijd.home.group == group %}
+{#            {% if wedstrijd.home.group == group %}#}
                 <table class="table" align="center">
                 <tr>
                     <th style="font-size: large;">{{ wedstrijd.home }}</th>
@@ -120,10 +120,10 @@
                     <th>{{ wedstrijd.decimalawayscore }}</th>
                     <th>{{ wedstrijd.decimalawaygoalscore }}</th>
                 </tr>
-            {% endif %}
+{#            {% endif %}#}
         {% endfor %}
     </table>
-    {% endfor %}
+{#    {% endfor %}#}
     <table class="table" align="center">
         <tr>
             <th style="text-align:center">

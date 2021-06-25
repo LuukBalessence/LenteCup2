@@ -134,18 +134,20 @@
                     </th>
                 </tr>
                 {% if leaguedraw %}
-                    <tr>
-                        <th style="text-align:center">
-                            <a href=tactiekopstelling><input style="width:250px" type="submit" class="button is-primary"
-                                                             value="Kies Tactiek en Opstelling"/></a>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th style="text-align:center">
-                            <a href=spelersontslaan><input style="width:250px" type="submit" class="button is-info"
-                                                           value="Ontsla een speler"/></a>
-                        </th>
-                    </tr>
+                    {% if not uitgeschakeld %}
+                        <tr>
+                            <th style="text-align:center">
+                                <a href=tactiekopstelling><input style="width:250px" type="submit" class="button is-primary"
+                                                                 value="Kies Tactiek en Opstelling"/></a>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th style="text-align:center">
+                                <a href=spelersontslaan><input style="width:250px" type="submit" class="button is-info"
+                                                               value="Ontsla een speler"/></a>
+                            </th>
+                        </tr>
+                    {% endif %}
                 {% endif %}
             </table>
             <table class="table" ALIGN="center">

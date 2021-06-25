@@ -8,7 +8,7 @@ def setup_bids(league, maxbet):
     currentleague = League.objects.get(pk=league)
     userprefix = currentleague.leaguename + "_"
     playerbidpercentage = 0.8
-    teams = Team.objects.filter(name__istartswith=userprefix)
+    teams = Team.objects.filter(name__istartswith=userprefix, eliminated=False)
     players1 = Player.objects.select_related('country').filter(country__openforbid=True)
     assignedbids = Bids.objects.select_related('player').filter(team__in=list(teams.values_list()),
                                                                 assigned=True).order_by(

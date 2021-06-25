@@ -40,6 +40,7 @@ urlpatterns = [
     path("statusontslaan/<int:league>", views.statusontslaan, name="statusontslaan"),
     path("createleague", views.createleague, name="createleague"),
     path("regels", views.regels, name="regels"),
+    path("listleaguebids/<int:league>", views.listleaguebids, name="listleaguebids"),
     path("programma", views.programma, name="programma"),
     path("myleague", views.myleague, name="myleague"),
     path("leaguestand/<int:league>", views.leaguestand, name="leaguestand"),

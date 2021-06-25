@@ -144,7 +144,7 @@ class BidsAdmin(admin.ModelAdmin):
         "assigned",
         "bidcomment",
     )
-    list_filter = ("team",)
+    list_filter = ("team", "gamephase")
 
 
 @admin.register(models.Boekhouding)
