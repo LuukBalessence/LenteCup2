@@ -192,6 +192,8 @@ class Match(models.Model):
     location = models.ForeignKey(Location, on_delete=models.CASCADE, null=True, related_name="matches")
     has_started = models.BooleanField(verbose_name=_("Started"), default=False)
     has_ended = models.BooleanField(verbose_name=_("Ended"), default=False)
+    verlenging = models.BooleanField(default=False)
+    shootout = models.BooleanField(default=False)
 
     class Meta:
         verbose_name = _("Match")
@@ -229,6 +231,8 @@ class VirtualMatch(models.Model):
     end = models.DateTimeField(verbose_name=_("Afgelopen"))
     has_started = models.BooleanField(verbose_name=_("Gestart"), default=False)
     has_ended = models.BooleanField(verbose_name=_("Afgelopen"), default=False)
+    verlenging = models.BooleanField(default=False)
+    shootout = models.BooleanField(default=False)
     homescore = models.PositiveSmallIntegerField(null=True, blank=True)
     awayscore = models.PositiveSmallIntegerField(null=True, blank=True)
     decimalhomescore = models.DecimalField(max_digits=5, decimal_places=3, null=True, blank=True)

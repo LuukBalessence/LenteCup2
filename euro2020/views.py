@@ -1400,7 +1400,7 @@ def livescoring(request):
     if "Opstelling" in currentleague.gamephase.gamephase or "Live" in currentleague.gamephase.gamephase:
         scoring = True
     groups = Country.Group.labels
-    allteams = Team.objects.filter(league_id=currentleague.pk)
+    allteams = Team.objects.filter(league_id=currentleague.pk, eliminated=False)
     phasetext = getphasetext(currentleague.gamephase)
     if not phasetext:
         return redirect(to="home")
@@ -1456,7 +1456,7 @@ def resultaatperspeler(opstelling, wedstrijd, thuiswedstrijd, verlenging, shooto
     wedstrijdgestart = wedstrijd.has_started or started
     if wedstrijdgestart:
         wedstrijdspelers = wedstrijd.players.all()
-        goals = Goal.objects.filter(match=wedstrijd)
+        goals = Goal.objects.filter(match=wedstrijd, phase="1R")
         if goals:
             for goal in goals:
                 # Eerst de score van de wedstrijd berekenen
@@ -1639,8 +1639,6 @@ def saveroundscores(request, league):
     error = ""
     opslaan = True
     scoring = False
-    verlenging = False
-    shootout = False
     opstellingsinfo = []
     wedstrijdeninfo = []
     currentleague = League.objects.get(pk=league)
@@ -1662,18 +1660,16 @@ def saveroundscores(request, league):
     allewedstrijden = VirtualMatch.objects.filter(stage=currentstage, home__in=allteams).select_related("home")
     teamopstellingen = Opstelling.objects.filter(team__in=allteams, phase__gamephase__icontains=phasetext)
     for opstelling in teamopstellingen:
-        print(opstelling.opgesteldespeler.country)
-        print(opstelling.opgesteldespeler)
         try:
             wedstrijd = Match.objects.get(stage=currentstage, home=opstelling.opgesteldespeler.country)
             home = True
         except:
             wedstrijd = Match.objects.get(stage=currentstage, away=opstelling.opgesteldespeler.country)
             home = False
-        spelerinfo = resultaatperspeler(opstelling, wedstrijd, home, verlenging, shootout, opslaan)
+        spelerinfo = resultaatperspeler(opstelling, wedstrijd, home, wedstrijd.verlenging, wedstrijd.shootout, opslaan)
         opstellingsinfo.append(spelerinfo)
     for wedstrijd in allewedstrijden:
-        wedstrijdinfo = resultaatperwedstrijd(wedstrijd, phasetext, currentstage, verlenging, shootout, opslaan)
+        wedstrijdinfo = resultaatperwedstrijd(wedstrijd, phasetext, currentstage, wedstrijd.verlenging, wedstrijd.shootout, opslaan)
         wedstrijdeninfo.append(wedstrijdinfo)
     return render(request, "euro2020/saveroundscores.html",
                   context={"error": error, "groups": groups, "allewedstrijden": wedstrijdeninfo,
