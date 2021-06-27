@@ -13,8 +13,8 @@ class CountryAdmin(admin.ModelAdmin):
 
 @admin.register(models.GamePhase)
 class GamePhaseAdmin(admin.ModelAdmin):
-    list_display = ("gamephase", "allowbidding", "allowauction", "allowlineup", "allowfiring")
-    list_editable = ("allowbidding", "allowauction", "allowlineup", "allowfiring")
+    list_display = ("gamephase", "allowbidding", "allowauction", "allowlineup", "allowfiring", "kophase")
+    list_editable = ("allowbidding", "allowauction", "allowlineup", "allowfiring", "kophase")
 
 
 @admin.register(models.Player)

@@ -26,7 +26,7 @@
                         <th>Stand</th>
                         <th></th>
                         <th></th>
-                        <th></th>
+                        <th>Opm.</th>
                     </tr>
                     {% for match in komatches %}
                         <tr>
@@ -51,11 +51,33 @@
                                         <td>{{ value.0 }}</td>
                                         <th>-</th>
                                         <td>{{ value.1 }}</td>
+                                        {% if match.shootout %}
+                                            {% if match.homewonshootout %}
+                                                <td>{{ match.home.shortname }} won na penalties </td>
+                                            {% else %}
+                                                <td>{{ match.away.shortname }} won na penalties </td>
+                                            {% endif %}
+                                        {% elif match.verlenging %}
+                                            <td> na verlenging </td>
+                                        {% else %}
+                                            <td> reguliere speeltijd </td>
+                                        {% endif %}
                                     {% elif match.has_started %}
                                         <td> LIVE</td>
                                         <td>{{ value.0 }}</td>
                                         <th>-</th>
                                         <td>{{ value.1 }}</td>
+                                        {% if match.shootout %}
+                                            {% if match.homewonshootout %}
+                                                <td>{{ match.home.shortname }} won na penalties </td>
+                                            {% else %}
+                                                <td>{{ match.away.shortname }} won na penalties </td>
+                                            {% endif %}
+                                        {% elif match.verlenging %}
+                                            <td> na verlenging </td>
+                                        {% else %}
+                                            <td> reguliere speeltijd </td>
+                                        {% endif %}
                                     {% else %}
                                         <td>:</td>
                                         <td>Nog</td>
@@ -64,8 +86,9 @@
                                     {% endif %}
                                 {% endif %}
 
-                                </tr>
+
                             {% endfor %}
+                        </tr>
                     {% endfor %}
                 {% endif %}
             {% endfor %}

@@ -235,6 +235,7 @@ class VirtualMatch(models.Model):
     has_ended = models.BooleanField(verbose_name=_("Afgelopen"), default=False)
     verlenging = models.BooleanField(default=False)
     shootout = models.BooleanField(default=False)
+    homewonshootout = models.BooleanField(default=False)
     homescore = models.PositiveSmallIntegerField(null=True, blank=True)
     awayscore = models.PositiveSmallIntegerField(null=True, blank=True)
     decimalhomescore = models.DecimalField(max_digits=5, decimal_places=3, null=True, blank=True)

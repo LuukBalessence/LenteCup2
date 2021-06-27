@@ -1235,7 +1235,7 @@ def tactiekopstelling(request):
 def groeprlmatches(request):
     allgroupmatches = Match.objects.filter(stage__startswith="G").order_by("start")
     allstages = Match.Stage
-    allgoals = Goal.objects.all()
+    allgoals = Goal.objects.filter(match__in=allgroupmatches)
     resultaat = match_results(allgroupmatches, allgoals)
     groups = models.Country.Group.names
     return render(request, "euro2020/groeprlmatches.html",
@@ -1456,8 +1456,12 @@ def resultaatperspeler(opstelling, wedstrijd, thuiswedstrijd, verlenging, shooto
         started = True
     wedstrijdgestart = wedstrijd.has_started or started
     if wedstrijdgestart:
-        wedstrijdspelers = wedstrijd.players.all()
-        goals = Goal.objects.filter(match=wedstrijd, phase="1R")
+        if verlenging and wedstrijd.verlenging:
+            wedstrijdspelers = wedstrijd.players.all()
+            goals = Goal.objects.filter(match=wedstrijd, phase="1R") | Goal.objects.filter(match=wedstrijd, phase="2E")
+        else:
+            wedstrijdspelers = wedstrijd.players.filter(opstelling__verlenging=False)
+            goals = Goal.objects.filter(match=wedstrijd, phase="1R")
         if goals:
             for goal in goals:
                 # Eerst de score van de wedstrijd berekenen
@@ -1471,7 +1475,6 @@ def resultaatperspeler(opstelling, wedstrijd, thuiswedstrijd, verlenging, shooto
                     awayscore += 1
 
                 if opstelling.opgesteldespeler in wedstrijdspelers:
-                    speelt = True
                     print(str(opstelling.opgesteldespeler) + "staat opgesteld")
                     if opstelling.opgesteldespeler == goal.player:
                         if goal.phase == "1R":
@@ -1518,6 +1521,26 @@ def resultaatperspeler(opstelling, wedstrijd, thuiswedstrijd, verlenging, shooto
             opstelling.save()
         return [opstelling, "-", "-", "-", wedstrijdgestart, speelt]
 
+def resultaatperwedstrijd1(virtualmatch, phasetext, currentstage, verlenging, shootout, opslaan, iskophase):
+    # We gaan kijken of een virtualmatch in de ko fase zit.
+    # Als dat zo is en er is na 90 minuten een gelijke stand, dan gaan we de verlengingscores berekenen
+    # Als daarna nog steeds gelijk is verwerken we de shootouts
+    gameresult = resultaatperwedstrijd(virtualmatch, phasetext, currentstage, False, False, opslaan)
+    verlengen = False
+    if iskophase:
+        if gameresult[9] == gameresult[10]:
+            # We gaan verlengen
+            print("VERLENGEN!!!: " + str(virtualmatch))
+            verlengen = True
+            virtualmatch.save()
+            gameresult = resultaatperwedstrijd(virtualmatch, phasetext, currentstage, True, False, opslaan)
+            if gameresult[10] == gameresult[11]:
+                # De shootoutfase is van kracht want de stand na verlenging is nog steeds gelijk
+                # Dit doen we handmatig door een vinkje bij shooutout te zetten en aan te geven of home de shootout heeft gewonnen
+                print("SHOOTOUT!!!!: " + str(virtualmatch))
+    virtualmatch.verlenging = verlengen
+    virtualmatch.save()
+    return gameresult
 
 def resultaatperwedstrijd(virtualmatch, phasetext, currentstage, verlenging, shootout, opslaan):
     totminpuntenhome = 0
@@ -1539,7 +1562,7 @@ def resultaatperwedstrijd(virtualmatch, phasetext, currentstage, verlenging, sho
         except:
             wedstrijd = Match.objects.get(stage=currentstage, away=opstelling.opgesteldespeler.country)
             home = False
-        homeresultaat = resultaatperspeler(opstelling, wedstrijd, home, False, False, opslaan)
+        homeresultaat = resultaatperspeler(opstelling, wedstrijd, home, verlenging, shootout, opslaan)
         opstellingsinfo1.append(homeresultaat)
         if homeresultaat[1] != "-":
             if hometactiek == "Aanvallend":
@@ -1674,7 +1697,7 @@ def saveroundscores(request, league):
     #     spelerinfo = resultaatperspeler(opstelling, wedstrijd, home, wedstrijd.verlenging, wedstrijd.shootout, opslaan)
     #     opstellingsinfo.append(spelerinfo)
     for wedstrijd in allewedstrijden:
-        wedstrijdinfo = resultaatperwedstrijd(wedstrijd, phasetext, currentstage, wedstrijd.verlenging, wedstrijd.shootout, opslaan)
+        wedstrijdinfo = resultaatperwedstrijd1(wedstrijd, phasetext, currentstage, wedstrijd.verlenging, wedstrijd.shootout, opslaan, currentleague.gamephase.kophase)
         wedstrijdeninfo.append(wedstrijdinfo)
         for item in wedstrijdinfo[13]:
             opstellingsinfo2.append(item)
@@ -1768,10 +1791,14 @@ def keerpremieuit(request, league, alleenlijst):
 
 def rlkofase(request):
     error = ""
-    komatches = Match.objects.filter(stage="Q6")
+    komatches = Match.objects.filter(stage__startswith="Q").order_by("start")
     allstages = Match.Stage
+    allgoals = Goal.objects.filter(match__in=komatches)
+    resultaat = match_results(komatches, allgoals)
+    groups = models.Country.Group.names
     return render(request, "euro2020/rlkofase.html",
-                  context={"error": error, "komatches": komatches, "allstages": allstages})
+                  context={"komatches": komatches, "allstages": allstages, "groups": groups,
+                           "resultaat": resultaat})
 
 
 def kofase(request):
@@ -1779,8 +1806,7 @@ def kofase(request):
     currentuser = request.user
     currentteam = Team.objects.get(owner=currentuser)
     currentleague = currentteam.league
-    allleagueteams = Team.objects.filter(league=currentleague, eliminated=False)
-    komatches = VirtualMatch.objects.filter(stage="Q6", home__in=allleagueteams)
+    komatches = VirtualMatch.objects.filter(stage__startswith="Q").order_by("start")
     allstages = Match.Stage
     return render(request, "euro2020/kofase.html",
                   context={"error": error, "komatches": komatches, "allstages": allstages})
