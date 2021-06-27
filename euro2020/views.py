@@ -1477,11 +1477,11 @@ def resultaatperspeler(opstelling, wedstrijd, thuiswedstrijd, verlenging, shooto
                 if opstelling.opgesteldespeler in wedstrijdspelers:
                     print(str(opstelling.opgesteldespeler) + "staat opgesteld")
                     if opstelling.opgesteldespeler == goal.player:
-                        if goal.phase == "1R":
-                            if goal.type == Goal.Type.GOAL:
-                                scorepunten += 1
-                            elif goal.type == Goal.Type.PENALTY:
-                                scorepunten += 0.5
+                        # if goal.phase == "1R":
+                        if goal.type == Goal.Type.GOAL:
+                            scorepunten += 1
+                        elif goal.type == Goal.Type.PENALTY:
+                            scorepunten += 0.5
                 else:
                     print(str(opstelling.opgesteldespeler) + "staat niet opgesteld")
         if opstelling.opgesteldespeler in wedstrijdspelers:
@@ -1494,10 +1494,18 @@ def resultaatperspeler(opstelling, wedstrijd, thuiswedstrijd, verlenging, shooto
                     minpunten = 0.25
                 if opstelling.opgesteldespeler.position == "M":
                     minpunten = 0.1
-            if homescore == awayscore:
-                pluspunten += 0.1
-            if (homescore > awayscore and thuiswedstrijd) or (homescore < awayscore and not thuiswedstrijd):
-                pluspunten += 0.2
+            if wedstrijd.shootout:
+                if wedstrijd.homewonshootout:
+                    if thuiswedstrijd:
+                        pluspunten += 0.2
+                else:
+                    if not thuiswedstrijd:
+                        pluspunten += 0.2
+            else:
+                if homescore == awayscore:
+                    pluspunten += 0.1
+                if (homescore > awayscore and thuiswedstrijd) or (homescore < awayscore and not thuiswedstrijd):
+                    pluspunten += 0.2
             if opslaan:
                 opstelling.minscore = minpunten
                 opstelling.plusscore = pluspunten

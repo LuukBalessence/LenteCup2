@@ -8,6 +8,27 @@
         {% for wedstrijd, plushome, plusaway, hometactiek, awaytactiek in allewedstrijden %}
 {#            {% if wedstrijd.home.group == group %}#}
                 <table class="table" align="center">
+                {% if wedstrijd.shootout %}
+                    {% if wedstrijd.homewonshootout %}
+                        <tr>
+                            <th style="font-size: large;font: bold">
+                                {{ wedstrijd.home }} <br> WINT STRAFSCHOPPEN
+                            </th>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <th style="font-size: large;font: bold"">
+                                {{ wedstrijd.away }} <br> WINT STRAFSCHOPPEN
+                            </tr>
+                        </tr>
+                    {% endif %}
+                {% elif wedstrijd.verlenging %}
+                    <tr>
+                        <th style="font-size: large;font: bold">
+                            VERLENGING
+                        </th>
+                    </tr>
+                {% endif %}
                 <tr>
                     <th style="font-size: large;">{{ wedstrijd.home }}</th>
                     <th style="font-size: x-large;">{{ wedstrijd.homescore }}</th>
