@@ -1814,7 +1814,8 @@ def kofase(request):
     currentuser = request.user
     currentteam = Team.objects.get(owner=currentuser)
     currentleague = currentteam.league
-    komatches = VirtualMatch.objects.filter(stage__startswith="Q").order_by("start")
+    leagueteams = Team.objects.filter(league_id=currentleague)
+    komatches = VirtualMatch.objects.filter(home__in=leagueteams, stage__startswith="Q").order_by("start")
     allstages = Match.Stage
     return render(request, "euro2020/kofase.html",
                   context={"error": error, "komatches": komatches, "allstages": allstages})
