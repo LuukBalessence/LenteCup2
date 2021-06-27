@@ -17,7 +17,7 @@
         <hr>
         {% for group in groups %}
             <h4 align="center" class="title is-4">Groep: {{ group }}</h4>
-            {% for wedstrijd, e,f,g,h,i,j,k,l,m,n,o,p in allewedstrijden %}
+            {% for wedstrijd, e,f,g,h,i,j,k,l,m,n,o,p,q in allewedstrijden %}
                 {% if wedstrijd.home.group == group %}
                     <table class="table" align="center">
                     <tr>
