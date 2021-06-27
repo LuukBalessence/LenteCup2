@@ -716,7 +716,8 @@ def rejectedbidsperteam(request, league):
 
 def unassignedplayers1(league, teams):
     unassignedplayers = []
-    players = Player.objects.all()
+    countriesintournament = Country.objects.filter(eliminated=False)
+    players = Player.objects.filter(country__in=countriesintournament)
     assignedbids = Bids.objects.select_related('player').filter(team__in=list(teams.values_list()),
                                                                 assigned=True).order_by(
         '-playerbid').values()
@@ -1257,7 +1258,7 @@ def hulpbieden(request):
 
 def minplayerpositions(request, league):
     error = ""
-    allteams = Team.objects.filter(league=league)
+    allteams = Team.objects.filter(league=league, eliminated=False)
     for team in allteams:
         truebids = Bids.objects.filter(team=team, assigned=True).select_related("player")
         if len(truebids.filter(player__position="G")) < 1:
@@ -1525,6 +1526,7 @@ def resultaatperwedstrijd(virtualmatch, phasetext, currentstage, verlenging, sho
     totpluspuntenaway = 0
     totscorepuntenhome = 0
     totscorepuntenaway = 0
+    opstellingsinfo1=[]
 
     homeopstelling = Opstelling.objects.filter(team=virtualmatch.home, phase__gamephase__icontains=phasetext)
     awayopstelling = Opstelling.objects.filter(team=virtualmatch.away, phase__gamephase__icontains=phasetext)
@@ -1537,7 +1539,8 @@ def resultaatperwedstrijd(virtualmatch, phasetext, currentstage, verlenging, sho
         except:
             wedstrijd = Match.objects.get(stage=currentstage, away=opstelling.opgesteldespeler.country)
             home = False
-        homeresultaat = resultaatperspeler(opstelling, wedstrijd, home, verlenging, shootout, opslaan)
+        homeresultaat = resultaatperspeler(opstelling, wedstrijd, home, False, False, opslaan)
+        opstellingsinfo1.append(homeresultaat)
         if homeresultaat[1] != "-":
             if hometactiek == "Aanvallend":
                 totminpuntenhome = totminpuntenhome + homeresultaat[1]
@@ -1555,6 +1558,7 @@ def resultaatperwedstrijd(virtualmatch, phasetext, currentstage, verlenging, sho
             wedstrijd = Match.objects.get(stage=currentstage, away=opstelling.opgesteldespeler.country)
             home = False
         awayresultaat = resultaatperspeler(opstelling, wedstrijd, home, verlenging, shootout, opslaan)
+        opstellingsinfo1.append(awayresultaat)
         if awayresultaat[1] != "-":
             if awaytactiek == "Aanvallend":
                 totminpuntenaway = totminpuntenaway + awayresultaat[1]
@@ -1598,7 +1602,7 @@ def resultaatperwedstrijd(virtualmatch, phasetext, currentstage, verlenging, sho
     return [virtualmatch, round(totminpuntenhome, 4), round(totminpuntenaway, 4), round(totpluspuntenhome, 4),
             round(totpluspuntenaway, 4), round(totscorepuntenhome, 4)
         , round(totscorepuntenaway, 4), round(poshome, 4), round(posaway, 4), round(scorehome), round(scoreaway),
-            hometactiek, awaytactiek]
+            hometactiek, awaytactiek,opstellingsinfo1]
 
 
 def getphasetext(leaguephase):
@@ -1640,9 +1644,10 @@ def saveroundscores(request, league):
     opslaan = True
     scoring = False
     opstellingsinfo = []
+    opstellingsinfo2 = []
     wedstrijdeninfo = []
     currentleague = League.objects.get(pk=league)
-    allteams = Team.objects.filter(league_id=league)
+    allteams = Team.objects.filter(league_id=league, eliminated=False)
     phasetext = getphasetext(currentleague.gamephase)
     groups = Country.Group.labels
     if "Opstelling" in currentleague.gamephase.gamephase or "Live" in currentleague.gamephase.gamephase:
@@ -1658,22 +1663,24 @@ def saveroundscores(request, league):
         if phasetext in y[1]:
             currentstage = y[0]
     allewedstrijden = VirtualMatch.objects.filter(stage=currentstage, home__in=allteams).select_related("home")
-    teamopstellingen = Opstelling.objects.filter(team__in=allteams, phase__gamephase__icontains=phasetext)
-    for opstelling in teamopstellingen:
-        try:
-            wedstrijd = Match.objects.get(stage=currentstage, home=opstelling.opgesteldespeler.country)
-            home = True
-        except:
-            wedstrijd = Match.objects.get(stage=currentstage, away=opstelling.opgesteldespeler.country)
-            home = False
-        spelerinfo = resultaatperspeler(opstelling, wedstrijd, home, wedstrijd.verlenging, wedstrijd.shootout, opslaan)
-        opstellingsinfo.append(spelerinfo)
+    # teamopstellingen = Opstelling.objects.filter(team__in=allteams, phase__gamephase__icontains=phasetext)
+    # for opstelling in teamopstellingen:
+    #     try:
+    #         wedstrijd = Match.objects.get(stage=currentstage, home=opstelling.opgesteldespeler.country)
+    #         home = True
+    #     except:
+    #         wedstrijd = Match.objects.get(stage=currentstage, away=opstelling.opgesteldespeler.country)
+    #         home = False
+    #     spelerinfo = resultaatperspeler(opstelling, wedstrijd, home, wedstrijd.verlenging, wedstrijd.shootout, opslaan)
+    #     opstellingsinfo.append(spelerinfo)
     for wedstrijd in allewedstrijden:
         wedstrijdinfo = resultaatperwedstrijd(wedstrijd, phasetext, currentstage, wedstrijd.verlenging, wedstrijd.shootout, opslaan)
         wedstrijdeninfo.append(wedstrijdinfo)
+        for item in wedstrijdinfo[13]:
+            opstellingsinfo2.append(item)
     return render(request, "euro2020/saveroundscores.html",
                   context={"error": error, "groups": groups, "allewedstrijden": wedstrijdeninfo,
-                           "teamopstellingen": opstellingsinfo, "scoring": scoring})
+                           "teamopstellingen": opstellingsinfo2, "scoring": scoring})
 
 
 def spelersontslaan(request):
@@ -1746,6 +1753,7 @@ def keerpremieuit(request, league, alleenlijst):
         premie = (leagueteam[3] + 0.5*leagueteam[5])*basis/5/36
         teampremies.append([leagueteam[0], leagueteam[3], leagueteam[5],round(premie)])
         if alleenlijst != "True":
+            # TODO : Uitsplitsen naar fasen. Groepsfasepremie en daarna bereiken volgende ronde
             Boekhouding.objects.create(team=leagueteam[0], boekingsopmerking="Premies voor bereiken Achtse Finales", aantalbetcoins=premie)
             BoekhoudingLeague.objects.create(league=currentleague, boekingsopmerking=str(currentteam.name) + "Premie uitkering voor bereiken Achtse Finales",
                                        aantalbetcoins=premie)
