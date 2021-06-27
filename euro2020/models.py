@@ -76,6 +76,7 @@ class GamePhase(models.Model):
     allowauction = models.BooleanField(default=False)
     allowlineup = models.BooleanField(default=False)
     allowfiring = models.BooleanField(default=False)
+    kophase = models.BooleanField(default=False)
 
     def __str__(self):
         return f"{self.gamephase}"
@@ -194,6 +195,7 @@ class Match(models.Model):
     has_ended = models.BooleanField(verbose_name=_("Ended"), default=False)
     verlenging = models.BooleanField(default=False)
     shootout = models.BooleanField(default=False)
+    homewonshootout = models.BooleanField(default=False)
 
     class Meta:
         verbose_name = _("Match")
@@ -351,6 +353,7 @@ class Opstelling(models.Model):
     minscore = models.DecimalField(max_digits=4, decimal_places=2, null=True)
     plusscore = models.DecimalField(max_digits=4, decimal_places=2, null=True)
     goalscore = models.DecimalField(max_digits=4, decimal_places=2, null=True)
+    verlenging = models.BooleanField(default=False)
 
 
 class OpstellingLog(models.Model):
