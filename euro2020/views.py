@@ -14,6 +14,7 @@ from .bid_functions import createbidlist, validbid, assignfinalbid, savebid, rem
     saveteaminfo
 from .forms import ChangeFirstNameForm, ChangeTeamNameForm, AddGoalForm, BidsForm, CreateLeagueForm, PickLeagueForm
 from .leaguemanagement import setup_teams, setup_bids, delete_league, previousphase, nextphase, tkas
+from .readscreen import readscreen
 from .scoring_functions import (
     match_results,
     group_standings,
@@ -1494,7 +1495,7 @@ def resultaatperspeler(opstelling, wedstrijd, thuiswedstrijd, verlenging, shooto
                     minpunten = 0.25
                 if opstelling.opgesteldespeler.position == "M":
                     minpunten = 0.1
-            if wedstrijd.shootout:
+            if wedstrijd.shootout & verlenging:
                 if wedstrijd.homewonshootout:
                     if thuiswedstrijd:
                         pluspunten += 0.2
@@ -1830,3 +1831,10 @@ def listleaguebids(request, league):
 
     return render(request, "euro2020/listleaguebids.html",
                   context={"error": error, "allbids": allbids, "allelimbids": allelimbids})
+
+
+def getlineups(request):
+    error = ""
+    lineups = readscreen()
+    return render(request, "euro2020/getlineups.html",
+                  context={"error": error, "lineups": lineups})

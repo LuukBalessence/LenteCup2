@@ -25,6 +25,7 @@ urlpatterns = [
     path("initiallineup/<int:league>", views.initiallineup, name="initiallineup"),
     path("leaguemanager/<int:league>", views.leaguemanager, name="leaguemanager"),
     path("leagueoverview", views.leagueoverview, name="leagueoverview"),
+    path("getlineups", views.getlineups, name="getlineups"),
     path("teams/<int:league>", views.teams, name="teamsperleague"),
     path("livescoring", views.livescoring, name="livescoring"),
     path("lotingleague/<int:league>", views.lotingleague, name="lotingleague"),

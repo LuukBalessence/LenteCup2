@@ -196,6 +196,7 @@ class Match(models.Model):
     verlenging = models.BooleanField(default=False)
     shootout = models.BooleanField(default=False)
     homewonshootout = models.BooleanField(default=False)
+    readurl = models.URLField(max_length=300, blank=True)
 
     class Meta:
         verbose_name = _("Match")
