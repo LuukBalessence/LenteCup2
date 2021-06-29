@@ -5,6 +5,8 @@ import sys
 from urllib.request import urlopen
 import json
 
+from euro2020.models import Player
+
 
 def extract_match_data(url):
     # Open url and read data into string
@@ -32,11 +34,17 @@ def readscreen():
     match_data = extract_match_data(url)
     print('Home squad')
     print('----------')
+    allplayers = Player.objects.all()
     for home_player in match_data['data']['homeSquad']['lineup']:
         print(home_player['player']['name'])
+        for speler in allplayers:
+            if (speler.first_name in home_player['player']['name']) & (speler.last_name in home_player['player']['name']):
+                print(home_player['player']['name'] + " exists")
     print('')
     print('Away squad')
     print('----------')
     for away_player in match_data['data']['awaySquad']['lineup']:
-        print(away_player['player']['name'])
+        for speler in allplayers:
+            if (speler.first_name in away_player['player']['name']) & (speler.last_name in away_player['player']['name']):
+                print(away_player['player']['name'] + " exists")
     return match_data
