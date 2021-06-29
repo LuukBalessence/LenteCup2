@@ -39,6 +39,7 @@ urlpatterns = [
     path("kofase", views.kofase, name="kofase"),
     path("ontslaspelers/<int:league>/<str:alleenlijst>", views.ontslaspelers, name="ontslaspelers"),
     path("keerpremieuit/<int:league>/<str:alleenlijst>", views.keerpremieuit, name="keerpremieuit"),
+    path("keerkopremieuit/<int:league>/<str:alleenlijst>", views.keerkopremieuit, name="keerkopremieuit"),
     path("statusontslaan/<int:league>", views.statusontslaan, name="statusontslaan"),
     path("createleague", views.createleague, name="createleague"),
     path("regels", views.regels, name="regels"),

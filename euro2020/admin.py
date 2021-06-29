@@ -97,8 +97,8 @@ class VirtualMatchAdmin(admin.ModelAdmin):
 
 @admin.register(Team)
 class TeamAdmin(admin.ModelAdmin):
-    list_display = ("name", "owner", "group", "order", "betcoins", "bidbudget", "maxbidgke", "maxbiddef", "maxbidmid", "maxbidatt")
-    list_editable = ("betcoins", "group", "order")
+    list_display = ("name", "owner", "eliminated", "group", "order", "betcoins", "bidbudget", "maxbidgke", "maxbiddef", "maxbidmid", "maxbidatt")
+    list_editable = ("betcoins", "group", "order", "eliminated")
 
 
 @admin.register(models.League)

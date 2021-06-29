@@ -230,7 +230,8 @@ def myteam(request):
                                "betcoinbalance": betcoinbalance, "bidauction": bidauction, "bnumber": bnumber,
                                "bname": bname, "leaguefee": leaguefee, "leaguedraw": leaguedraw,
                                "players": listplayers, "opstelling": opstelling1, "paid": team.paid,
-                               "tactiek": tactiek, "spelersteontslaan": truebids.filter(ontslaan=True), "uitgeschakeld": uitgeschakeld})
+                               "tactiek": tactiek, "spelersteontslaan": truebids.filter(ontslaan=True),
+                               "uitgeschakeld": uitgeschakeld})
     except ObjectDoesNotExist:
         return redirect(to="changeteamname")
 
@@ -310,7 +311,8 @@ def listallbids(request):
         return render(request, 'euro2020/listallbids.html',
                       context={'countries': "", 'bids': "", 'error': error})
 
-    allteambids = Bids.objects.filter(team=currentteam, gamephase=league.gamephase, assigned=None).order_by('playerbid').reverse()
+    allteambids = Bids.objects.filter(team=currentteam, gamephase=league.gamephase, assigned=None).order_by(
+        'playerbid').reverse()
     return render(request, 'euro2020/listallbids.html',
                   context={'countries': Country.objects.all(), 'bids': allteambids, 'error': ""})
 
@@ -1427,7 +1429,9 @@ def livescoring(request):
         else:
             speelt = True
         opstellingsinfo.append([opstelling, wedstrijdgestart, speelt])
-        opstellingsinfo.sort(key=lambda x: (x[0].opgesteldespeler.position == "A", x[0].opgesteldespeler.position == "M", x[0].opgesteldespeler.position == "D", x[0].opgesteldespeler.position == "G"))
+        opstellingsinfo.sort(key=lambda x: (
+        x[0].opgesteldespeler.position == "A", x[0].opgesteldespeler.position == "M",
+        x[0].opgesteldespeler.position == "D", x[0].opgesteldespeler.position == "G"))
     for virtualmatch in allewedstrijden:
         hometactiek = Tactiek.objects.get(team=virtualmatch.home, phase__gamephase__icontains=phasetext).tactiek
         awaytactiek = Tactiek.objects.get(team=virtualmatch.away, phase__gamephase__icontains=phasetext).tactiek
@@ -1436,7 +1440,7 @@ def livescoring(request):
                                 awaytactiek])
     return render(request, "euro2020/livescoring.html",
                   context={"error": error, "groups": groups, "allewedstrijden": wedstrijdeninfo,
-                           "teamopstellingen": opstellingsinfo, "scoring": scoring, "currentleague":currentleague})
+                           "teamopstellingen": opstellingsinfo, "scoring": scoring, "currentleague": currentleague})
 
 
 def resultaatperspeler(opstelling, wedstrijd, thuiswedstrijd, verlenging, shootout, opslaan):
@@ -1557,7 +1561,7 @@ def resultaatperwedstrijd(virtualmatch, phasetext, currentstage, verlenging, sho
     totpluspuntenaway = 0
     totscorepuntenhome = 0
     totscorepuntenaway = 0
-    opstellingsinfo1=[]
+    opstellingsinfo1 = []
 
     homeopstelling = Opstelling.objects.filter(team=virtualmatch.home, phase__gamephase__icontains=phasetext)
     awayopstelling = Opstelling.objects.filter(team=virtualmatch.away, phase__gamephase__icontains=phasetext)
@@ -1633,7 +1637,7 @@ def resultaatperwedstrijd(virtualmatch, phasetext, currentstage, verlenging, sho
     return [virtualmatch, round(totminpuntenhome, 4), round(totminpuntenaway, 4), round(totpluspuntenhome, 4),
             round(totpluspuntenaway, 4), round(totscorepuntenhome, 4)
         , round(totscorepuntenaway, 4), round(poshome, 4), round(posaway, 4), round(scorehome), round(scoreaway),
-            hometactiek, awaytactiek,opstellingsinfo1]
+            hometactiek, awaytactiek, opstellingsinfo1]
 
 
 def getphasetext(leaguephase):
@@ -1704,7 +1708,6 @@ def standvoorverlenging(request, league):
                            "teamopstellingen": opstellingsinfo2, "scoring": scoring, "opslaan": opslaan})
 
 
-
 def saveroundscores(request, league):
     error = ""
     opslaan = True
@@ -1730,7 +1733,8 @@ def saveroundscores(request, league):
             currentstage = y[0]
     allewedstrijden = VirtualMatch.objects.filter(stage=currentstage, home__in=allteams).select_related("home")
     for wedstrijd in allewedstrijden:
-        wedstrijdinfo = resultaatperwedstrijd1(wedstrijd, phasetext, currentstage, wedstrijd.verlenging, wedstrijd.shootout, opslaan, currentleague.gamephase.kophase)
+        wedstrijdinfo = resultaatperwedstrijd1(wedstrijd, phasetext, currentstage, wedstrijd.verlenging,
+                                               wedstrijd.shootout, opslaan, currentleague.gamephase.kophase)
         wedstrijdeninfo.append(wedstrijdinfo)
         for item in wedstrijdinfo[13]:
             opstellingsinfo2.append(item)
@@ -1777,7 +1781,8 @@ def ontslaspelers(request, league, alleenlijst):
                 spelerteontslaan.save()
             return redirect(to="ontslaspelers", league=league, alleenlijst="True")
         else:
-            return render(request, "euro2020/ontslaspelers.html", context={"error": error, "spelersteontslaan": spelersteontslaan})
+            return render(request, "euro2020/ontslaspelers.html",
+                          context={"error": error, "spelersteontslaan": spelersteontslaan})
 
 
 def statusontslaan(request, league):
@@ -1801,25 +1806,52 @@ def statusontslaan(request, league):
 def keerpremieuit(request, league, alleenlijst):
     error = ""
     teampremies = []
-    currentleague=League.objects.get(pk=league)
+    currentleague = League.objects.get(pk=league)
     leagueinfo = groepstandcalc(currentleague)
     basis = currentleague.premiebasis
     for leagueteam in leagueinfo:
         currentteam = leagueteam[0]
-        premie = (leagueteam[3] + 0.5*leagueteam[5])*basis/5/36
-        teampremies.append([leagueteam[0], leagueteam[3], leagueteam[5],round(premie)])
+        premie = (leagueteam[3] + 0.5 * leagueteam[5]) * basis / 5 / 36
+        teampremies.append([leagueteam[0], leagueteam[3], leagueteam[5], round(premie)])
         if alleenlijst != "True":
             # TODO : Uitsplitsen naar fasen. Groepsfasepremie en daarna bereiken volgende ronde
-            Boekhouding.objects.create(team=leagueteam[0], boekingsopmerking="Premies voor bereiken Achtse Finales", aantalbetcoins=premie)
-            BoekhoudingLeague.objects.create(league=currentleague, boekingsopmerking=str(currentteam.name) + "Premie uitkering voor bereiken Achtse Finales",
+            Boekhouding.objects.create(team=leagueteam[0], boekingsopmerking="Premies voor bereiken Achtse Finales",
                                        aantalbetcoins=premie)
-            currentleague.leaguebalance=currentleague.leaguebalance - premie
+            BoekhoudingLeague.objects.create(league=currentleague, boekingsopmerking=str(
+                currentteam.name) + "Premie uitkering voor bereiken Achtse Finales",
+                                             aantalbetcoins=premie)
+            currentleague.leaguebalance = currentleague.leaguebalance - premie
             currentleague.save()
             currentteam.betcoins = currentteam.betcoins + premie
             currentteam.save()
 
     return render(request, "euro2020/keerpremieuit.html",
-                      context={"error": error, "teampremies": teampremies})
+                  context={"error": error, "teampremies": teampremies})
+
+
+def keerkopremieuit(request, league, alleenlijst):
+    error = ""
+    teampremies = []
+    currentleague = League.objects.get(pk=league)
+    teamsingame = Team.objects.filter(eliminated=False, league_id=league)
+    basis = currentleague.premiebasis
+    premie = basis / len(teamsingame) / 5
+    for leagueteam in teamsingame:
+        teampremies.append([leagueteam, premie])
+        if alleenlijst != "True":
+            Boekhouding.objects.create(team=leagueteam,
+                                       boekingsopmerking="Premies voor bereiken Laatste " + str(len(teamsingame)),
+                                       aantalbetcoins=premie)
+            BoekhoudingLeague.objects.create(league=currentleague, boekingsopmerking=str(
+                leagueteam.name) + "Premie uitkering voor bereiken Laatste " + str(len(teamsingame)),
+                                             aantalbetcoins=premie)
+            currentleague.leaguebalance = currentleague.leaguebalance - premie
+            currentleague.save()
+            leagueteam.betcoins = leagueteam.betcoins + premie
+            leagueteam.save()
+
+    return render(request, "euro2020/keerpremieuit.html",
+                  context={"error": error, "teampremies": teampremies})
 
 
 def rlkofase(request):

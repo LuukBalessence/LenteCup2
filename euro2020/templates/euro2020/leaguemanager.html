@@ -84,6 +84,16 @@
                 </tr>
                 <tr>
                     <th style="text-align:center">
+                        <a href="{% url 'keerkopremieuit' league.pk True%}" class="button is-primary">Bekijk KO fase premies</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th style="text-align:center">
+                        <a href="{% url 'keerkopremieuit' league.pk False%}" class="button is-primary">Effectueer KO Fase uitkeringen</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th style="text-align:center">
                         <a href="{% url 'setupleaguebids' league.pk %}" class="button is-primary">Setup bids</a>
                     </th>
                 </tr>
