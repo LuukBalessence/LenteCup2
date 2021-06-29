@@ -33,6 +33,7 @@ urlpatterns = [
     path("setupteams/<int:league>", views.setupteams, name="setupleagueteams"),
     path("setupbids/<int:league>", views.setupbids, name="setupleaguebids"),
     path("saveroundscores/<int:league>", views.saveroundscores, name="saveroundscores"),
+    path("standvoorverlenging/<int:league>", views.standvoorverlenging, name="standvoorverlenging"),
     path("deleteleaguedata/<int:league>", views.deleteleaguedata, name="deleteleaguedata"),
     path("rlkofase", views.rlkofase, name="rlkofase"),
     path("kofase", views.kofase, name="kofase"),
