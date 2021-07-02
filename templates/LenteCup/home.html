@@ -45,6 +45,44 @@
             {% endif %}
             <tr>
                 <th style="text-align:center;font-size: xx-large">
+                    Luka Abierto 2021
+                </th>
+            </tr>
+            {% if not luukopen2021active %}
+                <tr>
+                    <th style="text-align:center">
+                        <a href=/LuukOpen><input style="width:250px" type="submit" class="button is-black"
+                                                 value="Luka Abierto 2021 (próximamente)" disabled/></a>
+                    </th>
+                </tr>
+            {% else %}
+                {% if userluukopen2021 %}
+                    <tr>
+                        <th style="text-align:center">
+                            <a href=/LuukOpen><input style="width:250px" type="submit" class="button is-primary"
+                                                     value="Luka Abierto 2021"/></a>
+                        </th>
+                    </tr>
+                {% else %}
+                    {% if luukopen2021openforsubscribing %}
+                        <tr>
+                            <th style="text-align:center">
+                                <a href=/LuukOpen><input style="width:250px" type="submit" class="button is-info"
+                                                         value="Aanmelden Luka Abierto 2021"/></a>
+                            </th>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <th style="text-align:center">
+                                <a href=/euro2020><input style="width:250px" type="submit" class="button is-black"
+                                                         value="Inschrijving gesloten" disabled/></a>
+                            </th>
+                        </tr>
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+            <tr>
+                <th style="text-align:center;font-size: xx-large">
                     EURO 2020
                 </th>
             </tr>

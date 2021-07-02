@@ -10,18 +10,23 @@ import pytz
 def home(request):
     userlentecup = False
     usereuro2020 = False
+    userluukopen2021 = False
     euro2020 = Apps.objects.get(appname="EURO 2020")
+    luukopen2021 = Apps.objects.get(appname="Luuk Open 2021")
     currentuser = request.user
     if currentuser.is_authenticated:
         if AppAuthorisation.objects.filter(user=currentuser, app__appname="LenteCup 2021").exists():
             userlentecup = True
         if AppAuthorisation.objects.filter(user=currentuser, app__appname="EURO 2020").exists():
             usereuro2020 = True
+        if AppAuthorisation.objects.filter(user=currentuser, app__appname="Luuk Open 2021").exists():
+            userluukopen2021 = True
 
     return render(request=request, template_name="LenteCup/home.html",
-                  context={"userlentecup": userlentecup, "usereuro2020": usereuro2020,
+                  context={"userlentecup": userlentecup, "usereuro2020": usereuro2020, "userluukopen2021": userluukopen2021,
                            "euro2020active": euro2020.active,
-                           "euro2020openforsubscribing": euro2020.openforsubscribing})
+                           "euro2020openforsubscribing": euro2020.openforsubscribing, "luukopen2021active": luukopen2021.active,
+                           "luukopen2021openforsubscribing": luukopen2021.openforsubscribing})
 
 
 def explain(request):

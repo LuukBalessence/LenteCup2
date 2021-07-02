@@ -12,21 +12,21 @@
         {% endif %}
         <table class="table" align="center">
             {% for stage in allstages %}
-                {% if stage == "Q6" %}
-                    <tr>
-                        <th style="font-size: large">{{ stage.label }}</th>
-                    </tr>
-                    <tr>
-                        <th>Wedstrijddatum</th>
-                        <th>Thuis</th>
-                        <th>Uit</th>
-                        <th>:</th>
-                        <th>Stand</th>
-                        <th></th>
-                        <th></th>
-                        <th>Opm.</th>
-                    </tr>
-                    {% for match in komatches %}
+                <tr>
+                    <th style="font-size: large">{{ stage.1 }}</th>
+                </tr>
+                <tr>
+                    <th>Wedstrijddatum</th>
+                    <th>Thuis</th>
+                    <th>Uit</th>
+                    <th>:</th>
+                    <th>Stand</th>
+                    <th></th>
+                    <th></th>
+                    <th>Opm.</th>
+                </tr>
+                {% for match in komatches %}
+                    {% if match.stage == stage.0 %}
                         <tr>
                             <td>
                                 {{ match.start }}
@@ -72,8 +72,8 @@
                                 <td>gestart</td>
                             {% endif %}
                         </tr>
-                    {% endfor %}
-                {% endif %}
+                    {% endif %}
+                {% endfor %}
             {% endfor %}
         </table>
         <table class="table" align="center">

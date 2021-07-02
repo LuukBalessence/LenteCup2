@@ -1458,11 +1458,10 @@ def resultaatperspeler(opstelling, wedstrijd, thuiswedstrijd, verlenging, shooto
         started = True
     wedstrijdgestart = wedstrijd.has_started or started
     if wedstrijdgestart:
+        wedstrijdspelers = wedstrijd.players.all()
         if verlenging and wedstrijd.verlenging:
-            wedstrijdspelers = wedstrijd.players.all()
             goals = Goal.objects.filter(match=wedstrijd, phase="1R") | Goal.objects.filter(match=wedstrijd, phase="2E")
         else:
-            wedstrijdspelers = wedstrijd.players.filter(opstelling__verlenging=False)
             goals = Goal.objects.filter(match=wedstrijd, phase="1R")
         if goals:
             for goal in goals:
@@ -1477,7 +1476,6 @@ def resultaatperspeler(opstelling, wedstrijd, thuiswedstrijd, verlenging, shooto
                     awayscore += 1
 
                 if opstelling.opgesteldespeler in wedstrijdspelers:
-                    print(str(opstelling.opgesteldespeler) + "staat opgesteld")
                     if opstelling.opgesteldespeler == goal.player:
                         # if goal.phase == "1R":
                         if goal.type == Goal.Type.GOAL:
@@ -1485,10 +1483,22 @@ def resultaatperspeler(opstelling, wedstrijd, thuiswedstrijd, verlenging, shooto
                         elif goal.type == Goal.Type.PENALTY:
                             scorepunten += 0.5
                 else:
-                    print(str(opstelling.opgesteldespeler) + "staat niet opgesteld")
-        if opstelling.opgesteldespeler in wedstrijdspelers:
+                    print(str(opstelling.opgesteldespeler) + "staat niet opgesteld 1")
+
+        # Als de speler niet staat opgesteld of als een speler in de verlenging is opgesteld, maar de virtuele match is niet in verlenging dan speelt deze speler niet
+        # Anders speelt de speler wel
+        if (not opstelling.opgesteldespeler in wedstrijdspelers) or ((opstelling.opgesteldespeler in wedstrijdspelers) & ((opstelling.verlenging) & (verlenging == False))):
+            if opslaan:
+                opstelling.minscore = None
+                opstelling.plusscore = None
+                opstelling.goalscore = None
+                opstelling.save()
+            speelt = False
+            print(str(opstelling.opgesteldespeler) + "staat niet opgesteld 2")
+            return [opstelling, "-", "-", "-", wedstrijdgestart, speelt]
+        else:
             speelt = True
-            print(str(opstelling.opgesteldespeler) + "staat opgesteld")
+            print(str(opstelling.opgesteldespeler) + "staat opgesteld 1")
             if (thuiswedstrijd and awayscore == 0) or (not thuiswedstrijd and homescore == 0):
                 if opstelling.opgesteldespeler.position == "G":
                     minpunten = 1.5
@@ -1514,15 +1524,6 @@ def resultaatperspeler(opstelling, wedstrijd, thuiswedstrijd, verlenging, shooto
                 opstelling.goalscore = scorepunten
                 opstelling.save()
             return [opstelling, minpunten, pluspunten, scorepunten, wedstrijdgestart, speelt]
-        else:
-            if opslaan:
-                opstelling.minscore = None
-                opstelling.plusscore = None
-                opstelling.goalscore = None
-                opstelling.save()
-            speelt = False
-            print(str(opstelling.opgesteldespeler) + "staat niet opgesteld")
-            return [opstelling, "-", "-", "-", wedstrijdgestart, speelt]
     else:
         if opslaan:
             opstelling.minscore = None
@@ -1814,7 +1815,6 @@ def keerpremieuit(request, league, alleenlijst):
         premie = (leagueteam[3] + 0.5 * leagueteam[5]) * basis / 5 / 36
         teampremies.append([leagueteam[0], leagueteam[3], leagueteam[5], round(premie)])
         if alleenlijst != "True":
-            # TODO : Uitsplitsen naar fasen. Groepsfasepremie en daarna bereiken volgende ronde
             Boekhouding.objects.create(team=leagueteam[0], boekingsopmerking="Premies voor bereiken Achtse Finales",
                                        aantalbetcoins=premie)
             BoekhoudingLeague.objects.create(league=currentleague, boekingsopmerking=str(
@@ -1853,7 +1853,9 @@ def keerkopremieuit(request, league, alleenlijst):
     return render(request, "euro2020/keerpremieuit.html",
                   context={"error": error, "teampremies": teampremies})
 
-
+# TODO order op 1 zetten na eerste wedstrijd
+# TODO Marcus Berg foutje verlenging, maar toch opgesteld
+# TODO ko stand naar fase indelen
 def rlkofase(request):
     error = ""
     komatches = Match.objects.filter(stage__startswith="Q").order_by("start")
@@ -1873,7 +1875,8 @@ def kofase(request):
     currentleague = currentteam.league
     leagueteams = Team.objects.filter(league_id=currentleague)
     komatches = VirtualMatch.objects.filter(home__in=leagueteams, stage__startswith="Q").order_by("start")
-    allstages = Match.Stage
+    allstages = Match.Stage.choices
+    allstages = [k for k in allstages if 'Q' in k[0]]
     return render(request, "euro2020/kofase.html",
                   context={"error": error, "komatches": komatches, "allstages": allstages})
 
