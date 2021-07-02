@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}VEILING VERLOOP PER TOERNOOIFASE{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        {% if error %}
+            {{ error }}
+        {% else %}
+            <table class="table" align="center">
+                <form action="" method="post">{% csrf_token %}
+                    <tr>
+                        <th>
+                            <div class="control has-icons-left">
+                                <div class="select is-primary">
+                                    <select name="gamephase" class="input is-primary"
+                                            style="width: 300px; text-align:right"
+                                            id="id_gamephase">
+                                        <option selected>Kies Veilingfase</option>
+                                        {% for phase1 in gamephases %}
+                                            <option value="{{ phase1.pk }}">{{ phase1 }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    <span class="icon is-left is-small">
+                                        <i class="far fa-lightbulb" style="font-size:20px;color:black"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th style="text-align:center">
+                            <input style="width:250px" type="submit" class="button is-primary"
+                                   name="listauction" value="Laat veilingverloop zien"/>
+                        </th>
+                    </tr>
+                </form>
+            </table>
+        {% endif %}
+    {% endif %}
+{% endblock %}

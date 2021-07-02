@@ -21,17 +21,21 @@
                     <th style="background-color: #00d1b2;color: white">{{ team.betcoins }}</th>
                     <th style="background-color: #00d1b2;color: white">Reden afwijzing</th>
                 </tr>
-                    {% for bid in bids %}
-                        {% if bid.team_id == team.id %}
-                        <tr>
-                            <td>{{ bid.gamephase }}</td>
-                            <td>{{ bid.player.first_name }} {{ bid.player.last_name }}</td>
-                            <td>{{ bid.player.country.nlname }}</td>
-                            <td>{{ bid.player.position }}</td>
-                            <td>{{ bid.playerbid }}</td>
-                            <td>{{ bid.bidcomment }}</td>
-                        </tr>
-                        {% endif %}
+                    {% for phase in phases %}
+                        {% for bid in bids %}
+                            {% if phase == bid.gamephase %}
+                                {% if bid.team_id == team.id %}
+                                <tr>
+                                    <td>{{ bid.gamephase }}</td>
+                                    <td>{{ bid.player.first_name }} {{ bid.player.last_name }}</td>
+                                    <td>{{ bid.player.country.nlname }}</td>
+                                    <td>{{ bid.player.position }}</td>
+                                    <td>{{ bid.playerbid }}</td>
+                                    <td>{{ bid.bidcomment }}</td>
+                                </tr>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
                     {% endfor %}
                 {% endfor %}
             </table>

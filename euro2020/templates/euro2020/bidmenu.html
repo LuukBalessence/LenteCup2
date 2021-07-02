@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}BIEDINGSMENU{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        {% if not bids %}
+            <table class="table" align="center">
+                <tr>
+                    <th>
+                        <div class="notification is-info" ALIGN="center">
+                            <button class="delete"></button>
+                            Er zijn nog geen biedingen
+                        </div>
+                    </th>
+                </tr>
+            </table>
+        {% else %}
+            <table class="table" align="center">
+                <tr>
+                    <th style="text-align:center;width: 300px">
+                        <a href="{% url 'bidoverview' %}"><input style="width:250px" type="submit"
+                                                                              class="button is-primary"
+                                                                              value="Doe biedingen"/></a>
+                    </th>
+                </tr>
+                <tr>
+                    <th style="text-align:center">
+                        <a href="{% url 'assignedbidsperteam' league.pk %}"><input style="width:250px" type="submit"
+                                                                                   class="button is-primary"
+                                                                                   value="Toegewezen biedingen per fase"/></a>
+                    </th>
+                </tr>
+                <tr>
+                    <th style="text-align:center">
+                        <a href="{% url 'rejectedbidsperteam' league.pk %}"><input style="width:250px" type="submit"
+                                                                                   class="button is-primary"
+                                                                                   value="Afgewezen biedingen per team"/></a>
+                    </th>
+                </tr>
+                <tr>
+                    <th style="text-align:center">
+                        <a href="{% url 'auctionoverview' %}"><input style="width:250px" type="submit"
+                                                                                   class="button is-primary"
+                                                                                   value="Veilingoverzicht per fase"/></a>
+                    </th>
+                </tr>
+                <tr>
+                    <th style="text-align:center">
+                        <a href="{% url 'unassignedplayersperleague' league.pk %}"><input style="width:250px"
+                                                                                          type="submit"
+                                                                                          class="button is-primary"
+                                                                                          value="Spelers zonder ploeg"/></a>
+                    </th>
+                </tr>
+            </table>
+        {% endif %}
+        <table class="table" align="center">
+            <tr>
+                <th style="text-align:center">
+                    <a href=euro2020><input style="width:250px" type="submit" class="button is-primary"
+                                            value="Terug naar EURO2020"/></a>
+                </th>
+            </tr>
+        </table>
+    {% endif %}
+{% endblock %}

@@ -438,6 +438,51 @@ def createleaguematches(request, league):
     return render(request=request, template_name="euro2020/createleaguematches.html", context={"error": error})
 
 
+def listauction(request):
+    error = ""
+    manager = request.user
+    currentteam = Team.objects.get(owner=manager)
+    currentleague = League.objects.get(pk=currentteam.league_id)
+    teams = Team.objects.filter(league=currentleague).values()
+    bids = Bids.objects.select_related('player').filter(team__in=list(teams.values_list()),
+                                                        bidcomment__icontains="Toegewezen").order_by("-playerbid")
+    allbids = Bids.objects.select_related('player').filter(team__in=list(teams.values_list())).order_by("-playerbid")
+    gamephases = GamePhase.objects.filter(allowbidding=True).order_by("-gamephase")
+    return render(request, 'euro2020/auctionoverview.html',
+                  context={'error': error, 'teams': teams, 'bids': bids,  'allbids': allbids, 'gamephases': gamephases})
+
+
+def auctionoverview(request):
+    error = ""
+    gamephases = GamePhase.objects.filter(allowbidding=True).order_by("-gamephase")
+    manager = request.user
+    currentteam = Team.objects.get(owner=manager)
+    currentleague = League.objects.get(pk=currentteam.league_id)
+    teams = Team.objects.filter(league=currentleague).values()
+    if request.method == 'POST':
+        if request.POST.get("listauction"):
+            auctionphase = GamePhase.objects.get(pk=request.POST['gamephase'])
+            bids = Bids.objects.select_related('player').filter(team__in=list(teams.values_list()),
+                                                                bidcomment__icontains="Toegewezen", gamephase=auctionphase.pk).order_by(
+                "-playerbid")
+            allbids = Bids.objects.select_related('player').filter(team__in=list(teams.values_list()), gamephase=auctionphase.pk).order_by(
+                "-playerbid")
+        return render(request, 'euro2020/listauction.html',
+                      context={'error': error, 'gamephase': auctionphase, "allbids": allbids, "bids": bids})
+
+    return render(request, 'euro2020/auctionoverview.html',
+                  context={'error': error, 'gamephases': gamephases})
+
+
+def bidmenu(request):
+    manager = request.user
+    teamdata = Team.objects.get(owner=manager)
+    league = League.objects.get(leaguename=teamdata.league)
+    bids = Bids.objects.all()
+    return render(request, template_name="euro2020/bidmenu.html",
+                  context={"league": league, "bids": bids})
+
+
 def bidoverview(request):
     league = ""
     disabled = ""
@@ -709,12 +754,18 @@ def assignedbidsperteam(request, league):
 
 
 def rejectedbidsperteam(request, league):
+    donephases = []
     currentleague = League.objects.get(pk=league)
+    currentphase = currentleague.gamephase
+    gamephases = GamePhase.objects.filter(allowbidding=True).order_by("-gamephase")
+    for checkphase in gamephases:
+        if str(checkphase) < str(currentphase):
+            donephases.append(checkphase)
     teams = Team.objects.filter(league=currentleague).values()
     bids = Bids.objects.select_related('player').filter(team__in=list(teams.values_list()), assigned=False).order_by(
         '-gamephase', "-playerbid")
     return render(request, 'euro2020/rejectedbidsperteam.html',
-                  context={'league': currentleague.leaguename, 'teams': teams, 'bids': bids})
+                  context={'league': currentleague.leaguename, 'teams': teams, 'bids': bids, "phases": donephases})
 
 
 def unassignedplayers1(league, teams):
