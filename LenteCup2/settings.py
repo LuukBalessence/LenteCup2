@@ -35,7 +35,6 @@ INSTALLED_APPS = [
     "common",
     "LenteCup2",
     "euro2020",
-    "LuukOpen",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

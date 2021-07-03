@@ -110,7 +110,7 @@ class Team(models.Model):
     owner = models.OneToOneField(User, on_delete=models.CASCADE, related_name='team')
     league = models.ForeignKey(League, on_delete=models.CASCADE, related_name="team", null=True, blank=True)
     betcoins = models.PositiveSmallIntegerField(default=0,
-                                                validators=([MinValueValidator(0), MaxValueValidator(2000)])
+                                                validators=([MinValueValidator(0), MaxValueValidator(30000)])
                                                 )
     bidbudget = models.PositiveSmallIntegerField(default=0,
                                                  validators=([MinValueValidator(0), MaxValueValidator(2000)])
