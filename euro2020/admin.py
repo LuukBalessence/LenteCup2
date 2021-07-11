@@ -47,8 +47,9 @@ class MatchAdmin(admin.ModelAdmin):
         "location",
         "has_started",
         "has_ended",
+        "koreference"
     )
-    list_editable = ("has_started", "has_ended")
+    list_editable = ("has_started", "has_ended", "koreference")
 
     def add_view(self, request, form_url='', extra_context=None):
         # when we add a match, we don't show the players because we don't know the countries yet
@@ -81,6 +82,7 @@ class VirtualMatchAdmin(admin.ModelAdmin):
         "away",
         "has_started",
         "has_ended",
+        "koreference",
         "homescore",
         "awayscore",
         "minusdecimalhomescore",
@@ -91,7 +93,7 @@ class VirtualMatchAdmin(admin.ModelAdmin):
         "decimalawaygoalscore"
     )
     list_editable = (
-    "homescore", "awayscore", "minusdecimalhomescore", "minusdecimalawayscore", "decimalhomescore", "decimalawayscore", "decimalhomegoalscore", "decimalawaygoalscore",
+    "homescore", "awayscore", "koreference", "minusdecimalhomescore", "minusdecimalawayscore", "decimalhomescore", "decimalawayscore", "decimalhomegoalscore", "decimalawaygoalscore",
     "has_started", "has_ended")
 
 

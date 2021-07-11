@@ -1707,8 +1707,8 @@ def getphasetext(leaguephase):
         phasetext = "Kwart"
     if leaguephase.gamephase.__contains__("Halve"):
         phasetext = "Halve"
-    if leaguephase.gamephase.__contains__("Grand Finale"):
-        phasetext = "Grande Finale"
+    if leaguephase.gamephase.__contains__("Grand"):
+        phasetext = "Grand"
     return phasetext
 
 
@@ -1948,3 +1948,13 @@ def getlineups(request):
     lineups = readscreen()
     return render(request, "euro2020/getlineups.html",
                   context={"error": error, "lineups": lineups})
+
+
+def koscheme(request):
+    error = ""
+    manager = request.user
+    currentteam = Team.objects.get(owner=manager)
+    allleagueteams = Team.objects.filter(league_id=currentteam.league_id, eliminated=False)
+    komatches = VirtualMatch.objects.filter(koreference__icontains="F", home__in=allleagueteams)
+    return render(request, "euro2020/koscheme.html",
+                  context={"error": error, "komatches": komatches})

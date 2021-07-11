@@ -1,0 +1,359 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}KO SCHEMA{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        <table class="table" ALIGN="center">
+            <tr>
+                <th>Achtste Finales</th>
+                <th>Kwart Finales</th>
+                <th>Halve Finales</th>
+                <th>Finale</th>
+                <th>Halve Finales</th>
+                <th>Kwart Finales</th>
+                <th>Achtste Finales</th>
+            </tr>
+            <tr>
+                <th>
+                    <div class="button is-primary is-fullwidth" ALIGN="center">
+                        {% for ko in komatches %}
+                            {% if ko.koreference == "AF1" %}
+                                {{ ko.home }}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th>
+                    <div class="button is-primary is-fullwidth" ALIGN="center">
+                        {% for ko in komatches %}
+                            {% if ko.koreference == "AF5" %}
+                                {{ ko.home }}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <th></th>
+                <th>
+                    <div class="button is-info is-fullwidth" ALIGN="center">
+                        {% for ko in komatches %}
+                            {% if ko.koreference == "KF1" %}
+                                {{ ko.home }}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th><div class="button is-info is-fullwidth" ALIGN="center">
+                        {% for ko in komatches %}
+                            {% if ko.koreference == "KF3" %}
+                                {{ ko.home }}
+                            {% endif %}
+                        {% endfor %}
+                    </div></th>
+                <th></th>
+            </tr>
+            <tr>
+                <th>
+                    <div class="button is-primary is-fullwidth" ALIGN="center">
+                        {% for ko in komatches %}
+                            {% if ko.koreference == "AF1" %}
+                                {{ ko.away }}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th><div class="button is-primary is-fullwidth" ALIGN="center">
+                        {% for ko in komatches %}
+                            {% if ko.koreference == "AF5" %}
+                                {{ ko.away }}
+                            {% endif %}
+                        {% endfor %}
+                    </div></th>
+            </tr>
+            <tr>
+                <th></th>
+                <th></th>
+                <th><div class="button is-warning is-fullwidth" ALIGN="center">
+                        {% for ko in komatches %}
+                            {% if ko.koreference == "HF1" %}
+                                {{ ko.home }}
+                            {% endif %}
+                        {% endfor %}
+                    </div></th>
+                <th></th>
+                <th><div class="button is-warning is-fullwidth" ALIGN="center">
+                        {% for ko in komatches %}
+                            {% if ko.koreference == "HF2" %}
+                                {{ ko.home }}
+                            {% endif %}
+                        {% endfor %}
+                    </div></th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+                <th>
+                    <div class="button is-primary is-fullwidth" ALIGN="center">
+                        {% for ko in komatches %}
+                            {% if ko.koreference == "AF2" %}
+                                {{ ko.home }}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th><div class="button is-primary is-fullwidth" ALIGN="center">
+                        {% for ko in komatches %}
+                            {% if ko.koreference == "AF6" %}
+                                {{ ko.home }}
+                            {% endif %}
+                        {% endfor %}
+                    </div></th>
+            </tr>
+            <tr>
+                <th></th>
+                <th>
+                    <div class="button is-info is-fullwidth" ALIGN="center">
+                        {% for ko in komatches %}
+                            {% if ko.koreference == "KF1" %}
+                                {{ ko.away }}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </th>
+                <th></th>
+                <th><div class="button is-danger is-fullwidth" ALIGN="center">
+                        {% for ko in komatches %}
+                            {% if ko.koreference == "GF1" %}
+                                {{ ko.home }}
+                            {% endif %}
+                        {% endfor %}
+                    </div></th>
+                <th></th>
+                <th><div class="button is-info is-fullwidth" ALIGN="center">
+                        {% for ko in komatches %}
+                            {% if ko.koreference == "KF3" %}
+                                {{ ko.away }}
+                            {% endif %}
+                        {% endfor %}
+                    </div></th>
+                <th></th>
+            </tr>
+            <tr>
+                <th>
+                    <div class="button is-primary is-fullwidth" ALIGN="center">
+                        {% for ko in komatches %}
+                            {% if ko.koreference == "KF1" %}
+                                {{ ko.away }}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th><div class="button is-primary is-fullwidth" ALIGN="center">
+                        {% for ko in komatches %}
+                            {% if ko.koreference == "AF6" %}
+                                {{ ko.away }}
+                            {% endif %}
+                        {% endfor %}
+                    </div></th>
+            </tr>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th><div class="button is-black is-fullwidth" ALIGN="center">
+                        WINNER
+                    </div></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+                <th>
+                    <div class="button is-primary is-fullwidth" ALIGN="center">
+                        {% for ko in komatches %}
+                            {% if ko.koreference == "AF3" %}
+                                {{ ko.home }}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th><div class="button is-primary is-fullwidth" ALIGN="center">
+                        {% for ko in komatches %}
+                            {% if ko.koreference == "AF7" %}
+                                {{ ko.home }}
+                            {% endif %}
+                        {% endfor %}
+                    </div></th>
+            </tr>
+            <tr>
+                <th></th>
+                <th><div class="button is-info is-fullwidth" ALIGN="center">
+                        {% for ko in komatches %}
+                            {% if ko.koreference == "KF2" %}
+                                {{ ko.home }}
+                            {% endif %}
+                        {% endfor %}
+                    </div></th>
+                <th></th>
+                <th><div class="button is-danger is-fullwidth" ALIGN="center">
+                        {% for ko in komatches %}
+                            {% if ko.koreference == "GF1" %}
+                                {{ ko.away }}
+                            {% endif %}
+                        {% endfor %}
+                    </div></th>
+                <th></th>
+                <th><div class="button is-info is-fullwidth" ALIGN="center">
+                        {% for ko in komatches %}
+                            {% if ko.koreference == "KF4" %}
+                                {{ ko.home }}
+                            {% endif %}
+                        {% endfor %}
+                    </div></th>
+                <th></th>
+            </tr>
+            <tr>
+                <th>
+                    <div class="button is-primary is-fullwidth" ALIGN="center">
+                        {% for ko in komatches %}
+                            {% if ko.koreference == "AF3" %}
+                                {{ ko.away }}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th><div class="button is-primary is-fullwidth" ALIGN="center">
+                        {% for ko in komatches %}
+                            {% if ko.koreference == "AF7" %}
+                                {{ ko.home }}
+                            {% endif %}
+                        {% endfor %}
+                    </div></th>
+            </tr>
+            <tr>
+                <th></th>
+                <th></th>
+                <th><div class="button is-warning is-fullwidth" ALIGN="center">
+                        {% for ko in komatches %}
+                            {% if ko.koreference == "HF1" %}
+                                {{ ko.away }}
+                            {% endif %}
+                        {% endfor %}
+                    </div></th>
+                <th></th>
+                <th><div class="button is-warning is-fullwidth" ALIGN="center">
+                        {% for ko in komatches %}
+                            {% if ko.koreference == "HF2" %}
+                                {{ ko.away }}
+                            {% endif %}
+                        {% endfor %}
+                    </div></th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+                <th>
+                    <div class="button is-primary is-fullwidth" ALIGN="center">
+                        {% for ko in komatches %}
+                            {% if ko.koreference == "AF4" %}
+                                {{ ko.home }}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th><div class="button is-primary is-fullwidth" ALIGN="center">
+                        {% for ko in komatches %}
+                            {% if ko.koreference == "AF8" %}
+                                {{ ko.home }}
+                            {% endif %}
+                        {% endfor %}
+                    </div></th>
+            </tr>
+            <tr>
+                <th></th>
+                <th><div class="button is-info is-fullwidth" ALIGN="center">
+                        {% for ko in komatches %}
+                            {% if ko.koreference == "KF2" %}
+                                {{ ko.away }}
+                            {% endif %}
+                        {% endfor %}
+                    </div></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th><div class="button is-info is-fullwidth" ALIGN="center">
+                        {% for ko in komatches %}
+                            {% if ko.koreference == "KF4" %}
+                                {{ ko.away }}
+                            {% endif %}
+                        {% endfor %}
+                    </div></th>
+                <th></th>
+            </tr>
+            <tr>
+                <th>
+                    <div class="button is-primary is-fullwidth" ALIGN="center">
+                        {% for ko in komatches %}
+                            {% if ko.koreference == "AF4" %}
+                                {{ ko.away }}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th><div class="button is-primary is-fullwidth" ALIGN="center">
+                        {% for ko in komatches %}
+                            {% if ko.koreference == "AF8" %}
+                                {{ ko.away }}
+                            {% endif %}
+                        {% endfor %}
+                    </div></th>
+            </tr>
+        </table>
+    {% endif %}
+{% endblock %}
+{% block helptext %}
+{% endblock helptext %}

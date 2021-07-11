@@ -197,6 +197,7 @@ class Match(models.Model):
     shootout = models.BooleanField(default=False)
     homewonshootout = models.BooleanField(default=False)
     readurl = models.URLField(max_length=300, blank=True)
+    koreference = models.CharField(max_length=4, default="", blank=True)
 
     class Meta:
         verbose_name = _("Match")
@@ -236,6 +237,7 @@ class VirtualMatch(models.Model):
     has_ended = models.BooleanField(verbose_name=_("Afgelopen"), default=False)
     verlenging = models.BooleanField(default=False)
     shootout = models.BooleanField(default=False)
+    koreference = models.CharField(max_length=4, default="", blank=True)
     homewonshootout = models.BooleanField(default=False)
     homescore = models.PositiveSmallIntegerField(null=True, blank=True)
     awayscore = models.PositiveSmallIntegerField(null=True, blank=True)

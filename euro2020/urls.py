@@ -17,6 +17,7 @@ urlpatterns = [
     path("listauction", views.listauction, name="listauction"),
     path("bidoverview", views.bidoverview, name="bidoverview"),
     path("bidmenu", views.bidmenu, name="bidmenu"),
+    path("koscheme", views.koscheme, name="koscheme"),
     path("listallbids", views.listallbids, name="listallbids"),
     path("bids/<str:country_name>", views.bids, name="bidspercountry"),
     path("assignedbidsperteam/<int:league>", views.assignedbidsperteam, name="assignedbidsperteam"),
