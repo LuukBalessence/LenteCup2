@@ -1,4 +1,5 @@
 {% extends  'base.html' %}
+{% load static %}
 {% block title %}
     <table class="table" ALIGN="center">
         <tr>
@@ -30,29 +31,17 @@
                                                     value="Uitloggen"/></a>
                 </th>
             </tr>
-            {% if userlentecup %}
-                <tr>
-                    <th style="text-align:center;font-size: xx-large">
-                        LENTECUP 2021
-                    </th>
-                </tr>
-                <tr>
-                    <th style="text-align:center">
-                        <a href=/lentecup2021><input style="width:250px" type="submit" class="button is-primary"
-                                                     value="LenteCup 2021"/></a>
-                    </th>
-                </tr>
-            {% endif %}
             <tr>
                 <th style="text-align:center;font-size: xx-large">
-                    Luka Abierto 2021
+                    Luuk Open 2021<br>
+                     <img src="{% static 'images/mib.jpg' %}" width="300" height="1000">
                 </th>
             </tr>
             {% if not luukopen2021active %}
                 <tr>
                     <th style="text-align:center">
                         <a href=/LuukOpen><input style="width:250px" type="submit" class="button is-black"
-                                                 value="Luka Abierto 2021 (próximamente)" disabled/></a>
+                                                 value="Luuk Open 2021 (binnenkort)" disabled/></a>
                     </th>
                 </tr>
             {% else %}
@@ -60,7 +49,7 @@
                     <tr>
                         <th style="text-align:center">
                             <a href=/LuukOpen><input style="width:250px" type="submit" class="button is-primary"
-                                                     value="Luka Abierto 2021"/></a>
+                                                     value="Luuk Open 2021"/></a>
                         </th>
                     </tr>
                 {% else %}
@@ -68,7 +57,7 @@
                         <tr>
                             <th style="text-align:center">
                                 <a href=/LuukOpen><input style="width:250px" type="submit" class="button is-info"
-                                                         value="Aanmelden Luka Abierto 2021"/></a>
+                                                         value="Aanmelden Luuk Open 2021"/></a>
                             </th>
                         </tr>
                     {% else %}
@@ -83,50 +72,25 @@
             {% endif %}
             <tr>
                 <th style="text-align:center;font-size: xx-large">
-                    EURO 2020
-                </th>
-            </tr>
-            {% if not euro2020active %}
-                <tr>
-                    <th style="text-align:center">
-                        <a href=/euro2020><input style="width:250px" type="submit" class="button is-black"
-                                                 value="EURO 2020 (Coming soon)" disabled/></a>
-                    </th>
-                </tr>
-            {% else %}
-                {% if usereuro2020 %}
-                    <tr>
-                        <th style="text-align:center">
-                            <a href=/euro2020><input style="width:250px" type="submit" class="button is-primary"
-                                                     value="Ga naar EURO 2020"/></a>
-                        </th>
-                    </tr>
-                {% else %}
-                    {% if euro2020openforsubscribing %}
-                        <tr>
-                            <th style="text-align:center">
-                                <a href=/euro2020><input style="width:250px" type="submit" class="button is-info"
-                                                         value="Aanmelden EURO 2020"/></a>
-                            </th>
-                        </tr>
-                    {% else %}
-                        <tr>
-                            <th style="text-align:center">
-                                <a href=/euro2020><input style="width:250px" type="submit" class="button is-black"
-                                                         value="Inschrijving gesloten" disabled/></a>
-                            </th>
-                        </tr>
-                    {% endif %}
-                {% endif %}
-            {% endif %}
-            <tr>
-                <th style="text-align:center;font-size: xx-large">
-                    MASTERS 2021
+                    ARCHIEF
                 </th>
             </tr>
             <tr>
                 <th style="text-align:center">
-                    <a href=/masters2021><input style="width:250px" type="submit" class="button is-light"
+                    <a href=/euro2020><input style="width:250px" type="submit" class="button is-black"
+                                             value="Ga naar EURO 2020"/></a>
+                </th>
+            </tr>
+                 <tr>
+                    <th style="text-align:center">
+                        <a href=/lentecup2021><input style="width:250px" type="submit" class="button is-black"
+                                                     value="LenteCup 2021 (gesloten)"/></a>
+                    </th>
+                </tr>
+
+            <tr>
+                <th style="text-align:center">
+                    <a href=/masters2021><input style="width:250px" type="submit" class="button is-black"
                                                 value="Masters 2021 (archief)"/></a>
                 </th>
             </tr>
