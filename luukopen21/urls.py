@@ -21,10 +21,17 @@ from . import views
 
 
 urlpatterns = [
-    path("", home, name="home"),
+    path("", views.home, name="home"),
+    path("aanmelden", views.aanmelden, name="aanmelden"),
+    path("lijstaanmeldingen", views.lijstaanmeldingen, name="lijstaanmeldingen"),
+    path("usermenu", views.usermenu, name="usermenu"),
+    path("donderdag", views.donderdag, name="donderdag"),
+    path("vrijdag", views.vrijdag, name="vrijdag"),
+    path("zaterdag", views.zaterdag, name="zaterdag"),
+    path("zondag", views.zondag, name="zondag"),
 ]
 
-if settings.DEBUG:
-    import debug_toolbar
-
-    urlpatterns = [path("__debug__/", include(debug_toolbar.urls)), ] + urlpatterns
+# if settings.DEBUG:
+#     import debug_toolbar
+#
+#     urlpatterns = [path("__debug__/", include(debug_toolbar.urls)), ] + urlpatterns

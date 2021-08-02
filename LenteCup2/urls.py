@@ -25,6 +25,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("common/", include("common.urls")),
     path("euro2020/", include("euro2020.urls")),
+    path("luukopen21/", include("luukopen21.urls")),
     path('accounts/', include('django.contrib.auth.urls')),
     path("explain", explain, name="explain"),
     path("about", about, name="about"),
@@ -43,7 +44,7 @@ urlpatterns = [
     path("lentecup2021", views.lentecup2021, name="lentecup2021"),
 ]
 
-if settings.DEBUG:
-    import debug_toolbar
-
-    urlpatterns = [path("__debug__/", include(debug_toolbar.urls)), ] + urlpatterns
+# if settings.DEBUG:
+#     import debug_toolbar
+#
+#     urlpatterns = [path("__debug__/", include(debug_toolbar.urls)), ] + urlpatterns

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}WELKOM BIJ DE LUUK OPEN 2021{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        Welkom
+    {% else %}
+        Log eerst in om je aan te melden.
+        Mocht je nog geen account hebben, maak dan een account aan.
+    {% endif %}
+{% endblock %}

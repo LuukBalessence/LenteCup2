@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     "common",
     "LenteCup2",
     "euro2020",
+    "luukopen21",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -151,4 +152,4 @@ EMAIL_USE_SSL = True
 # import _locale
 # _locale._getdefaultlocale = (lambda *args: ['en_US', 'utf8'])
 
-DATA_UPLOAD_MAX_NUMBER_FIELDS = 20000
+DATA_UPLOAD_MAX_NUMBER_FIELDS = 50000
