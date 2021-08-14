@@ -6,6 +6,7 @@ class GolfProfiel(models.Model):
     eigenaar = models.OneToOneField(User, on_delete=models.CASCADE, related_name='golfprofiel')
     ehcp = models.DecimalField(max_digits=3, decimal_places=1)
     lohcp = models.DecimalField(max_digits=3, decimal_places=1, blank=True, null=True)
+    verradergame = models.BooleanField(default=True)
     verraders = models.BooleanField(default=False)
     ziener = models.BooleanField(default=False)
     buggy = models.BooleanField(default=False)
