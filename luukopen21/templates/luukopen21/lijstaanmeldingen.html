@@ -13,6 +13,7 @@
                     <th>Pre-Luuk Open</th>
                 </tr>
                 {% for deelnemer in deelnemers %}
+                <tr>
                     <td>{{ forloop.counter }}</td>
                     <td>{{ deelnemer.naam }}</td>
                     <td>{{ deelnemer.ehcp }}</td>
@@ -31,10 +32,8 @@
                     {% else %}
                         <td>Nee</td>
                     {% endif %}
-                    <tr>
-                        <td>Opmerkingen: {{ deelnemer.opmerking }}</td>
-                    </tr>
                 {% endfor %}
+                </tr>
             </table>
             <table class="table" align="center" style="width: 400px">
                 <tr>

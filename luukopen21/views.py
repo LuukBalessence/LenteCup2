@@ -61,3 +61,7 @@ def aanmelden(request):
 def lijstaanmeldingen(request):
     deelnemers = GolfProfiel.objects.all()
     return render(request, 'luukopen21/lijstaanmeldingen.html', {'deelnemers': deelnemers})
+
+def praktischeinfo(request):
+    deelnemers = GolfProfiel.objects.all()
+    return render(request, 'luukopen21/praktischeinfo.html')

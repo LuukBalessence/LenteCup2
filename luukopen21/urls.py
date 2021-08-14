@@ -23,6 +23,7 @@ from . import views
 urlpatterns = [
     path("", views.home, name="home"),
     path("aanmelden", views.aanmelden, name="aanmelden"),
+    path("praktischeinfo", views.praktischeinfo, name="praktischeinfo"),
     path("lijstaanmeldingen", views.lijstaanmeldingen, name="lijstaanmeldingen"),
     path("usermenu", views.usermenu, name="usermenu"),
     path("donderdag", views.donderdag, name="donderdag"),

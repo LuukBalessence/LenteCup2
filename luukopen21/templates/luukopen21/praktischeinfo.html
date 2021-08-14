@@ -3,142 +3,128 @@
 {% block content %}
     {% if user.is_authenticated %}
         <table class="table" align="center" style="width: 400px">
-            <form method="post">
-                {% csrf_token %}
-                {{ form.as_table }}
-                <tr>
-                    <th></th>
-                    <th style="text-align:center">
-                        <a href=luukopen21/lijstaanmeldingen><input style="width:250px" type="submit"
-                                                                    class="button is-primary"
-                                                                    value="Ik meld me aan voor de LO 2021"/></a>
-                    </th>
-                </tr>
-            </form>
             <tr>
-                <th>OPGAVE</th>
-                <th>VOOR MAANDAG 23 AUGUSTUS
+                <th></th>
+                <th>
+                    PROGRAMMA <br> (ONDER VOORBEHOUD)
                 </th>
             </tr>
             <tr>
                 <th></th>
                 <th>
-                </th>
-            </tr>
-            <tr>
-                <th></th>
-                <th>
-                   PROGRAMMA <br> (ONDER VOORBEHOUD)
-                </th>
-            </tr>
-            <tr>
-                <th></th>
-                <th>
-                   LOCATIE
+                    LOCATIE
                 </th>
             </tr>
             <tr>
                 <td>Golf:</td>
                 <td>
-                   Utrecht, Flevoland en Gelderland
+                    Utrecht, Flevoland en Gelderland
                 </td>
             </tr>
             <tr>
                 <td>Overnachting</td>
                 <td>
-                   Landal Waterparc Veluwemeer
+                    Landal Waterparc Veluwemeer
                 </td>
             </tr>
             <tr>
                 <td></td>
                 <td>
-                   Huisje 54 (12p) en 41 (8p)
+                    Huisje 54 (12p) en 41 (8p)
                 </td>
             </tr>
             </tr>
             <tr>
                 <th></th>
                 <td>
-                   Let op: Beschikbaar al vanaf maandag 6 sept!
+                    Let op: Beschikbaar al vanaf maandag 6 sept!
                 </td>
             </tr>
             <tr>
                 <td>Alle dagen</td>
                 <td>
-                   Digital game: the scum of the universe
+                    Digital game: the scum of the universe
                 </td>
             </tr>
             <tr>
                 <th></th>
                 <th>
-                   DONDERDAG
+                    DONDERDAG
                 </th>
             </tr>
             <tr>
                 <td>10:00</td>
                 <td>
-                   Pre Luuk Open
+                    Pre Luuk Open
                 </td>
             </tr>
             <tr>
                 <td>17:00</td>
                 <td>
-                   LO Spel 1: Black balls
+                    LO Spel 1: Black balls
                 </td>
             </tr>
             <tr>
                 <td>21:00</td>
                 <td>
-                   Grand opening: Black dress matters
+                    Grand opening: Black dress matters
                 </td>
             </tr>
             <tr>
                 <th></th>
                 <th>
-                   VRIJDAG
+                    VRIJDAG
                 </th>
             </tr>
             <tr>
                 <td>09:00</td>
                 <td>
-                   Heather Locklear
+                    Heather Locklear
                 </td>
             </tr>
             <tr>
                 <td>13:00</td>
                 <td>
-                   Give me my clubs black!
+                    Give me my clubs black!
                 </td>
             </tr>
             <tr>
                 <td>tbd</td>
                 <td>
-                   Men in black
+                    Men in black
                 </td>
             </tr>
             <tr>
                 <th></th>
                 <th>
-                   ZATERDAG
+                    ZATERDAG
                 </th>
             </tr>
             <tr>
                 <td>Hele dag</td>
                 <td>
-                   Ryder Cup
+                    Ryder Cup
                 </td>
             </tr>
-        <tr>
+            <tr>
                 <th></th>
                 <th>
-                   ZONDAG
+                    ZONDAG
                 </th>
             </tr>
             <tr>
                 <td>tbd</td>
                 <td>
-                   Finaledag
+                    Finaledag
                 </td>
+            </tr>
+            <tr>
+                <th></th>
+                <th style="text-align:center">
+                    <a href=/luukopen21/usermenu><input style="width:250px" type="submit"
+                                                        class="button is-primary"
+                                                        value="Terug naar Hoofdmenu"/></a>
+                </th>
             </tr>
         </table>
     {% else %}
