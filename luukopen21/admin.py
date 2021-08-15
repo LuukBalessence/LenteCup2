@@ -5,8 +5,8 @@ from luukopen21 import models
 
 @admin.register(models.GolfProfiel)
 class GolfProfielAdmin(admin.ModelAdmin):
-    list_display = ("naam", "ehcp", "huurset", "buggy", "preluukopen", "opmerking")
-    list_editable = ("ehcp", "preluukopen", "opmerking")
+    list_display = ("naam", "ehcp", "huurset", "buggy", "preluukopen", "verradergame", "instemronde", "immuniteitraad", "immuniteitverraad", "opmerking")
+    list_editable = ("ehcp", "verradergame", "instemronde", "immuniteitraad", "immuniteitverraad")
 
 @admin.register(models.BaanProfiel)
 class BaanProfielAdmin(admin.ModelAdmin):

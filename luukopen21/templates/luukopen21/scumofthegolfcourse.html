@@ -1,0 +1,102 @@
+{% extends  'base.html' %}
+{% load static %}
+{% block title %}
+    <table class="table" ALIGN="center">
+        <tr>
+            <th style="text-align:center">
+                SCUM OF THE GOLF COURSE
+            </th>
+        </tr>
+        <tr>
+            <th style="text-align:center">
+                <i class="fas fa-golf-ball"></i>
+            </th>
+        </tr>
+    </table>
+{% endblock title %}
+{% block content %}
+    {% if user.is_authenticated %}
+        <table class="table" align="center">
+            <tr>
+                <th style="text-align:center">
+                    <a href=/luukopen21/sogidentiteit><input style="width:250px" type="submit" class="button is-primary"
+                                                             value="Jouw identiteit (Hou deze geheim)"/></a>
+                </th>
+            </tr>
+            <tr>
+                <th style="text-align:center">
+                    <a href=/luukopen21/soginspel><input style="width:250px" type="submit" class="button is-primary"
+                                                         value="Nog actieve Deelnememers"/></a>
+                </th>
+            </tr>
+            <tr>
+                <th style="text-align:center">
+                    <a href=/luukopen21/sogstemmen><input style="width:250px" type="submit"
+                                                          class="button is-primary"
+                                                          value="Breng je stem uit"/></a>
+                </th>
+            </tr>
+            <tr>
+                <th style="text-align:center">
+                    <a href=/luukopen21/sogstemhistorie><input style="width:250px" type="submit"
+                                                               class="button is-info"
+                                                               value="Overzicht stemrondes"/></a>
+                </th>
+            </tr>
+            <tr>
+                <th style="text-align:center">
+                    UITLEG
+                </th>
+            </tr>
+            <tr>
+                <td style="text-align:center">
+                    DOEL SPEL: Bij de laatste 4 overlevenden komen. <br>
+                    De beste speler in de balonnenwedstrijd van deze <br>
+                    laatste 4 die niet direct is geplaatst voor de finale <br>
+                    krijgt alsnog een plek in de finale! <br>
+                    <br>
+                    UITLEG: Op donderdag zal er een loting plaatsvinden <br>
+                    waarin willekeurig 3 verraders worden aangewezen. <br>
+                    Zij weten van elkaar wie de verraders zijn<br>
+                    Deze verraders vermoorden elke nacht twee mensen <br>
+                    Dit doen ze 3 nachten lang.<br>
+                    <br>
+                    Daarnaast is er elke avond een Raad waarna elke <br>
+                    deelnemer anoniem een stem mag uitbrengen op een golfer. <br>
+                    De Raad duurt maximaal 15 minuten <br>
+                    De twee mensen met de meeste stemmen overleven <br>
+                    de Raad niet en dienen zich kenbaar te maken <br>
+                    als Scum (Verrader) of als golfer (getrouwe)<br>
+                    <br>
+                    IMMUNITEIT: Tijdens het golfen kun je immuniteit <br>
+                    verdienen. Deze immuniteit zorgt ervoor dat de <br>
+                    raad en de verraders je er niet uit kunnen stemmen <br>
+                    <br>
+                    Er zullen dus 12 mensen afvallen, tenzij..... <br>
+                    alle 3 verraders voor zondagochtend vermoord worden<br>
+                    Dan is het spel ten einde en hebben alle overgebleven <br>
+                    kandidaten  een kans op de finale plek <br>
+                    <br>
+                    Als je uit het spel ligt mag je niet meer met de Raad <br>
+                    of het stemmen meedoen. Het is ook aan te bevelen <br>
+                    niet meer over het spel te praten
+                </td>
+            </tr>
+        </table>
+    {% else %}
+        <table class="table" ALIGN="center">
+            <tr>
+                <th style="text-align:center">
+                    <a href=/accounts/login><input style="width:250px" type="submit" class="button is-primary"
+                                                   value="Inloggen"/></a>
+                </th>
+            </tr>
+            <tr>
+                <th style="text-align:center">
+                    <a href=/common/signup><input style="width:250px" type="submit" class="button is-primary"
+                                                  value="Sign-up"/></a>
+                </th>
+            </tr>
+        </table>
+    {% endif %}
+{% endblock content %}
