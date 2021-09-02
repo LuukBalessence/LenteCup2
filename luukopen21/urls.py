@@ -31,6 +31,17 @@ urlpatterns = [
     path("vrijdag", views.vrijdag, name="vrijdag"),
     path("zaterdag", views.zaterdag, name="zaterdag"),
     path("zondag", views.zondag, name="zondag"),
+    path("preluukopen", views.preluukopen, name="preluukopen"),
+    path("speldo1", views.speldo1, name="speldo1"),
+    path("heather", views.heather, name="heather"),
+    path("clubsblack", views.clubsblack, name="clubsblack"),
+    path("blackmystery", views.blackmystery, name="blackmystery"),
+    path("foursomes", views.foursomes, name="foursomes"),
+    path("fourballs", views.fourballs, name="fourballs"),
+    path("singles", views.singles, name="singles"),
+    path("halvefinale", views.halvefinale, name="halvefinale"),
+    path("finale", views.finale, name="finale"),
+
 ]
 
 # if settings.DEBUG:

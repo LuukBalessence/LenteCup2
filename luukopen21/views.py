@@ -63,11 +63,39 @@ def lijstaanmeldingen(request):
     return render(request, 'luukopen21/lijstaanmeldingen.html', {'deelnemers': deelnemers})
 
 def praktischeinfo(request):
-    deelnemers = GolfProfiel.objects.all()
     return render(request, 'luukopen21/praktischeinfo.html')
 
 
 def scumofthegolfcourse(request):
-    deelnemers = GolfProfiel.objects.all()
     return render(request, 'luukopen21/scumofthegolfcourse.html')
+
+def preluukopen(request):
+    return render(request, 'luukopen21/preluukopen.html')
+
+def speldo1(request):
+    return render(request, 'luukopen21/speldo1.html')
+
+def heather(request):
+    return render(request, 'luukopen21/heather.html')
+
+def clubsblack(request):
+    return render(request, 'luukopen21/clubsblack.html')
+
+def blackmystery(request):
+    return render(request, 'luukopen21/blackmystery.html')
+
+def foursomes(request):
+    return render(request, 'luukopen21/foursomes.html')
+
+def fourballs(request):
+    return render(request, 'luukopen21/fourballs.html')
+
+def singles(request):
+    return render(request, 'luukopen21/singles.html')
+
+def halvefinale(request):
+    return render(request, 'luukopen21/halvefinale.html')
+
+def finale(request):
+    return render(request, 'luukopen21/finale.html')
 
