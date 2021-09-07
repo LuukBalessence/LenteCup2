@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load luukopen_tags %}
+{% block title %}GOLFBAANINFO{% endblock %}
+{% block content %}
+    {% for golfbaanprofiel in golfbaanprofielen %}
+             <p style="text-align:center;">
+                 <a id="{{ golfbaanprofiel.naam}}"></a>
+                 <strong>{{ golfbaanprofiel.naam }}
+                    (par={{ golfbaanprofiel.par }},
+                    cr={{ golfbaanprofiel.cr }},
+                    sr={{ golfbaanprofiel.sr }})
+                 </strong></p><br>
+             {% if deelnemer %}
+             <p style="text-align:center;">
+                 <strong>Jouw playing handicap:
+                     {% playing_handicap deelnemer.ehcp golfbaanprofiel.sr golfbaanprofiel.cr golfbaanprofiel.par %}
+                 </strong>
+             </p><br>
+             {% endif %}
+           <table class="table" align="center" style="width: 400px">
+                <tr>
+                    <th>Hole</th>
+                    <th>Par</th>
+                    <th>Afstand</th>
+                    <th>Stroke index</th>
+                </tr>
+                {% for hole in golfbaanprofiel.holes.all %}
+                <tr>
+                    <td>{{ hole.hole_nr }}</td>
+                    <td>{{ hole.par }}</td>
+                    <td>{{ hole.afstand }}</td>
+                    <td>{{ hole.strokeindex }}</td>
+                </tr>
+               {% endfor %}
+            </table>
+    {% empty %}
+        Sorry, geen baanprofielen beschikbaar.
+    {% endfor %}
+{% endblock %}

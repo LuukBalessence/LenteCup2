@@ -1,0 +1,27 @@
+{% load luukopen_tags %}
+{% for flight in flights %}
+    <table class="table" align="center" style="width: 400px">
+        <tr>
+            <th>
+                Flight: {{ flight.naam }}<br>
+                Golfbaan: {{ flight.golfbaan.naam }}<br>
+                Starttijd: {{ flight.starttijd }}
+            </th>
+        </tr>
+    <table class="table" align="center" style="width: 400px">
+        <tr>
+            <th>Speler</th>
+            <th>Exact handicap</th>
+            <th>Playing handicap</th>
+        </tr>
+        {% for speler in flight.spelers.all %}
+            <tr>
+                <td>{{ speler.naam }}</td>
+                <td>{{ speler.ehcp }}</td>
+                <td>{% playing_handicap speler.ehcp flight.golfbaan.sr flight.golfbaan.cr flight.golfbaan.par %} </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% empty %}
+    Geen flights
+{% endfor %}
