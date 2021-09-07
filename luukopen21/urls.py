@@ -41,6 +41,7 @@ urlpatterns = [
     path("singles", views.singles, name="singles"),
     path("halvefinale", views.halvefinale, name="halvefinale"),
     path("finale", views.finale, name="finale"),
+    path("golfbaaninfo", views.golfbaaninfo, name="golfbaaninfo"),
 ]
 
 # if settings.DEBUG:
