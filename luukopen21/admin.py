@@ -10,7 +10,7 @@ class GolfProfielAdmin(admin.ModelAdmin):
 
 @admin.register(models.BaanProfiel)
 class BaanProfielAdmin(admin.ModelAdmin):
-    list_display = ("naam", "plaats")
+    list_display = ("naam", "adres", "telefoon")
 
 @admin.register(models.TeeKleur)
 class TeeKleurAdmin(admin.ModelAdmin):
@@ -20,6 +20,10 @@ class TeeKleurAdmin(admin.ModelAdmin):
 class GolfBaanProfielAdmin(admin.ModelAdmin):
     list_display = ("naam", "aantalholes", "sr", "cr", "par", "baan", "teekleur")
 
-@admin.register(models.Holes)
+@admin.register(models.Hole)
 class HolesAdmin(admin.ModelAdmin):
     list_display = ("golfbaan", "hole_nr", "par", "strokeindex", "afstand")
+
+@admin.register(models.Flight)
+class FlightAdmin(admin.ModelAdmin):
+    list_display = ("naam", "dag", "starttijd", "golfbaan")
