@@ -1,6 +1,7 @@
 from django.db import models
 from common.models import User
 
+
 class GolfProfiel(models.Model):
     naam = models.CharField(max_length=40)
     eigenaar = models.OneToOneField(User, on_delete=models.CASCADE, related_name='golfprofiel')
@@ -23,7 +24,8 @@ class GolfProfiel(models.Model):
 
 class BaanProfiel(models.Model):
     naam = models.CharField(max_length=60)
-    plaats = models.CharField(max_length=60)
+    adres = models.CharField(max_length=60)
+    telefoon = models.CharField(max_length=60, default='Onbekend')
 
     def __str__(self):
         return f"{self.naam}"
@@ -49,7 +51,7 @@ class GolfBaanProfiel(models.Model):
         return f"{self.naam} {self.teekleur}"
 
 
-class Holes(models.Model):
+class Hole(models.Model):
     hole_nr = models.PositiveIntegerField()
     par = models.PositiveIntegerField()
     strokeindex = models.PositiveIntegerField()
@@ -58,3 +60,14 @@ class Holes(models.Model):
 
     def __str__(self):
         return f"{self.golfbaan} {self.hole_nr}"
+
+
+class Flight(models.Model):
+    naam = models.CharField(max_length=60)
+    dag = models.CharField(max_length=60)
+    starttijd =  models.CharField(max_length=60)
+    golfbaan = models.ForeignKey(GolfBaanProfiel, on_delete=models.CASCADE, related_name="flights")
+    spelers = models.ManyToManyField(GolfProfiel)
+
+    def __str__(self):
+        return f"{self.naam}"
