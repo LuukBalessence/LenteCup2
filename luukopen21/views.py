@@ -1,7 +1,8 @@
 from django.shortcuts import redirect, render
 from common.models import AppAuthorisation, Apps
 from .forms import AanmeldForm
-from .models import GolfProfiel
+from .models import GolfProfiel, BaanProfiel, GolfBaanProfiel, Hole, Flight
+
 
 def home(request):
     try:
@@ -70,7 +71,13 @@ def scumofthegolfcourse(request):
     return render(request, 'luukopen21/scumofthegolfcourse.html')
 
 def preluukopen(request):
-    return render(request, 'luukopen21/preluukopen.html')
+    flights = Flight.objects.filter(naam__in=['Lage Vuursche Flight 1'])
+    return render(request, 'luukopen21/preluukopen.html', context={'flights': flights})
+
+def golfbaaninfo(request):
+    golfbaanprofielen = GolfBaanProfiel.objects.all()
+    deelnemer = GolfProfiel.objects.get(eigenaar=request.user)
+    return render(request, 'luukopen21/golfbaaninfo.html', {'deelnemer': deelnemer, 'golfbaanprofielen':golfbaanprofielen})
 
 def speldo1(request):
     return render(request, 'luukopen21/speldo1.html')

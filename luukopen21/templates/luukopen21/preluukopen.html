@@ -16,7 +16,9 @@
         </tr>
     </table>
 {% endblock title %}
+
 {% block content %}
+    {% include "luukopen21/flights.html" %}
     {% if user.is_authenticated %}
         <table class="table" ALIGN="center">
             <tr>
