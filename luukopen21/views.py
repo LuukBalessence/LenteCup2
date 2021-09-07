@@ -59,7 +59,7 @@ def aanmelden(request):
     return render(request, 'luukopen21/aanmelden.html', {'form': form})
 
 def lijstaanmeldingen(request):
-    deelnemers = GolfProfiel.objects.all()
+    deelnemers = GolfProfiel.objects.all().order_by('-totalscore')
     return render(request, 'luukopen21/lijstaanmeldingen.html', {'deelnemers': deelnemers})
 
 def praktischeinfo(request):

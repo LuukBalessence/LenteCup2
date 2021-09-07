@@ -16,6 +16,7 @@ class GolfProfiel(models.Model):
     huurset = models.BooleanField(default=False)
     preluukopen = models.BooleanField(default=False)
     opmerking = models.CharField(max_length=200, blank=True)
+    totalscore = models.DecimalField(max_digits=3, decimal_places=1, default=0)
 
     def __str__(self):
         return f"{self.naam}"
