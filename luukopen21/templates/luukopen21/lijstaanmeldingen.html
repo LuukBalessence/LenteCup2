@@ -8,30 +8,14 @@
                     <th>Nr.</th>
                     <th>Naam</th>
                     <th>Hcp</th>
-                    <th>Buggy</th>
-                    <th>Huurset</th>
-                    <th>Pre-Luuk Open</th>
+                    <th>LO Totaalscore</th>
                 </tr>
                 {% for deelnemer in deelnemers %}
                 <tr>
                     <td>{{ forloop.counter }}</td>
                     <td>{{ deelnemer.naam }}</td>
                     <td>{{ deelnemer.ehcp }}</td>
-                    {% if deelnemer.buggy %}
-                        <td>Ja</td>
-                    {% else %}
-                        <td>Nee</td>
-                    {% endif %}
-                    {% if deelnemer.huurset %}
-                        <td>Ja</td>
-                    {% else %}
-                        <td>Nee</td>
-                    {% endif %}
-                    {% if deelnemer.preluukopen %}
-                        <td>Ja</td>
-                    {% else %}
-                        <td>Nee</td>
-                    {% endif %}
+                    <td align="center">{{ deelnemer.totalscore }}</td>
                 {% endfor %}
                 </tr>
             </table>
