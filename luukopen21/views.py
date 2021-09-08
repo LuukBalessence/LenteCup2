@@ -71,7 +71,7 @@ def scumofthegolfcourse(request):
     return render(request, 'luukopen21/scumofthegolfcourse.html')
 
 def preluukopen(request):
-    flights = Flight.objects.filter(naam__in=['Lage Vuursche Flight 1'])
+    flights = Flight.objects.filter(naam__in=['Lage Vuursche Flight 1', 'Lage Vuursche Flight 2', 'Lage Vuursche Flight 3'])
     return render(request, 'luukopen21/preluukopen.html', context={'flights': flights})
 
 def golfbaaninfo(request):
@@ -80,29 +80,47 @@ def golfbaaninfo(request):
     return render(request, 'luukopen21/golfbaaninfo.html', {'deelnemer': deelnemer, 'golfbaanprofielen':golfbaanprofielen})
 
 def speldo1(request):
-    return render(request, 'luukopen21/speldo1.html')
+    flights = Flight.objects.filter(
+        naam__in=['Golf4All Flight 1', 'Golf4All Flight 2', 'Golf4All Flight 3', 'Golf4All Flight 4'])
+    return render(request, 'luukopen21/speldo1.html', context={'flights': flights})
 
 def heather(request):
-    return render(request, 'luukopen21/heather.html')
+    flights = Flight.objects.filter(
+        naam__in=['Ullerberg Flight 1', 'Ullerberg Flight 2', 'Ullerberg Flight 3', 'Ullerberg Flight 4'])
+    return render(request, 'luukopen21/heather.html', context={'flights': flights})
 
 def clubsblack(request):
-    return render(request, 'luukopen21/clubsblack.html')
+    flights = Flight.objects.filter(
+        naam__in=['Zeewolde Flight 1', 'Zeewolde Flight 2', 'Zeewolde Flight 3', 'Zeewolde Flight 4'])
+    return render(request, 'luukopen21/clubsblack.html', context={'flights': flights})
 
 def blackmystery(request):
-    return render(request, 'luukopen21/blackmystery.html')
+    flights = Flight.objects.filter(
+        naam__in=['StrandHorst Flight 1', 'StrandHorst Flight 2', 'StrandHorst Flight 3', 'StrandHorst Flight 4'])
+    return render(request, 'luukopen21/blackmystery.html', context={'flights': flights})
 
 def foursomes(request):
-    return render(request, 'luukopen21/foursomes.html')
+    flights = Flight.objects.filter(
+        naam__in=['Nunspeet1 Flight 1', 'Nunspeet1 Flight 2', 'Nunspeet1 Flight 3', 'Nunspeet1 Flight 4'])
+    return render(request, 'luukopen21/foursomes.html', context={'flights': flights})
 
 def fourballs(request):
-    return render(request, 'luukopen21/fourballs.html')
+    flights = Flight.objects.filter(
+        naam__in=['Nunspeet2 Flight 1', 'Nunspeet2 Flight 2', 'Nunspeet2 Flight 3', 'Nunspeet2 Flight 4'])
+    return render(request, 'luukopen21/fourballs.html', context={'flights': flights})
 
 def singles(request):
-    return render(request, 'luukopen21/singles.html')
+    flights = Flight.objects.filter(
+        naam__in=['Nunspeet3 Flight 1', 'Nunspeet3 Flight 2', 'Nunspeet3 Flight 3', 'Nunspeet3 Flight 4'])
+    return render(request, 'luukopen21/singles.html', context={'flights': flights})
 
 def halvefinale(request):
-    return render(request, 'luukopen21/halvefinale.html')
+    flights = Flight.objects.filter(
+        naam__in=['Scherp1 Flight 1', 'Scherp1 Flight 2', 'Scherp1 Flight 3', 'Scherp1 Flight 4'])
+    return render(request, 'luukopen21/halvefinale.html', context={'flights': flights})
 
 def finale(request):
-    return render(request, 'luukopen21/finale.html')
+    flights = Flight.objects.filter(
+        naam__in=['Scherp2 Flight 1', 'Scherp2 Flight 2', 'Scherp2 Flight 3', 'Scherp2 Flight 4'])
+    return render(request, 'luukopen21/finale.html', context={'flights': flights})
 
