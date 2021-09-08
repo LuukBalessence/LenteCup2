@@ -16,7 +16,11 @@ def home(request):
 
 
 def usermenu(request):
-    return render(request, 'luukopen21/usermenu.html')
+    startscum = False
+    show = GameSettings.objects.get(gamesettings='scumstarted').gamesettingsvalue
+    if show == "True":
+        startscum = True
+    return render(request, 'luukopen21/usermenu.html', {'startscum': startscum})
 
 
 def donderdag(request):

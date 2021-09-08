@@ -43,13 +43,23 @@
                                                                  value="Golfbanen"/></a>
                 </th>
             </tr>
-            <tr>
-                <th style="text-align:center">
-                    <a href=/luukopen21/scumofthegolfcourse><input style="width:250px" type="submit"
-                                                                 class="button is-info"
-                                                                 value="SCUM OF THE GOLF COURSE"/></a>
-                </th>
-            </tr>
+            {% if startscum %}
+                <tr>
+                    <th style="text-align:center">
+                        <a href=/luukopen21/scumofthegolfcourse><input style="width:250px" type="submit"
+                                                                     class="button is-info"
+                                                                     value="SCUM OF THE GOLF COURSE"/></a>
+                    </th>
+                </tr>
+            {% else %}
+                <tr>
+                    <th style="text-align:center">
+                        <a href=/luukopen21/scumofthegolfcourse><input style="width:250px" type="submit"
+                                                                     class="button is-info"
+                                                                     value="SCUM OF THE GOLF COURSE" disabled/></a>
+                    </th>
+                </tr>
+            {% endif %}
             <tr>
                 <th style="text-align:center">
                     <a href=/luukopen21/donderdag><input style="width:250px" type="submit"
