@@ -22,3 +22,7 @@ class AanmeldForm(forms.ModelForm):
             'opmerking': 'Opmerkingen',
         }
         fields_required = ['naam', 'ehcp', 'buggy', 'huurset']
+
+class ScumForm(forms.Form):
+    naam1 = forms.CharField(max_length=40, help_text="1e te elimineren golfeer")
+    naam2 = forms.CharField(max_length=40, help_text="2e te elimineren golfeer")

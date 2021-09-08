@@ -27,3 +27,7 @@ class HolesAdmin(admin.ModelAdmin):
 @admin.register(models.Flight)
 class FlightAdmin(admin.ModelAdmin):
     list_display = ("naam", "dag", "starttijd", "golfbaan")
+
+@admin.register(models.Scum)
+class ScumAdmin(admin.ModelAdmin):
+    list_display = ("pk", "naam")

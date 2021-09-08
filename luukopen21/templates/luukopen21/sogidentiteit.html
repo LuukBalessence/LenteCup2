@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+{% block title %}WAT BEN JE{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        <table class="table" align="center" style="width: 400px">
+        {% if currentgolfer.verradergame %}
+            <tr>
+                <th>JE NAAM</th>
+                <td>{{ currentgolfer.naam }}</td>
+            </tr>
+            {% if currentgolfer.verraders %}
+                <tr>
+                    <th>JIJ BENT</th>
+                    <th style="color: red">EEN VERRADER/SCUM OF THE GOLF COURSE</th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th>DIT ZIJN JE MEDEVERRADERS NOG IN HET SPEL:</th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td>OVERLEG MET ZE WIE JE ER SNACHTS UITSTEMT</td>
+                </tr>
+                {% for deelnemer in deelnemers %}
+                    {% if deelnemer.verradergame %}
+                        {% if deelnemer.verraders %}
+                            {% if not deelnemer == currentgolfer %}
+                                <tr>
+                                    <td>{{ forloop.counter }}</td>
+                                    <td>{{ deelnemer.naam }}</td>
+                                </tr>
+                            {% endif %}
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+                <tr><br></tr>
+                <tr><br></tr>
+                <form action="" method="post">{% csrf_token %}
+                    <tr>
+                        <th></th>
+                        <th>
+                            WELKE 2 GOLFERS WIL JE VANNACHT ERUITSTEMMEN?
+                        </th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td>
+                            Je mag geen verraders elimineren
+                        </td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th>
+                            <div class="field">
+                                <p class="control has-icons-left">
+                                    <input class="input is-primary" id="id_stemweg1" name="stemweg1"
+                                           placeholder="Voer te elimineren persoon 1" type="text" required/>
+                                    <span class="icon is-left">
+                                <i class="fas fa-user" style="font-size:20px;color:black"></i>
+                        </span>
+                            </div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th>
+                            <div class="field">
+                                <p class="control has-icons-left">
+                                    <input class="input is-primary" id="id_stemweg2" name="stemweg2"
+                                           placeholder="Voer te elimineren persoon 2" type="text" required/>
+                                    <span class="icon is-left">
+                                <i class="fas fa-user" style="font-size:20px;color:black"></i>
+                        </span>
+                            </div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th style="text-align:center">
+                            <input style="width:250px" type="submit" class="button is-primary"
+                                   value="Sla de te elimineren spelers op"/>
+                        </th>
+                    </tr>
+                </form>
+
+
+
+            {% else %}
+                <tr>
+                    <th>JIJ BENT</th>
+                    <td>EEN NORMALE GOLFER</td>
+                </tr>
+            {% endif %}
+        {% else %}
+            <tr>
+                <th>JE NAAM IS:</th>
+                <td>{{ currentgolfer.naam }}</td>
+            </tr>
+            <tr>
+                <th>STATUS</th>
+                <td>JE ZIT NIET MEER IN HET SPEL!</td>
+            </tr>
+        {% endif %}
+    <tr>
+        <th></th>
+        <th></th>
+    </tr>
+    <tr>
+        <th></th>
+        <th></th>
+    </tr>
+    <tr>
+        <th></th>
+        <th>DEZE DEELNEMERS ZITTEN NOG IN HET SPEL</th>
+    </tr>
+    {% for deelnemer in deelnemers %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ deelnemer.naam }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+        <table class="table" align="center" style="width: 400px">
+            <tr>
+                <th style="text-align:center">
+                    <a href=/luukopen21/usermenu><input style="width:250px" type="submit"
+                                                        class="button is-primary"
+                                                        value="Terug naar Hoofdmenu"/></a>
+                </th>
+            </tr>
+        </table>
+    {% else %}
+        Je hebt geen rechten
+    {% endif %}
+{% endblock %}

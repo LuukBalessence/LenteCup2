@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}SCUMADMIN{% endblock %}
+{% block content %}
+    {% if user.is_superuser %}
+        {% if deelnemers %}
+            <table class="table" align="center" style="width: 400px">
+                <tr>
+                    <th>Aantal spelers</th>
+                    <th>{{ deelnemers }}</th>
+                </tr>
+                <tr>
+                    <th>Aantal verraders</th>
+                    <th>{{ golfscum }}</th>
+                </tr>
+                <tr>
+                    <th>Aantal golfers</th>
+                    <th>{{ golfers }}</th>
+                </tr>
+            </table>
+            <table class="table" align="center" style="width: 400px">
+                <tr>
+                    <th style="text-align:center">
+                        <a href=/luukopen21/usermenu><input style="width:250px" type="submit"
+                                                            class="button is-primary"
+                                                            value="Terug naar Hoofdmenu"/></a>
+                    </th>
+                </tr>
+            </table>
+        {% endif %}
+    {% else %}
+        Je hebt geen rechten
+    {% endif %}
+{% endblock %}
