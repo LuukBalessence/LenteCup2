@@ -40,10 +40,14 @@ def zondag(request):
 
 
 def aanmelden(request):
+    startscum = False
+    show = GameSettings.objects.get(gamesettings='scumstarted').gamesettingsvalue
+    if show == "True":
+        startscum = True
     currentapp = Apps.objects.get(appname="Luuk Open 2021")
     currentuser = request.user
     if len(AppAuthorisation.objects.filter(user=currentuser.id, app=currentapp)) == 1:
-        return render(request, 'luukopen21/usermenu.html')
+        return redirect(usermenu)
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
@@ -59,13 +63,13 @@ def aanmelden(request):
                                            eigenaar=currentuser, buggy=formdata['buggy'], huurset=formdata['huurset'],
                                            preluukopen=formdata['preluukopen'])
             deelnemers = GolfProfiel.objects.all()
-            return render(request, 'luukopen21/lijstaanmeldingen.html', {'deelnemers': deelnemers})
+            return render(request, 'luukopen21/lijstaanmeldingen.html', {'deelnemers': deelnemers, 'startscum': startscum})
 
     # if a GET (or any other method) we'll create a blank form
     else:
         form = AanmeldForm()
 
-    return render(request, 'luukopen21/aanmelden.html', {'form': form})
+    return render(request, 'luukopen21/aanmelden.html', {'form': form, 'startscum': startscum})
 
 
 def lijstaanmeldingen(request):
