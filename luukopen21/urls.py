@@ -42,6 +42,10 @@ urlpatterns = [
     path("halvefinale", views.halvefinale, name="halvefinale"),
     path("finale", views.finale, name="finale"),
     path("golfbaaninfo", views.golfbaaninfo, name="golfbaaninfo"),
+    path("scumadmin", views.scumadmin, name="scumadmin"),
+    path("sogidentiteit", views.sogidentiteit, name="sogidentiteit"),
+    path("gelukt", views.gelukt, name="gelukt"),
+    path("showelims", views.showelims, name="showelims"),
 ]
 
 # if settings.DEBUG:

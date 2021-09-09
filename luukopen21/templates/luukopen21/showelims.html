@@ -4,9 +4,7 @@
     <table class="table" ALIGN="center">
         <tr>
             <th style="text-align:center">
-                PROGRAMMA VRIJDAG<br>
-                <br>
-                BLACK MYSTERY
+                DIT ZIJN DE GEELIMINEERDEN
             </th>
         </tr>
         <tr>
@@ -19,21 +17,31 @@
 {% block content %}
     {% if user.is_authenticated %}
         <table class="table" ALIGN="center">
-            <tr>
-                <th>
-                    Locatie: Strand Horst<br>
-                    Palmbosweg 4,<br>
-                    3853 LB Ermelo<br>
-                    Geen bugiies<br>
-                    Spelvorm: Mystery
-                </th>
-            </tr>
-             {% include "luukopen21/flights.html" %}
+            {% if visible %}
+                <tr>
+                    <th>
+                        De volgende golfers zijn vannacht geelimineerd
+                    </th>
+                </tr>
+                {% for scum in scums %}
+                    <tr>
+                        <th>
+                            {{ scum.naam }}
+                        </th>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <th>
+                        Je mag nog niet zien wie geelimineerd is
+                    </th>
+                </tr>
+            {% endif %}
             <tr>
                 <th style="text-align:center">
-                    <a href=/luukopen21/vrijdag><input style="width:250px" type="submit"
+                    <a href=/luukopen21/usermenu><input style="width:250px" type="submit"
                                                       class="button is-primary"
-                                                      value="Terug naar Vrijdag"/></a>
+                                                      value="Terug naar Hoofdmenu"/></a>
                 </th>
             </tr>
         </table>
