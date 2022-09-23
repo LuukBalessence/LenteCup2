@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}PREMIES{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        {% if error %}
+            {{ error }}
+        {% else %}
+            <table class="table" align="center">
+                <tr>
+                    <th>PREMIES</th>
+                    <th></th>
+                </tr>
+                {%  for premie in leaguepremies %}
+                    <tr>
+                        <td>{{ premie.0 }}</td>
+                        <td>{{ premie.1 }}</td>
+                    </tr>
+                `{% endfor %}
+            </table>
+        {% endif %}
+    {% endif %}
+{% endblock %}

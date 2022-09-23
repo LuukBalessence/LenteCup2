@@ -1,0 +1,98 @@
+[
+{
+    "model": "wk2022.location",
+    "pk": "Arena Nationala",
+    "fields": {
+        "city": "Bucharest",
+        "country": "RO"
+    }
+},
+{
+    "model": "wk2022.location",
+    "pk": "Baku Olympic Stadium",
+    "fields": {
+        "city": "Baku",
+        "country": "AZ"
+    }
+},
+{
+    "model": "wk2022.location",
+    "pk": "Dublin Arena",
+    "fields": {
+        "city": "Dublin",
+        "country": "IR"
+    }
+},
+{
+    "model": "wk2022.location",
+    "pk": "Football Arena",
+    "fields": {
+        "city": "Munich",
+        "country": "DE"
+    }
+},
+{
+    "model": "wk2022.location",
+    "pk": "Hampden Park",
+    "fields": {
+        "city": "Glasgow",
+        "country": "SC"
+    }
+},
+{
+    "model": "wk2022.location",
+    "pk": "Johan Cruijf Arena",
+    "fields": {
+        "city": "Amsterdam",
+        "country": "NL"
+    }
+},
+{
+    "model": "wk2022.location",
+    "pk": "Parken Stadium",
+    "fields": {
+        "city": "Copenhagen",
+        "country": "DK"
+    }
+},
+{
+    "model": "wk2022.location",
+    "pk": "Puskas Arena",
+    "fields": {
+        "city": "Budapest",
+        "country": "HU"
+    }
+},
+{
+    "model": "wk2022.location",
+    "pk": "Saint Petersburg Stadium",
+    "fields": {
+        "city": "Saint Petersburg",
+        "country": "RU"
+    }
+},
+{
+    "model": "wk2022.location",
+    "pk": "San Mames Stadium",
+    "fields": {
+        "city": "Bilbao",
+        "country": "ES"
+    }
+},
+{
+    "model": "wk2022.location",
+    "pk": "Stadio Olympico",
+    "fields": {
+        "city": "Rome",
+        "country": "IT"
+    }
+},
+{
+    "model": "wk2022.location",
+    "pk": "Wembley Stadium",
+    "fields": {
+        "city": "London",
+        "country": "UK"
+    }
+}
+]

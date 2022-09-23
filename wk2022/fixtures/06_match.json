@@ -1,0 +1,470 @@
+[
+{
+    "model": "wk2022.match",
+    "pk": 7,
+    "fields": {
+        "stage": "G1",
+        "home": "Turkey",
+        "away": "Italy",
+        "start": "2021-06-11T21:00:00Z",
+        "location": "Stadio Olympico",
+        "has_started": false,
+        "has_ended": false
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 8,
+    "fields": {
+        "stage": "G1",
+        "home": "Wales",
+        "away": "Switzerland",
+        "start": "2021-06-12T15:00:00Z",
+        "location": "Baku Olympic Stadium",
+        "has_started": false,
+        "has_ended": false
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 9,
+    "fields": {
+        "stage": "G1",
+        "home": "Denmark",
+        "away": "Finland",
+        "start": "2021-06-12T18:00:00Z",
+        "location": "Parken Stadium",
+        "has_started": false,
+        "has_ended": false
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 10,
+    "fields": {
+        "stage": "G1",
+        "home": "Belgium",
+        "away": "Russia",
+        "start": "2021-06-12T21:00:00Z",
+        "location": "Saint Petersburg Stadium",
+        "has_started": false,
+        "has_ended": false
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 11,
+    "fields": {
+        "stage": "G1",
+        "home": "England",
+        "away": "Croatia",
+        "start": "2021-06-13T15:00:00Z",
+        "location": "Wembley Stadium",
+        "has_started": false,
+        "has_ended": false
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 12,
+    "fields": {
+        "stage": "G1",
+        "home": "Austria",
+        "away": "North Macedonia",
+        "start": "2021-06-13T18:00:00Z",
+        "location": "Arena Nationala",
+        "has_started": false,
+        "has_ended": false
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 13,
+    "fields": {
+        "stage": "G1",
+        "home": "Netherlands",
+        "away": "Ukraine",
+        "start": "2021-06-13T21:00:00Z",
+        "location": "Johan Cruijf Arena",
+        "has_started": false,
+        "has_ended": false
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 14,
+    "fields": {
+        "stage": "G1",
+        "home": "Scotland",
+        "away": "Czech Republic",
+        "start": "2021-06-14T15:00:00Z",
+        "location": "Hampden Park",
+        "has_started": false,
+        "has_ended": false
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 16,
+    "fields": {
+        "stage": "G1",
+        "home": "Spain",
+        "away": "Sweden",
+        "start": "2021-06-14T21:00:00Z",
+        "location": "San Mames Stadium",
+        "has_started": false,
+        "has_ended": false
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 53,
+    "fields": {
+        "stage": "G1",
+        "home": "Hungary",
+        "away": "Portugal",
+        "start": "2021-06-15T18:00:00Z",
+        "location": "Puskas Arena",
+        "has_started": false,
+        "has_ended": false
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 54,
+    "fields": {
+        "stage": "G1",
+        "home": "France",
+        "away": "Germany",
+        "start": "2021-06-15T21:00:00Z",
+        "location": "Football Arena",
+        "has_started": false,
+        "has_ended": false
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 55,
+    "fields": {
+        "stage": "G2",
+        "home": "Finland",
+        "away": "Russia",
+        "start": "2021-06-16T15:00:00Z",
+        "location": "Saint Petersburg Stadium",
+        "has_started": false,
+        "has_ended": false
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 56,
+    "fields": {
+        "stage": "G2",
+        "home": "Turkey",
+        "away": "Wales",
+        "start": "2021-06-16T18:00:00Z",
+        "location": "Baku Olympic Stadium",
+        "has_started": false,
+        "has_ended": false
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 57,
+    "fields": {
+        "stage": "G2",
+        "home": "Italy",
+        "away": "Switzerland",
+        "start": "2021-06-16T21:00:00Z",
+        "location": "Stadio Olympico",
+        "has_started": false,
+        "has_ended": false
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 58,
+    "fields": {
+        "stage": "G2",
+        "home": "Ukraine",
+        "away": "North Macedonia",
+        "start": "2021-06-17T15:00:00Z",
+        "location": "Arena Nationala",
+        "has_started": false,
+        "has_ended": false
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 59,
+    "fields": {
+        "stage": "G2",
+        "home": "Denmark",
+        "away": "Belgium",
+        "start": "2021-06-17T18:00:00Z",
+        "location": "Parken Stadium",
+        "has_started": false,
+        "has_ended": false
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 60,
+    "fields": {
+        "stage": "G2",
+        "home": "Netherlands",
+        "away": "Austria",
+        "start": "2021-06-17T21:00:00Z",
+        "location": "Johan Cruijf Arena",
+        "has_started": false,
+        "has_ended": false
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 61,
+    "fields": {
+        "stage": "G2",
+        "home": "Sweden",
+        "away": "Slovakia",
+        "start": "2021-06-18T15:00:00Z",
+        "location": "Dublin Arena",
+        "has_started": false,
+        "has_ended": false
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 62,
+    "fields": {
+        "stage": "G2",
+        "home": "Croatia",
+        "away": "Czech Republic",
+        "start": "2021-06-18T18:00:00Z",
+        "location": "Hampden Park",
+        "has_started": false,
+        "has_ended": false
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 63,
+    "fields": {
+        "stage": "G2",
+        "home": "England",
+        "away": "Scotland",
+        "start": "2021-06-18T21:00:00Z",
+        "location": "Wembley Stadium",
+        "has_started": false,
+        "has_ended": false
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 64,
+    "fields": {
+        "stage": "G2",
+        "home": "Hungary",
+        "away": "France",
+        "start": "2021-06-19T15:00:00Z",
+        "location": "Puskas Arena",
+        "has_started": false,
+        "has_ended": false
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 65,
+    "fields": {
+        "stage": "G2",
+        "home": "Portugal",
+        "away": "Germany",
+        "start": "2021-06-19T18:00:00Z",
+        "location": "Football Arena",
+        "has_started": false,
+        "has_ended": false
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 66,
+    "fields": {
+        "stage": "G2",
+        "home": "Spain",
+        "away": "Poland",
+        "start": "2021-06-19T21:00:00Z",
+        "location": "San Mames Stadium",
+        "has_started": false,
+        "has_ended": false
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 67,
+    "fields": {
+        "stage": "G3",
+        "home": "Italy",
+        "away": "Wales",
+        "start": "2021-06-20T18:00:00Z",
+        "location": "Stadio Olympico",
+        "has_started": false,
+        "has_ended": false
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 68,
+    "fields": {
+        "stage": "G3",
+        "home": "Switzerland",
+        "away": "Turkey",
+        "start": "2021-06-20T18:00:00Z",
+        "location": "Baku Olympic Stadium",
+        "has_started": false,
+        "has_ended": false
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 69,
+    "fields": {
+        "stage": "G3",
+        "home": "North Macedonia",
+        "away": "Netherlands",
+        "start": "2021-06-21T18:00:00Z",
+        "location": "Johan Cruijf Arena",
+        "has_started": false,
+        "has_ended": false
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 70,
+    "fields": {
+        "stage": "G3",
+        "home": "Ukraine",
+        "away": "Austria",
+        "start": "2021-06-21T18:00:00Z",
+        "location": "Arena Nationala",
+        "has_started": false,
+        "has_ended": false
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 71,
+    "fields": {
+        "stage": "G3",
+        "home": "Russia",
+        "away": "Denmark",
+        "start": "2021-06-21T21:00:00Z",
+        "location": "Parken Stadium",
+        "has_started": false,
+        "has_ended": false
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 72,
+    "fields": {
+        "stage": "G3",
+        "home": "Finland",
+        "away": "Belgium",
+        "start": "2021-06-21T21:00:00Z",
+        "location": "Saint Petersburg Stadium",
+        "has_started": false,
+        "has_ended": false
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 73,
+    "fields": {
+        "stage": "G3",
+        "home": "Czech Republic",
+        "away": "England",
+        "start": "2021-06-22T21:00:00Z",
+        "location": "Wembley Stadium",
+        "has_started": false,
+        "has_ended": false
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 74,
+    "fields": {
+        "stage": "G3",
+        "home": "Croatia",
+        "away": "Scotland",
+        "start": "2021-06-22T21:00:00Z",
+        "location": "Hampden Park",
+        "has_started": false,
+        "has_ended": false
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 75,
+    "fields": {
+        "stage": "G3",
+        "home": "Slovakia",
+        "away": "Spain",
+        "start": "2021-06-23T18:00:00Z",
+        "location": "San Mames Stadium",
+        "has_started": false,
+        "has_ended": false
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 76,
+    "fields": {
+        "stage": "G3",
+        "home": "Sweden",
+        "away": "Poland",
+        "start": "2021-06-23T18:00:00Z",
+        "location": "Dublin Arena",
+        "has_started": false,
+        "has_ended": false
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 77,
+    "fields": {
+        "stage": "G3",
+        "home": "Germany",
+        "away": "Hungary",
+        "start": "2021-06-23T21:00:00Z",
+        "location": "Football Arena",
+        "has_started": false,
+        "has_ended": false
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 78,
+    "fields": {
+        "stage": "G3",
+        "home": "Portugal",
+        "away": "France",
+        "start": "2021-06-23T21:00:00Z",
+        "location": "Puskas Arena",
+        "has_started": false,
+        "has_ended": false
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 81,
+    "fields": {
+        "stage": "G1",
+        "home": "Poland",
+        "away": "Slovakia",
+        "start": "2021-06-14T18:00:00Z",
+        "location": "Dublin Arena",
+        "has_started": false,
+        "has_ended": false
+    }
+}
+]

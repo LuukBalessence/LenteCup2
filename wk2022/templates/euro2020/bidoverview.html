@@ -1,0 +1,214 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{ leaguephase }}{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        {% if error %}
+            <table class="table" align="center">
+                <tr>
+                    <th>
+                        <div class="notification is-info" ALIGN="center">
+                            <button class="delete"></button>
+                            {{ error }}
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th style="text-align:center">
+                        <a href=wk2022><input style="width:250px" type="submit" class="button is-primary"
+                                                value="Terug naar EURO2020"/></a>
+                    </th>
+                </tr>
+            </table>
+        {% elif uitgeschakeld %}
+             <table class="table" align="center">
+                <tr>
+                    <th>
+                        <div class="notification is-info" ALIGN="center">
+                            <button class="delete"></button>
+                            Je bent uitgeschakeld in het toernooi en kunt niet meer bieden
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th style="text-align:center">
+                        <a href=wk2022><input style="width:250px" type="submit" class="button is-primary"
+                                                value="Terug naar EURO2020"/></a>
+                    </th>
+                </tr>
+            </table>
+        {% else %}
+            <table class="table" ALIGN="center">
+                <tr>
+                            <th>
+                                <div class="control has-icons-left">
+                                    <input class="input is-primary" style="width: 300px; color: black"
+                                           value="{{ league.gamephase.gamephase }}"
+                                           type="text"
+                                           name="currentphase"
+                                           id="currentphase"
+                                           placeholder="League fase onbekend" disabled/>
+                                    <span class="icon is-left">
+                                <i class="fas fa-history" style="font-size:20px;color:black"></i>
+                            </span>
+                                </div>
+                            </th>
+                        </tr>
+                <tr>
+                <th style="text-align:center">
+                    <a href=/wk2022/listallbids><input style="width:250px" type="submit" class="button is-primary"
+                                                         value="Bekijk je huidige biedingen"/></a>
+                </th>
+            </tr>
+            {% if error1 %}
+                <tr>
+                    <th>
+                        <div class="notification is-info" ALIGN="center">
+                            <button class="delete"></button>
+                            {{ error1 }}
+                        </div>
+                    </th>
+                </tr>
+            {% endif %}
+            <form method="post">
+                {% csrf_token %}
+                {% if groups %}
+                        <tr>
+                            <td align="center" style="font-weight: bold">Jouw veiling instellingen deze biedronde</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="field">
+                                    <p class="control has-icons-left">
+                                        <input class="input is-primary" id="id_maxbetcoin"
+                                               name="maxbetcoin"
+                                               placeholder="Maximaal uit te geven betcoins..." type="number" min="0"
+                                               max={{ team.betcoins }}
+                                               value="{{ team.bidbudget }}"
+                                               style="width: 300px" {{ disabled }}/>
+                                        <span class="icon is-left is-small">
+                                    <i class="fas fa-coins" style="font-size:20px;color:black"></i>
+                                </span>
+                                    </p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="field">
+                                    <p class="control has-icons-left">
+                                        <input class="input is-primary" id="id_gke"
+                                               name="gke"
+                                               placeholder="Maximaal te kopen keepers..." type="number" min="0" max="3"
+                                               value="{{ team.maxbidgke }}"
+                                               style="width: 300px" {{ disabled }}/>
+                                        <span class="icon is-left">
+                                    <img src="{% static 'images/gke.png' %}" width="30" height="20">
+                                </span>
+                                    </p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="field">
+                                    <p class="control has-icons-left">
+                                        <input class="input is-primary" id="id_def"
+                                               name="def"
+                                               placeholder="Maximaal te kopen verdedigers..." type="number" min="0"
+                                               max="8"
+                                               value="{{ team.maxbiddef }}"
+                                               style="width: 300px" {{ disabled }}/>
+                                        <span class="icon is-left">
+                                    <img src="{% static 'images/def.png' %}" width="30" height="20">
+                                </span>
+                                    </p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="field">
+                                    <p class="control has-icons-left">
+                                        <input class="input is-primary" id="id_mid"
+                                               name="mid"
+                                               placeholder="Maximaal te kopen middenvelders..." type="number" min="0"
+                                               max="8"
+                                               value="{{ team.maxbidmid }}"
+                                               style="width: 300px" {{ disabled }}/>
+                                        <span class="icon is-left">
+                                    <img src="{% static 'images/mid.png' %}" width="30" height="20">
+                                </span>
+                                    </p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="field">
+                                    <p class="control has-icons-left">
+                                        <input class="input is-primary" id="id_att"
+                                               name="att"
+                                               placeholder="Maximaal te kopen aanvallers..." type="number" min="0"
+                                               max="5"
+                                               value="{{ team.maxbidatt }}"
+                                               style="width: 300px" {{ disabled }}/>
+                                        <span class="icon is-left">
+                                    <img src="{% static 'images/att.png' %}" width="30" height="20">
+                                </span>
+                                    </p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th style="text-align:center">
+                                <input style="width:250px" type="submit" class="button is-primary" name="bewaarveiling"
+                                       value="Bewaar Veiling instellingen"/>
+                            </th>
+                        </tr>
+                        {% for group in groups %}
+                            <tr>
+                                <td style="text-align:center">
+                                    <p class="control has-icons-left" style="width:150px">
+                                        <input style="width:300px; font-size: 20px;color: white; font-weight: bolder"
+                                               type="submit"
+                                               class="button is-info"
+                                               name="Bids" value="Biedingen GROEP {{ group }}"/>
+                                        <span class="icon is-left">
+                                                            {% with 'images/'|add:group|add:'png.png' as image_static %}
+                                                                <img src="{% static image_static %}" width="35"
+                                                                     height="30">
+                                                            {% endwith %}
+                                                        </span>
+                                    </p>
+                                </td>
+                            </tr>
+                            {% for country in countries %}
+                                {% if country.openforbid %}
+                                    {% if group == country.group %}
+                                        <tr>
+                                            <th style="text-align:center">
+                                                 <span class="icon is-left">
+                                                            {% with 'images/'|add:country.name|add:'.jpg' as image_static %}
+                                                                <img src="{% static image_static %}" width="30"
+                                                                     height="20">
+                                                            {% endwith %}
+                                                    </span>
+                                                <a style="width:250px;align-self: center"
+                                                   href="{% url 'bidspercountry' country.pk %}"
+                                                   name="Bids">Biedingen spelers {{ country.nlname }}</a>
+                                            </th>
+                                        </tr>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    </table>
+                {% endif %}
+            </form>
+        {% endif %}
+    {% endif %}
+
+{% endblock %}
+{% block helptext %}
+{% endblock helptext %}

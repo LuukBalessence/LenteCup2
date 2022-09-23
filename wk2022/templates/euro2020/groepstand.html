@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}STAND ECHTE EURO2020{% endblock %}
+{% block content %}
+    <hr>
+    {% for group in groups %}
+
+        <h4 align="center" class="title is-4">Groep: {{ group }}</h4>
+        <table class="table" align="center">
+            <tr>
+                <th></th>
+                <th>Land</th>
+                <th>GS</th>
+                <th>W</th>
+                <th>G</th>
+                <th>V</th>
+                <th>PT</th>
+                <th>DV</th>
+                <th>DT</th>
+                <th>DF</th>
+            </tr>
+            {% for country in groupdata %}
+                {% if group == country.country.group %}
+                    <tr>
+                        <td>{% with 'images/'|add:country.country.name|add:'.jpg' as image_static %}
+                            <img src="{% static image_static %}" width="30" height="20">
+                        {% endwith %}</td>
+                        <th>{{ country.country.nlname }}</th>
+                        <td>{{ country.GS }}</td>
+                        <td>{{ country.W }}</td>
+                        <td>{{ country.G }}</td>
+                        <td>{{ country.V }}</td>
+                        <th>{{ country.PT }}</th>
+                        <td>{{ country.DV }}</td>
+                        <td>{{ country.DT }}</td>
+                        <td>{{ country.DF }}</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+    {% endfor %}
+{% endblock content %}

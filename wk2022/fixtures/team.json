@@ -1,0 +1,42 @@
+[
+{
+    "model": "wk2022.team",
+    "pk": 6,
+    "fields": {
+        "name": "Luuk4",
+        "owner": 1,
+        "betcoins": 2000,
+        "paid": true
+    }
+},
+{
+    "model": "wk2022.team",
+    "pk": 8,
+    "fields": {
+        "name": "Test123",
+        "owner": 2,
+        "betcoins": 0,
+        "paid": false
+    }
+},
+{
+    "model": "wk2022.team",
+    "pk": 9,
+    "fields": {
+        "name": "Koffiedik",
+        "owner": 3,
+        "betcoins": 0,
+        "paid": false
+    }
+},
+{
+    "model": "wk2022.team",
+    "pk": 10,
+    "fields": {
+        "name": "Test1234",
+        "owner": 4,
+        "betcoins": 0,
+        "paid": false
+    }
+}
+]

@@ -1,0 +1,173 @@
+{% extends "base.html" %}
+{% block title %}
+    <table class="table" ALIGN="center">
+        <tr>
+            <th style="text-align:center">
+                HULP INFORMATIE BIJ BIEDEN
+            </th>
+        </tr>
+        <tr>
+            <th style="text-align:center">
+                <i class="fas fa-futbol"></i>
+                <i class="fas fa-futbol"></i>
+                <i class="fas fa-futbol"></i>
+            </th>
+        </tr>
+    </table>
+{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        <table class="table" ALIGN="center">
+            <tr>
+                <td>
+                    In de groepsfase zijn er 3 biedingsronden
+                </td>
+            </tr>
+        <tr>
+                <td>
+                    waarin telkens 8 landen worden geveild
+                </td>
+            </tr>
+        <tr>
+                <td>
+                    Je hebt 2000 betcoins tot je beschikking
+                </td>
+            </tr>
+        <tr>
+                <td>
+                    maar je kunt in elke ronde aangeven hoeveel
+                </td>
+            </tr>
+        <tr>
+                <td>
+                    betcoins je maximaal die ronde uit wilt geven en
+                </td>
+            </tr>
+        <tr>
+                <td>
+                    hoeveel keepers, verdedigers, middenvelders en
+                </td>
+            </tr>
+        <tr>
+                <td>
+                    aanvallers je wilt kopen.
+                </td>
+            </tr>
+        <tr>
+                <td>
+                    ---------
+                </td>
+            </tr>
+        <tr>
+                <th>
+                    Hulpbronnen bij bieden
+                </th>
+            </tr>
+        <tr>
+                <td>
+                    Wikipedia en UEFA.com (spelers ranking)
+                </td>
+            </tr>
+        <tr>
+                <td>
+                    Paidia Historische biedlijsten beschikbaar op
+                </td>
+            </tr>
+        <tr>
+                <td>
+                    <a href=https://www.paidiagames.nl/voetbalspel/2012ek/toegewezenA1.html>A Toegewezen biedingen EK2012</a>
+                </td>
+            </tr>
+        <tr>
+                <td>
+                    <a href=https://www.paidiagames.nl/voetbalspel/2012ek/niettoegewezenA1.html>A Niet Toegewezen biedingen EK2012</a>
+                </td>
+            </tr>
+        <tr>
+                <td>
+                    <a href=https://www.paidiagames.nl/voetbalspel/2012ek/niettoegewezenB1.html>B Toegewezen biedingen EK2012</a>
+                </td>
+            </tr>
+        <tr>
+                <td>
+                    <a href=https://www.paidiagames.nl/voetbalspel/2012ek/niettoegewezenB1.html>B Niet Toegewezen biedingen EK2012</a>
+                </td>
+            </tr>
+                <tr>
+                <td>
+                 ---------------
+                </td>
+            </tr>
+                <tr>
+                <th>
+                    Scoren
+                </th>
+            </tr>        <tr>
+                <td>
+                    Opgestelde speler die speelminuten maakt  in de echte wedstrijd en wint of gelijk speelt krijgt resp. 0,2 en 0,1 punt
+                </td>
+            </tr>        <tr>
+                <td>
+                    Verdediger/middenvelder die speelminuten maakt  in de echte wedstrijd en waarvan team 0 houdt levert -0,25 en -0,1 punt
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Opgestelde speler die speelminuten maakt  en in de echte wedstrijd scoort lever per goal 1 punt of 0,5 punt (penalty) op
+                </td>
+            </tr>
+        <tr>
+                <td>
+                       Keeper die speelminuten maakt  in de echte wedstrijd en waarvan team 0 houdt levert -1,5 punt
+                </td>
+            </tr>
+            <tr>
+                <td>
+                     <a href=https://www.paidiagames.nl/voetbalspel/2012ek/wedstrijdA1.html>Voorbeelden uitslagen</a>
+                </td>
+            </tr>
+        <tr>
+                <th>
+                     Tactiek: voor begin 1e wedstrijd van ronde te bepalen!
+                </th>
+            </tr>
+        <tr>
+                <td>
+                     Normale tactiek: Scores zoals uitgelegd hierboven
+                </td>
+            </tr>
+        <tr>
+                <td>
+                     Aanvallende tactiek: Je doet afstand van je minpunten. Alle pluspunten (goal, winst, gelijk)
+                </td>
+            </tr>
+        <tr>
+                <td>
+                     worden met 25% verhoogd. Dus 1,25 voor een goal, 0,625 voor penalty, 0,25 winst, 0,125 gelijk)
+                </td>
+            </tr>
+
+
+        </table>
+        <table class="table" ALIGN="center">
+        <tr>
+                <th style="text-align:center">
+                    <a href=wk2022><input style="width:250px" type="submit" class="button is-primary"
+                                                       value="Terug naar EURO2020"/></a>
+                </th>
+            </tr>
+        </table>
+    {% else %}
+        <h3 ALIGN="center" class="title is-h3">NOT LOGGED IN YET.</h3>
+        <h3 ALIGN="center" class="title is-h3">PLEASE GO TO LOGIN PAGE</h3>
+
+        <table class="table" ALIGN="center">
+            <tr>
+                <th style="text-align:center">
+                    <a href=/accounts/login/><input style="width:250px" type="submit" class="button is-primary"
+                                                    value="Ga naar Login"/></a>
+                </th>
+            </tr>
+        </table>
+    {% endif %}
+{% endblock %}

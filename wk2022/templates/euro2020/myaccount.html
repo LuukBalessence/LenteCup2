@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{% block title %}MY ACCOUNT{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+
+            <tr>
+                <th>
+                    <div class="field has-addons">
+                        <div class="control has-icons-left">
+                            <input class="input is-primary" style="color: black" value="{{ league }}" type="text"
+                                   name="leaguename"
+                                   id="leaguename"
+                                   placeholder="leaguename not yet known" disabled>
+                            <span class="icon is-left">
+                                <i class="fas fa-list-ol" style="font-size:20px;color:black"></i>
+                            </span>
+                            </div>
+                            <div class="control" style="width: 100px">
+                                <a class="button is-primary" href={% url 'pickleague' %}>
+                                    Pick
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </th>
+            </tr>
+            <div class="field">
+                <tr>
+                    <th>
+                        <p class="control has-icons-left">
+                            <input class="input is-primary" style="color: black" value="{{ leaguephase }}" type="text"
+                                   name="currentphase"
+                                   id="currentphase"
+                                   placeholder="phase will be set" disabled>
+                            <span class="icon is-left">
+                        <i class="fas fa-history" style="font-size:20px;color:black"></i>
+                    </span>
+                        </p>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <p class="control has-icons-left">
+                            <input class="input is-primary" style="color: black" value="{{ betcoinbalance }}"
+                                   type="text"
+                                   name="betcoinbalance" id="betcoinbalance"
+                                   placeholder="Betcoin Balance" disabled>
+                            <span class="icon is-left">
+                        <i class="fas fa-coins" style="font-size:20px;color:black"></i>
+                    </span>
+                        </p>
+                    </th>
+                </tr>
+            </div>
+        </table>
+        <h3 ALIGN="center" class="title is-h3">NOT LOGGED IN YET.</h3>
+    {% else %}
+        <h3 ALIGN="center" class="title is-h3">PLEASE GO TO LOGIN PAGE</h3>
+        <table class="table" ALIGN="center">
+            {% if not betcoinbalance %}
+                <tr>
+                    <th>
+                        <div class="notification is-danger is-small" ALIGN="center">
+                            <button class="delete"></button>
+                            We did not receive or administered your payment.
+                        </div>
+
+                    </th>
+                </tr>
+            {% endif %}
+            {% if not teamdata %}
+                <tr>
+                    <th>
+                        <div class="notification is-danger" ALIGN="center">
+                            <button class="delete"></button>
+                            You did nog come up with a team name yet. Please add.
+                        </div>
+                    </th>
+                </tr>
+            {% endif %}
+            {% if not firstname %}
+                <tr>
+                    <th>
+                        <div class="notification is-danger" ALIGN="center">
+                            <button class="delete"></button>
+                            You did nog give yourself a personal name. Please add.
+                        </div>
+                    </th>
+                </tr>
+            {% endif %}
+            {% if not leaguetable %}
+                <tr>
+                    <th>
+                        <div class="notification is-info" ALIGN="center">
+                            <button class="delete"></button>
+                            A leaguename will be assigned to you.
+                        </div>
+                    </th>
+                </tr>
+            {% endif %}
+        </table>
+
+        <table class="table" ALIGN="center">
+            <tr>
+                <th style="text-align:center">
+                    <a href=/accounts/login/><input style="width:250px" type="submit" class="button is-primary"
+                                                    value="Go to Log in page"/></a>
+                </th>
+            </tr>
+        </table>
+    {% endif %}
+{% endblock %}
+{% block helptext %}
+    1. EMAIL: your emailaddress<br>
+    2. Name: yourname or alias (can be changed)<br>
+    3. TEAMNAME: Name of your Team<br>
+    (can be changed only in preparation phase)<br>
+    4. PASSWORD: password (can be changed)<br>
+    5. LEAGUE: The league which has been assigned to you<br>
+    6. GAMEPHASE: the current phase of the game<br>
+    See Milestondes and Rules for an explanation<br>
+    7. BETCOINS: Your current account of betcoins.<br>
+    Betcoins are the official EURO2020 currency.<br>
+    With betcoins you can buy players<br>
+{% endblock helptext %}

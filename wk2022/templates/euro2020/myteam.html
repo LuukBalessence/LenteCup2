@@ -1,0 +1,383 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}JOUW TEAMGEGEVENS{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        {% if error %}
+            <table class="table" ALIGN="center">
+                {% if not league %}
+                    <tr>
+                        <th>
+                            <div class="notification is-info" ALIGN="center">
+                                <button class="delete"></button>
+                                {{ error }}.
+                            </div>
+                        </th>
+                    </tr>
+                {% endif %}
+            </table>
+        {% endif %}
+        {% if team %}
+            <table class="table" ALIGN="center">
+                {% if not league %}
+                    <tr>
+                        <th>
+                            <div class="notification is-info" ALIGN="center">
+                                <button class="delete"></button>
+                                Je dient nog een league te kiezen.
+                            </div>
+                        </th>
+                    </tr>
+                {% else %}
+                    {% if not paid %}
+                        <tr>
+                            <th>
+                                <div class="notification is-danger is-small" ALIGN="center">
+                                    <button class="delete"></button>
+                                    We hebben nog geen betaling van je ontvangen. Maak het inschrijfgeld
+                                    a {{ leaguefee }} EUR
+                                    over naar rek.nr {{ bnumber }} t.n.v. {{ bname }} o.v.v. je teamnaam en naam
+                                </div>
+                            </th>
+                        </tr>
+                    {% endif %}
+                {% endif %}
+            </table>
+            <table class="table" ALIGN="center">
+                <tr>
+                    <td align="center" style="font-weight: bold">Algemeen</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="field">
+                            <p class="control has-icons-left">
+                                <input class="input is-primary" id="id_team"
+                                       name="team"
+                                       placeholder="Please enter team name..." type="text" value="{{ team }}"
+                                       style="width: 300px;color: black" disabled/>
+                                <span class="icon is-left is-small">
+                                    <i class="fas fa-users" style="font-size:20px;color:black"></i>
+                                </span>
+                            </p>
+                        </div>
+                    </td>
+                </tr>
+                {% if not leaguedraw %}
+                    <tr>
+                        <th>
+                            <div class="field has-addons">
+                                <div class="control has-icons-left">
+                                    <input class="input is-primary" style="width: 200px; color: black"
+                                           value="{{ league }}"
+                                           type="text"
+                                           name="leaguename"
+                                           id="leaguename"
+                                           placeholder="Kies hier een league" disabled>
+                                    <span class="icon is-left">
+                                    <i class="fas fa-list-ol" style="font-size:20px;color:black"></i>
+                                </span>
+                                </div>
+
+                                <div class="control">
+                                    <a class="button is-primary" style="width: 100px" href={% url 'pickleague' %}>
+                                        Kies League
+                                    </a>
+                                </div>
+                            </div>
+                        </th>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <th>
+                            <div class="field has-addons">
+                                <div class="control has-icons-left">
+                                    <input class="input is-primary" style="width: 300px; color: black"
+                                           value="{{ league }}"
+                                           type="text"
+                                           name="leaguename"
+                                           id="leaguename"
+                                           placeholder="Kies hier een league" disabled>
+                                    <span class="icon is-left">
+                                    <i class="fas fa-list-ol" style="font-size:20px;color:black"></i>
+                                </span>
+                                </div>
+                            </div>
+                        </th>
+                    </tr>
+                {% endif %}
+                <tr>
+                    <th>
+                        <div class="control has-icons-left">
+                            <input class="input is-primary" style="width: 300px; color: black" value="{{ leaguephase }}"
+                                   type="text"
+                                   name="currentphase"
+                                   id="currentphase"
+                                   placeholder="League fase onbekend" disabled/>
+                            <span class="icon is-left">
+                                <i class="fas fa-history" style="font-size:20px;color:black"></i>
+                            </span>
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <div class="control has-icons-left">
+                            <input class="input is-primary" style="width: 300px; color: black"
+                                   value="{{ betcoinbalance }} betcoins"
+                                   type="text"
+                                   name="betcoinbalance" id="betcoinbalance"
+                                   placeholder="Geen betaling gedaan of verwerk!" disabled/>
+                            <span class="icon is-left">
+                                <i class="fas fa-coins" style="font-size:20px;color:black"></i>
+                            </span>
+                        </div>
+                    </th>
+                </tr>
+                {% if leaguedraw %}
+                    {% if not uitgeschakeld %}
+                        <tr>
+                            <th style="text-align:center">
+                                <a href=tactiekopstelling><input style="width:250px" type="submit" class="button is-primary"
+                                                                 value="Kies Tactiek en Opstelling"/></a>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th style="text-align:center">
+                                <a href=spelersontslaan><input style="width:250px" type="submit" class="button is-info"
+                                                               value="Ontsla een speler"/></a>
+                            </th>
+                        </tr>
+                    {% endif %}
+                {% endif %}
+            </table>
+            <table class="table" ALIGN="center">
+                <tr>
+                    <th></th>
+                    <td></td>
+                    <td align="center" style="font-weight: bold;font-size: larger">Jouw Tactiek</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <td align="center">{{ tactiek }}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td></td>
+                    <td align="center" style="font-weight: bold;font-size: larger">Jouw opstelling</td>
+                    <td></td>
+                </tr>
+                {% if not opstelling %}
+                    <tr>
+                        <th></th>
+                        <td></td>
+                        <th>
+                            <div class="notification is-info" ALIGN="center">
+                                <button class="delete"></button>
+                                Je hebt nog geen opstelling
+                            </div>
+                        </th>
+                    </tr>
+                {% else %}
+                    {% for speler, speelt in opstelling %}
+                        {% if speler.opgesteldespeler.position == 'G' %}
+                            <tr>
+                                <td></td>
+                                <td>
+                                    {{ speler.opgesteldespeler.position }}
+                                </td>
+                                {% if not speelt.1 %}
+                                    <td>
+                                        {{ speler.opgesteldespeler }}
+                                    </td>
+                                {% else %}
+                                    {% if not speelt.2 %}
+                                        <td style="color: crimson">
+                                            {{ speler.opgesteldespeler }}
+                                        </td>
+                                    {% else %}
+                                        <td style="color: limegreen">
+                                            {{ speler.opgesteldespeler }}
+                                        </td>
+                                    {% endif %}
+                                {% endif %}
+                                <td>
+                                    {{ speler.opgesteldespeler.country.shortname }}
+                                </td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                    {% for speler, speelt in opstelling %}
+                        {% if speler.opgesteldespeler.position == 'D' %}
+                            <tr>
+                                <td></td>
+                                <td>
+                                    {{ speler.opgesteldespeler.position }}
+                                </td>
+                                {% if not speelt.1 %}
+                                    <td>
+                                        {{ speler.opgesteldespeler }}
+                                    </td>
+                                {% else %}
+                                    {% if not speelt.2 %}
+                                        <td style="color: crimson">
+                                            {{ speler.opgesteldespeler }}
+                                        </td>
+                                    {% else %}
+                                        <td style="color: limegreen">
+                                            {{ speler.opgesteldespeler }}
+                                        </td>
+                                    {% endif %}
+                                {% endif %}
+                                <td>
+                                    {{ speler.opgesteldespeler.country.shortname }}
+                                </td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                    {% for speler, speelt in opstelling %}
+                        {% if speler.opgesteldespeler.position == 'M' %}
+                            <tr>
+                                <td></td>
+                                <td>
+                                    {{ speler.opgesteldespeler.position }}
+                                </td>
+                                {% if not speelt.1 %}
+                                    <td>
+                                        {{ speler.opgesteldespeler }}
+                                    </td>
+                                {% else %}
+                                    {% if not speelt.2 %}
+                                        <td style="color: crimson">
+                                            {{ speler.opgesteldespeler }}
+                                        </td>
+                                    {% else %}
+                                        <td style="color: limegreen">
+                                            {{ speler.opgesteldespeler }}
+                                        </td>
+                                    {% endif %}
+                                {% endif %}
+                                <td>
+                                    {{ speler.opgesteldespeler.country.shortname }}
+                                </td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                    {% for speler, speelt in opstelling %}
+                        {% if speler.opgesteldespeler.position == 'A' %}
+                            <tr>
+                                <td></td>
+                                <td>
+                                    {{ speler.opgesteldespeler.position }}
+                                </td>
+                                {% if not speelt.1 %}
+                                    <td>
+                                        {{ speler.opgesteldespeler }}
+                                    </td>
+                                {% else %}
+                                    {% if not speelt.2 %}
+                                        <td style="color: crimson">
+                                            {{ speler.opgesteldespeler }}
+                                        </td>
+                                    {% else %}
+                                        <td style="color: limegreen">
+                                            {{ speler.opgesteldespeler }}
+                                        </td>
+                                    {% endif %}
+                                {% endif %}
+                                <td>
+                                    {{ speler.opgesteldespeler.country.shortname }}
+                                </td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+                <tr>
+                    <th></th>
+                    <td></td>
+                    <td align="center" style="font-weight: bold;font-size: larger">Jouw wisselspelers</td>
+                </tr>
+                {% if not players %}
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th>
+                            <div class="notification is-info" ALIGN="center">
+                                <button class="delete"></button>
+                                Je hebt nog geen spelers
+                            </div>
+                        </th>
+                    </tr>
+                {% else %}
+                    {% for player, speelt1 in players %}
+                        <tr>
+                            <td>Wis{{ forloop.counter }}</td>
+                            <td>
+                                {{ player.position }}
+                            </td>
+                            {% if not speelt1.1 %}
+                                <td>
+                                    {{ player }}
+                                </td>
+                            {% else %}
+                                {% if not speelt1.2 %}
+                                    <td style="color: crimson">
+                                        {{ player }}
+                                    </td>
+                                {% else %}
+                                    <td style="color: limegreen">
+                                        {{ player }}
+                                    </td>
+                                {% endif %}
+                            {% endif %}
+                            <td>
+                                {{ player.country.shortname }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+                <tr>
+                    <th></th>
+                    <td></td>
+                    <td align="center" style="font-weight: bold;font-size: larger">Spelers die worden ontslagen</td>
+                </tr>
+                {% if not spelersteontslaan %}
+                    <tr>
+                        <th></th>
+                        <td></td>
+                        <th align="center" style="font-weight: bold">Geen ontslagen</th>
+                    </tr>
+                {% else %}
+                    {% for speler in spelersteontslaan %}
+                        <tr>
+                            <th></th>
+                            <td style="color: blue">{{ speler.player.position }}</td>
+                            <th style="color: blue">{{ speler.player }} TE ONTSLAAN</th>
+                            <td style="color: blue">{{ speler.player.country.shortname }}</td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th style="text-align:center">
+                        <a href=wk2022><input style="width:250px" type="submit" class="button is-primary"
+                                                value="Terug naar EURO2020"/></a>
+                    </th>
+                </tr>
+            </table>
+        {% else %}
+            <table class="table" ALIGN="center">
+                <tr>
+                    <td>
+                        <input type="submit" class="button is-primary" value="Make Team Name here"/></a>
+                    </td>
+                </tr>
+            </table>
+        {% endif %}
+    {% endif %}
+{% endblock %}
+{% block helptext %}
+{% endblock helptext %}

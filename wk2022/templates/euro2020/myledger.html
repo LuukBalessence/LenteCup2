@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}JOUW BOEKHOUDING{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        <table class="table" ALIGN="center">
+            {% if error %}
+                <tr>
+                    <th>
+                        <div class="notification is-danger" ALIGN="center">
+                            <button class="delete"></button>
+                            {{ error }}
+                        </div>
+                    </th>
+                </tr>
+            {% endif %}
+        </table>
+        <table class="table" ALIGN="center">
+            <tr>
+                <th>
+                    Inkomsten en Uitgaven team: {{ currentteam.name }}
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    Omschrijving
+                </th>
+                <th>
+                    Bedrag
+                </th>
+            </tr>
+            {% for boeking in jouwboekhouding %}
+                <tr>
+                    <td>
+                        {{ boeking.boekingsopmerking }}
+                    </td>
+                    <td>
+                        {{ boeking.aantalbetcoins }}
+                    </td>
+                </tr>
+            {% endfor %}
+                <tr>
+                    <th>
+                        Totale huidige budget
+                    </th>
+                    <th>
+                        {{ currentteam.betcoins }}
+                    </th>
+                </tr>
+        </table>
+         <table class="table" ALIGN="center">
+              <tr>
+                <th style="text-align:center">
+                    <a href=wk2022><input style="width:250px" type="submit" class="button is-primary"
+                                            value="Terug naar EURO2020"/></a>
+                </th>
+            </tr>
+        </table>
+    {% endif %}
+{% endblock %}
+{% block helptext %}
+{% endblock helptext %}

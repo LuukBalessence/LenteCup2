@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}KO FASE EURO2020{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        {% if error %}
+            <table class="table" align="center">
+                <tr>
+                    <th>{{ error }}</th>
+                </tr>
+            </table>
+        {% endif %}
+        <table class="table" align="center">
+            {% for stage in allstages %}
+                <tr>
+                    <th style="font-size: large">{{ stage.1 }}</th>
+                </tr>
+                <tr>
+                    <th>Wedstrijddatum</th>
+                    <th>Thuis</th>
+                    <th>Uit</th>
+                    <th>:</th>
+                    <th>Stand</th>
+                    <th></th>
+                    <th></th>
+                    <th>Opm.</th>
+                </tr>
+                {% for match in komatches %}
+                    {% if match.stage == stage.0 %}
+                        <tr>
+                            <td>
+                                {{ match.start }}
+                            </td>
+                            <td>{{ match.home }}</td>
+                            <td>{{ match.away }}</td>
+                            {% if match.has_ended %}
+                                <td>:</td>
+                                <td>{{ match.homescore }}</td>
+                                <th>-</th>
+                                <td>{{ match.awayscore }}</td>
+                                {% if match.shootout %}
+                                    {% if match.homewonshootout %}
+                                        <td>{{ match.home }} won na penalties</td>
+                                    {% else %}
+                                        <td>{{ match.away }} won na penalties</td>
+                                    {% endif %}
+                                {% elif match.verlenging %}
+                                    <td> na verlenging</td>
+                                {% else %}
+                                    <td> reguliere speeltijd</td>
+                                {% endif %}
+                            {% elif match.has_started %}
+                                <td>LIVE</td>
+                                <td>{{ match.homescore }}</td>
+                                <th>-</th>
+                                <td>{{ match.awayscore }}</td>
+                                {% if match.shootout %}
+                                    {% if match.homewonshootout %}
+                                        <td>{{ match.home }} won na penalties</td>
+                                    {% else %}
+                                        <td>{{ match.away }} won na penalties</td>
+                                    {% endif %}
+                                {% elif match.verlenging %}
+                                    <td> na verlenging</td>
+                                {% else %}
+                                    <td> reguliere speeltijd</td>
+                                {% endif %}
+                            {% else %}
+                                <td>:</td>
+                                <td>Nog</td>
+                                <td>niet</td>
+                                <td>gestart</td>
+                            {% endif %}
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        </table>
+        <table class="table" align="center">
+            <tr>
+                <th style="text-align:center;width: 300px">
+                    <a href="/wk2022/wk2022"><input style="width:250px" type="submit" class="button is-primary"
+                                                        value="Terug naar EURO2020"/></a>
+                </th>
+            </tr>
+        </table>
+    {% endif %}
+{% endblock %}

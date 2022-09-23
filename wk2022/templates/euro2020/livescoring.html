@@ -1,0 +1,176 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}LIVE SCORING{% endblock %}
+{% block content %}
+    {% if scoring %}
+        <hr>
+        {% for group in groups %}
+            <h4 align="center" class="title is-4">Groep: {{ group }}</h4>
+            <table class="table" align="center">
+                <tr>
+                    <th style="font-size: large;font: bold">
+                        <a href="{% url 'standvoorverlenging' currentleague.pk %}" class="button is-danger">CHECK STAND
+                            ZONDER VERLENGING</a>
+                    </th>
+                </tr>
+                {% for wedstrijd, plushome, plusaway, hometactiek, awaytactiek in allewedstrijden %}
+                    {#            {% if wedstrijd.home.group == group %}#}
+                    {% if wedstrijd.shootout %}
+                        {% if wedstrijd.homewonshootout %}
+                            <tr>
+                                <th style="font-size: large;font: bold">
+                                    {{ wedstrijd.home }} <br> WINT NA STRAFSCHOPPEN
+                                </th>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <th style="font-size: large;font: bold"
+                                ">
+                                {{ wedstrijd.away }} <br> WINT NA STRAFSCHOPPEN
+                            </tr>
+                            </tr>
+                        {% endif %}
+                    {% elif wedstrijd.verlenging %}
+                        <tr>
+                            <th style="font-size: large;font: bold">
+                                VERLENGING
+                            </th>
+                        </tr>
+                    {% endif %}
+                    <tr>
+                        <th style="font-size: large;">{{ wedstrijd.home }}</th>
+                        <th style="font-size: x-large;">{{ wedstrijd.homescore }}</th>
+                        <th bgcolor="#00d1b2" style="color: white">Plus:</th>
+                        <th bgcolor="#00d1b2" style="color: white">{{ plushome }}</th>
+                        <th bgcolor="#00d1b2" style="color: white">Min:</th>
+                        <th bgcolor="#00d1b2" style="color: white">{{ wedstrijd.minusdecimalhomescore }}</th>
+                    </tr>
+                    <tr>
+                        <th style="font-size: large;">{{ wedstrijd.away }}</th>
+                        <th style="font-size: x-large;">{{ wedstrijd.awayscore }}</th>
+                        <th bgcolor="#00d1b2" style="color: white">Plus:</th>
+                        <th bgcolor="#00d1b2" style="color: white">{{ plusaway }}</th>
+                        <th bgcolor="#00d1b2" style="color: white">Min:</th>
+                        <th bgcolor="#00d1b2" style="color: white">{{ wedstrijd.minusdecimalawayscore }}</th>
+                    </tr>
+                    <tr bgcolor="#00d1b2">
+                        <th style="color: white">Opstelling Thuis</th>
+                        <th style="color: white">Land</th>
+                        <th style="color: white">Pos.</th>
+                        <th style="color: white">Min</th>
+                        <th style="color: white">Plus</th>
+                        <th style="color: white">Goal</th>
+                    </tr>
+                    {% for opstel, gestart, gespeeld in teamopstellingen %}
+                        {% if opstel.team == wedstrijd.home %}
+                            <tr>
+                                {% if not gestart %}
+                                    <td>
+                                        {{ opstel.opgesteldespeler }}
+                                    </td>
+                                {% else %}
+                                    {% if not gespeeld %}
+                                        <td style="color: crimson">
+                                            {{ opstel.opgesteldespeler }}
+                                        </td>
+                                    {% else %}
+                                        <td style="color: limegreen">
+                                            {{ opstel.opgesteldespeler }}
+                                        </td>
+                                    {% endif %}
+                                {% endif %}
+                                <td>{{ opstel.opgesteldespeler.country.shortname }}</td>
+                                <td>{{ opstel.opgesteldespeler.position }}</td>
+                                {% if opstel.minscore == None %}
+                                    <td> -</td>
+                                    <td> -</td>
+                                    <td> -</td>
+                                {% else %}
+                                    <td> {{ opstel.minscore }}</td>
+                                    <td>{{ opstel.plusscore }}</td>
+                                    <td>{{ opstel.goalscore }}</td>
+                                {% endif %}
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                    <tr>
+                        <th>Tactiek: {{ hometactiek }}</th>
+                        <th></th>
+                        <th>Tot.</th>
+                        <th>{{ wedstrijd.minusdecimalhomescore }}</th>
+                        <th>{{ wedstrijd.decimalhomescore }}</th>
+                        <th>{{ wedstrijd.decimalhomegoalscore }}</th>
+                    </tr>
+                    <tr bgcolor="#00d1b2">
+                        <th style="color: white">Opstelling Uit</th>
+                        <th style="color: white">Land</th>
+                        <th style="color: white">Pos.</th>
+                        <th style="color: white">Min</th>
+                        <th style="color: white">Plus</th>
+                        <th style="color: white">Goal</th>
+                    </tr>
+                    {% for opstel, gestart, gespeeld in teamopstellingen %}
+                        {% if opstel.team == wedstrijd.away %}
+                            <tr>
+                                {% if not gestart %}
+                                    <td>
+                                        {{ opstel.opgesteldespeler }}
+                                    </td>
+                                {% else %}
+                                    {% if not gespeeld %}
+                                        <td style="color: crimson">
+                                            {{ opstel.opgesteldespeler }}
+                                        </td>
+                                    {% else %}
+                                        <td style="color: limegreen">
+                                            {{ opstel.opgesteldespeler }}
+                                        </td>
+                                    {% endif %}
+                                {% endif %}
+                                <td>{{ opstel.opgesteldespeler.country.shortname }}</td>
+                                <td>{{ opstel.opgesteldespeler.position }}</td>
+                                {% if opstel.minscore == None %}
+                                    <td> -</td>
+                                    <td> -</td>
+                                    <td> -</td>
+                                {% else %}
+                                    <td> {{ opstel.minscore }}</td>
+                                    <td>{{ opstel.plusscore }}</td>
+                                    <td>{{ opstel.goalscore }}</td>
+                                {% endif %}
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                    <tr>
+                        <th>Tactiek: {{ awaytactiek }}</th>
+                        <th></th>
+                        <th>Tot.</th>
+                        <th>{{ wedstrijd.minusdecimalawayscore }}</th>
+                        <th>{{ wedstrijd.decimalawayscore }}</th>
+                        <th>{{ wedstrijd.decimalawaygoalscore }}</th>
+                    </tr>
+                    <tr>
+                        <th>_________________________</th>
+                    </tr>
+                    {#            {% endif %}#}
+                {% endfor %}
+            </table>
+        {% endfor %}
+    {% else %}
+        <table class="table" align="center">
+            <tr>
+                <th style="text-align:center">
+                    We zitten niet in een fase waar scores kunnen worden getoond
+                </th>
+            </tr>
+        </table>
+    {% endif %}
+    <table class="table" align="center">
+        <tr>
+            <th style="text-align:center">
+                <a href=wk2022><input style="width:250px" type="submit" class="button is-primary"
+                                        value="Terug naar EURO2020"/></a>
+            </th>
+        </tr>
+    </table>
+{% endblock content %}

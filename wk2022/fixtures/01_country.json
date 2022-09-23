@@ -1,0 +1,266 @@
+[
+{
+    "model": "wk2022.country",
+    "pk": "Austria",
+    "fields": {
+        "shortname": "AUT",
+        "nlname": "Oostenrijk",
+        "order": 1,
+        "group": "C",
+        "openforbid": true
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "Belgium",
+    "fields": {
+        "shortname": "BEL",
+        "nlname": "Belgie",
+        "order": 1,
+        "group": "B",
+        "openforbid": true
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "Croatia",
+    "fields": {
+        "shortname": "HRV",
+        "nlname": "Kroatie",
+        "order": 1,
+        "group": "D",
+        "openforbid": true
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "Czech Republic",
+    "fields": {
+        "shortname": "CZE",
+        "nlname": "Tsjechie",
+        "order": 2,
+        "group": "D",
+        "openforbid": true
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "Denmark",
+    "fields": {
+        "shortname": "DNK",
+        "nlname": "Denemarken",
+        "order": 2,
+        "group": "B",
+        "openforbid": false
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "England",
+    "fields": {
+        "shortname": "ENG",
+        "nlname": "Engeland",
+        "order": 3,
+        "group": "D",
+        "openforbid": false
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "Finland",
+    "fields": {
+        "shortname": "FIN",
+        "nlname": "Finland",
+        "order": 3,
+        "group": "B",
+        "openforbid": false
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "France",
+    "fields": {
+        "shortname": "FRA",
+        "nlname": "Frankrijk",
+        "order": 1,
+        "group": "F",
+        "openforbid": true
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "Germany",
+    "fields": {
+        "shortname": "DEU",
+        "nlname": "Duitsland",
+        "order": 2,
+        "group": "F",
+        "openforbid": false
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "Hungary",
+    "fields": {
+        "shortname": "HUN",
+        "nlname": "Hongarije",
+        "order": 3,
+        "group": "F",
+        "openforbid": false
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "Italy",
+    "fields": {
+        "shortname": "ITA",
+        "nlname": "Italie",
+        "order": 1,
+        "group": "A",
+        "openforbid": true
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "Netherlands",
+    "fields": {
+        "shortname": "NLD",
+        "nlname": "Nederland",
+        "order": 2,
+        "group": "C",
+        "openforbid": false
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "North Macedonia",
+    "fields": {
+        "shortname": "MKD",
+        "nlname": "Noord Macedonie",
+        "order": 3,
+        "group": "C",
+        "openforbid": false
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "Poland",
+    "fields": {
+        "shortname": "POL",
+        "nlname": "Polen",
+        "order": 2,
+        "group": "E",
+        "openforbid": false
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "Portugal",
+    "fields": {
+        "shortname": "PRT",
+        "nlname": "Portugal",
+        "order": 4,
+        "group": "F",
+        "openforbid": false
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "Russia",
+    "fields": {
+        "shortname": "RUS",
+        "nlname": "Rusland",
+        "order": 4,
+        "group": "B",
+        "openforbid": false
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "Scotland",
+    "fields": {
+        "shortname": "SCO",
+        "nlname": "Schotland",
+        "order": 4,
+        "group": "D",
+        "openforbid": false
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "Slovakia",
+    "fields": {
+        "shortname": "SVK",
+        "nlname": "Slowakije",
+        "order": 1,
+        "group": "E",
+        "openforbid": true
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "Spain",
+    "fields": {
+        "shortname": "ESP",
+        "nlname": "Spanje",
+        "order": 3,
+        "group": "E",
+        "openforbid": false
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "Sweden",
+    "fields": {
+        "shortname": "SWE",
+        "nlname": "Zweden",
+        "order": 4,
+        "group": "E",
+        "openforbid": false
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "Switzerland",
+    "fields": {
+        "shortname": "CHE",
+        "nlname": "Zwitserland",
+        "order": 2,
+        "group": "A",
+        "openforbid": false
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "Turkey",
+    "fields": {
+        "shortname": "TUR",
+        "nlname": "Turkije",
+        "order": 3,
+        "group": "A",
+        "openforbid": false
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "Ukraine",
+    "fields": {
+        "shortname": "UKR",
+        "nlname": "Oekraine",
+        "order": 4,
+        "group": "C",
+        "openforbid": false
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "Wales",
+    "fields": {
+        "shortname": "WAL",
+        "nlname": "Wales",
+        "order": 4,
+        "group": "A",
+        "openforbid": false
+    }
+}
+]

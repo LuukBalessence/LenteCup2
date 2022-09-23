@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+{% block title %}
+    <table class="table" ALIGN="center">
+        <tr>
+            <th style="text-align:center">
+                UEFA EURO 2020
+            </th>
+        </tr>
+        <tr>
+            <th style="text-align:center">
+                Welkom {{ user.first_name }}
+            </th>
+        </tr>
+        <tr>
+            <th style="text-align:center">
+                <i class="fas fa-futbol"></i>
+                <i class="fas fa-futbol"></i>
+                <i class="fas fa-futbol"></i>
+            </th>
+        </tr>
+    </table>
+{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        <table class="table" ALIGN="center">
+            {% if hoofdmelding1 %}
+                <tr>
+                    <th>
+                        <div class="notification is-info" ALIGN="center">
+                            <button class="delete"></button>
+                            {{ hoofdmelding1 }}
+                        </div>
+                    </th>
+                </tr>
+            {% endif %}
+        {% if hoofdmelding2 %}
+                <tr>
+                    <th>
+                        <div class="notification is-info" ALIGN="center">
+                            <button class="delete"></button>
+                            {{ hoofdmelding2 }}
+                        </div>
+                    </th>
+                </tr>
+            {% endif %}
+        {% if hoofdmelding3 %}
+                <tr>
+                    <th>
+                        <div class="notification is-info" ALIGN="center">
+                            <button class="delete"></button>
+                            {{ hoofdmelding3 }}
+                        </div>
+                    </th>
+                </tr>
+            {% endif %}
+        {% if hoofdmelding4 %}
+                <tr>
+                    <th>
+                        <div class="notification is-info" ALIGN="center">
+                            <button class="delete"></button>
+                            {{ hoofdmelding4 }}
+                        </div>
+                    </th>
+                </tr>
+            {% endif %}
+            {% if live %}
+                <tr>
+                    <th style="text-align:center">
+                        <a href="{% url 'livescoring'%}"><input style="width:250px" type="submit" class="button is-danger is-large"
+                                                 value="LIVE SCORING"/></a>
+                    </th>
+                </tr>
+            {% endif %}
+            <tr>
+                <th style="text-align:center">
+                    <a href=/wk2022/myteam><input style="width:250px" type="submit" class="button is-primary"
+                                             value="Jouw Team"/></a>
+                </th>
+            </tr>
+            <tr>
+                <th style="text-align:center">
+                    <a href=/wk2022/bidmenu><input style="width:250px" type="submit" class="button is-primary"
+                                             value="Biedings menu"/></a>
+                </th>
+            </tr>
+            <tr>
+                <th style="text-align:center">
+                    <a href=/wk2022/myleague><input style="width:250px" type="submit" class="button is-primary"
+                                             value="Jouw League"/></a>
+                </th>
+            </tr>
+            <tr>
+                <th style="text-align:center">
+                    <a href=/wk2022/myledger><input style="width:250px" type="submit" class="button is-primary"
+                                             value="Jouw Boekhouding"/></a>
+                </th>
+            </tr>
+            <tr>
+                <th style="text-align:center">
+                    <a href=/wk2022/rlwk2022><input style="width:250px" type="submit" class="button is-primary"
+                                             value="Info Echte EURO 2020"/></a>
+                </th>
+            </tr>
+            <tr>
+                <th style="text-align:center">
+                    <a href=/wk2022/regels><input style="width:250px" type="submit" class="button is-primary"
+                                                      value="Uitleg en Regels"/></a>
+                </th>
+            </tr>
+            <tr>
+                <th style="text-align:center">
+                    <a href=/wk2022/hulpbieden><input style="width:250px" type="submit" class="button is-primary"
+                                                      value="Hulp bij bieden en stand"/></a>
+                </th>
+            </tr>
+            <tr>
+                <th style="text-align:center">
+                    <a href=../accounts/logout/><input style="width:250px" type="submit" class="button is-primary"
+                                                       value="Uitloggen"/></a>
+                </th>
+            </tr>
+        </table>
+    {% else %}
+        <h3 ALIGN="center" class="title is-h3">NOT LOGGED IN YET.</h3>
+        <h3 ALIGN="center" class="title is-h3">PLEASE GO TO LOGIN PAGE</h3>
+
+        <table class="table" ALIGN="center">
+            <tr>
+                <th style="text-align:center">
+                    <a href=/accounts/login/><input style="width:250px" type="submit" class="button is-primary"
+                                                    value="Ga naar Login"/></a>
+                </th>
+            </tr>
+        </table>
+    {% endif %}
+{% endblock %}
+
+

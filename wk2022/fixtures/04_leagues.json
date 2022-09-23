@@ -1,0 +1,42 @@
+[
+{
+    "model": "wk2022.league",
+    "pk": 1,
+    "fields": {
+        "leaguename": "League 1",
+        "maxparticipants": 24,
+        "is_private": false,
+        "gamephase": 1
+    }
+},
+{
+    "model": "wk2022.league",
+    "pk": 2,
+    "fields": {
+        "leaguename": "League 2",
+        "maxparticipants": 24,
+        "is_private": false,
+        "gamephase": 1
+    }
+},
+{
+    "model": "wk2022.league",
+    "pk": 3,
+    "fields": {
+        "leaguename": "League 3",
+        "maxparticipants": 24,
+        "is_private": true,
+        "gamephase": 1
+    }
+},
+{
+    "model": "wk2022.league",
+    "pk": 4,
+    "fields": {
+        "leaguename": "League 4",
+        "maxparticipants": 24,
+        "is_private": false,
+        "gamephase": 1
+    }
+}
+]

@@ -1,0 +1,175 @@
+{% extends "base.html" %}
+{% block title %}LEAGUE OVERVIEW{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        {% if user.is_staff %}
+            {% if error %}
+                <table class="table" align="center">
+                    <tr>
+                        <th>{{ error }}</th>
+                    </tr>
+                </table>
+            {% endif %}
+
+            <table class="table" align="center">
+                <tr>
+                    <th style="text-align:center">
+                        Leaguename: {{ league }}
+                    </th>
+                </tr>
+                <tr>
+                    <th style="text-align:center">
+                        League phase: {{ league.gamephase }}
+                    </th>
+                </tr>
+                 <tr>
+                    <th style="text-align:center">
+                        League balance: {{ league.leaguebalance }} betcoins
+                    </th>
+                </tr>
+                <tr>
+                    <th style="text-align:center">
+                        <a href="{% url 'changephase' league.pk %}" class="button is-primary">Go to next Phase</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th style="text-align:center">
+                        <a href="{% url 'setupleagueteams' league.pk %}" class="button is-primary">Setup Teams</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th style="text-align:center">
+                        <a href="{% url 'teamsperleague' league.pk %}" class="button is-primary">See Teams</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th style="text-align:center">
+                        <a href="{% url 'lotingleague' league.pk %}" class="button is-primary">Doe loting</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th style="text-align:center">
+                        <a href="{% url 'createleaguematches' league.pk %}" class="button is-primary">Creerr League Matches</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th style="text-align:center">
+                        <a href="{% url 'ontslaspelers' league.pk True %}" class="button is-primary">Lijst met spelers te ontslaan</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th style="text-align:center">
+                        <a href="{% url 'statusontslaan' league.pk %}" class="button is-primary">Status ontslaan</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th style="text-align:center">
+                        <a href="{% url 'listleaguebids' league.pk %}" class="button is-primary">Bekijk biedingen en True elimlanden</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th style="text-align:center">
+                        <a href="{% url 'ontslaspelers' league.pk False %}" class="button is-primary">Ontsla spelers</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th style="text-align:center">
+                        <a href="{% url 'keerpremieuit' league.pk True%}" class="button is-primary">Bekijk premie uitkeringen</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th style="text-align:center">
+                        <a href="{% url 'keerpremieuit' league.pk False%}" class="button is-primary">Effectueer premie uitkeringen</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th style="text-align:center">
+                        <a href="{% url 'keerkopremieuit' league.pk True%}" class="button is-primary">Bekijk KO fase premies</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th style="text-align:center">
+                        <a href="{% url 'keerkopremieuit' league.pk False%}" class="button is-primary">Effectueer KO Fase uitkeringen</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th style="text-align:center">
+                        <a href="{% url 'setupleaguebids' league.pk %}" class="button is-primary">Setup bids</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th style="text-align:center">
+                        <a href="{% url 'auction' league.pk league.gamephase.pk %}" class="button is-primary">Start Auction</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th style="text-align:center">
+                        <a href="{% url 'minplayerpositions' league.pk %}" class="button is-primary">Check minimum en posities na veiling</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th style="text-align:center">
+                        <a href="{% url 'initiallineup' league.pk %}" class="button is-primary">Initialiseer Opstelling en Tactiek</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th style="text-align:center">
+                        <a href="{% url 'fillteams' league.pk %}" class="button is-primary">Vul spelers aan</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th style="text-align:center">
+                        <a href="{% url 'assignedbidsperteam' league.pk %}" class="button is-primary">Bids per team</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th style="text-align:center">
+                        <a href="{% url 'rejectedbidsperteam' league.pk %}" class="button is-primary">Rejected Bids per team</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th style="text-align:center">
+                        <a href="{% url 'unassignedplayersperleague' league.pk %}" class="button is-primary">Unassigned Players</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th style="text-align:center">
+                        <a href="{% url 'saveroundscores' league.pk %}" class="button is-primary">Save Round Scores</a>
+                    </th>
+                </tr>
+                 <tr>
+                            <th style="text-align:center">
+                                <a href=/wk2022><input style="width:250px" type="submit" class="button is-black"
+                                                         value="Geef spelers vrij eliminatielanden" disabled/></a>
+                            </th>
+                        </tr>
+{#                <tr>#}
+{#                    <th style="text-align:center">#}
+{#                        <a href="{% url 'deleteleaguedata' league.pk %}" class="button is-primary">Delete league</a>#}
+{#                    </th>#}
+{#                </tr>#}
+                <tr>
+                    <th style="text-align:center">
+                        <a href="{% url 'leagueoverview' %}" class="button is-primary">League overview</a>
+                    </th>
+                </tr>
+                <tr>
+                        <th style="text-align:center">
+                            <a href="{% url 'getlineups' %}" class="button is-primary">Test Opstellingen</a>
+                        </th>
+                    </tr>
+            </table>
+        {% else %}
+            <table class="table" ALIGN="center">
+                <tr>
+                    <th>
+                        <div class="notification is-info" ALIGN="center">
+                            <button class="delete"></button>
+                            Je bent geen admin gebruiker
+                        </div>
+                    </th>
+                </tr>
+            </table>
+        {% endif %}
+    {% endif %}
+{% endblock %}

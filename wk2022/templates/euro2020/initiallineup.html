@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}INITIALLINEUP{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        {% if user.is_staff %}
+            {% if error %}
+                <table class="table" align="center">
+                    <tr>
+                        <th>{{ error }}</th>
+                    </tr>
+                </table>
+            {% endif %}
+        {% else %}
+            <table class="table" ALIGN="center">
+                <tr>
+                    <th>
+                        <div class="notification is-info" ALIGN="center">
+                            <button class="delete"></button>
+                            Je bent geen admin gebruiker
+                        </div>
+                    </th>
+                </tr>
+            </table>
+        {% endif %}
+    {% endif %}
+{% endblock %}

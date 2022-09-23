@@ -1,0 +1,803 @@
+country;role;first_name;last_name;number
+Belgium;GK;Thibaut;Courtois;1
+Belgium;GK;Simon;Mignolet;12
+Belgium;GK;Jens;Teunckens;12
+Belgium;GK;Matz;Sels;13
+Belgium;GK;Koen;Casteels;13
+Belgium;DF;Toby;Alderweireld;2
+Belgium;DF;Brandon;Mechele;3
+Belgium;DF;Thomas;Vermaelen;3
+Belgium;DF;Dedryck;Boyata;4
+Belgium;DF;Vincent;Kompany;4
+Belgium;DF;Jason;Denayer;5
+Belgium;DF;Jan;Vertonghen;5
+Belgium;DF;Thomas;Meunier;15
+Belgium;DF;Elias;Cobbaut;15
+Belgium;DF;Timothy;Castagne;21
+Belgium;MF;Leander;Dendoncker;4
+Belgium;MF;Axel;Witsel;6
+Belgium;MF;Kevin;De Bruyne;7
+Belgium;MF;Youri;Tielemans;8
+Belgium;MF;Yannick;Carrasco;11
+Belgium;MF;Thorgan;Hazard;16
+Belgium;MF;Adnan;Januzaj;18
+Belgium;MF;Hans;Vanaken;18
+Belgium;MF;Dennis;Praet;19
+Belgium;MF;Yari;Verschaeren;22
+Belgium;MF;Nacer;Chadli;22
+Belgium;AT;Romelu;Lukaku;9
+Belgium;AT;Leandro;Trossard;9
+Belgium;AT;Eden;Hazard;10
+Belgium;AT;Dries;Mertens;14
+Belgium;AT;Divock;Origi;17
+Belgium;AT;Christian;Benteke;20
+Belgium;AT;Benito;Raman;21
+Belgium;AT;Michy;Batshuayi;23
+Belgium;GK;Thibaut;Courtois;1
+Belgium;GK;Simon;Mignolet;12
+Belgium;GK;Jens;Teunckens;12
+Belgium;GK;Matz;Sels;13
+Belgium;GK;Koen;Casteels;13
+Belgium;DF;Toby;Alderweireld;2
+Belgium;DF;Brandon;Mechele;3
+Belgium;DF;Thomas;Vermaelen;3
+Belgium;DF;Dedryck;Boyata;4
+Belgium;DF;Vincent;Kompany;4
+Belgium;DF;Jason;Denayer;5
+Belgium;DF;Jan;Vertonghen;5
+Belgium;DF;Thomas;Meunier;15
+Belgium;DF;Elias;Cobbaut;15
+Belgium;DF;Timothy;Castagne;21
+Belgium;MF;Leander;Dendoncker;4
+Belgium;MF;Axel;Witsel;6
+Belgium;MF;Kevin;De Bruyne;7
+Belgium;MF;Youri;Tielemans;8
+Belgium;MF;Yannick;Carrasco;11
+Belgium;MF;Thorgan;Hazard;16
+Belgium;MF;Adnan;Januzaj;18
+Belgium;MF;Hans;Vanaken;18
+Belgium;MF;Dennis;Praet;19
+Belgium;MF;Yari;Verschaeren;22
+Belgium;MF;Nacer;Chadli;22
+Belgium;AT;Romelu;Lukaku;9
+Belgium;AT;Leandro;Trossard;9
+Belgium;AT;Eden;Hazard;10
+Belgium;AT;Dries;Mertens;14
+Belgium;AT;Divock;Origi;17
+Belgium;AT;Christian;Benteke;20
+Belgium;AT;Benito;Raman;21
+Belgium;AT;Michy;Batshuayi;23
+Netherlands;GK;Jasper;Cillessen;1
+Netherlands;GK;Kenneth;Vermeer;13
+Netherlands;GK;Jeroen;Zoet;13
+Netherlands;GK;Marco;Bizot;23
+Netherlands;DF;Hans;Hateboer;2
+Netherlands;DF;Kenny;Tete;2
+Netherlands;DF;Jo\u00ebl;Veltman;2
+Netherlands;DF;Matthijs;de Ligt;3
+Netherlands;DF;Virgil;van Dijk;4
+Netherlands;DF;Nathan;Ak\u00e9;5
+Netherlands;DF;Patrick;van Aanholt;12
+Netherlands;DF;Stefan;de Vrij;14
+Netherlands;DF;Daley;Blind;17
+Netherlands;DF;Denzel;Dumfries;22
+Netherlands;MF;Pablo;Rosario;6
+Czech Republic;GK;Tom\u00e1\u0161;Vacl\u00edk;1
+Netherlands;MF;Davy;Pr\u00f6pper;6
+Netherlands;MF;Calvin;Stengs;7
+Netherlands;MF;Steven;Bergwijn;7
+Netherlands;MF;Georginio;Wijnaldum;8
+Netherlands;MF;Quincy;Promes;11
+Netherlands;MF;Marten;de Roon;15
+Netherlands;MF;Kevin;Strootman;16
+Netherlands;MF;Tonny;Vilhena;18
+Netherlands;MF;Donny;van de Beek;20
+Czech Republic;GK;Ond\u0159ej;Kol\u00e1\u0159;16
+Czech Republic;GK;Tom\u00e1\u0161;Koubek;16
+Czech Republic;GK;Ji\u0159\u00ed;Pavlenka;23
+Czech Republic;DF;Pavel;Kade\u0159\u00e1bek;2
+Czech Republic;DF;Radim;\u0158ezn\u00edk;2
+Czech Republic;DF;Ond\u0159ej;\u010cel\u016fstka;3
+Czech Republic;DF;Jakub;Brabec;4
+Czech Republic;DF;Theodor;Gebre Selassie;4
+Czech Republic;DF;Vladim\u00edr;Coufal;5
+Netherlands;MF;Frenkie;de Jong;21
+Netherlands;AT;Luuk;de Jong;9
+Netherlands;AT;Ryan;Babel;9
+Netherlands;AT;Memphis;Depay;10
+Netherlands;AT;Steven;Berghuis;15
+Netherlands;AT;Myron;Boadu;18
+Netherlands;AT;Wout;Weghorst;19
+Netherlands;AT;Justin;Kluivert;20
+Netherlands;AT;Donyell;Malen;20
+Czech Republic;DF;Tom\u00e1\u0161;Kalas;6
+Czech Republic;DF;Martin;Fr\u00fddek;10
+Czech Republic;DF;Marek;Such\u00fd;17
+Czech Republic;DF;Ond\u0159ej;K\u00fadela;17
+Czech Republic;DF;Jan;Bo\u0159il;18
+Czech Republic;DF;Stefan;Simi\u010d;22
+Czech Republic;DF;Filip;Nov\u00e1k;22
+Czech Republic;MF;Ladislav;Krej\u010d\u00ed;7
+Czech Republic;MF;Vladim\u00edr;Darida;8
+Czech Republic;MF;Michal;Sad\u00edlek;8
+Czech Republic;MF;Bo\u0159ek;Do\u010dkal;9
+Czech Republic;MF;Josef;Hu\u0161bauer;10
+Czech Republic;MF;David;Pavelka;11
+Croatia;GK;Dominik;Livakovi\u0107;1
+Czech Republic;MF;Luk\u00e1\u0161;Masopust;12
+Czech Republic;MF;Petr;\u0160ev\u010d\u00edk;13
+Czech Republic;MF;Jan;Kopic;13
+Czech Republic;MF;Jakub;Jankto;14
+Czech Republic;MF;Tom\u00e1\u0161;Sou\u010dek;15
+Czech Republic;MF;Jarom\u00edr;Zmrhal;17
+Czech Republic;MF;Luk\u00e1\u0161;Kalvach;20
+Czech Republic;MF;Alex;Kr\u00e1l;21
+Croatia;GK;Lovre;Kalini\u0107;12
+Croatia;GK;Simon;Sluga;23
+Croatia;DF;Matej;Mitrovi\u0107;
+Croatia;DF;Dario;Melnjak;2
+Croatia;DF;Borna;Bari\u0161i\u0107;3
+Croatia;DF;Dino;Peri\u0107;5
+Croatia;DF;Dejan;Lovren;6
+Croatia;DF;Duje;\u0106aleta-Car;6
+Croatia;DF;Filip;Benkovi\u0107;14
+Croatia;DF;Mile;\u0160kori\u0107;14
+Czech Republic;AT;Zden\u011bk;Ondr\u00e1\u0161ek;9
+Czech Republic;AT;Libor;Koz\u00e1k;9
+Czech Republic;AT;Michael;Krmen\u010d\u00edk;11
+Czech Republic;AT;Martin;Dole\u017eal;19
+Czech Republic;AT;Patrik;Schick;19
+Czech Republic;AT;Mat\u011bj;Vydra;20
+Czech Republic;AT;Milan;\u0160koda;21
+Netherlands;GK;Jasper;Cillessen;1
+Croatia;DF;Antonio;Mili\u0107;16
+Croatia;DF;Tin;Jedvaj;16
+Croatia;DF;Josip;Juranovi\u0107;21
+Croatia;DF;Domagoj;Vida;21
+Croatia;DF;Marin;Leovac;22
+Croatia;DF;Karlo;Bartolec;22
+Croatia;MF;Mijo;Cakta\u0161;2
+Croatia;MF;Ivan;Rakiti\u0107;7
+Croatia;MF;Mateo;Kova\u010di\u0107;8
+Croatia;MF;Luka;Modri\u0107;10
+Netherlands;GK;Kenneth;Vermeer;13
+Netherlands;GK;Jeroen;Zoet;13
+Netherlands;GK;Marco;Bizot;23
+Netherlands;DF;Hans;Hateboer;2
+Netherlands;DF;Kenny;Tete;2
+Netherlands;DF;Jo\u00ebl;Veltman;2
+Netherlands;DF;Matthijs;de Ligt;3
+Netherlands;DF;Virgil;van Dijk;4
+Netherlands;DF;Nathan;Ak\u00e9;5
+Netherlands;DF;Patrick;van Aanholt;12
+Netherlands;DF;Stefan;de Vrij;14
+Netherlands;DF;Daley;Blind;17
+Netherlands;DF;Denzel;Dumfries;22
+Netherlands;MF;Pablo;Rosario;6
+Croatia;MF;Filip;Bradari\u0107;11
+Croatia;MF;Marcelo;Brozovi\u0107;11
+Croatia;MF;Nikola;Vla\u0161i\u0107;13
+Croatia;MF;Mario;Pa\u0161ali\u0107;15
+Croatia;MF;Marko;Rog;17
+Croatia;MF;Alen;Halilovi\u0107;17
+Croatia;MF;Ante;Rebi\u0107;18
+Croatia;MF;Milan;Badelj;19
+Croatia;AT;Ivan;Peri\u0161i\u0107;4
+Croatia;AT;Josip;Brekalo;7
+Croatia;AT;Andrej;Kramari\u0107;9
+Croatia;AT;Mislav;Or\u0161i\u0107;9
+Croatia;AT;Bruno;Petkovi\u0107;20
+Netherlands;MF;Davy;Pr\u00f6pper;6
+Netherlands;MF;Calvin;Stengs;7
+Netherlands;MF;Steven;Bergwijn;7
+Netherlands;MF;Georginio;Wijnaldum;8
+Netherlands;MF;Quincy;Promes;11
+Netherlands;MF;Marten;de Roon;15
+Netherlands;MF;Kevin;Strootman;16
+Netherlands;MF;Tonny;Vilhena;18
+Netherlands;MF;Donny;van de Beek;20
+Netherlands;MF;Frenkie;de Jong;21
+Netherlands;AT;Luuk;de Jong;9
+Netherlands;AT;Ryan;Babel;9
+Netherlands;AT;Memphis;Depay;10
+Netherlands;AT;Steven;Berghuis;15
+Netherlands;AT;Myron;Boadu;18
+Netherlands;AT;Wout;Weghorst;19
+Netherlands;AT;Justin;Kluivert;20
+Netherlands;AT;Donyell;Malen;20
+Austria;GK;Heinz;Lindner;1
+Austria;GK;Alexander;Schlager;1
+Austria;GK;Pavao;Pervan;12
+Austria;GK;Richard;Strebinger;12
+Austria;GK;J\u00f6rg;Siebenhandl;13
+Austria;GK;Cican;Stankovic;13
+Austria;DF;Maximilian;Ullmann;2
+Austria;DF;Andreas;Ulmer;2
+Austria;DF;Aleksandar;Dragovi\u0107;3
+Austria;DF;Martin;Hinteregger;4
+Austria;DF;Maximilian;W\u00f6ber;4
+Austria;DF;Stefan;Posch;5
+Austria;DF;Reinhold;Ranftl;7
+Austria;DF;Marco;Friedl;8
+Austria;DF;David;Alaba;8
+Austria;DF;Albert;Vallci;14
+Austria;DF;Philipp;Lienhart;15
+Austria;DF;Sebastian;Pr\u00f6dl;15
+Austria;DF;Stefan;Lainer;21
+Austria;MF;Stefan;Ilsanker;6
+Austria;MF;Kevin;St\u00f6ger;8
+Austria;MF;Florian;Grillitsch;10
+Austria;MF;Peter;\u017dulj;10
+Austria;MF;Julian;Baumgartlinger;14
+England;GK;Nick;Pope;
+Austria;MF;Thomas;Goiginger;16
+Austria;MF;Florian;Kainz;17
+England;GK;Tom;Heaton;
+England;GK;Jordan;Pickford;
+England;GK;Dean;Henderson;
+England;GK;Jack;Butland;
+England;DF;Trent;Alexander-Arnold;
+England;DF;Kieran;Trippier;
+England;DF;Danny;Rose;
+England;DF;Fikayo;Tomori;
+England;DF;Kyle;Walker;
+England;DF;Harry;Maguire;
+England;DF;Joe;Gomez;
+England;DF;James;Tarkowski;
+England;DF;Michael;Keane;
+England;DF;Aaron;Wan-Bissaka;
+Austria;MF;Christopher;Trimmel;17
+Austria;MF;Alessandro;Sch\u00f6pf;17
+Austria;MF;Konrad;Laimer;18
+Denmark;GK;Kasper;Schmeichel;1
+England;DF;Eric;Dier;
+England;DF;John;Stones;
+England;DF;Ben;Chilwell;
+England;DF;Luke;Shaw;
+England;DF;Tyrone;Mings;
+England;MF;Jesse;Lingard;
+England;MF;Mason;Mount;
+England;MF;James;Maddison;
+England;MF;Jordan;Henderson;
+England;MF;Ross;Barkley;
+England;MF;James;Ward-Prowse;
+England;MF;Callum;Hudson-Odoi;
+England;MF;Ruben;Loftus-Cheek;
+England;MF;Harry;Winks;
+England;MF;Fabian;Delph;
+Austria;MF;Hannes;Wolf;20
+Austria;MF;Karim;Onisiwo;20
+Austria;MF;Valentino;Lazaro;22
+Austria;MF;Xaver;Schlager;23
+Austria;MF;Louis;Schaub;23
+Austria;AT;Marko;Arnautovi\u0107;7
+Austria;AT;Marcel;Sabitzer;9
+Austria;AT;Michael;Gregoritsch;11
+Austria;AT;Guido;Burgstaller;19
+Austria;AT;Lukas;Hinterseer;19
+Austria;AT;Marc;Janko;21
+Denmark;GK;Jonas;L\u00f6ssl;16
+Denmark;GK;;Jesper Hansen;16
+Denmark;GK;Daniel;Iversen;22
+Denmark;GK;Frederik;R\u00f8nnow;22
+Denmark;DF;Peter;Ankersen;2
+Denmark;DF;Joachim;Andersen;3
+England;MF;Alex;Oxlade-Chamberlain;
+England;MF;Declan;Rice;
+England;MF;Dele;Alli;
+England;AT;Jadon;Sancho;
+England;AT;Raheem;Sterling;
+England;AT;Marcus;Rashford;
+England;AT;Harry;Kane;
+England;AT;Callum;Wilson;
+Denmark;DF;Victor;Nelsson;3
+Denmark;DF;Simon;Kj\u00e6r;4
+Denmark;DF;Riza;Durmisi;5
+Denmark;DF;Jonas;Knudsen;5
+Denmark;DF;Andreas;Christensen;6
+Denmark;DF;Mathias;J\u00f8rgensen;13
+Denmark;DF;Henrik;Dalsgaard;14
+Denmark;DF;Jens;Stryger Larsen;17
+Denmark;MF;Anders;Christiansen;2
+England;AT;Tammy;Abraham;
+Denmark;MF;Philip;Billing;5
+Denmark;MF;Robert;Skov;7
+Denmark;MF;Thomas;Delaney;8
+Denmark;MF;Christian;Eriksen;10
+Denmark;MF;Lukas;Lerager;15
+Denmark;MF;Christian;N\u00f8rgaard;15
+Denmark;MF;Daniel;Wass;18
+Denmark;MF;Lasse;Sch\u00f6ne;19
+Denmark;MF;Jacob;Bruun Larsen;21
+Denmark;MF;Pierre Emile;H\u00f8jbjerg;23
+Denmark;AT;Christian;Gytkj\u00e6r;9
+Denmark;AT;Nicolai;J\u00f8rgensen;9
+Denmark;AT;Martin;Braithwaite;11
+Denmark;AT;Kasper;Dolberg;12
+Denmark;AT;Yussuf;Poulsen;20
+Denmark;AT;Andreas;Cornelius;21
+Finland;GK;Lukas;Hradecky;1
+Finland;GK;Jesse;Joronen;12
+Finland;GK;Anssi;Jaakkola;23
+Finland;DF;Paulus;Arajuuri;2
+Finland;DF;Daniel;O'Shaughnessy;3
+Finland;DF;Albin;Granlund;3
+Finland;DF;Joona;Toivio;4
+Finland;DF;Leo;V\u00e4is\u00e4nen;5
+Finland;DF;Sauli;V\u00e4is\u00e4nen;15
+Finland;DF;Juha;Pirinen;16
+Finland;DF;Niko;Markkula;17
+Finland;DF;Mikko;Sumusalo;18
+Finland;DF;Jere;Uronen;18
+Finland;DF;Thomas;Lam;18
+Finland;DF;Jukka;Raitala;22
+Finland;MF;Petteri;Forsell;2
+Finland;MF;Glen;Kamara;6
+Finland;MF;Robin;Lod;8
+Finland;MF;Fredrik;Jensen;9
+Finland;MF;Rasmus;Sch\u00fcller;11
+Finland;MF;Pyry;Soiri;13
+Finland;MF;Tim;Sparv;14
+Finland;MF;Joni;Kauko;19
+Finland;MF;Lasse;Karjalainen;20
+Finland;MF;Robert;Taylor;21
+Finland;MF;Kasper;H\u00e4m\u00e4l\u00e4inen;21
+Finland;AT;Benjamin;K\u00e4llman;7
+Finland;AT;Jasse;Tuominen;7
+Finland;AT;Teemu;Pukki;10
+Finland;AT;Simon;Skrabb;17
+Finland;AT;Joel;Pohjanpalo;20
+Finland;AT;Rasmus;Karjalainen;20
+Finland;AT;Lassi;Lappalainen;21
+France;GK;Hugo;Lloris;1
+France;GK;Alphonse;Areola;1
+France;GK;Steve;Mandanda;16
+France;GK;Mike;Maignan;23
+France;DF;Benjamin;Pavard;2
+France;DF;Presnel;Kimpembe;3
+France;DF;Ferland;Mendy;3
+France;DF;Rapha\u00ebl;Varane;4
+France;DF;Cl\u00e9ment;Lenglet;5
+France;DF;Samuel;Umtiti;5
+France;DF;Kurt;Zouma;15
+France;DF;Lucas;Digne;19
+France;DF;Djibril;Sidib\u00e9;19
+France;DF;L\u00e9o;Dubois;21
+France;DF;Lucas;Hern\u00e1ndez;21
+Russia;GK;;Guilherme;1
+France;DF;Layvin;Kurzawa;22
+France;DF;Benjamin;Mendy;22
+France;MF;Paul;Pogba;6
+France;MF;Tanguy;Ndomb\u00e9l\u00e9;6
+France;MF;Thomas;Lemar;8
+France;MF;Corentin;Tolisso;12
+France;MF;N'Golo;Kant\u00e9;13
+France;MF;Matt\u00e9o;Guendouzi;14
+France;MF;Blaise;Matuidi;14
+France;MF;Steven;Nzonzi;15
+France;MF;Moussa;Sissoko;17
+France;MF;Jonathan;Ikon\u00e9;20
+France;AT;Antoine;Griezmann;7
+France;AT;Olivier;Giroud;9
+Russia;GK;Anton;Shunin;12
+Russia;GK;Andrei;Lunev;12
+Russia;GK;Soslan;Dzhanaev;16
+Russia;DF;;M\u00e1rio Fernandes;2
+Russia;DF;Dmitri;Chistyakov;3
+Russia;DF;Roman;Neust\u00e4dter;3
+Russia;DF;Kirill;Nababkin;3
+Russia;DF;Vladislav;Ignatyev;3
+Russia;DF;Vyacheslav;Karavaev;4
+Russia;DF;Andrei;Semenov;5
+Russia;DF;Maksim;Belyaev;6
+Russia;DF;Fedor;Kudryashov;13
+Russia;DF;Georgi;Dzhikiya;14
+Russia;DF;Georgi;Schennikov;23
+France;AT;Kylian;Mbapp\u00e9;10
+France;AT;Kingsley;Coman;11
+France;AT;Nabil;Fekir;18
+France;AT;Florian;Thauvin;20
+France;AT;Wissam;Ben Yedder;20
+France;AT;Alassane;Pl\u00e9a;22
+Russia;DF;Yevgeni;Chernov;23
+Russia;DF;Sergei;Petrov;23
+Russia;MF;Denis;Cheryshev;6
+Russia;MF;Magomed;Ozdoev;7
+Russia;MF;Yuri;Gazinski;8
+Russia;MF;Dmitri;Barinov;8
+Russia;MF;Ilzat;Akhmetov;8
+Russia;MF;Daler;Kuzyaev;9
+Russia;MF;Zelimkhan;Bakaev;10
+Russia;MF;Ruslan;Kambolov;10
+Russia;MF;Roman;Zobnin;11
+Russia;MF;Pavel;Mogilevets;11
+Russia;MF;Aleksei;Miranchuk;15
+Russia;MF;Daniil;Fomin;17
+Russia;MF;Aleksandr;Golovin;17
+Russia;MF;Yuri;Zhirkov;18
+Russia;MF;Anton;Miranchuk;19
+Russia;MF;Reziuan;Mirzov;19
+Russia;MF;Aleksei;Ionov;20
+Russia;MF;Aleksandr;Erokhin;21
+Russia;AT;Fedor;Smolov;9
+Russia;AT;Aleksandr;Sobolev;9
+Russia;AT;Fedor;Chalov;10
+Russia;AT;Nikolai;Komlichenko;19
+Russia;AT;Artem;Dzyuba;22
+Portugal;GK;;Rui Patr\u00edcio;1
+Portugal;GK;;Jos\u00e9 S\u00e1;12
+Portugal;GK;;Beto;22
+Portugal;DF;;Jo\u00e3o Cancelo;2
+Portugal;DF;N\u00e9lson;Semedo;2
+Portugal;DF;;Ferro;2
+Portugal;DF;;Pepe;3
+Portugal;DF;;R\u00faben Semedo;3
+Portugal;DF;;Daniel Carri\u00e7o;3
+Portugal;DF;;R\u00faben Dias;4
+Portugal;DF;Rapha\u00ebl;Guerreiro;5
+Portugal;DF;Jos\u00e9;Fonte;6
+Portugal;DF;;Ricardo;15
+Portugal;DF;;Domingos Duarte;17
+Portugal;DF;;M\u00e1rio Rui;19
+Portugal;MF;;Jo\u00e3o Moutinho;8
+Germany;GK;Manuel;Neuer;1
+Portugal;MF;;Bernardo Silva;10
+Portugal;MF;;Jo\u00e3o M\u00e1rio;10
+Portugal;MF;;Danilo;13
+Portugal;MF;;William Carvalho;14
+Portugal;MF;;Andr\u00e9 Gomes;15
+Portugal;MF;;Bruno Fernandes;16
+Portugal;MF;;Renato Sanches;16
+Portugal;MF;Daniel;Podence;17
+Portugal;MF;;Gon\u00e7alo Guedes;17
+Portugal;MF;;R\u00faben Neves;18
+Portugal;MF;;Pizzi;21
+Portugal;AT;Cristiano;Ronaldo;7
+Portugal;AT;;\u00c9der;9
+Portugal;AT;;Bruma;11
+Portugal;AT;;Gon\u00e7alo Paci\u00eancia;14
+Germany;GK;Bernd;Leno;12
+Germany;GK;Kevin;Trapp;12
+Germany;GK;Marc-Andr\u00e9;ter Stegen;22
+Germany;GK;Sven;Ulreich;22
+Germany;DF;Robin;Koch;2
+Germany;DF;Thilo;Kehrer;2
+Germany;DF;Jonas;Hector;3
+Germany;DF;Matthias;Ginter;4
+Germany;DF;Jonathan;Tah;5
+Germany;DF;Lukas;Klostermann;13
+Germany;DF;Nico;Schulz;14
+Portugal;AT;;Rafa Silva;15
+Portugal;AT;;Diogo Jota;20
+Portugal;AT;;Dyego Sousa;23
+Portugal;AT;;Jo\u00e3o F\u00e9lix;23
+Portugal;AT;;Andr\u00e9 Silva;23
+Poland;GK;Wojciech;Szcz\u0119sny;1
+Italy;GK;Mattia;Perin;
+Germany;DF;Niklas;S\u00fcle;15
+Germany;DF;Marcel;Halstenberg;16
+Germany;DF;Sebastian;Rudy;16
+Germany;DF;Antonio;R\u00fcdiger;16
+Germany;DF;Niklas;Stark;17
+Germany;DF;;Emre Can;23
+Germany;MF;Joshua;Kimmich;6
+Germany;MF;Kai;Havertz;7
+Germany;MF;Maximilian;Eggestein;7
+Germany;MF;Toni;Kroos;8
+Germany;MF;Julian;Brandt;10
+Germany;MF;Marco;Reus;11
+Germany;MF;Nadiem;Amiri;11
+Germany;MF;Suat;Serdar;15
+Poland;GK;Rafal;Gikiewicz;1
+Poland;GK;\u0141ukasz;Skorupski;12
+Poland;GK;\u0141ukasz;Fabia\u0144ski;22
+Poland;GK;Rados\u0142aw;Majecki;22
+Poland;DF;Micha\u0142;Pazdan;2
+Poland;DF;Krystian;Bielik;2
+Poland;DF;Artur;J\u0119drzejczyk;3
+Poland;DF;Thiago;Cionek;4
+Poland;DF;Jan;Bednarek;5
+Poland;DF;Arkadiusz;Reca;13
+Poland;DF;Maciej;Rybus;13
+Poland;DF;Kamil;Glik;15
+Poland;DF;Tomasz;K\u0119dziora;16
+Italy;GK;Antonio;Mirante;
+Italy;GK;Salvatore;Sirigu;1
+Italy;GK;Alessio;Cragno;12
+Italy;GK;Pierluigi;Gollini;12
+Italy;GK;Alex;Meret;12
+Italy;GK;Gianluigi;Donnarumma;21
+Italy;DF;Mattia;De Sciglio;2
+Italy;DF;Cristiano;Piccini;2
+Italy;DF;Giovanni;Di Lorenzo;2
+Italy;DF;Danilo;D'Ambrosio;2
+Italy;DF;;Emerson;3
+Italy;DF;Giorgio;Chiellini;3
+Italy;DF;Cristiano;Biraghi;3
+Italy;DF;Armando;Izzo;5
+Germany;MF;Leon;Goretzka;18
+Germany;MF;Leroy;San\u00e9;19
+Germany;MF;\u0130lkay;G\u00fcndo\u011fan;21
+Germany;AT;Julian;Draxler;7
+Germany;AT;Timo;Werner;9
+Germany;AT;Luca;Waldschmidt;19
+Germany;AT;Serge;Gnabry;20
+Poland;DF;Robert;Gumny;17
+Poland;DF;Bartosz;Bereszy\u0144ski;18
+Poland;DF;Marcin;Kami\u0144ski;19
+Poland;DF;\u0141ukasz;Piszczek;20
+Poland;MF;Jacek;G\u00f3ralski;6
+Poland;MF;Piotr;Zieli\u0144ski;7
+Poland;MF;Dominik;Furman;8
+Poland;MF;Karol;Linetty;8
+Poland;MF;Grzegorz;Krychowiak;10
+Poland;MF;Kamil;Grosicki;11
+Poland;MF;Mateusz;Klich;14
+Poland;MF;Jakub;B\u0142aszczykowski;16
+Poland;MF;Kamil;J\u00f3\u017awiak;18
+Poland;MF;Sebastian;Szyma\u0144ski;19
+Italy;DF;Leonardo;Spinazzola;7
+Italy;DF;Alessandro;Florenzi;7
+Poland;MF;Damian;Szyma\u0144ski;19
+Poland;MF;Przemys\u0142aw;Frankowski;21
+Poland;AT;Arkadiusz;Milik;7
+Poland;AT;Robert;Lewandowski;9
+Poland;AT;Damian;K\u0105dzior;17
+Poland;AT;Dawid;Kownacki;21
+Poland;AT;Krzysztof;Pi\u0105tek;23
+Italy;DF;Luca;Pellegrini;11
+Italy;DF;Alessio;Romagnoli;13
+Italy;DF;Francesco;Acerbi;15
+Italy;DF;Leonardo;Bonucci;19
+Italy;DF;Gianluca;Mancini;23
+Italy;MF;Bryan;Cristante;4
+Italy;MF;Gaetano;Castrovilli;4
+Italy;MF;Sandro;Tonali;6
+Italy;MF;Marco;Verratti;6
+Italy;MF;Lorenzo;Pellegrini;7
+Italy;MF;;Jorginho;8
+Italy;MF;Luca;Pellegrini;11
+Italy;MF;Nicol\u00f2;Zaniolo;11
+Italy;MF;Vincenzo;Grifo;11
+Italy;MF;Stefano;Sensi;12
+Italy;MF;Rolando;Mandragora;16
+Italy;MF;Nicol\u00f2;Barella;18
+Italy;MF;Federico;Bernardeschi;20
+Italy;MF;Riccardo;Orsolini;23
+Italy;AT;Matteo;Politano;
+Italy;AT;Andrea;Belotti;9
+Italy;AT;Lorenzo;Insigne;10
+Italy;AT;Moise;Kean;11
+Italy;AT;Federico;Chiesa;14
+Italy;AT;Kevin;Lasagna;15
+Italy;AT;Ciro;Immobile;17
+Italy;AT;Leonardo;Pavoletti;17
+Italy;AT;Fabio;Quagliarella;21
+Italy;AT;Stephan;El Shaarawy;22
+Spain;GK;David;de Gea;1
+Spain;GK;;Kepa;13
+Spain;GK;;Pau L\u00f3pez;23
+Spain;DF;Dani;Carvajal;2
+Spain;DF;;Sergi G\u00f3mez;2
+Spain;DF;Ra\u00fal;Albiol;3
+Spain;DF;Mario;Hermoso;4
+Spain;DF;;I\u00f1igo Mart\u00ednez;4
+Spain;DF;;Pau Torres;6
+Spain;DF;Diego;Llorente;12
+Spain;DF;Juan;Bernat;14
+Spain;DF;Sergio;Ramos;15
+Spain;DF;Sergio;Reguil\u00f3n;18
+Spain;DF;;Jordi Alba;18
+Spain;DF;Jos\u00e9;Gay\u00e0;18
+Spain;DF;;Unai Nu\u00f1ez;20
+Spain;MF;;Sergio Busquets;5
+Spain;MF;Dani;Ceballos;6
+Spain;MF;;Sergi Roberto;8
+Spain;MF;;Sa\u00fal \u00d1\u00edguez;8
+Spain;MF;;Isco;10
+Spain;MF;;Thiago Alc\u00e1ntara;10
+Spain;MF;Pablo;Sarabia;11
+Spain;MF;;Suso;11
+Spain;MF;Sergio;Canales;11
+Spain;MF;;Luis Alberto;11
+Spain;MF;Marco;Asensio;11
+Spain;MF;Dani;Olmo;12
+Spain;MF;;Rodri;16
+Spain;MF;;Fabi\u00e1n Ruiz;17
+Spain;MF;;Santi Cazorla;20
+Spain;MF;Daniel;Parejo;21
+Spain;AT;\u00c1lvaro;Morata;7
+Spain;AT;Paco;Alc\u00e1cer;9
+Spain;AT;Iago;Aspas;17
+Spain;AT;Jaime;Mata;17
+Spain;AT;Iker;Muniain;19
+Spain;AT;;Rodrigo;19
+Spain;AT;;Gerard Moreno;19
+Spain;AT;Mikel;Oyarzabal;21
+Spain;AT;;Jes\u00fas Navas;22
+Sweden;GK;Robin;Olsen;1
+Sweden;GK;Karl-Johan;Johnsson;12
+Sweden;GK;Kristoffer;Nordfeldt;23
+Sweden;DF;Mikael;Lustig;2
+Sweden;DF;Victor;Lindel\u00f6f;3
+Sweden;DF;Aleksander;Milosevic;4
+Sweden;DF;Per;Karlsson;4
+Sweden;DF;Andreas;Granqvist;4
+Sweden;DF;Pierre;Bengtsson;5
+Sweden;DF;Niklas;Hult;5
+Sweden;DF;Marcus;Danielson;6
+Sweden;DF;Ludwig;Augustinsson;6
+Sweden;DF;Filip;Helander;14
+Sweden;DF;Anton;Tinnerholm;14
+Sweden;DF;Emil;Krafth;16
+Sweden;DF;Riccardo;Gagliolo;17
+Sweden;DF;Pontus;Jansson;18
+Sweden;DF;Sotirios;Papagiannopoulos;18
+Sweden;MF;Marcus;Rohd\u00e9n;
+Sweden;MF;Jakob;Johansson;6
+Sweden;MF;Alexander;Fransson;6
+Sweden;MF;Sebastian;Larsson;7
+Sweden;MF;Albin;Ekdal;8
+Sweden;MF;Muamer;Tankovic;8
+Sweden;MF;Dejan;Kulusevski;13
+Sweden;MF;Gustav;Svensson;13
+Sweden;MF;Mattias;Svanberg;16
+Sweden;MF;Viktor;Claesson;17
+Sweden;MF;Kristoffer;Olsson;20
+Sweden;MF;Ken;Sema;21
+Sweden;MF;Jimmy;Durmaz;21
+Sweden;MF;Robin;Quaison;22
+Sweden;AT;Marcus;Berg;9
+Sweden;AT;Emil;Forsberg;10
+Sweden;AT;John;Guidetti;11
+Sweden;AT;Alexander;Isak;15
+Sweden;AT;Sam;Larsson;15
+Sweden;AT;Sebastian;Andersson;19
+Switzerland;GK;Yann;Sommer;1
+Switzerland;GK;Yvon;Mvogo;12
+Switzerland;GK;Jonas;Omlin;21
+Switzerland;DF;Stephan;Lichtsteiner;2
+Switzerland;DF;Jacques Fran\u00e7ois;Moubandje;3
+Switzerland;DF;Nico;Elvedi;4
+Switzerland;DF;Manuel;Akanji;5
+Switzerland;DF;Michael;Lang;6
+Switzerland;DF;Silvan;Widmer;6
+Switzerland;DF;Ricardo;Rodr\u00edguez;13
+Switzerland;DF;Eray;C\u00f6mert;14
+Switzerland;DF;Timm;Klose;20
+Switzerland;DF;Kevin;Mbabu;22
+Switzerland;DF;Fabian;Sch\u00e4r;22
+Switzerland;DF;Loris;Benito;23
+Ukraine;GK;Denys;Boyko;1
+Switzerland;MF;Remo;Freuler;8
+Switzerland;MF;Michel;Aebischer;8
+Switzerland;MF;Granit;Xhaka;10
+Switzerland;MF;Renato;Steffen;11
+Switzerland;MF;Steven;Zuber;14
+Switzerland;MF;Djibril;Sow;15
+Switzerland;MF;Christian;Fassnacht;16
+Switzerland;MF;Denis;Zakaria;17
+Switzerland;MF;Ruben;Vargas;18
+Switzerland;MF;Edimilson;Fernandes;20
+Switzerland;AT;Breel;Embolo;7
+Switzerland;AT;Albian;Ajeti;7
+Switzerland;AT;Haris;Seferovi\u0107;9
+Switzerland;AT;Mario;Gavranovi\u0107;16
+Ukraine;GK;Yuriy;Pankiv;1
+Ukraine;GK;Andriy;Pyatov;12
+Ukraine;GK;Andriy;Lunin;23
+Ukraine;DF;Vasyl;Kravets;
+Ukraine;DF;Eduard;Sobol;2
+Ukraine;DF;Bogdan;Butko;2
+Ukraine;DF;Igor;Plastun;3
+Ukraine;DF;Serhiy;Kryvtsov;4
+Ukraine;DF;Mykyta;Burda;5
+Ukraine;DF;Artem;Shabanov;6
+Ukraine;DF;Vitaliy;Mykolenko;16
+Ukraine;DF;Oleksandr;Zinchenko;17
+Ukraine;DF;Mykola;Matviyenko;22
+Ukraine;MF;Yevhen;Makarenko;
+Ukraine;MF;Serhiy;Sydorchuk;5
+Switzerland;AT;Admir;Mehmedi;18
+Switzerland;AT;C\u00e9dric;Itten;19
+Switzerland;AT;Josip;Drmic;19
+Ukraine;MF;Taras;Stepanenko;6
+Ukraine;MF;Mykola;Shaparenko;7
+Ukraine;MF;Ruslan;Malinovskyi;8
+Ukraine;MF;Yevhen;Konoplyanka;10
+Ukraine;MF;;Marlos;11
+Ukraine;MF;Volodymyr;Shepeliev;13
+Ukraine;MF;Vitaliy;Buyalskiy;14
+Ukraine;MF;Viktor;Tsygankov;15
+Ukraine;MF;Yevhen;Shakhov;17
+Ukraine;MF;Roman;Bezus;18
+Ukraine;MF;Serhiy;Bolbat;19
+Ukraine;MF;Viktor;Kovalenko;20
+Ukraine;MF;Oleksandr;Karavaev;21
+Ukraine;AT;Marian;Shved;
+Ukraine;AT;Ivan;Petriak;
+Ukraine;AT;Andriy;Yarmolenko;7
+Ukraine;AT;Artem;Kravets;9
+Ukraine;AT;Roman;Yaremchuk;9
+Ukraine;AT;Artem;Besedin;11
+Ukraine;AT;;J\u00fanior Moraes;18
+Turkey;GK;;Sinan Bolat;1
+Turkey;GK;;Mert G\u00fcnok;12
+Turkey;GK;;Altay Bay\u0131nd\u0131r;12
+Turkey;GK;;U\u011furcan \u00c7ak\u0131r;23
+Turkey;DF;;Zeki \u00c7elik;2
+Turkey;DF;;Hasan Ali Kald\u0131r\u0131m;3
+Turkey;DF;;\u00c7a\u011flar S\u00f6y\u00fcnc\u00fc;4
+Turkey;DF;Mert;M\u00fcld\u00fcr;4
+Turkey;DF;Mert;\u00c7etin;5
+Turkey;DF;;G\u00f6khan G\u00f6n\u00fcl;7
+Turkey;DF;;Umut Mera\u015f;13
+Turkey;DF;;Emre Ta\u015fdemir;13
+Turkey;DF;Merih;Demiral;15
+Turkey;DF;;Ozan Kabak;18
+Turkey;DF;;\u00d6mer Bayram;19
+Turkey;DF;Nazim;Sangar\u00e9;21
+Wales;GK;Wayne;Hennessey;1
+Turkey;DF;;Kaan Ayhan;22
+Turkey;MF;;Emre Bel\u00f6zo\u011flu;5
+Turkey;MF;;Ozan Tufan;6
+Turkey;MF;;Abd\u00fclkadir \u00d6m\u00fcr;7
+Turkey;MF;;Emre K\u0131l\u0131n\u00e7;7
+Turkey;MF;;O\u011fuzhan \u00d6zyakup;8
+Turkey;MF;;Dorukhan Tok\u00f6z;8
+Turkey;MF;;Okay Yoku\u015flu;8
+Turkey;MF;;Berkay \u00d6zcan;9
+Turkey;MF;;Efecan Karaca;9
+Turkey;MF;;Hakan \u00c7alhano\u011flu;10
+Turkey;MF;;Yusuf Yaz\u0131c\u0131;11
+Turkey;MF;Ahmed;Kutucu;14
+Turkey;MF;;Abdulkadir Parmak;14
+Wales;GK;Danny;Ward;12
+Wales;GK;Adam;Davies;12
+Wales;GK;Tom;King;21
+Wales;DF;Chris;Gunter;2
+Wales;DF;Paul;Dummett;3
+Wales;DF;James;Lawrence;3
+Wales;DF;Neil;Taylor;3
+Wales;DF;Regan;Poole;3
+Wales;DF;Ben;Davies;4
+Wales;DF;Chris;Mepham;5
+Wales;DF;Joe;Rodon;5
+Wales;DF;Ashley;Williams;6
+Wales;DF;Connor;Roberts;14
+Wales;DF;Ethan;Ampadu;15
+Wales;DF;Tom;Lockyer;16
+Turkey;MF;;Mahmut Tekdemir;14
+Turkey;MF;;Yunus Mall\u0131;19
+Turkey;MF;;Deniz T\u00fcr\u00fcc;20
+Turkey;MF;;\u0130rfan Can Kahveci;21
+Turkey;AT;;Cengiz \u00dcnder;7
+Turkey;AT;;Cenk Tosun;9
+Turkey;AT;;Enes \u00dcnal;16
+Turkey;AT;;Burak Y\u0131lmaz;17
+Turkey;AT;;G\u00fcven Yal\u00e7\u0131n;17
+Turkey;AT;;Kenan Karaman;18
+Wales;MF;Andy;King;
+Wales;MF;Joe;Allen;7
+Wales;MF;Matthew;Smith;8
+Wales;MF;Aaron;Ramsey;10
+Wales;MF;Gareth;Bale;11
+Wales;MF;Declan;John;13
+Wales;MF;Lee;Evans;16
+Wales;MF;Dylan;Levitt;17
+Wales;MF;Jonny;Williams;17
+Wales;MF;Joe;Morrell;18
+Wales;MF;Tom;Lawrence;19
+Wales;MF;Jonathan;Williams;19
+Wales;MF;Daniel;James;20
+Wales;MF;Ben;Woodburn;22
+Wales;MF;George;Thomas;23
+Wales;MF;Will;Vaulks;23
+Wales;AT;Tom;Bradshaw;
+Wales;AT;Harry;Wilson;8
+Wales;AT;Sam;Vokes;9
+Wales;AT;Kieffer;Moore;13
+Wales;AT;David;Brooks;16
+Wales;AT;Ryan;Hedges;19
+Wales;AT;Tyler;Roberts;19
+Wales;AT;Rabbi;Matondo;22

@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}PREMIES UITKEREN{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        <table class="table" align="center">
+            {% if error %}
+                <tr>
+                    <th>{{ error }}</th>
+                </tr>
+            {% else %}
+                <tr>
+                    <th>Team</th>
+                </tr>
+                {% for land in teampremies %}
+
+                    <tr>
+                        <th>{{ land }}</th>
+
+                    </tr>
+
+                {% endfor %}
+            {% endif %}
+        </table>
+        <table class="table" align="center">
+            <tr>
+                <th style="text-align:center">
+                    <a href=/wk2022/leaguemanager><input style="width:250px" type="submit" class="button is-primary"
+                                                           value="Terug naar Leaguemanager"/></a>
+                </th>
+            </tr>
+        </table>
+    {% endif %}
+{% endblock content %}

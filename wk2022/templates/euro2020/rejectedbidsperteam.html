@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}AFGEWEZEN BIEDINGEN PER TEAM{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        {% if error %}
+            {{ error }}
+        {% else %}
+            <table class="table" align="center">
+            <tr>
+                <th style="background-color: #00d1b2;color: white">Afgewezen biedingen voor: {{ league }}</th>
+            </tr>
+            </table>
+            <table class="table" align="center">
+                {% for team in teams %}
+                <tr><th></th><th></th><th></th><th></th><th></th></tr>
+                <tr>
+                    <th style="background-color: #00d1b2;color: white">Fase</th>
+                    <th style="background-color: #00d1b2;color: white">{{ team.name }}</th>
+                    <th style="background-color: #00d1b2;color: white">Land</th>
+                    <th style="background-color: #00d1b2;color: white">Pos.</th>
+                    <th style="background-color: #00d1b2;color: white">{{ team.betcoins }}</th>
+                    <th style="background-color: #00d1b2;color: white">Reden afwijzing</th>
+                </tr>
+                    {% for phase in phases %}
+                        {% for bid in bids %}
+                            {% if phase == bid.gamephase %}
+                                {% if bid.team_id == team.id %}
+                                <tr>
+                                    <td>{{ bid.gamephase }}</td>
+                                    <td>{{ bid.player.first_name }} {{ bid.player.last_name }}</td>
+                                    <td>{{ bid.player.country.nlname }}</td>
+                                    <td>{{ bid.player.position }}</td>
+                                    <td>{{ bid.playerbid }}</td>
+                                    <td>{{ bid.bidcomment }}</td>
+                                </tr>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+                {% endfor %}
+            </table>
+        {% endif %}
+    {% endif %}
+{% endblock %}
+{% block helptext %}
+    1. Give yourself a beautiful name<br>
+    i.e. first name, alias or nickname<br>
+
+{% endblock helptext %}

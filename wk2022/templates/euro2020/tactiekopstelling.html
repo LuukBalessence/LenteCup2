@@ -1,0 +1,689 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}VEILING, TACTIEK & OPSTELLING{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        <table class="table" ALIGN="center">
+            {% if error %}
+                <tr>
+                    <th>
+                        <div class="notification is-info" ALIGN="center">
+                            <button class="delete"></button>
+                            {{ error }}
+                        </div>
+                    </th>
+                </tr>
+            {% endif %}
+        </table>
+
+        <table class="table" ALIGN="center">
+            <tr>
+                <th>
+                    <div class="control has-icons-left">
+                        <input class="input is-primary" style="width: 300px; color: black"
+                               value="{{ league.gamephase.gamephase }}"
+                               type="text"
+                               name="currentphase"
+                               id="currentphase"
+                               placeholder="League fase onbekend" disabled/>
+                        <span class="icon is-left">
+                                <i class="fas fa-history" style="font-size:20px;color:black"></i>
+                            </span>
+                    </div>
+                </th>
+            </tr>
+        </table>
+        {% if bidauction %}
+            <table class="table" ALIGN="center">
+                <form action="
+                " method="post">{% csrf_token %}
+                    <tr>
+                        <td align="center" style="font-weight: bold">Jouw veiling instellingen deze biedronde</td>
+                    </tr>
+                    <tr>
+                        <td align="center" style="font-weight: bold">(Instelling wordt op 0 gezet als je niets
+                            invult)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <div class="field">
+                                <label style="font-weight: normal" class="label">Maximaal uit te geven betcoins deze
+                                    ronde:</label>
+                                <div class="control has-icons-left">
+                                    <input class="input is-primary" id="id_maxbetcoin"
+                                           name="maxbetcoin"
+                                           placeholder="Maximaal uit te geven betcoins..." type="number" min="0"
+                                           max={{ team.betcoins }}
+                                                   value="{{ team.bidbudget }}"
+                                           style="width: 300px;" {{ disabled }}/>
+                                    <span class="icon is-left is-small">
+                                        <i class="fas fa-coins" style="font-size:20px;color:black"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="field">
+                                <label style="font-weight: normal" class="label">Maximaal aan te kopen
+                                    keepers:</label>
+                                <p class="control has-icons-left">
+                                    <input class="input is-primary" id="id_gke"
+                                           name="gke"
+                                           placeholder="Maximaal te kopen keepers..." type="number" min="0" max="3"
+                                           value="{{ team.maxbidgke }}"
+                                           style="width: 300px" {{ disabled }}/>
+                                    <span class="icon is-left">
+                                    <img src="{% static 'images/gke.png' %}" width="30" height="20">
+                                </span>
+                                </p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="field">
+                                <label style="font-weight: normal" class="label">Maximaal aan te kopen
+                                    verdedigers:</label>
+                                <p class="control has-icons-left">
+                                    <input class="input is-primary" id="id_def"
+                                           name="def"
+                                           placeholder="Maximaal te kopen verdedigers..." type="number" min="0"
+                                           max="8"
+                                           value="{{ team.maxbiddef }}"
+                                           style="width: 300px" {{ disabled }}/>
+                                    <span class="icon is-left">
+                                    <img src="{% static 'images/def.png' %}" width="30" height="20">
+                                </span>
+                                </p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="field">
+                                <label style="font-weight: normal" class="label">Maximaal aan te kopen
+                                    middenvelders:</label>
+                                <p class="control has-icons-left">
+                                    <input class="input is-primary" id="id_mid"
+                                           name="mid"
+                                           placeholder="Maximaal te kopen middenvelders..." type="number" min="0"
+                                           max="8"
+                                           value="{{ team.maxbidmid }}"
+                                           style="width: 300px" {{ disabled }}/>
+                                    <span class="icon is-left">
+                                    <img src="{% static 'images/mid.png' %}" width="30" height="20">
+                                </span>
+                                </p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="field">
+                                <label style="font-weight: normal" class="label">Maximaal aan te kopen
+                                    aanvallers:</label>
+                                <p class="control has-icons-left">
+                                    <input class="input is-primary" id="id_att"
+                                           name="att"
+                                           placeholder="Maximaal te kopen aanvallers..." type="number" min="0"
+                                           max="5"
+                                           value="{{ team.maxbidatt }}"
+                                           style="width: 300px" {{ disabled }}/>
+                                    <span class="icon is-left">
+                                    <img src="{% static 'images/att.png' %}" width="30" height="20">
+                                </span>
+                                </p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="text-align:center">
+                            <input style="width:250px" type="submit" class="button is-primary" name="bewaarveiling"
+                                   value="Bewaar Veiling instellingen"/>
+                        </th>
+                    </tr>
+                </form>
+
+            </table>
+        {% else %}
+            <table class="table" ALIGN="center">
+                <form action="" method="post">{% csrf_token %}
+                    <tr>
+                        <td align="center" style="font-weight: bold">Kies je Tactiek</td>
+                    </tr>
+                    {% if tactiekkeuze %}
+                        <tr>
+                            <td>
+                                <div class="control has-icons-left">
+                                    <div class="select is-primary">
+                                        <select name="tactiek1" id="id_tactiek1" style="width: 300px">
+                                            {% if tactiek == "Normaal" %}
+                                                <option value="Normaal" selected>Normaal</option>
+                                                <option value="Aanvallend">Aanvallend(0 min.pt, 25% +aanvalpt</option>
+                                            {% elif tactiek == "Aanvallend" %}
+                                                <option value="Normaal">Normaal</option>
+                                                <option value="Aanvallend" selected>Aanvallend(0 min.pt, 25% +aanvalpt
+                                                </option>
+                                            {% endif %}
+                                        </select>
+                                        <span class="icon is-left is-small">
+                                        <i class="far fa-lightbulb" style="font-size:20px;color:black"></i>
+                                    </span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td align="center" style="font-weight: bold">{{ tactiek }}</td>
+                        </tr>
+                    {% endif %}
+                    <tr>
+                        <td align="center" style="font-weight: bold">Je opstelling</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {% for keeper, number, locked in allgke %}
+                                {% if number == 1 %}
+                                    {% if locked.0 %}
+                                        <div class="control has-icons-left">
+                                            <div class="select is-danger">
+                                                <select name="keeper1" id="id_keeper1" style="width: 300px">
+                                                    <option style="color: crimson" value="{{ keeper.pk }}"
+                                                            selected>{{ keeper.country.shortname }} {{ keeper }}
+                                                        BLOCKED
+                                                    </option>
+                                                </select>
+                                                <span class="icon is-left">
+                                                    <img src="{% static 'images/gke.png' %}" width="30" height="20">
+                                                </span>
+                                            </div>
+                                        </div>
+                                    {% else %}
+                                        <div class="control has-icons-left">
+                                            <div class="select is-primary">
+                                                <select name="keeper1" id="id_keeper1" style="width: 300px">
+                                                    {% for keeperx, numberx, lockedx in allgke %}
+                                                        {% if numberx == 1 %}
+                                                            <option value="{{ keeperx.pk }}"
+                                                                    selected>{{ keeperx.country.shortname }} {{ keeperx }}</option>
+                                                        {% else %}
+                                                            {% if not lockedx.0 %}
+                                                                <option value="{{ keeperx.pk }}">{{ keeperx.country.shortname }} {{ keeperx }}</option>
+                                                            {% endif %}
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </select>
+                                                <span class="icon is-left">
+                                                    <img src="{% static 'images/gke.png' %}" width="30" height="20">
+                                                </span>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {% for verdediger, number, locked in alldef %}
+                                {% if number == 1 %}
+                                    {% if locked.0 %}
+                                        <div class="control has-icons-left">
+                                            <div class="select is-danger">
+                                                <select name="verdediger1" id="id_verdediger1" style="width: 300px">
+                                                    <option style="color: crimson" value="{{ verdediger.pk }}"
+                                                            selected>{{ verdediger.country.shortname }} {{ verdediger }}
+                                                        BLOCKED
+                                                    </option>
+                                                </select>
+                                                <span class="icon is-left">
+                                                    <img src="{% static 'images/def.png' %}" width="30" height="20">
+                                                </span>
+                                            </div>
+                                        </div>
+                                    {% else %}
+                                        <div class="control has-icons-left">
+                                            <div class="select is-primary">
+                                                <select name="verdediger1" id="id_verdediger1" style="width: 300px">
+                                                    {% for verdedigerx, numberx, lockedx in alldef %}
+                                                        {% if numberx == 1 %}
+                                                            <option value="{{ verdedigerx.pk }}"
+                                                                    selected>{{ verdedigerx.country.shortname }} {{ verdedigerx }}</option>
+                                                        {% else %}
+                                                            {% if not lockedx.0 %}
+                                                                <option value="{{ verdedigerx.pk }}">{{ verdedigerx.country.shortname }} {{ verdedigerx }}</option>
+                                                            {% endif %}
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </select>
+                                                <span class="icon is-left">
+                                                    <img src="{% static 'images/def.png' %}" width="30" height="20">
+                                                </span>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            {% for verdediger, number, locked in alldef %}
+                                {% if number == 2 %}
+                                    {% if locked.0 %}
+                                        <div class="control has-icons-left">
+                                            <div class="select is-danger">
+                                                <select name="verdediger2" id="id_verdediger2" style="width: 300px">
+                                                    <option style="color: crimson" value="{{ verdediger.pk }}"
+                                                            selected>{{ verdediger.country.shortname }} {{ verdediger }}
+                                                        BLOCKED
+                                                    </option>
+                                                </select>
+                                                <span class="icon is-left">
+                                                    <img src="{% static 'images/def.png' %}" width="30" height="20">
+                                                </span>
+                                            </div>
+                                        </div>
+                                    {% else %}
+                                        <div class="control has-icons-left">
+                                            <div class="select is-primary">
+                                                <select name="verdediger2" id="id_verdediger2" style="width: 300px">
+                                                    {% for verdedigerx, numberx, lockedx in alldef %}
+                                                        {% if numberx == 2 %}
+                                                            <option value="{{ verdedigerx.pk }}"
+                                                                    selected>{{ verdedigerx.country.shortname }} {{ verdedigerx }}</option>
+                                                        {% else %}
+                                                            {% if not lockedx.0 %}
+                                                                <option value="{{ verdedigerx.pk }}">{{ verdedigerx.country.shortname }} {{ verdedigerx }}</option>
+                                                            {% endif %}
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </select>
+                                                <span class="icon is-left">
+                                                    <img src="{% static 'images/def.png' %}" width="30" height="20">
+                                                </span>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            {% for verdediger, number, locked in alldef %}
+                                {% if number == 3 %}
+                                    {% if locked.0 %}
+                                        <div class="control has-icons-left">
+                                            <div class="select is-danger">
+                                                <select name="verdediger3" id="id_verdediger3" style="width: 300px">
+                                                    <option style="color: crimson" value="{{ verdediger.pk }}"
+                                                            selected>{{ verdediger.country.shortname }} {{ verdediger }}
+                                                        BLOCKED
+                                                    </option>
+                                                </select>
+                                                <span class="icon is-left">
+                                                    <img src="{% static 'images/def.png' %}" width="30" height="20">
+                                                </span>
+                                            </div>
+                                        </div>
+                                    {% else %}
+                                        <div class="control has-icons-left">
+                                            <div class="select is-primary">
+                                                <select name="verdediger3" id="id_verdediger3" style="width: 300px">
+                                                    {% for verdedigerx, numberx, lockedx in alldef %}
+                                                        {% if numberx == 3 %}
+                                                            <option value="{{ verdedigerx.pk }}"
+                                                                    selected>{{ verdedigerx.country.shortname }} {{ verdedigerx }}</option>
+                                                        {% else %}
+                                                            {% if not lockedx.0 %}
+                                                                <option value="{{ verdedigerx.pk }}">{{ verdedigerx.country.shortname }} {{ verdedigerx }}</option>
+                                                            {% endif %}
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </select>
+                                                <span class="icon is-left">
+                                                    <img src="{% static 'images/def.png' %}" width="30" height="20">
+                                                </span>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {% for verdediger, number, locked in alldef %}
+                                {% if number == 4 %}
+                                    {% if locked.0 %}
+                                        <div class="control has-icons-left">
+                                            <div class="select is-danger">
+                                                <select name="verdediger4" id="id_verdediger4" style="width: 300px">
+                                                    <option style="color: crimson" value="{{ verdediger.pk }}"
+                                                            selected>{{ verdediger.country.shortname }} {{ verdediger }}
+                                                        BLOCKED
+                                                    </option>
+                                                </select>
+                                                <span class="icon is-left">
+                                                    <img src="{% static 'images/def.png' %}" width="30" height="20">
+                                                </span>
+                                            </div>
+                                        </div>
+                                    {% else %}
+                                        <div class="control has-icons-left">
+                                            <div class="select is-primary">
+                                                <select name="verdediger4" id="id_verdediger4" style="width: 300px">
+                                                    {% for verdedigerx, numberx, lockedx in alldef %}
+                                                        {% if numberx == 4 %}
+                                                            <option value="{{ verdedigerx.pk }}"
+                                                                    selected>{{ verdedigerx.country.shortname }} {{ verdedigerx }}</option>
+                                                        {% else %}
+                                                            {% if not lockedx.0 %}
+                                                                <option value="{{ verdedigerx.pk }}">{{ verdedigerx.country.shortname }} {{ verdedigerx }}</option>
+                                                            {% endif %}
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </select>
+                                                <span class="icon is-left">
+                                                    <img src="{% static 'images/def.png' %}" width="30" height="20">
+                                                </span>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {% for middenvelder, number, locked in allmid %}
+                                {% if number == 1 %}
+                                    {% if locked.0 %}
+                                        <div class="control has-icons-left">
+                                            <div class="select is-danger">
+                                                <select name="middenvelder1" id="id_middenvelder1" style="width: 300px">
+                                                    <option style="color: crimson" value="{{ middenvelder.pk }}"
+                                                            selected>{{ middenvelder.country.shortname }} {{ middenvelder }}
+                                                        BLOCKED
+                                                    </option>
+                                                </select>
+                                                <span class="icon is-left">
+                                                    <img src="{% static 'images/mid.png' %}" width="30" height="20">
+                                                </span>
+                                            </div>
+                                        </div>
+                                    {% else %}
+                                        <div class="control has-icons-left">
+                                            <div class="select is-primary">
+                                                <select name="middenvelder1" id="id_middenvelder1" style="width: 300px">
+                                                    {% for middenvelderx, numberx, lockedx in allmid %}
+                                                        {% if numberx == 1 %}
+                                                            <option value="{{ middenvelderx.pk }}"
+                                                                    selected>{{ middenvelderx.country.shortname }} {{ middenvelderx }}</option>
+                                                        {% else %}
+                                                            {% if not lockedx.0 %}
+                                                                <option value="{{ middenvelderx.pk }}">{{ middenvelderx.country.shortname }} {{ middenvelderx }}</option>
+                                                            {% endif %}
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </select>
+                                                <span class="icon is-left">
+                                                    <img src="{% static 'images/mid.png' %}" width="30" height="20">
+                                                </span>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {% for middenvelder, number, locked in allmid %}
+                                {% if number == 2 %}
+                                    {% if locked.0 %}
+                                        <div class="control has-icons-left">
+                                            <div class="select is-danger">
+                                                <select name="middenvelder2" id="id_middenvelder2" style="width: 300px">
+                                                    <option style="color: crimson" value="{{ middenvelder.pk }}"
+                                                            selected>{{ middenvelder.country.shortname }} {{ middenvelder }}
+                                                        BLOCKED
+                                                    </option>
+                                                </select>
+                                                <span class="icon is-left">
+                                                    <img src="{% static 'images/mid.png' %}" width="30" height="20">
+                                                </span>
+                                            </div>
+                                        </div>
+                                    {% else %}
+                                        <div class="control has-icons-left">
+                                            <div class="select is-primary">
+                                                <select name="middenvelder2" id="id_middenvelder2" style="width: 300px">
+                                                    {% for middenvelderx, numberx, lockedx in allmid %}
+                                                        {% if numberx == 2 %}
+                                                            <option value="{{ middenvelderx.pk }}"
+                                                                    selected>{{ middenvelderx.country.shortname }} {{ middenvelderx }}</option>
+                                                        {% else %}
+                                                            {% if not lockedx.0 %}
+                                                                <option value="{{ middenvelderx.pk }}">{{ middenvelderx.country.shortname }} {{ middenvelderx }}</option>
+                                                            {% endif %}
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </select>
+                                                <span class="icon is-left">
+                                                    <img src="{% static 'images/mid.png' %}" width="30" height="20">
+                                                </span>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {% for middenvelder, number, locked in allmid %}
+                                {% if number == 3 %}
+                                    {% if locked.0 %}
+                                        <div class="control has-icons-left">
+                                            <div class="select is-danger">
+                                                <select name="middenvelder3" id="id_middenvelder3" style="width: 300px">
+                                                    <option style="color: crimson" value="{{ middenvelder.pk }}"
+                                                            selected>{{ middenvelder.country.shortname }} {{ middenvelder }}
+                                                        BLOCKED
+                                                    </option>
+                                                </select>
+                                                <span class="icon is-left">
+                                                    <img src="{% static 'images/mid.png' %}" width="30" height="20">
+                                                </span>
+                                            </div>
+                                        </div>
+                                    {% else %}
+                                        <div class="control has-icons-left">
+                                            <div class="select is-primary">
+                                                <select name="middenvelder3" id="id_middenvelder3" style="width: 300px">
+                                                    {% for middenvelderx, numberx, lockedx in allmid %}
+                                                        {% if numberx == 3 %}
+                                                            <option value="{{ middenvelderx.pk }}"
+                                                                    selected>{{ middenvelderx.country.shortname }} {{ middenvelderx }}</option>
+                                                        {% else %}
+                                                            {% if not lockedx.0 %}
+                                                                <option value="{{ middenvelderx.pk }}">{{ middenvelderx.country.shortname }} {{ middenvelderx }}</option>
+                                                            {% endif %}
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </select>
+                                                <span class="icon is-left">
+                                                    <img src="{% static 'images/mid.png' %}" width="30" height="20">
+                                                </span>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {% for middenvelder, number, locked in allmid %}
+                                {% if number == 4 %}
+                                    {% if locked.0 %}
+                                        <div class="control has-icons-left">
+                                            <div class="select is-danger">
+                                                <select name="middenvelder4" id="id_middenvelder4" style="width: 300px">
+                                                    <option style="color: crimson" value="{{ middenvelder.pk }}"
+                                                            selected>{{ middenvelder.country.shortname }} {{ middenvelder }}
+                                                        BLOCKED
+                                                    </option>
+                                                </select>
+                                                <span class="icon is-left">
+                                                    <img src="{% static 'images/mid.png' %}" width="30" height="20">
+                                                </span>
+                                            </div>
+                                        </div>
+                                    {% else %}
+                                        <div class="control has-icons-left">
+                                            <div class="select is-primary">
+                                                <select name="middenvelder4" id="id_middenvelder4" style="width: 300px">
+                                                    {% for middenvelderx, numberx, lockedx in allmid %}
+                                                        {% if numberx == 4 %}
+                                                            <option value="{{ middenvelderx.pk }}"
+                                                                    selected>{{ middenvelderx.country.shortname }} {{ middenvelderx }}</option>
+                                                        {% else %}
+                                                            {% if not lockedx.0 %}
+                                                                <option value="{{ middenvelderx.pk }}">{{ middenvelderx.country.shortname }} {{ middenvelderx }}</option>
+                                                            {% endif %}
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </select>
+                                                <span class="icon is-left">
+                                                    <img src="{% static 'images/mid.png' %}" width="30" height="20">
+                                                </span>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {% for aanvaller, number, locked in allatt %}
+                                {% if number == 1 %}
+                                    {% if locked.0 %}
+                                        <div class="control has-icons-left">
+                                            <div class="select is-danger">
+                                                <select name="aanvaller1" id="id_aanvaller1" style="width: 300px">
+                                                    <option style="color: crimson" value="{{ aanvaller.pk }}"
+                                                            selected>{{ aanvaller.country.shortname }} {{ aanvaller }}
+                                                        BLOCKED
+                                                    </option>
+                                                </select>
+                                                <span class="icon is-left">
+                                                    <img src="{% static 'images/att.png' %}" width="30" height="20">
+                                                </span>
+                                            </div>
+                                        </div>
+                                    {% else %}
+                                        <div class="control has-icons-left">
+                                            <div class="select is-primary">
+                                                <select name="aanvaller1" id="id_aanvaller1" style="width: 300px">
+                                                    {% for aanvallerx, numberx, lockedx in allatt %}
+                                                        {% if numberx == 1 %}
+                                                            <option value="{{ aanvallerx.pk }}"
+                                                                    selected>{{ aanvallerx.country.shortname }} {{ aanvallerx }}</option>
+                                                        {% else %}
+                                                            {% if not lockedx.0 %}
+                                                                <option value="{{ aanvallerx.pk }}">{{ aanvallerx.country.shortname }} {{ aanvallerx }}</option>
+                                                            {% endif %}
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </select>
+                                                <span class="icon is-left">
+                                                    <img src="{% static 'images/att.png' %}" width="30" height="20">
+                                                </span>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            {% for aanvaller, number, locked in allatt %}
+                                {% if number == 2 %}
+                                    {% if locked.0 %}
+                                        <div class="control has-icons-left">
+                                            <div class="select is-danger">
+                                                <select name="aanvaller2" id="id_aanvaller2" style="width: 300px">
+                                                    <option style="color: crimson" value="{{ aanvaller.pk }}"
+                                                            selected>{{ aanvaller.country.shortname }} {{ aanvaller }}
+                                                        BLOCKED
+                                                    </option>
+                                                </select>
+                                                <span class="icon is-left">
+                        <img src="{% static 'images/att.png' %}" width="30" height="20">
+                    </span>
+                                            </div>
+                                        </div>
+                                    {% else %}
+                                        <div class="control has-icons-left">
+                                            <div class="select is-primary">
+                                                <select name="aanvaller2" id="id_aanvaller2" style="width: 300px">
+                                                    {% for aanvallerx, numberx, lockedx in allatt %}
+                                                        {% if numberx == 2 %}
+                                                            <option value="{{ aanvallerx.pk }}"
+                                                                    selected>{{ aanvallerx.country.shortname }} {{ aanvallerx }}</option>
+                                                        {% else %}
+                                                            {% if not lockedx.0 %}
+                                                                <option value="{{ aanvallerx.pk }}">{{ aanvallerx.country.shortname }} {{ aanvallerx }}</option>
+                                                            {% endif %}
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </select>
+                                                <span class="icon is-left">
+                        <img src="{% static 'images/att.png' %}" width="30" height="20">
+                    </span>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="text-align:center">
+                            <input style="width:250px" type="submit" class="button is-primary" name="bewaaropstelling"
+                                   value="Bewaar Opstelling"/>
+                        </th>
+                    </tr>
+                </form>
+            </table>
+        {% endif %}
+        <table class="table" ALIGN="center">
+            <tr>
+                <th style="text-align:center">
+                    <a href=myteam><input style="width:250px" type="submit" class="button is-primary"
+                                          value="Terug naar Jouw Team"/></a>
+                </th>
+            </tr>
+            <tr>
+                <th style="text-align:center">
+                    <a href=wk2022><input style="width:250px" type="submit" class="button is-primary"
+                                            value="Terug naar EURO2020"/></a>
+                </th>
+            </tr>
+        </table>
+    {% endif %}
+{% endblock %}
+{% block helptext %}
+{% endblock helptext %}

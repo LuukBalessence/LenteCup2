@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}LEAGUE STAND{% endblock %}
+{% block content %}
+    {% if not loting %}
+        <table class="table" align="center">
+            <tr>
+                <th>
+                    <div class="notification is-info" ALIGN="center">
+                        <button class="delete"></button>
+                        Er heeftt nog geen loting plaatsgevonden voor deze league. Er is nog geen leaguestand.
+                    </div>
+                </th>
+            </tr>
+        </table>
+    {% else %}
+        <hr>
+        {% for group in groups %}
+            <h4 align="center" class="title is-4">Groep: {{ group }}</h4>
+            <table class="table" align="center">
+                <tr>
+                    <th>Team</th>
+                    <th>GS</th>
+                    <th>W</th>
+                    <th>G</th>
+                    <th>V</th>
+                    <th>PT</th>
+                    <th>DV</th>
+                    <th>DT</th>
+                    <th>+/-</th>
+                </tr>
+                {% for team, gespeeld, punten, winst, verlies, gelijk, voor, tegen, verschil in leagueteams %}
+                    {% if group == team.group %}
+                        <tr>
+                            <th>{{ team }}</th>
+                            <td>{{ gespeeld }}</td>
+                            <td>{{ winst }}</td>
+                            <td>{{ gelijk }}</td>
+                            <td>{{ verlies }}</td>
+                            <th>{{ punten }}</th>
+                            <td>{{ voor }}</td>
+                            <td>{{ tegen }}</td>
+                            <td>{{ verschil }}</td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            </table>
+            <table class="table" align="center">
+                <tr>
+                    <th>Wedstrijdschema</th>
+                    <th>Thuisteam</th>
+                    <th></th>
+                    <th>Uitteam</th>
+                    <th></th>
+                    <th></th>
+                    <th>Stand</th>
+                    <th></th>
+                </tr>
+                {% for stage in stages %}
+                    {% for wedstrijd1 in leaguewedstrijden %}
+                        {% if wedstrijd1.home.group == group %}
+                            {% if wedstrijd1.stage == stage %}
+                                {% if wedstrijd1.has_ended %}
+                                    <tr>
+                                        <th>{{ wedstrijd1.start }}</th>
+                                        <td>{{ wedstrijd1.home }}</td>
+                                        <td> -</td>
+                                        <td>{{ wedstrijd1.away }}</td>
+                                        <td></td>
+                                        <td>{{ wedstrijd1.homescore }}</td>
+                                        <td>-</td>
+                                        <td>{{ wedstrijd1.awayscore }}</td>
+                                    </tr>
+                                {% elif wedstrijd1.has_started %}
+                                    <tr>
+                                        <th>{{ wedstrijd1.start }}</th>
+                                        <td>{{ wedstrijd1.home }}</td>
+                                        <td> -</td>
+                                        <td>{{ wedstrijd1.away }}</td>
+                                        <th style="color: limegreen">LIVE</th>
+                                        <td>{{ wedstrijd1.homescore }}</td>
+                                        <td>-</td>
+                                        <td>{{ wedstrijd1.awayscore }}</td>
+                                    </tr>
+                                {% else %}
+                                    <tr>
+                                        <th>{{ wedstrijd1.start }}</th>
+                                        <td>{{ wedstrijd1.home }}</td>
+                                        <td> -</td>
+                                        <td>{{ wedstrijd1.away }}</td>
+                                        <td></td>
+                                        <td>Wedstrijd</td>
+                                        <td>niet</td>
+                                        <td>gestart</td>
+                                    </tr>
+                                {% endif %}
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+            </table>
+        {% endfor %}
+        <table class="table" align="center">
+            <tr>
+                <th style="text-align:center">
+                    <a href=/wk2022/myleague><input style="width:250px" type="submit" class="button is-primary"
+                                                      value="Terug naar Jouw League"/></a>
+                </th>
+            </tr>
+        </table>
+    {% endif %}
+{% endblock content %}

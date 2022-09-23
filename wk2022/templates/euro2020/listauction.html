@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}VEILING VERLOOP{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        {% if error %}
+            {{ error }}
+        {% else %}
+            <table class="table" align="center">
+                <tr>
+                    <th style="background-color: #00d1b2;color: white">Veiling verloop van hoogste naar laagste
+                        bieding
+                    </th>
+                </tr>
+            </table>
+            <table class="table" align="center">
+                <tr>
+                    <th style="background-color: #00d1b2;color: white">{{ gamephase }}</th>
+                </tr>
+                {% if bids %}
+                    {% for bid in bids %}
+                        {% for allbid in allbids %}
+                            {% if bid.player == allbid.player %}
+                                <tr>
+                                    <td>{{ allbid.team }}</td>
+                                    <td>{{ allbid.player.first_name }} {{ allbid.player.last_name }}</td>
+                                    <td>{{ allbid.player.country.nlname }}</td>
+                                    <td>{{ allbid.player.position }}</td>
+                                    <td>{{ allbid.playerbid }}</td>
+                                    <td>{{ allbid.assigned }}</td>
+                                    <td>{{ allbid.bidcomment }}</td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                        <tr>
+                            <th>EINDE</th>
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <th>Er zijn geen biedingen gedaan voor deze fase</th>
+                    </tr>
+                {% endif %}
+            </table>
+        {% endif %}
+    {% endif %}
+{% endblock %}

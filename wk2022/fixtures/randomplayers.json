@@ -1,0 +1,189 @@
+[
+{
+    "model": "wk2022.player",
+    "pk": 1,
+    "fields": {
+        "first_name": "Luuk",
+        "last_name": "Smeets",
+        "position": "A",
+        "number": 2,
+        "country": "Netherlands"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 37,
+    "fields": {
+        "first_name": "Thibaut",
+        "last_name": "Courtois",
+        "position": "G",
+        "number": 1,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 38,
+    "fields": {
+        "first_name": "Simon",
+        "last_name": "Mignolet",
+        "position": "G",
+        "number": 12,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 39,
+    "fields": {
+        "first_name": "Jens",
+        "last_name": "Teunckens",
+        "position": "G",
+        "number": 12,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 40,
+    "fields": {
+        "first_name": "Matz",
+        "last_name": "Sels",
+        "position": "G",
+        "number": 13,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 41,
+    "fields": {
+        "first_name": "Koen",
+        "last_name": "Casteels",
+        "position": "G",
+        "number": 13,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 42,
+    "fields": {
+        "first_name": "Toby",
+        "last_name": "Alderweireld",
+        "position": "D",
+        "number": 2,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 43,
+    "fields": {
+        "first_name": "Brandon",
+        "last_name": "Mechele",
+        "position": "D",
+        "number": 3,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 44,
+    "fields": {
+        "first_name": "Thomas",
+        "last_name": "Vermaelen",
+        "position": "D",
+        "number": 3,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 45,
+    "fields": {
+        "first_name": "Dedryck",
+        "last_name": "Boyata",
+        "position": "D",
+        "number": 4,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 46,
+    "fields": {
+        "first_name": "Vincent",
+        "last_name": "Kompany",
+        "position": "D",
+        "number": 4,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 47,
+    "fields": {
+        "first_name": "Jason",
+        "last_name": "Denayer",
+        "position": "D",
+        "number": 5,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 48,
+    "fields": {
+        "first_name": "Jan",
+        "last_name": "Vertonghen",
+        "position": "D",
+        "number": 5,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 49,
+    "fields": {
+        "first_name": "Thomas",
+        "last_name": "Meunier",
+        "position": "D",
+        "number": 15,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 50,
+    "fields": {
+        "first_name": "Elias",
+        "last_name": "Cobbaut",
+        "position": "D",
+        "number": 15,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 51,
+    "fields": {
+        "first_name": "Timothy",
+        "last_name": "Castagne",
+        "position": "D",
+        "number": 21,
+        "country": "Belgium"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 52,
+    "fields": {
+        "first_name": "Leander",
+        "last_name": "Dendoncker",
+        "position": "M",
+        "number": 4,
+        "country": "Belgium"
+    }
+}
+]
