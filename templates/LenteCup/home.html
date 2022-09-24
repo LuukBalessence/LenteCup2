@@ -33,47 +33,26 @@
             </tr>
             <tr>
                 <th style="text-align:center;font-size: xx-large">
-                    Luuk Open 2021<br>
-                     <img src="{% static 'images/mib.jpg' %}" width="300" height="1000">
+                    WK Qatar 2022<br>
+                     <img src="{% static 'images/qatar.jpg' %}" width="300" height="1000">
                 </th>
             </tr>
-            {% if not luukopen2021active %}
-                <tr>
-                    <th style="text-align:center">
-                        <a href=/LuukOpen><input style="width:250px" type="submit" class="button is-black"
-                                                 value="Luuk Open 2021 (binnenkort)" disabled/></a>
-                    </th>
-                </tr>
-            {% else %}
-                {% if userluukopen2021 %}
-                    <tr>
+            <tr>
                         <th style="text-align:center">
-                            <a href=/luukopen21/aanmelden><input style="width:250px" type="submit" class="button is-primary"
-                                                     value="Luuk Open 2021"/></a>
+                            <a href=/wk2022/><input style="width:250px" type="submit" class="button is-primary"
+                                                     value="WK Qatar 2022"/></a>
                         </th>
-                    </tr>
-                {% else %}
-                    {% if luukopen2021openforsubscribing %}
-                        <tr>
-                            <th style="text-align:center">
-                                <a href=/luukopen21/aanmelden><input style="width:250px" type="submit" class="button is-info"
-                                                         value="Aanmelden Luuk Open 2021"/></a>
-                            </th>
-                        </tr>
-                    {% else %}
-                        <tr>
-                            <th style="text-align:center">
-                                <a href=/LuukOpen><input style="width:250px" type="submit" class="button is-black"
-                                                         value="Inschrijving gesloten" disabled/></a>
-                            </th>
-                        </tr>
-                    {% endif %}
-                {% endif %}
-            {% endif %}
+            </tr>
             <tr>
                 <th style="text-align:center;font-size: xx-large">
                     ARCHIEF
                 </th>
+            </tr>
+            <tr>
+                        <th style="text-align:center">
+                            <a href=/luukopen21/aanmelden><input style="width:250px" type="submit" class="button is-black"
+                                                     value="Luuk Open 2021"/></a>
+                        </th>
             </tr>
             <tr>
                 <th style="text-align:center">
