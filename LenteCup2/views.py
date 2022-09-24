@@ -11,8 +11,10 @@ def home(request):
     userlentecup = False
     usereuro2020 = False
     userluukopen2021 = False
+    userwk2022 = False
     euro2020 = Apps.objects.get(appname="EURO 2020")
     luukopen2021 = Apps.objects.get(appname="Luuk Open 2021")
+    wk2022 = Apps.objects.get(appname="Wk 2022 Qatar")
     currentuser = request.user
     if currentuser.is_authenticated:
         if AppAuthorisation.objects.filter(user=currentuser, app__appname="LenteCup 2021").exists():
@@ -21,6 +23,8 @@ def home(request):
             usereuro2020 = True
         if AppAuthorisation.objects.filter(user=currentuser, app__appname="Luuk Open 2021").exists():
             userluukopen2021 = True
+        if AppAuthorisation.objects.filter(user=currentuser, app__appname="Wk 2022 Qatar").exists():
+                userluukopen2021 = True
 
     return render(request=request, template_name="LenteCup/home.html",
                   context={"userlentecup": userlentecup, "usereuro2020": usereuro2020, "userluukopen2021": userluukopen2021,
