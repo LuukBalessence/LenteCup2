@@ -107,7 +107,7 @@ class Team(models.Model):
         F = "F", "F"
 
     name = models.CharField(max_length=40)
-    owner = models.OneToOneField(User, on_delete=models.CASCADE, related_name='team')
+    owner = models.OneToOneField(User, on_delete=models.CASCADE, related_name='teamwk')
     league = models.ForeignKey(League, on_delete=models.CASCADE, related_name="team", null=True, blank=True)
     betcoins = models.PositiveSmallIntegerField(default=0,
                                                 validators=([MinValueValidator(0), MaxValueValidator(30000)])
