@@ -1,0 +1,386 @@
+[
+    {
+    "model": "wk2022.country",
+    "pk": "Argentina",
+    "fields": {
+        "shortname": "ARG",
+        "nlname": "Argentinie",
+        "order": 1,
+        "group": "C",
+        "openforbid": false,
+        "eliminated": false
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "Australia",
+    "fields": {
+        "shortname": "AUS",
+        "nlname": "Australie",
+        "order": 4,
+        "group": "D",
+        "openforbid": false,
+        "eliminated": false
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "Belgium",
+    "fields": {
+        "shortname": "BEL",
+        "nlname": "Belgie",
+        "order": 1,
+        "group": "F",
+        "openforbid": false,
+        "eliminated": false
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "Brazil",
+    "fields": {
+        "shortname": "BRA",
+        "nlname": "Brazilie",
+        "order": 1,
+        "group": "G",
+        "openforbid": false,
+        "eliminated": false
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "Cameroon",
+    "fields": {
+        "shortname": "CAM",
+        "nlname": "Kameroen",
+        "order": 4,
+        "group": "G",
+        "openforbid": false,
+        "eliminated": false
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "Canada",
+    "fields": {
+        "shortname": "CAN",
+        "nlname": "Canada",
+        "order": 2,
+        "group": "F",
+        "openforbid": false,
+        "eliminated": false
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "Costa Rica",
+    "fields": {
+        "shortname": "CRI",
+        "nlname": "Costa Rica",
+        "order": 4,
+        "group": "E",
+        "openforbid": false,
+        "eliminated": false
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "Croatia",
+    "fields": {
+        "shortname": "CRO",
+        "nlname": "Kroatie",
+        "order": 4,
+        "group": "F",
+        "openforbid": false,
+        "eliminated": false
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "Denmark",
+    "fields": {
+        "shortname": "DNK",
+        "nlname": "Denemarken",
+        "order": 2,
+        "group": "D",
+        "openforbid": false,
+        "eliminated": false
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "Ecuador",
+    "fields": {
+        "shortname": "ECU",
+        "nlname": "Ecuador",
+        "order": 2,
+        "group": "A",
+        "openforbid": false,
+        "eliminated": false
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "England",
+    "fields": {
+        "shortname": "ENG",
+        "nlname": "Engeland",
+        "order": 1,
+        "group": "B",
+        "openforbid": false,
+        "eliminated": false
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "France",
+    "fields": {
+        "shortname": "FRA",
+        "nlname": "Frankrijk",
+        "order": 1,
+        "group": "D",
+        "openforbid": false,
+        "eliminated": false
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "Germany",
+    "fields": {
+        "shortname": "GER",
+        "nlname": "Duitsland",
+        "order": 2,
+        "group": "E",
+        "openforbid": false,
+        "eliminated": false
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "Ghana",
+    "fields": {
+        "shortname": "GHA",
+        "nlname": "Ghana",
+        "order": 2,
+        "group": "H",
+        "openforbid": false,
+        "eliminated": false
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "Iran",
+    "fields": {
+        "shortname": "IRN",
+        "nlname": "Iran",
+        "order": 2,
+        "group": "B",
+        "openforbid": false,
+        "eliminated": false
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "Japan",
+    "fields": {
+        "shortname": "JAP",
+        "nlname": "Japan",
+        "order": 3,
+        "group": "E",
+        "openforbid": false,
+        "eliminated": false
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "Korea Republic",
+    "fields": {
+        "shortname": "KOR",
+        "nlname": "Zuid Korea",
+        "order": 4,
+        "group": "H",
+        "openforbid": false,
+        "eliminated": false
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "Mexico",
+    "fields": {
+        "shortname": "MEX",
+        "nlname": "Mexico",
+        "order": 3,
+        "group": "C",
+        "openforbid": false,
+        "eliminated": false
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "Morocco",
+    "fields": {
+        "shortname": "MAR",
+        "nlname": "Marokko",
+        "order": 3,
+        "group": "F",
+        "openforbid": false,
+        "eliminated": false
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "Netherlands",
+    "fields": {
+        "shortname": "NLD",
+        "nlname": "Nederland",
+        "order": 4,
+        "group": "A",
+        "openforbid": false,
+        "eliminated": false
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "Poland",
+    "fields": {
+        "shortname": "POL",
+        "nlname": "Polen",
+        "order": 4,
+        "group": "C",
+        "openforbid": false,
+        "eliminated": false
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "Portugal",
+    "fields": {
+        "shortname": "POR",
+        "nlname": "Portugal",
+        "order": 1,
+        "group": "H",
+        "openforbid": false,
+        "eliminated": false
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "Qatar",
+    "fields": {
+        "shortname": "QAT",
+        "nlname": "Qatar",
+        "order": 1,
+        "group": "A",
+        "openforbid": false,
+        "eliminated": false
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "Saudi Arabia",
+    "fields": {
+        "shortname": "SAU",
+        "nlname": "Saoedi-Arabie",
+        "order": 2,
+        "group": "C",
+        "openforbid": false,
+        "eliminated": false
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "Senegal",
+    "fields": {
+        "shortname": "SEN",
+        "nlname": "Senegal",
+        "order": 3,
+        "group": "A",
+        "openforbid": false,
+        "eliminated": false
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "Serbia",
+    "fields": {
+        "shortname": "SRB",
+        "nlname": "Servie",
+        "order": 2,
+        "group": "G",
+        "openforbid": false,
+        "eliminated": false
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "Spain",
+    "fields": {
+        "shortname": "ESP",
+        "nlname": "Spanje",
+        "order": 1,
+        "group": "E",
+        "openforbid": false,
+        "eliminated": false
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "Switzerland",
+    "fields": {
+        "shortname": "SUI",
+        "nlname": "Zwitserland",
+        "order": 3,
+        "group": "G",
+        "openforbid": false,
+        "eliminated": false
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "Tunisia",
+    "fields": {
+        "shortname": "TUN",
+        "nlname": "Tunesie",
+        "order": 3,
+        "group": "D",
+        "openforbid": false,
+        "eliminated": false
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "Uruguay",
+    "fields": {
+        "shortname": "URU",
+        "nlname": "Uruguay",
+        "order": 3,
+        "group": "H",
+        "openforbid": false,
+        "eliminated": false
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "USA",
+    "fields": {
+        "shortname": "USA",
+        "nlname": "Verenigde Staten",
+        "order": 3,
+        "group": "B",
+        "openforbid": false,
+        "eliminated": false
+    }
+},
+{
+    "model": "wk2022.country",
+    "pk": "Wales",
+    "fields": {
+        "shortname": "WAL",
+        "nlname": "Wales",
+        "order": 4,
+        "group": "B",
+        "openforbid": false,
+        "eliminated": false
+    }
+}
+]

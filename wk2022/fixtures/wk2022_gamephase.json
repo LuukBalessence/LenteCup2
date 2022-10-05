@@ -1,0 +1,374 @@
+[
+{
+    "model": "wk2022.gamephase",
+    "pk": 1,
+    "fields": {
+        "gamephase": "10 Registratie en Voorbereiding",
+        "allowbidding": false,
+        "allowauction": false,
+        "allowlineup": false,
+        "allowfiring": false,
+        "kophase": false
+    }
+},
+{
+    "model": "wk2022.gamephase",
+    "pk": 2,
+    "fields": {
+        "gamephase": "20 Groepsfase bieding 1",
+        "allowbidding": true,
+        "allowauction": false,
+        "allowlineup": false,
+        "allowfiring": false,
+        "kophase": false
+    }
+},
+{
+    "model": "wk2022.gamephase",
+    "pk": 4,
+    "fields": {
+        "gamephase": "30 Groepsfase Ronde 1 Opstelling",
+        "allowbidding": false,
+        "allowauction": false,
+        "allowlineup": true,
+        "allowfiring": true,
+        "kophase": false
+    }
+},
+{
+    "model": "wk2022.gamephase",
+    "pk": 5,
+    "fields": {
+        "gamephase": "31 Groepsfase Ronde 1 Live",
+        "allowbidding": false,
+        "allowauction": false,
+        "allowlineup": true,
+        "allowfiring": true,
+        "kophase": false
+    }
+},
+{
+    "model": "wk2022.gamephase",
+    "pk": 6,
+    "fields": {
+        "gamephase": "32 Groepsfase Ronde 2 Opstelling",
+        "allowbidding": false,
+        "allowauction": false,
+        "allowlineup": true,
+        "allowfiring": true,
+        "kophase": false
+    }
+},
+{
+    "model": "wk2022.gamephase",
+    "pk": 7,
+    "fields": {
+        "gamephase": "33 Groepsfase Ronde 2 Live",
+        "allowbidding": false,
+        "allowauction": false,
+        "allowlineup": true,
+        "allowfiring": true,
+        "kophase": false
+    }
+},
+{
+    "model": "wk2022.gamephase",
+    "pk": 8,
+    "fields": {
+        "gamephase": "34 Groepsfase Ronde 3 Opstelling",
+        "allowbidding": false,
+        "allowauction": false,
+        "allowlineup": true,
+        "allowfiring": true,
+        "kophase": false
+    }
+},
+{
+    "model": "wk2022.gamephase",
+    "pk": 9,
+    "fields": {
+        "gamephase": "35 Groepsfase Ronde 3 Live",
+        "allowbidding": false,
+        "allowauction": false,
+        "allowlineup": true,
+        "allowfiring": true,
+        "kophase": false
+    }
+},
+{
+    "model": "wk2022.gamephase",
+    "pk": 10,
+    "fields": {
+        "gamephase": "40 Biedingsronde Achtste finales",
+        "allowbidding": true,
+        "allowauction": false,
+        "allowlineup": false,
+        "allowfiring": false,
+        "kophase": false
+    }
+},
+{
+    "model": "wk2022.gamephase",
+    "pk": 11,
+    "fields": {
+        "gamephase": "41 Veiling Achtste Finales",
+        "allowbidding": false,
+        "allowauction": true,
+        "allowlineup": false,
+        "allowfiring": false,
+        "kophase": false
+    }
+},
+{
+    "model": "wk2022.gamephase",
+    "pk": 12,
+    "fields": {
+        "gamephase": "43 Achtste Finales Live",
+        "allowbidding": false,
+        "allowauction": false,
+        "allowlineup": true,
+        "allowfiring": true,
+        "kophase": true
+    }
+},
+{
+    "model": "wk2022.gamephase",
+    "pk": 13,
+    "fields": {
+        "gamephase": "50 Biedingsronde Kwart Finales",
+        "allowbidding": true,
+        "allowauction": false,
+        "allowlineup": false,
+        "allowfiring": false,
+        "kophase": false
+    }
+},
+{
+    "model": "wk2022.gamephase",
+    "pk": 14,
+    "fields": {
+        "gamephase": "51 Veiling Kwart Finales",
+        "allowbidding": false,
+        "allowauction": true,
+        "allowlineup": false,
+        "allowfiring": false,
+        "kophase": false
+    }
+},
+{
+    "model": "wk2022.gamephase",
+    "pk": 15,
+    "fields": {
+        "gamephase": "53 Kwart Finales Live",
+        "allowbidding": false,
+        "allowauction": false,
+        "allowlineup": true,
+        "allowfiring": true,
+        "kophase": true
+    }
+},
+{
+    "model": "wk2022.gamephase",
+    "pk": 16,
+    "fields": {
+        "gamephase": "60 Biedingsronde Halve Finales",
+        "allowbidding": true,
+        "allowauction": false,
+        "allowlineup": false,
+        "allowfiring": false,
+        "kophase": false
+    }
+},
+{
+    "model": "wk2022.gamephase",
+    "pk": 17,
+    "fields": {
+        "gamephase": "61 Veiling Halve Finales",
+        "allowbidding": false,
+        "allowauction": true,
+        "allowlineup": false,
+        "allowfiring": false,
+        "kophase": false
+    }
+},
+{
+    "model": "wk2022.gamephase",
+    "pk": 18,
+    "fields": {
+        "gamephase": "63 Halve Finales Live",
+        "allowbidding": false,
+        "allowauction": false,
+        "allowlineup": true,
+        "allowfiring": true,
+        "kophase": true
+    }
+},
+{
+    "model": "wk2022.gamephase",
+    "pk": 19,
+    "fields": {
+        "gamephase": "70 Biedingsronde Grande Finale",
+        "allowbidding": true,
+        "allowauction": false,
+        "allowlineup": false,
+        "allowfiring": false,
+        "kophase": false
+    }
+},
+{
+    "model": "wk2022.gamephase",
+    "pk": 20,
+    "fields": {
+        "gamephase": "71 Veiling Grande Finale",
+        "allowbidding": false,
+        "allowauction": true,
+        "allowlineup": false,
+        "allowfiring": false,
+        "kophase": false
+    }
+},
+{
+    "model": "wk2022.gamephase",
+    "pk": 21,
+    "fields": {
+        "gamephase": "73 Grande Finale Live",
+        "allowbidding": false,
+        "allowauction": false,
+        "allowlineup": true,
+        "allowfiring": true,
+        "kophase": true
+    }
+},
+{
+    "model": "wk2022.gamephase",
+    "pk": 22,
+    "fields": {
+        "gamephase": "80 Euro2020 Eind Ceremonie",
+        "allowbidding": false,
+        "allowauction": false,
+        "allowlineup": false,
+        "allowfiring": false,
+        "kophase": false
+    }
+},
+{
+    "model": "wk2022.gamephase",
+    "pk": 23,
+    "fields": {
+        "gamephase": "21 Groepsfase veiling 1",
+        "allowbidding": false,
+        "allowauction": true,
+        "allowlineup": false,
+        "allowfiring": false,
+        "kophase": false
+    }
+},
+{
+    "model": "wk2022.gamephase",
+    "pk": 24,
+    "fields": {
+        "gamephase": "23 Groepsfase veiling 2",
+        "allowbidding": false,
+        "allowauction": true,
+        "allowlineup": false,
+        "allowfiring": false,
+        "kophase": false
+    }
+},
+{
+    "model": "wk2022.gamephase",
+    "pk": 25,
+    "fields": {
+        "gamephase": "25 Groepsfase veiling 3",
+        "allowbidding": false,
+        "allowauction": true,
+        "allowlineup": false,
+        "allowfiring": false,
+        "kophase": false
+    }
+},
+{
+    "model": "wk2022.gamephase",
+    "pk": 26,
+    "fields": {
+        "gamephase": "22 Groepsfase bieding 2",
+        "allowbidding": true,
+        "allowauction": false,
+        "allowlineup": false,
+        "allowfiring": false,
+        "kophase": false
+    }
+},
+{
+    "model": "wk2022.gamephase",
+    "pk": 27,
+    "fields": {
+        "gamephase": "24 Groepsfase bieding 3",
+        "allowbidding": true,
+        "allowauction": false,
+        "allowlineup": false,
+        "allowfiring": false,
+        "kophase": false
+    }
+},
+{
+    "model": "wk2022.gamephase",
+    "pk": 28,
+    "fields": {
+        "gamephase": "42 Achtste Finales Opstelling",
+        "allowbidding": false,
+        "allowauction": false,
+        "allowlineup": true,
+        "allowfiring": true,
+        "kophase": true
+    }
+},
+{
+    "model": "wk2022.gamephase",
+    "pk": 29,
+    "fields": {
+        "gamephase": "52 Kwart Finales Opstelling",
+        "allowbidding": false,
+        "allowauction": false,
+        "allowlineup": true,
+        "allowfiring": true,
+        "kophase": true
+    }
+},
+{
+    "model": "wk2022.gamephase",
+    "pk": 30,
+    "fields": {
+        "gamephase": "62 Halve Finales Opstelling",
+        "allowbidding": false,
+        "allowauction": false,
+        "allowlineup": true,
+        "allowfiring": true,
+        "kophase": true
+    }
+},
+{
+    "model": "wk2022.gamephase",
+    "pk": 31,
+    "fields": {
+        "gamephase": "72 Finale Grande Opstelling",
+        "allowbidding": false,
+        "allowauction": false,
+        "allowlineup": true,
+        "allowfiring": true,
+        "kophase": true
+    }
+},
+{
+    "model": "wk2022.gamephase",
+    "pk": 32,
+    "fields": {
+        "gamephase": "11 Oxel EURO 2020 Groepsloting",
+        "allowbidding": false,
+        "allowauction": false,
+        "allowlineup": false,
+        "allowfiring": false,
+        "kophase": false
+    }
+}
+]
