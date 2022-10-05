@@ -48,6 +48,8 @@ class Country(models.Model):
         D = "D", "D"
         E = "E", "E"
         F = "F", "F"
+        G = "G", "G"
+        H = "H", "H"
 
     name = models.CharField(verbose_name=_("Name"), max_length=30, primary_key=True)
     shortname = models.CharField(verbose_name=_("Ctry"), max_length=3, default="NUL")
