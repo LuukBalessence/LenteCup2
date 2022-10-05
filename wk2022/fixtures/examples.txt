@@ -1,0 +1,11 @@
+dumpdata wk2022.Country --indent 4
+dumpdata euro2020.GamePhase --indent 4
+
+loaddata wk2022/fixtures/wk2022_country.json --app wk2022.Country
+loaddata wk2022/fixtures/wk2022_gamephase.json --app wk2022.GamePhase
+
+
+
+
+
+
