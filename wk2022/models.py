@@ -90,7 +90,7 @@ class League(models.Model):
     maxparticipants = models.PositiveSmallIntegerField(verbose_name=_("Max Teams"))
     is_private = models.BooleanField(verbose_name=_("Private League"), default=False)
     gamephase = models.ForeignKey(GamePhase, on_delete=models.CASCADE, related_name="leaguephase")
-    leaguebalance = models.PositiveIntegerField(verbose_name=_("League Balance"), validators=[MinValueValidator(0), MaxValueValidator(50000)], default=48000)
+    leaguebalance = models.PositiveIntegerField(verbose_name=_("League Balance"), validators=[MinValueValidator(0), MaxValueValidator(100000)], default=64000)
     leaguefee = models.DecimalField(max_digits=4, decimal_places=2, default=10.00)
     secretnumber = models.PositiveIntegerField(verbose_name=_("Secret key"), validators=[MinValueValidator(10000), MaxValueValidator(99999)], default=10000)
     draw = models.BooleanField(verbose_name=_("Loting plaatsgevonden"), default=False)
