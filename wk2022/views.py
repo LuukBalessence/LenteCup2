@@ -415,14 +415,14 @@ def createleaguematches(request, league):
             error = "Er bestaan al matches voor deze league"
             return render(request=request, template_name="wk2022/createleaguematches.html", context={"error": error})
         groups = Team.TeamGroup.labels
-        r1start = datetime(year=2021, month=6, day=11, hour=21, minute=00, second=00)
-        r1end = datetime(year=2021, month=6, day=15, hour=23, minute=50, second=00)
-        r2start = datetime(year=2021, month=6, day=16, hour=15, minute=00, second=00)
-        r2end = datetime(year=2021, month=6, day=19, hour=23, minute=50, second=00)
-        r3start = datetime(year=2021, month=6, day=20, hour=21, minute=00, second=00)
-        r3end = datetime(year=2021, month=6, day=23, hour=23, minute=50, second=00)
-        schemalist = [["G1", r1start, r1end, 1, 2, 3, 4], ["G2", r2start, r2end, 3, 1, 4, 2],
-                      ["G3", r3start, r3end, 1, 4, 2, 3]]
+        r1start = datetime(year=2022, month=11, day=20, hour=15, minute=00, second=00)
+        r1end = datetime(year=2022, month=11, day=24, hour=20, minute=50, second=00)
+        r2start = datetime(year=2022, month=11, day=25, hour=9, minute=00, second=00)
+        r2end = datetime(year=2022, month=11, day=28, hour=20, minute=50, second=00)
+        r3start = datetime(year=2022, month=11, day=29, hour=14, minute=00, second=00)
+        r3end = datetime(year=2022, month=12, day=2, hour=20, minute=50, second=00)
+        schemalist = [["G1", r1start, r1end, 1, 2, 3, 4], ["G2", r2start, r2end, 1, 3, 4, 2],
+                      ["G3", r3start, r3end, 4, 1, 2, 3]]
         for schema1 in schemalist:
             for group in groups:
                 hometeam = leagueteams.get(group=group, order=schema1[3])
@@ -840,7 +840,8 @@ def lotingleague(request, league):
     error = ""
     drawlist = [["A", 1], ["A", 2], ["A", 3], ["A", 4], ["B", 1], ["B", 2], ["B", 3], ["B", 4], ["C", 1], ["C", 2],
                 ["C", 3], ["C", 4], ["D", 1], ["D", 2], ["D", 3], ["D", 4], ["E", 1], ["E", 2], ["E", 3], ["E", 4],
-                ["F", 1], ["F", 2], ["F", 3], ["F", 4]]
+                ["F", 1], ["F", 2], ["F", 3], ["F", 4],["G", 1], ["G", 2], ["G", 3], ["G", 4], ["H", 1], ["H", 2],
+                ["H", 3], ["H", 4]]
     currentleague = League.objects.get(pk=league)
     leagueteams = Team.objects.filter(league=league).order_by('name').select_related("owner")
     if currentleague.draw == False:
