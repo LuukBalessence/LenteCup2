@@ -24,6 +24,7 @@ class Location(models.Model):
         SC = "SC", _("Scotland")
         UK = "UK", _("England")
         HU = "HU", _("Hungary")
+        QA = "QA", _("Qatar")
 
     name = models.CharField(verbose_name=_("Name"), max_length=40, primary_key=True)
     city = models.CharField(verbose_name=_("City"), max_length=40)
@@ -105,6 +106,8 @@ class Team(models.Model):
         D = "D", "D"
         E = "E", "E"
         F = "F", "F"
+        G = "G", "G"
+        H = "H", "H"
 
     name = models.CharField(max_length=40)
     owner = models.OneToOneField(User, on_delete=models.CASCADE, related_name='teamwk')
