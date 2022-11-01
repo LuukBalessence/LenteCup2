@@ -25,7 +25,7 @@ from django.forms import formset_factory
 
 def index(request):
     if request.user.is_authenticated:
-        return redirect(to="euro2020")
+        return redirect(to="wk2022")
 
     countries = get_list_or_404(klass=models.Country)
     groups = models.Country.Group.names

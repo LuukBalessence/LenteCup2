@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '192.168.101.66', 'dry-gorge-97794.herokuapp.com']
-DEFAULT_FROM_EMAIL = 'wk2022@balessence.nl'
+DEFAULT_FROM_EMAIL = 'euro2022@balessence.nl'
 
 # Application definition
 

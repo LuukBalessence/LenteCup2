@@ -29,7 +29,7 @@ def signup(request):
                 'token': default_token_generator.make_token(user),
             })
             recipient = [user]
-            xx = send_mail(mail_subject, message, 'wk2022@balessence.nl', recipient, fail_silently=False, )
+            xx = send_mail(mail_subject, message, 'euro2020@balessence.nl', recipient, fail_silently=False, )
             print(xx)
             title = 'Bevestig a.u.b. je email'
             danger = 'info'
