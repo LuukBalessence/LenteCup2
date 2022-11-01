@@ -1,0 +1,914 @@
+[
+{
+    "model": "wk2022.match",
+    "pk": 1,
+    "fields": {
+        "stage": "G1",
+        "home": "Qatar",
+        "away": "Ecuador",
+        "start": "2022-11-20T17:00:00Z",
+        "location": "Qatar Stadion",
+        "has_started": false,
+        "has_ended": false,
+        "verlenging": false,
+        "shootout": false,
+        "homewonshootout": false,
+        "readurl": "",
+        "koreference": "",
+        "players": []
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 2,
+    "fields": {
+        "stage": "G1",
+        "home": "England",
+        "away": "Iran",
+        "start": "2022-11-21T14:00:00Z",
+        "location": "Qatar Stadion",
+        "has_started": false,
+        "has_ended": false,
+        "verlenging": false,
+        "shootout": false,
+        "homewonshootout": false,
+        "readurl": "",
+        "koreference": "",
+        "players": []
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 3,
+    "fields": {
+        "stage": "G1",
+        "home": "Senegal",
+        "away": "Netherlands",
+        "start": "2022-11-21T17:00:00Z",
+        "location": "Qatar Stadion",
+        "has_started": false,
+        "has_ended": false,
+        "verlenging": false,
+        "shootout": false,
+        "homewonshootout": false,
+        "readurl": "",
+        "koreference": "",
+        "players": []
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 4,
+    "fields": {
+        "stage": "G1",
+        "home": "USA",
+        "away": "Wales",
+        "start": "2022-11-21T20:00:00Z",
+        "location": "Qatar Stadion",
+        "has_started": false,
+        "has_ended": false,
+        "verlenging": false,
+        "shootout": false,
+        "homewonshootout": false,
+        "readurl": "",
+        "koreference": "",
+        "players": []
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 5,
+    "fields": {
+        "stage": "G1",
+        "home": "Argentina",
+        "away": "Saudi Arabia",
+        "start": "2022-11-22T11:00:00Z",
+        "location": "Qatar Stadion",
+        "has_started": false,
+        "has_ended": false,
+        "verlenging": false,
+        "shootout": false,
+        "homewonshootout": false,
+        "readurl": "",
+        "koreference": "",
+        "players": []
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 6,
+    "fields": {
+        "stage": "G1",
+        "home": "Denmark",
+        "away": "Tunisia",
+        "start": "2022-11-22T14:00:00Z",
+        "location": "Qatar Stadion",
+        "has_started": false,
+        "has_ended": false,
+        "verlenging": false,
+        "shootout": false,
+        "homewonshootout": false,
+        "readurl": "",
+        "koreference": "",
+        "players": []
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 7,
+    "fields": {
+        "stage": "G1",
+        "home": "Mexico",
+        "away": "Poland",
+        "start": "2022-11-22T17:00:00Z",
+        "location": "Qatar Stadion",
+        "has_started": false,
+        "has_ended": false,
+        "verlenging": false,
+        "shootout": false,
+        "homewonshootout": false,
+        "readurl": "",
+        "koreference": "",
+        "players": []
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 8,
+    "fields": {
+        "stage": "G1",
+        "home": "France",
+        "away": "Australia",
+        "start": "2022-11-22T20:00:00Z",
+        "location": "Qatar Stadion",
+        "has_started": false,
+        "has_ended": false,
+        "verlenging": false,
+        "shootout": false,
+        "homewonshootout": false,
+        "readurl": "",
+        "koreference": "",
+        "players": []
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 9,
+    "fields": {
+        "stage": "G1",
+        "home": "Morocco",
+        "away": "Croatia",
+        "start": "2022-11-23T11:00:00Z",
+        "location": "Qatar Stadion",
+        "has_started": false,
+        "has_ended": false,
+        "verlenging": false,
+        "shootout": false,
+        "homewonshootout": false,
+        "readurl": "",
+        "koreference": "",
+        "players": []
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 10,
+    "fields": {
+        "stage": "G1",
+        "home": "Germany",
+        "away": "Japan",
+        "start": "2022-11-23T14:00:00Z",
+        "location": "Qatar Stadion",
+        "has_started": false,
+        "has_ended": false,
+        "verlenging": false,
+        "shootout": false,
+        "homewonshootout": false,
+        "readurl": "",
+        "koreference": "",
+        "players": []
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 11,
+    "fields": {
+        "stage": "G1",
+        "home": "Spain",
+        "away": "Costa Rica",
+        "start": "2022-11-23T17:00:00Z",
+        "location": "Qatar Stadion",
+        "has_started": false,
+        "has_ended": false,
+        "verlenging": false,
+        "shootout": false,
+        "homewonshootout": false,
+        "readurl": "",
+        "koreference": "",
+        "players": []
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 12,
+    "fields": {
+        "stage": "G1",
+        "home": "Belgium",
+        "away": "Canada",
+        "start": "2022-11-23T20:00:00Z",
+        "location": "Qatar Stadion",
+        "has_started": false,
+        "has_ended": false,
+        "verlenging": false,
+        "shootout": false,
+        "homewonshootout": false,
+        "readurl": "",
+        "koreference": "",
+        "players": []
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 13,
+    "fields": {
+        "stage": "G1",
+        "home": "Switzerland",
+        "away": "Cameroon",
+        "start": "2022-11-24T11:00:00Z",
+        "location": "Qatar Stadion",
+        "has_started": false,
+        "has_ended": false,
+        "verlenging": false,
+        "shootout": false,
+        "homewonshootout": false,
+        "readurl": "",
+        "koreference": "",
+        "players": []
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 14,
+    "fields": {
+        "stage": "G1",
+        "home": "Uruguay",
+        "away": "Korea Republic",
+        "start": "2022-11-24T14:00:00Z",
+        "location": "Qatar Stadion",
+        "has_started": false,
+        "has_ended": false,
+        "verlenging": false,
+        "shootout": false,
+        "homewonshootout": false,
+        "readurl": "",
+        "koreference": "",
+        "players": []
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 15,
+    "fields": {
+        "stage": "G1",
+        "home": "Portugal",
+        "away": "Ghana",
+        "start": "2022-11-24T17:00:00Z",
+        "location": "Qatar Stadion",
+        "has_started": false,
+        "has_ended": false,
+        "verlenging": false,
+        "shootout": false,
+        "homewonshootout": false,
+        "readurl": "",
+        "koreference": "",
+        "players": []
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 16,
+    "fields": {
+        "stage": "G1",
+        "home": "Brazil",
+        "away": "Serbia",
+        "start": "2022-11-24T20:00:00Z",
+        "location": "Qatar Stadion",
+        "has_started": false,
+        "has_ended": false,
+        "verlenging": false,
+        "shootout": false,
+        "homewonshootout": false,
+        "readurl": "",
+        "koreference": "",
+        "players": []
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 17,
+    "fields": {
+        "stage": "G2",
+        "home": "Wales",
+        "away": "Iran",
+        "start": "2022-11-25T11:00:00Z",
+        "location": "Qatar Stadion",
+        "has_started": false,
+        "has_ended": false,
+        "verlenging": false,
+        "shootout": false,
+        "homewonshootout": false,
+        "readurl": "",
+        "koreference": "",
+        "players": []
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 18,
+    "fields": {
+        "stage": "G2",
+        "home": "Qatar",
+        "away": "Senegal",
+        "start": "2022-11-25T14:00:00Z",
+        "location": "Qatar Stadion",
+        "has_started": false,
+        "has_ended": false,
+        "verlenging": false,
+        "shootout": false,
+        "homewonshootout": false,
+        "readurl": "",
+        "koreference": "",
+        "players": []
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 19,
+    "fields": {
+        "stage": "G2",
+        "home": "Netherlands",
+        "away": "Ecuador",
+        "start": "2022-11-25T17:00:00Z",
+        "location": "Qatar Stadion",
+        "has_started": false,
+        "has_ended": false,
+        "verlenging": false,
+        "shootout": false,
+        "homewonshootout": false,
+        "readurl": "",
+        "koreference": "",
+        "players": []
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 20,
+    "fields": {
+        "stage": "G2",
+        "home": "England",
+        "away": "USA",
+        "start": "2022-11-25T20:00:00Z",
+        "location": "Qatar Stadion",
+        "has_started": false,
+        "has_ended": false,
+        "verlenging": false,
+        "shootout": false,
+        "homewonshootout": false,
+        "readurl": "",
+        "koreference": "",
+        "players": []
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 21,
+    "fields": {
+        "stage": "G2",
+        "home": "Tunisia",
+        "away": "Australia",
+        "start": "2022-11-26T11:00:00Z",
+        "location": "Qatar Stadion",
+        "has_started": false,
+        "has_ended": false,
+        "verlenging": false,
+        "shootout": false,
+        "homewonshootout": false,
+        "readurl": "",
+        "koreference": "",
+        "players": []
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 22,
+    "fields": {
+        "stage": "G2",
+        "home": "Poland",
+        "away": "Saudi Arabia",
+        "start": "2022-11-26T14:00:00Z",
+        "location": "Qatar Stadion",
+        "has_started": false,
+        "has_ended": false,
+        "verlenging": false,
+        "shootout": false,
+        "homewonshootout": false,
+        "readurl": "",
+        "koreference": "",
+        "players": []
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 23,
+    "fields": {
+        "stage": "G2",
+        "home": "France",
+        "away": "Denmark",
+        "start": "2022-11-26T17:00:00Z",
+        "location": "Qatar Stadion",
+        "has_started": false,
+        "has_ended": false,
+        "verlenging": false,
+        "shootout": false,
+        "homewonshootout": false,
+        "readurl": "",
+        "koreference": "",
+        "players": []
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 24,
+    "fields": {
+        "stage": "G2",
+        "home": "Argentina",
+        "away": "Mexico",
+        "start": "2022-11-26T20:00:00Z",
+        "location": "Qatar Stadion",
+        "has_started": false,
+        "has_ended": false,
+        "verlenging": false,
+        "shootout": false,
+        "homewonshootout": false,
+        "readurl": "",
+        "koreference": "",
+        "players": []
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 25,
+    "fields": {
+        "stage": "G2",
+        "home": "Japan",
+        "away": "Costa Rica",
+        "start": "2022-11-27T11:00:00Z",
+        "location": "Qatar Stadion",
+        "has_started": false,
+        "has_ended": false,
+        "verlenging": false,
+        "shootout": false,
+        "homewonshootout": false,
+        "readurl": "",
+        "koreference": "",
+        "players": []
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 26,
+    "fields": {
+        "stage": "G2",
+        "home": "Belgium",
+        "away": "Morocco",
+        "start": "2022-11-27T14:00:00Z",
+        "location": "Qatar Stadion",
+        "has_started": false,
+        "has_ended": false,
+        "verlenging": false,
+        "shootout": false,
+        "homewonshootout": false,
+        "readurl": "",
+        "koreference": "",
+        "players": []
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 27,
+    "fields": {
+        "stage": "G2",
+        "home": "Croatia",
+        "away": "Canada",
+        "start": "2022-11-27T17:00:00Z",
+        "location": "Qatar Stadion",
+        "has_started": false,
+        "has_ended": false,
+        "verlenging": false,
+        "shootout": false,
+        "homewonshootout": false,
+        "readurl": "",
+        "koreference": "",
+        "players": []
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 28,
+    "fields": {
+        "stage": "G2",
+        "home": "Spain",
+        "away": "Germany",
+        "start": "2022-11-27T20:00:00Z",
+        "location": "Qatar Stadion",
+        "has_started": false,
+        "has_ended": false,
+        "verlenging": false,
+        "shootout": false,
+        "homewonshootout": false,
+        "readurl": "",
+        "koreference": "",
+        "players": []
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 29,
+    "fields": {
+        "stage": "G2",
+        "home": "Cameroon",
+        "away": "Serbia",
+        "start": "2022-11-28T11:00:00Z",
+        "location": "Qatar Stadion",
+        "has_started": false,
+        "has_ended": false,
+        "verlenging": false,
+        "shootout": false,
+        "homewonshootout": false,
+        "readurl": "",
+        "koreference": "",
+        "players": []
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 30,
+    "fields": {
+        "stage": "G2",
+        "home": "Korea Republic",
+        "away": "Ghana",
+        "start": "2022-11-28T14:00:00Z",
+        "location": "Qatar Stadion",
+        "has_started": false,
+        "has_ended": false,
+        "verlenging": false,
+        "shootout": false,
+        "homewonshootout": false,
+        "readurl": "",
+        "koreference": "",
+        "players": []
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 31,
+    "fields": {
+        "stage": "G2",
+        "home": "Brazil",
+        "away": "Switzerland",
+        "start": "2022-11-28T17:00:00Z",
+        "location": "Qatar Stadion",
+        "has_started": false,
+        "has_ended": false,
+        "verlenging": false,
+        "shootout": false,
+        "homewonshootout": false,
+        "readurl": "",
+        "koreference": "",
+        "players": []
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 32,
+    "fields": {
+        "stage": "G2",
+        "home": "Portugal",
+        "away": "Uruguay",
+        "start": "2022-11-28T20:00:00Z",
+        "location": "Qatar Stadion",
+        "has_started": false,
+        "has_ended": false,
+        "verlenging": false,
+        "shootout": false,
+        "homewonshootout": false,
+        "readurl": "",
+        "koreference": "",
+        "players": []
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 33,
+    "fields": {
+        "stage": "G3",
+        "home": "Ecuador",
+        "away": "Senegal",
+        "start": "2022-11-29T16:00:00Z",
+        "location": "Qatar Stadion",
+        "has_started": false,
+        "has_ended": false,
+        "verlenging": false,
+        "shootout": false,
+        "homewonshootout": false,
+        "readurl": "",
+        "koreference": "",
+        "players": []
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 34,
+    "fields": {
+        "stage": "G3",
+        "home": "Netherlands",
+        "away": "Qatar",
+        "start": "2022-11-29T16:00:00Z",
+        "location": "Qatar Stadion",
+        "has_started": false,
+        "has_ended": false,
+        "verlenging": false,
+        "shootout": false,
+        "homewonshootout": false,
+        "readurl": "",
+        "koreference": "",
+        "players": []
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 35,
+    "fields": {
+        "stage": "G3",
+        "home": "Wales",
+        "away": "England",
+        "start": "2022-11-29T20:00:00Z",
+        "location": "Qatar Stadion",
+        "has_started": false,
+        "has_ended": false,
+        "verlenging": false,
+        "shootout": false,
+        "homewonshootout": false,
+        "readurl": "",
+        "koreference": "",
+        "players": []
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 36,
+    "fields": {
+        "stage": "G3",
+        "home": "Iran",
+        "away": "USA",
+        "start": "2022-11-29T20:00:00Z",
+        "location": "Qatar Stadion",
+        "has_started": false,
+        "has_ended": false,
+        "verlenging": false,
+        "shootout": false,
+        "homewonshootout": false,
+        "readurl": "",
+        "koreference": "",
+        "players": []
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 37,
+    "fields": {
+        "stage": "G3",
+        "home": "Australia",
+        "away": "Denmark",
+        "start": "2022-11-30T16:00:00Z",
+        "location": "Qatar Stadion",
+        "has_started": false,
+        "has_ended": false,
+        "verlenging": false,
+        "shootout": false,
+        "homewonshootout": false,
+        "readurl": "",
+        "koreference": "",
+        "players": []
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 38,
+    "fields": {
+        "stage": "G3",
+        "home": "Tunisia",
+        "away": "France",
+        "start": "2022-11-30T16:00:00Z",
+        "location": "Qatar Stadion",
+        "has_started": false,
+        "has_ended": false,
+        "verlenging": false,
+        "shootout": false,
+        "homewonshootout": false,
+        "readurl": "",
+        "koreference": "",
+        "players": []
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 39,
+    "fields": {
+        "stage": "G3",
+        "home": "Poland",
+        "away": "Argentina",
+        "start": "2022-11-30T20:00:00Z",
+        "location": "Qatar Stadion",
+        "has_started": false,
+        "has_ended": false,
+        "verlenging": false,
+        "shootout": false,
+        "homewonshootout": false,
+        "readurl": "",
+        "koreference": "",
+        "players": []
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 40,
+    "fields": {
+        "stage": "G3",
+        "home": "Saudi Arabia",
+        "away": "Mexico",
+        "start": "2022-11-30T20:00:00Z",
+        "location": "Qatar Stadion",
+        "has_started": false,
+        "has_ended": false,
+        "verlenging": false,
+        "shootout": false,
+        "homewonshootout": false,
+        "readurl": "",
+        "koreference": "",
+        "players": []
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 41,
+    "fields": {
+        "stage": "G3",
+        "home": "Croatia",
+        "away": "Belgium",
+        "start": "2022-12-01T16:00:00Z",
+        "location": "Qatar Stadion",
+        "has_started": false,
+        "has_ended": false,
+        "verlenging": false,
+        "shootout": false,
+        "homewonshootout": false,
+        "readurl": "",
+        "koreference": "",
+        "players": []
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 42,
+    "fields": {
+        "stage": "G3",
+        "home": "Canada",
+        "away": "Morocco",
+        "start": "2022-12-01T16:00:00Z",
+        "location": "Qatar Stadion",
+        "has_started": false,
+        "has_ended": false,
+        "verlenging": false,
+        "shootout": false,
+        "homewonshootout": false,
+        "readurl": "",
+        "koreference": "",
+        "players": []
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 43,
+    "fields": {
+        "stage": "G3",
+        "home": "Japan",
+        "away": "Spain",
+        "start": "2022-12-01T20:00:00Z",
+        "location": "Qatar Stadion",
+        "has_started": false,
+        "has_ended": false,
+        "verlenging": false,
+        "shootout": false,
+        "homewonshootout": false,
+        "readurl": "",
+        "koreference": "",
+        "players": []
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 44,
+    "fields": {
+        "stage": "G3",
+        "home": "Costa Rica",
+        "away": "Germany",
+        "start": "2022-12-01T20:00:00Z",
+        "location": "Qatar Stadion",
+        "has_started": false,
+        "has_ended": false,
+        "verlenging": false,
+        "shootout": false,
+        "homewonshootout": false,
+        "readurl": "",
+        "koreference": "",
+        "players": []
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 45,
+    "fields": {
+        "stage": "G3",
+        "home": "Ghana",
+        "away": "Uruguay",
+        "start": "2022-12-02T16:00:00Z",
+        "location": "Qatar Stadion",
+        "has_started": false,
+        "has_ended": false,
+        "verlenging": false,
+        "shootout": false,
+        "homewonshootout": false,
+        "readurl": "",
+        "koreference": "",
+        "players": []
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 46,
+    "fields": {
+        "stage": "G3",
+        "home": "Korea Republic",
+        "away": "Portugal",
+        "start": "2022-12-02T16:00:00Z",
+        "location": "Qatar Stadion",
+        "has_started": false,
+        "has_ended": false,
+        "verlenging": false,
+        "shootout": false,
+        "homewonshootout": false,
+        "readurl": "",
+        "koreference": "",
+        "players": []
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 47,
+    "fields": {
+        "stage": "G3",
+        "home": "Serbia",
+        "away": "Switzerland",
+        "start": "2022-12-02T20:00:00Z",
+        "location": "Qatar Stadion",
+        "has_started": false,
+        "has_ended": false,
+        "verlenging": false,
+        "shootout": false,
+        "homewonshootout": false,
+        "readurl": "",
+        "koreference": "",
+        "players": []
+    }
+},
+{
+    "model": "wk2022.match",
+    "pk": 48,
+    "fields": {
+        "stage": "G3",
+        "home": "Cameroon",
+        "away": "Brazil",
+        "start": "2022-12-02T20:00:00Z",
+        "location": "Qatar Stadion",
+        "has_started": false,
+        "has_ended": false,
+        "verlenging": false,
+        "shootout": false,
+        "homewonshootout": false,
+        "readurl": "",
+        "koreference": "",
+        "players": []
+    }
+}
+]
