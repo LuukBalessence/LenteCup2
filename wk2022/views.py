@@ -274,7 +274,7 @@ def pickleague(request):
     leagues = League.objects.filter(draw=False)
     for league in leagues:
         teams = Team.objects.filter(league=league.pk)
-        if len(teams) < 24:
+        if len(teams) < 32:
             availableleagues.append(league)
     form = PickLeagueForm()
     if request.method == 'POST':
@@ -950,7 +950,7 @@ def createleague(request):
                     return render(request, "wk2022/createleague.html",
                                   context={"form": CreateLeagueForm, "error": error})
             except:
-                League.objects.create(leaguename=leaguename, maxparticipants=24, is_private=False,
+                League.objects.create(leaguename=leaguename, maxparticipants=32, is_private=False,
                                       gamephase=GamePhase.objects.get(gamephase=nextphase(currentgamephase="01")))
             return redirect(leagueoverview)
         else:
