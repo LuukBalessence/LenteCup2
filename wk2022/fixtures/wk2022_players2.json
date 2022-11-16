@@ -1,0 +1,4282 @@
+[
+{
+    "model": "wk2022.player",
+    "pk": 545,
+    "fields": {
+        "first_name": "Wojciech",
+        "last_name": "Szczesny",
+        "position": "G",
+        "number": 1,
+        "country": "Poland"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 546,
+    "fields": {
+        "first_name": "Matty",
+        "last_name": "Cash",
+        "position": "D",
+        "number": 1,
+        "country": "Poland"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 547,
+    "fields": {
+        "first_name": "Artur",
+        "last_name": "Jedrzejczyk",
+        "position": "D",
+        "number": 1,
+        "country": "Poland"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 548,
+    "fields": {
+        "first_name": "Mateusz",
+        "last_name": "Wieteska",
+        "position": "D",
+        "number": 1,
+        "country": "Poland"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 549,
+    "fields": {
+        "first_name": "Jan",
+        "last_name": "Bednarek",
+        "position": "D",
+        "number": 1,
+        "country": "Poland"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 550,
+    "fields": {
+        "first_name": "Krystian",
+        "last_name": "Bielik",
+        "position": "M",
+        "number": 1,
+        "country": "Poland"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 551,
+    "fields": {
+        "first_name": "Arkadiusz",
+        "last_name": "Milik",
+        "position": "A",
+        "number": 1,
+        "country": "Poland"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 552,
+    "fields": {
+        "first_name": "Damian",
+        "last_name": "Szymanski",
+        "position": "M",
+        "number": 1,
+        "country": "Poland"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 553,
+    "fields": {
+        "first_name": "Robert",
+        "last_name": "Lewandowski",
+        "position": "A",
+        "number": 1,
+        "country": "Poland"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 554,
+    "fields": {
+        "first_name": "Grzegorz",
+        "last_name": "Krychowiak",
+        "position": "M",
+        "number": 1,
+        "country": "Poland"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 555,
+    "fields": {
+        "first_name": "Kamil",
+        "last_name": "Grosicki",
+        "position": "M",
+        "number": 1,
+        "country": "Poland"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 556,
+    "fields": {
+        "first_name": "Lukasz",
+        "last_name": "Skorupski",
+        "position": "G",
+        "number": 1,
+        "country": "Poland"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 557,
+    "fields": {
+        "first_name": "Jakub",
+        "last_name": "Kaminski",
+        "position": "M",
+        "number": 1,
+        "country": "Poland"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 558,
+    "fields": {
+        "first_name": "Jakub",
+        "last_name": "Kiwior",
+        "position": "D",
+        "number": 1,
+        "country": "Poland"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 559,
+    "fields": {
+        "first_name": "Kamil",
+        "last_name": "Glik",
+        "position": "D",
+        "number": 1,
+        "country": "Poland"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 560,
+    "fields": {
+        "first_name": "Karol",
+        "last_name": "Swiderski",
+        "position": "A",
+        "number": 1,
+        "country": "Poland"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 561,
+    "fields": {
+        "first_name": "Szymon",
+        "last_name": "Zurkowski",
+        "position": "M",
+        "number": 1,
+        "country": "Poland"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 562,
+    "fields": {
+        "first_name": "Bartosz",
+        "last_name": "Bereszynski",
+        "position": "D",
+        "number": 1,
+        "country": "Poland"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 563,
+    "fields": {
+        "first_name": "Sebastian",
+        "last_name": "Szymanski",
+        "position": "M",
+        "number": 1,
+        "country": "Poland"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 564,
+    "fields": {
+        "first_name": "Piotr",
+        "last_name": "Zielinski",
+        "position": "M",
+        "number": 1,
+        "country": "Poland"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 565,
+    "fields": {
+        "first_name": "Nicola",
+        "last_name": "Zalewski",
+        "position": "M",
+        "number": 1,
+        "country": "Poland"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 566,
+    "fields": {
+        "first_name": "Kamil",
+        "last_name": "Grabara",
+        "position": "G",
+        "number": 1,
+        "country": "Poland"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 567,
+    "fields": {
+        "first_name": "Krzysztof",
+        "last_name": "Piatek",
+        "position": "A",
+        "number": 1,
+        "country": "Poland"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 568,
+    "fields": {
+        "first_name": "Przemyslaw",
+        "last_name": "Frankowski",
+        "position": "M",
+        "number": 1,
+        "country": "Poland"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 569,
+    "fields": {
+        "first_name": "Robert",
+        "last_name": "Gumny",
+        "position": "D",
+        "number": 1,
+        "country": "Poland"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 570,
+    "fields": {
+        "first_name": "Michal",
+        "last_name": "Skoras",
+        "position": "M",
+        "number": 1,
+        "country": "Poland"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 571,
+    "fields": {
+        "first_name": "Kasper",
+        "last_name": "Schmeichel",
+        "position": "G",
+        "number": 1,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 572,
+    "fields": {
+        "first_name": "Joachim",
+        "last_name": "Andersen",
+        "position": "D",
+        "number": 1,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 573,
+    "fields": {
+        "first_name": "Victor",
+        "last_name": "Nelsson",
+        "position": "D",
+        "number": 1,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 574,
+    "fields": {
+        "first_name": "Simon",
+        "last_name": "Kjaer",
+        "position": "D",
+        "number": 1,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 575,
+    "fields": {
+        "first_name": "Joakim",
+        "last_name": "Maehle",
+        "position": "D",
+        "number": 1,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 576,
+    "fields": {
+        "first_name": "Andreas",
+        "last_name": "Christensen",
+        "position": "D",
+        "number": 1,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 577,
+    "fields": {
+        "first_name": "Mathias",
+        "last_name": "Jensen",
+        "position": "M",
+        "number": 1,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 578,
+    "fields": {
+        "first_name": "Thomas",
+        "last_name": "Delaney",
+        "position": "M",
+        "number": 1,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 579,
+    "fields": {
+        "first_name": "Martin",
+        "last_name": "Braithwaite",
+        "position": "A",
+        "number": 1,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 580,
+    "fields": {
+        "first_name": "Christian",
+        "last_name": "Eriksen",
+        "position": "M",
+        "number": 1,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 581,
+    "fields": {
+        "first_name": "OLSEN",
+        "last_name": "Skov",
+        "position": "M",
+        "number": 1,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 582,
+    "fields": {
+        "first_name": "Kasper",
+        "last_name": "Dolberg",
+        "position": "A",
+        "number": 1,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 583,
+    "fields": {
+        "first_name": "Rasmus",
+        "last_name": "Kristensen",
+        "position": "D",
+        "number": 1,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 584,
+    "fields": {
+        "first_name": "Mikkel",
+        "last_name": "Damsgaard",
+        "position": "M",
+        "number": 1,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 585,
+    "fields": {
+        "first_name": "Christian",
+        "last_name": "Norgaard",
+        "position": "M",
+        "number": 1,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 586,
+    "fields": {
+        "first_name": "Oliver",
+        "last_name": "Christensen",
+        "position": "G",
+        "number": 1,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 587,
+    "fields": {
+        "first_name": "LARSEN",
+        "last_name": "Stryger",
+        "position": "D",
+        "number": 1,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 588,
+    "fields": {
+        "first_name": "Daniel",
+        "last_name": "Wass",
+        "position": "D",
+        "number": 1,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 589,
+    "fields": {
+        "first_name": "Jonas",
+        "last_name": "Wind",
+        "position": "A",
+        "number": 1,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 590,
+    "fields": {
+        "first_name": "POULSEN",
+        "last_name": "Yurary",
+        "position": "A",
+        "number": 1,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 591,
+    "fields": {
+        "first_name": "Andreas",
+        "last_name": "Cornelius",
+        "position": "A",
+        "number": 1,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 592,
+    "fields": {
+        "first_name": "Frederik",
+        "last_name": "Ronnow",
+        "position": "G",
+        "number": 1,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 593,
+    "fields": {
+        "first_name": "Pierre-Emile",
+        "last_name": "Hojbjerg",
+        "position": "M",
+        "number": 1,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 594,
+    "fields": {
+        "first_name": "Robert",
+        "last_name": "Skov",
+        "position": "M",
+        "number": 1,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 595,
+    "fields": {
+        "first_name": "Jesper",
+        "last_name": "Lindstrom",
+        "position": "M",
+        "number": 1,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 596,
+    "fields": {
+        "first_name": "Alexander",
+        "last_name": "Bah",
+        "position": "D",
+        "number": 1,
+        "country": "Denmark"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 597,
+    "fields": {
+        "first_name": "Aymen",
+        "last_name": "Mathlouthi",
+        "position": "G",
+        "number": 1,
+        "country": "Tunisia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 598,
+    "fields": {
+        "first_name": "Bilel",
+        "last_name": "Ifa",
+        "position": "D",
+        "number": 1,
+        "country": "Tunisia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 599,
+    "fields": {
+        "first_name": "Montassar",
+        "last_name": "Talbi",
+        "position": "D",
+        "number": 1,
+        "country": "Tunisia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 600,
+    "fields": {
+        "first_name": "Yassine",
+        "last_name": "Meriah",
+        "position": "D",
+        "number": 1,
+        "country": "Tunisia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 601,
+    "fields": {
+        "first_name": "Nader",
+        "last_name": "Ghandri",
+        "position": "M",
+        "number": 1,
+        "country": "Tunisia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 602,
+    "fields": {
+        "first_name": "Dylan",
+        "last_name": "Bronn",
+        "position": "D",
+        "number": 1,
+        "country": "Tunisia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 603,
+    "fields": {
+        "first_name": "Youssef",
+        "last_name": "Msakni",
+        "position": "A",
+        "number": 1,
+        "country": "Tunisia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 604,
+    "fields": {
+        "first_name": "Hannibal",
+        "last_name": "Mejbri",
+        "position": "M",
+        "number": 1,
+        "country": "Tunisia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 605,
+    "fields": {
+        "first_name": "Issam",
+        "last_name": "Jebali",
+        "position": "A",
+        "number": 1,
+        "country": "Tunisia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 606,
+    "fields": {
+        "first_name": "Wahbi",
+        "last_name": "Khazri",
+        "position": "A",
+        "number": 1,
+        "country": "Tunisia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 607,
+    "fields": {
+        "first_name": "Taha",
+        "last_name": "Khenissi",
+        "position": "A",
+        "number": 1,
+        "country": "Tunisia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 608,
+    "fields": {
+        "first_name": "Ali",
+        "last_name": "Maaloul",
+        "position": "D",
+        "number": 1,
+        "country": "Tunisia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 609,
+    "fields": {
+        "first_name": "Ferjani",
+        "last_name": "Sassi",
+        "position": "M",
+        "number": 1,
+        "country": "Tunisia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 610,
+    "fields": {
+        "first_name": "Aissa",
+        "last_name": "Laidouni",
+        "position": "M",
+        "number": 1,
+        "country": "Tunisia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 611,
+    "fields": {
+        "first_name": "ROMDHANE",
+        "last_name": "Ben",
+        "position": "M",
+        "number": 1,
+        "country": "Tunisia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 612,
+    "fields": {
+        "first_name": "Aymen",
+        "last_name": "Dahmen",
+        "position": "G",
+        "number": 1,
+        "country": "Tunisia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 613,
+    "fields": {
+        "first_name": "Ellyes",
+        "last_name": "Skhiri",
+        "position": "M",
+        "number": 1,
+        "country": "Tunisia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 614,
+    "fields": {
+        "first_name": "Ghaylen",
+        "last_name": "Chaaleli",
+        "position": "M",
+        "number": 1,
+        "country": "Tunisia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 615,
+    "fields": {
+        "first_name": "Seifeddine",
+        "last_name": "Jaziri",
+        "position": "A",
+        "number": 1,
+        "country": "Tunisia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 616,
+    "fields": {
+        "first_name": "Mohamed",
+        "last_name": "Drager",
+        "position": "D",
+        "number": 1,
+        "country": "Tunisia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 617,
+    "fields": {
+        "first_name": "Wajdi",
+        "last_name": "Kechrida",
+        "position": "D",
+        "number": 1,
+        "country": "Tunisia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 618,
+    "fields": {
+        "first_name": "SAID",
+        "last_name": "Ben",
+        "position": "G",
+        "number": 1,
+        "country": "Tunisia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 619,
+    "fields": {
+        "first_name": "Naim",
+        "last_name": "Sliti",
+        "position": "A",
+        "number": 1,
+        "country": "Tunisia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 620,
+    "fields": {
+        "first_name": "Ali",
+        "last_name": "Abdi",
+        "position": "D",
+        "number": 1,
+        "country": "Tunisia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 621,
+    "fields": {
+        "first_name": "SLIMANE",
+        "last_name": "Ben",
+        "position": "A",
+        "number": 1,
+        "country": "Tunisia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 622,
+    "fields": {
+        "first_name": "Mouez",
+        "last_name": "Hassen",
+        "position": "G",
+        "number": 1,
+        "country": "Tunisia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 623,
+    "fields": {
+        "first_name": "Robert",
+        "last_name": "Sanchez",
+        "position": "G",
+        "number": 1,
+        "country": "Spain"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 624,
+    "fields": {
+        "first_name": "Cesar",
+        "last_name": "Azpilicueta",
+        "position": "D",
+        "number": 1,
+        "country": "Spain"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 625,
+    "fields": {
+        "first_name": "Eric",
+        "last_name": "Garcia",
+        "position": "D",
+        "number": 1,
+        "country": "Spain"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 626,
+    "fields": {
+        "first_name": "Pau",
+        "last_name": "Torres",
+        "position": "D",
+        "number": 1,
+        "country": "Spain"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 627,
+    "fields": {
+        "first_name": "Sergio",
+        "last_name": "Busquets",
+        "position": "M",
+        "number": 1,
+        "country": "Spain"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 628,
+    "fields": {
+        "first_name": "Marcos",
+        "last_name": "Llorente",
+        "position": "M",
+        "number": 1,
+        "country": "Spain"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 629,
+    "fields": {
+        "first_name": "Alvaro",
+        "last_name": "Morata",
+        "position": "A",
+        "number": 1,
+        "country": "Spain"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 630,
+    "fields": {
+        "first_name": "Jorge",
+        "last_name": "Koke",
+        "position": "M",
+        "number": 1,
+        "country": "Spain"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 631,
+    "fields": {
+        "first_name": "Pablo",
+        "last_name": "Gavi",
+        "position": "M",
+        "number": 1,
+        "country": "Spain"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 632,
+    "fields": {
+        "first_name": "Marco",
+        "last_name": "Asensio",
+        "position": "A",
+        "number": 1,
+        "country": "Spain"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 633,
+    "fields": {
+        "first_name": "Ferran",
+        "last_name": "Torres",
+        "position": "A",
+        "number": 1,
+        "country": "Spain"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 634,
+    "fields": {
+        "first_name": "Nico",
+        "last_name": "Williams",
+        "position": "A",
+        "number": 1,
+        "country": "Spain"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 635,
+    "fields": {
+        "first_name": "David",
+        "last_name": "Raya",
+        "position": "G",
+        "number": 1,
+        "country": "Spain"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 636,
+    "fields": {
+        "first_name": "Jose",
+        "last_name": "Gaya",
+        "position": "D",
+        "number": 1,
+        "country": "Spain"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 637,
+    "fields": {
+        "first_name": "Hugo",
+        "last_name": "Guillamon",
+        "position": "D",
+        "number": 1,
+        "country": "Spain"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 638,
+    "fields": {
+        "first_name": "Rodrigo",
+        "last_name": "Rodri",
+        "position": "M",
+        "number": 1,
+        "country": "Spain"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 639,
+    "fields": {
+        "first_name": "Yeremy",
+        "last_name": "Pino",
+        "position": "A",
+        "number": 1,
+        "country": "Spain"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 640,
+    "fields": {
+        "first_name": "Jordi",
+        "last_name": "Alba",
+        "position": "D",
+        "number": 1,
+        "country": "Spain"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 641,
+    "fields": {
+        "first_name": "Carlos",
+        "last_name": "Soler",
+        "position": "M",
+        "number": 1,
+        "country": "Spain"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 642,
+    "fields": {
+        "first_name": "Dani",
+        "last_name": "Carvajal",
+        "position": "D",
+        "number": 1,
+        "country": "Spain"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 643,
+    "fields": {
+        "first_name": "Dani",
+        "last_name": "Olmo",
+        "position": "A",
+        "number": 1,
+        "country": "Spain"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 644,
+    "fields": {
+        "first_name": "Pablo",
+        "last_name": "Sarabia",
+        "position": "A",
+        "number": 1,
+        "country": "Spain"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 645,
+    "fields": {
+        "first_name": "Unai",
+        "last_name": "Simon",
+        "position": "G",
+        "number": 1,
+        "country": "Spain"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 646,
+    "fields": {
+        "first_name": "Aymeric",
+        "last_name": "Laporte",
+        "position": "D",
+        "number": 1,
+        "country": "Spain"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 647,
+    "fields": {
+        "first_name": "Ansu",
+        "last_name": "Fati",
+        "position": "A",
+        "number": 1,
+        "country": "Spain"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 648,
+    "fields": {
+        "first_name": "Pedro",
+        "last_name": "Pedri",
+        "position": "M",
+        "number": 1,
+        "country": "Spain"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 649,
+    "fields": {
+        "first_name": "Shuto",
+        "last_name": "Machino",
+        "position": "A",
+        "number": 1,
+        "country": "Japan"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 650,
+    "fields": {
+        "first_name": "Keylor",
+        "last_name": "Navas",
+        "position": "G",
+        "number": 1,
+        "country": "Costa Rica"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 651,
+    "fields": {
+        "first_name": "Daniel",
+        "last_name": "Chacon",
+        "position": "M",
+        "number": 1,
+        "country": "Costa Rica"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 652,
+    "fields": {
+        "first_name": "Juan",
+        "last_name": "Vargas",
+        "position": "D",
+        "number": 1,
+        "country": "Costa Rica"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 653,
+    "fields": {
+        "first_name": "Keysher",
+        "last_name": "Fuller",
+        "position": "D",
+        "number": 1,
+        "country": "Costa Rica"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 654,
+    "fields": {
+        "first_name": "Celso",
+        "last_name": "Borges",
+        "position": "M",
+        "number": 1,
+        "country": "Costa Rica"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 655,
+    "fields": {
+        "first_name": "Oscar",
+        "last_name": "Duarte",
+        "position": "D",
+        "number": 1,
+        "country": "Costa Rica"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 656,
+    "fields": {
+        "first_name": "Anthony",
+        "last_name": "Contreras",
+        "position": "A",
+        "number": 1,
+        "country": "Costa Rica"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 657,
+    "fields": {
+        "first_name": "Bryan",
+        "last_name": "Oviedo",
+        "position": "D",
+        "number": 1,
+        "country": "Costa Rica"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 658,
+    "fields": {
+        "first_name": "Jewison",
+        "last_name": "Bennette",
+        "position": "M",
+        "number": 1,
+        "country": "Costa Rica"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 659,
+    "fields": {
+        "first_name": "Bryan",
+        "last_name": "Ruiz",
+        "position": "M",
+        "number": 1,
+        "country": "Costa Rica"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 660,
+    "fields": {
+        "first_name": "Johan",
+        "last_name": "Venegas",
+        "position": "A",
+        "number": 1,
+        "country": "Costa Rica"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 661,
+    "fields": {
+        "first_name": "Joel",
+        "last_name": "Campbell",
+        "position": "A",
+        "number": 1,
+        "country": "Costa Rica"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 662,
+    "fields": {
+        "first_name": "Gerson",
+        "last_name": "Torres",
+        "position": "M",
+        "number": 1,
+        "country": "Costa Rica"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 663,
+    "fields": {
+        "first_name": "Youstin",
+        "last_name": "Salas",
+        "position": "M",
+        "number": 1,
+        "country": "Costa Rica"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 664,
+    "fields": {
+        "first_name": "Francisco",
+        "last_name": "Calvo",
+        "position": "D",
+        "number": 1,
+        "country": "Costa Rica"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 665,
+    "fields": {
+        "first_name": "Carlos",
+        "last_name": "Martinez",
+        "position": "D",
+        "number": 1,
+        "country": "Costa Rica"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 666,
+    "fields": {
+        "first_name": "Yeltsin",
+        "last_name": "Tejeda",
+        "position": "M",
+        "number": 1,
+        "country": "Costa Rica"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 667,
+    "fields": {
+        "first_name": "Esteban",
+        "last_name": "Alvarado",
+        "position": "G",
+        "number": 1,
+        "country": "Costa Rica"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 668,
+    "fields": {
+        "first_name": "Kendall",
+        "last_name": "Waston",
+        "position": "D",
+        "number": 1,
+        "country": "Costa Rica"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 669,
+    "fields": {
+        "first_name": "Brandon",
+        "last_name": "Aguilera",
+        "position": "M",
+        "number": 1,
+        "country": "Costa Rica"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 670,
+    "fields": {
+        "first_name": "Douglas",
+        "last_name": "Lopez",
+        "position": "M",
+        "number": 1,
+        "country": "Costa Rica"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 671,
+    "fields": {
+        "first_name": "Ronald",
+        "last_name": "Matarrita",
+        "position": "D",
+        "number": 1,
+        "country": "Costa Rica"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 672,
+    "fields": {
+        "first_name": "Patrick",
+        "last_name": "Sequeira",
+        "position": "G",
+        "number": 1,
+        "country": "Costa Rica"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 673,
+    "fields": {
+        "first_name": "Roan",
+        "last_name": "Wilson",
+        "position": "M",
+        "number": 1,
+        "country": "Costa Rica"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 674,
+    "fields": {
+        "first_name": "Anthony",
+        "last_name": "Hernandez",
+        "position": "M",
+        "number": 1,
+        "country": "Costa Rica"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 675,
+    "fields": {
+        "first_name": "Alvaro",
+        "last_name": "Zamora",
+        "position": "M",
+        "number": 1,
+        "country": "Costa Rica"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 676,
+    "fields": {
+        "first_name": "Dayne",
+        "last_name": "St.Clair",
+        "position": "G",
+        "number": 1,
+        "country": "Canada"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 677,
+    "fields": {
+        "first_name": "Alistair",
+        "last_name": "Johnston",
+        "position": "D",
+        "number": 1,
+        "country": "Canada"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 678,
+    "fields": {
+        "first_name": "Sam",
+        "last_name": "Adekugbe",
+        "position": "D",
+        "number": 1,
+        "country": "Canada"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 679,
+    "fields": {
+        "first_name": "Kamal",
+        "last_name": "Miller",
+        "position": "D",
+        "number": 1,
+        "country": "Canada"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 680,
+    "fields": {
+        "first_name": "Steven",
+        "last_name": "Vitoria",
+        "position": "D",
+        "number": 1,
+        "country": "Canada"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 681,
+    "fields": {
+        "first_name": "Samuel",
+        "last_name": "Piette",
+        "position": "M",
+        "number": 1,
+        "country": "Canada"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 682,
+    "fields": {
+        "first_name": "Stephen",
+        "last_name": "Eustaquio",
+        "position": "M",
+        "number": 1,
+        "country": "Canada"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 683,
+    "fields": {
+        "first_name": "Liam",
+        "last_name": "Fraser",
+        "position": "M",
+        "number": 1,
+        "country": "Canada"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 684,
+    "fields": {
+        "first_name": "Lucas",
+        "last_name": "Cavallini",
+        "position": "A",
+        "number": 1,
+        "country": "Canada"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 685,
+    "fields": {
+        "first_name": "Junior",
+        "last_name": "Hoilett",
+        "position": "M",
+        "number": 1,
+        "country": "Canada"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 686,
+    "fields": {
+        "first_name": "Tajon",
+        "last_name": "Buchanan",
+        "position": "A",
+        "number": 1,
+        "country": "Canada"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 687,
+    "fields": {
+        "first_name": "Ike",
+        "last_name": "Ugbo",
+        "position": "A",
+        "number": 1,
+        "country": "Canada"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 688,
+    "fields": {
+        "first_name": "Atiba",
+        "last_name": "Hutchinson",
+        "position": "M",
+        "number": 1,
+        "country": "Canada"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 689,
+    "fields": {
+        "first_name": "Mark-Anthony",
+        "last_name": "Kaye",
+        "position": "M",
+        "number": 1,
+        "country": "Canada"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 690,
+    "fields": {
+        "first_name": "Ismael",
+        "last_name": "Kone",
+        "position": "M",
+        "number": 1,
+        "country": "Canada"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 691,
+    "fields": {
+        "first_name": "James",
+        "last_name": "Pantemis",
+        "position": "G",
+        "number": 1,
+        "country": "Canada"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 692,
+    "fields": {
+        "first_name": "Cyle",
+        "last_name": "Larin",
+        "position": "A",
+        "number": 1,
+        "country": "Canada"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 693,
+    "fields": {
+        "first_name": "Milan",
+        "last_name": "Borjan",
+        "position": "G",
+        "number": 1,
+        "country": "Canada"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 694,
+    "fields": {
+        "first_name": "Alphonso",
+        "last_name": "Davies",
+        "position": "A",
+        "number": 1,
+        "country": "Canada"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 695,
+    "fields": {
+        "first_name": "Jonathan",
+        "last_name": "David",
+        "position": "A",
+        "number": 1,
+        "country": "Canada"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 696,
+    "fields": {
+        "first_name": "Jonathan",
+        "last_name": "Osorio",
+        "position": "M",
+        "number": 1,
+        "country": "Canada"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 697,
+    "fields": {
+        "first_name": "Richie",
+        "last_name": "Laryea",
+        "position": "D",
+        "number": 1,
+        "country": "Canada"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 698,
+    "fields": {
+        "first_name": "Liam",
+        "last_name": "Millar",
+        "position": "M",
+        "number": 1,
+        "country": "Canada"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 699,
+    "fields": {
+        "first_name": "David",
+        "last_name": "Wotherspoon",
+        "position": "M",
+        "number": 1,
+        "country": "Canada"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 700,
+    "fields": {
+        "first_name": "Derek",
+        "last_name": "Cornelius",
+        "position": "D",
+        "number": 1,
+        "country": "Canada"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 701,
+    "fields": {
+        "first_name": "Joel",
+        "last_name": "Waterman",
+        "position": "D",
+        "number": 1,
+        "country": "Canada"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": ,
+    "fields": {
+        "first_name": "",
+        "last_name": "",
+        "position": "",
+        "number": 1,
+        "country": ""
+    }
+}
+]
+
