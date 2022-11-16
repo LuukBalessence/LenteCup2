@@ -489,6 +489,21 @@ def bidoverview(request):
     error = ""
     manager = request.user
     uitgeschakeld = False
+
+
+    now = datetime.now(timezone.utc)
+    maxbidtime = GameSettings.objects.get(gamesettings='maxbiedtijd').gamesettingsvalue
+    bidends = datetime.strptime(maxbidtime, '%Y-%m-%d %H:%M:%S.%f')
+    bidends = bidends.astimezone(pytz.timezone("UTC"))
+    if now > bidends:
+        bidendexceeded = True
+        print(now)
+        print(bidends)
+        print(bidendexceeded)
+    else:
+        bidendexceeded = False
+
+
     try:
         team = Team.objects.get(owner=manager)
         uitgeschakeld = team.eliminated
@@ -500,7 +515,7 @@ def bidoverview(request):
         try:
             currentleague = currentteam.league
             currentleaguegamephase = League.objects.get(leaguename=currentleague).gamephase
-            if not GamePhase.objects.get(gamephase=currentleaguegamephase).allowbidding:
+            if not (GamePhase.objects.get(gamephase=currentleaguegamephase).allowbidding and not bidendexceeded):
                 error = "Je league is (nog) niet in een fase die biedingen toelaat"
         except:
             error = "Je hebt nog geen league gekozen. Ga in het Hoofdmenu naat  Jouw Team"
