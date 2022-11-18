@@ -1,0 +1,1432 @@
+[
+{
+    "model": "wk2022.player",
+    "pk": 702,
+    "fields": {
+        "first_name": "Marko",
+        "last_name": "Dmitrovic",
+        "position": "G",
+        "number": 1,
+        "country": "Serbia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 703,
+    "fields": {
+        "first_name": "Strahinja",
+        "last_name": "Pavlovic",
+        "position": "D",
+        "number": 1,
+        "country": "Serbia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 704,
+    "fields": {
+        "first_name": "Strahinja",
+        "last_name": "Erakovic",
+        "position": "D",
+        "number": 1,
+        "country": "Serbia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 705,
+    "fields": {
+        "first_name": "Nikola",
+        "last_name": "Milenkovic",
+        "position": "D",
+        "number": 1,
+        "country": "Serbia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 706,
+    "fields": {
+        "first_name": "Milos",
+        "last_name": "Veljkovic",
+        "position": "D",
+        "number": 1,
+        "country": "Serbia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 707,
+    "fields": {
+        "first_name": "Nemanja",
+        "last_name": "Maksimovic",
+        "position": "M",
+        "number": 1,
+        "country": "Serbia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 708,
+    "fields": {
+        "first_name": "Nemanja",
+        "last_name": "Radonjic",
+        "position": "A",
+        "number": 1,
+        "country": "Serbia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 709,
+    "fields": {
+        "first_name": "Nemanja",
+        "last_name": "Gudelj",
+        "position": "M",
+        "number": 1,
+        "country": "Serbia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 710,
+    "fields": {
+        "first_name": "Aleksandar",
+        "last_name": "Mitrovic",
+        "position": "A",
+        "number": 1,
+        "country": "Serbia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 711,
+    "fields": {
+        "first_name": "Dusan",
+        "last_name": "Tadic",
+        "position": "A",
+        "number": 1,
+        "country": "Serbia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 712,
+    "fields": {
+        "first_name": "Luka",
+        "last_name": "Jovic",
+        "position": "A",
+        "number": 1,
+        "country": "Serbia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 713,
+    "fields": {
+        "first_name": "Predrag",
+        "last_name": "Rajkovic",
+        "position": "G",
+        "number": 1,
+        "country": "Serbia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 714,
+    "fields": {
+        "first_name": "Stefan",
+        "last_name": "Mitrovic",
+        "position": "D",
+        "number": 1,
+        "country": "Serbia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 715,
+    "fields": {
+        "first_name": "Andrija",
+        "last_name": "Zivkovic",
+        "position": "M",
+        "number": 1,
+        "country": "Serbia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 716,
+    "fields": {
+        "first_name": "Srdjan",
+        "last_name": "Babic",
+        "position": "D",
+        "number": 1,
+        "country": "Serbia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 717,
+    "fields": {
+        "first_name": "Sasa",
+        "last_name": "Lukic",
+        "position": "M",
+        "number": 1,
+        "country": "Serbia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 718,
+    "fields": {
+        "first_name": "Filip",
+        "last_name": "Kostic",
+        "position": "M",
+        "number": 1,
+        "country": "Serbia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 719,
+    "fields": {
+        "first_name": "Dusan",
+        "last_name": "Vlahovic",
+        "position": "A",
+        "number": 1,
+        "country": "Serbia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 720,
+    "fields": {
+        "first_name": "Uros",
+        "last_name": "Racic",
+        "position": "M",
+        "number": 1,
+        "country": "Serbia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 721,
+    "fields": {
+        "first_name": "Sergej",
+        "last_name": "Milinkovic-Savic",
+        "position": "M",
+        "number": 1,
+        "country": "Serbia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 722,
+    "fields": {
+        "first_name": "Filip",
+        "last_name": "Djuricic",
+        "position": "A",
+        "number": 1,
+        "country": "Serbia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 723,
+    "fields": {
+        "first_name": "Darko",
+        "last_name": "Lazovic",
+        "position": "M",
+        "number": 1,
+        "country": "Serbia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 724,
+    "fields": {
+        "first_name": "Vanja",
+        "last_name": "Milinkovic-Savic",
+        "position": "G",
+        "number": 1,
+        "country": "Serbia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 725,
+    "fields": {
+        "first_name": "Ivan",
+        "last_name": "Ilic",
+        "position": "M",
+        "number": 1,
+        "country": "Serbia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 726,
+    "fields": {
+        "first_name": "Filip",
+        "last_name": "Mladenovic",
+        "position": "D",
+        "number": 1,
+        "country": "Serbia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 727,
+    "fields": {
+        "first_name": "Marko",
+        "last_name": "Grujic",
+        "position": "M",
+        "number": 1,
+        "country": "Serbia"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 728,
+    "fields": {
+        "first_name": "Rui",
+        "last_name": "Patricio",
+        "position": "G",
+        "number": 1,
+        "country": "Portugal"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 729,
+    "fields": {
+        "first_name": "Diogo",
+        "last_name": "Dalot",
+        "position": "D",
+        "number": 1,
+        "country": "Portugal"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 730,
+    "fields": {
+        "first_name": "Pepe",
+        "last_name": "Kepler",
+        "position": "D",
+        "number": 1,
+        "country": "Portugal"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 731,
+    "fields": {
+        "first_name": "Ruben",
+        "last_name": "Dias",
+        "position": "D",
+        "number": 1,
+        "country": "Portugal"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 732,
+    "fields": {
+        "first_name": "Raphael",
+        "last_name": "Guerreiro",
+        "position": "D",
+        "number": 1,
+        "country": "Portugal"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 733,
+    "fields": {
+        "first_name": "Joao",
+        "last_name": "Palhinha",
+        "position": "M",
+        "number": 1,
+        "country": "Portugal"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 734,
+    "fields": {
+        "first_name": "Cristiano",
+        "last_name": "Ronaldo",
+        "position": "A",
+        "number": 1,
+        "country": "Portugal"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 735,
+    "fields": {
+        "first_name": "Bruno",
+        "last_name": "Fernandes",
+        "position": "M",
+        "number": 1,
+        "country": "Portugal"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 736,
+    "fields": {
+        "first_name": "Andre",
+        "last_name": "Silva",
+        "position": "A",
+        "number": 1,
+        "country": "Portugal"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 737,
+    "fields": {
+        "first_name": "Bernardo",
+        "last_name": "Silva",
+        "position": "A",
+        "number": 1,
+        "country": "Portugal"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 738,
+    "fields": {
+        "first_name": "Joao",
+        "last_name": "Felix",
+        "position": "A",
+        "number": 1,
+        "country": "Portugal"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 739,
+    "fields": {
+        "first_name": "Jose",
+        "last_name": "Malheiro De Sa",
+        "position": "G",
+        "number": 1,
+        "country": "Portugal"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 740,
+    "fields": {
+        "first_name": "Danilo",
+        "last_name": "Pereira",
+        "position": "D",
+        "number": 1,
+        "country": "Portugal"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 741,
+    "fields": {
+        "first_name": "William",
+        "last_name": "Carvalho",
+        "position": "M",
+        "number": 1,
+        "country": "Portugal"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 742,
+    "fields": {
+        "first_name": "Rafael",
+        "last_name": "Leao",
+        "position": "A",
+        "number": 1,
+        "country": "Portugal"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 743,
+    "fields": {
+        "first_name": "Vitor",
+        "last_name": "Vitinha",
+        "position": "M",
+        "number": 1,
+        "country": "Portugal"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 744,
+    "fields": {
+        "first_name": "Joao",
+        "last_name": "Mario",
+        "position": "M",
+        "number": 1,
+        "country": "Portugal"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 745,
+    "fields": {
+        "first_name": "Ruben",
+        "last_name": "Neves",
+        "position": "M",
+        "number": 1,
+        "country": "Portugal"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 746,
+    "fields": {
+        "first_name": "Nuno",
+        "last_name": "Mendes",
+        "position": "D",
+        "number": 1,
+        "country": "Portugal"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 747,
+    "fields": {
+        "first_name": "Joao",
+        "last_name": "Cancelo",
+        "position": "D",
+        "number": 1,
+        "country": "Portugal"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 748,
+    "fields": {
+        "first_name": "Ricardo",
+        "last_name": "Horta",
+        "position": "A",
+        "number": 1,
+        "country": "Portugal"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 749,
+    "fields": {
+        "first_name": "Diogo",
+        "last_name": "Costa",
+        "position": "G",
+        "number": 1,
+        "country": "Portugal"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 750,
+    "fields": {
+        "first_name": "Matheus",
+        "last_name": "Nunes",
+        "position": "M",
+        "number": 1,
+        "country": "Portugal"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 751,
+    "fields": {
+        "first_name": "Antonio",
+        "last_name": "Silva",
+        "position": "D",
+        "number": 1,
+        "country": "Portugal"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 752,
+    "fields": {
+        "first_name": "Edmilson",
+        "last_name": "Otavio",
+        "position": "M",
+        "number": 1,
+        "country": "Portugal"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 753,
+    "fields": {
+        "first_name": "Goncalo",
+        "last_name": "Ramos",
+        "position": "A",
+        "number": 1,
+        "country": "Portugal"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 754,
+    "fields": {
+        "first_name": "Lawrence",
+        "last_name": "Zigi",
+        "position": "G",
+        "number": 1,
+        "country": "Ghana"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 755,
+    "fields": {
+        "first_name": "Tariq",
+        "last_name": "Lamptey",
+        "position": "D",
+        "number": 1,
+        "country": "Ghana"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 756,
+    "fields": {
+        "first_name": "Denis",
+        "last_name": "Odoi",
+        "position": "D",
+        "number": 1,
+        "country": "Ghana"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 757,
+    "fields": {
+        "first_name": "Mohammed",
+        "last_name": "Salisu",
+        "position": "D",
+        "number": 1,
+        "country": "Ghana"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 758,
+    "fields": {
+        "first_name": "Thomas",
+        "last_name": "Partey",
+        "position": "M",
+        "number": 1,
+        "country": "Ghana"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 759,
+    "fields": {
+        "first_name": "Elisha",
+        "last_name": "Owusu",
+        "position": "M",
+        "number": 1,
+        "country": "Ghana"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 760,
+    "fields": {
+        "first_name": "Fatawu",
+        "last_name": "Issahaku",
+        "position": "M",
+        "number": 1,
+        "country": "Ghana"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 761,
+    "fields": {
+        "first_name": "Daniel-Ko􀂦",
+        "last_name": "Kyereh",
+        "position": "M",
+        "number": 1,
+        "country": "Ghana"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 762,
+    "fields": {
+        "first_name": "Jordan",
+        "last_name": "Ayew",
+        "position": "A",
+        "number": 1,
+        "country": "Ghana"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 763,
+    "fields": {
+        "first_name": "Andre",
+        "last_name": "Ayew",
+        "position": "A",
+        "number": 1,
+        "country": "Ghana"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 764,
+    "fields": {
+        "first_name": "Osman",
+        "last_name": "Bukari",
+        "position": "M",
+        "number": 1,
+        "country": "Ghana"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 765,
+    "fields": {
+        "first_name": "Ibrahim",
+        "last_name": "Danlad",
+        "position": "G",
+        "number": 1,
+        "country": "Ghana"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 766,
+    "fields": {
+        "first_name": "Daniel",
+        "last_name": "Afriyie",
+        "position": "M",
+        "number": 1,
+        "country": "Ghana"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 767,
+    "fields": {
+        "first_name": "Gideon",
+        "last_name": "Mensah",
+        "position": "D",
+        "number": 1,
+        "country": "Ghana"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 768,
+    "fields": {
+        "first_name": "Joseph",
+        "last_name": "Aidoo",
+        "position": "D",
+        "number": 1,
+        "country": "Ghana"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 769,
+    "fields": {
+        "first_name": "Manaf",
+        "last_name": "Nurudeen",
+        "position": "G",
+        "number": 1,
+        "country": "Ghana"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 770,
+    "fields": {
+        "first_name": "Abdul",
+        "last_name": "Baba",
+        "position": "D",
+        "number": 1,
+        "country": "Ghana"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 771,
+    "fields": {
+        "first_name": "Daniel",
+        "last_name": "Amartey",
+        "position": "D",
+        "number": 1,
+        "country": "Ghana"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 772,
+    "fields": {
+        "first_name": "Inaki",
+        "last_name": "Williams",
+        "position": "A",
+        "number": 1,
+        "country": "Ghana"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 773,
+    "fields": {
+        "first_name": "Mohammed",
+        "last_name": "Kudus",
+        "position": "M",
+        "number": 1,
+        "country": "Ghana"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 774,
+    "fields": {
+        "first_name": "Samed",
+        "last_name": "Abdul",
+        "position": "M",
+        "number": 1,
+        "country": "Ghana"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 775,
+    "fields": {
+        "first_name": "Kamaldeen",
+        "last_name": "Sulemana",
+        "position": "M",
+        "number": 1,
+        "country": "Ghana"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 776,
+    "fields": {
+        "first_name": "Alexander",
+        "last_name": "Djiku",
+        "position": "D",
+        "number": 1,
+        "country": "Ghana"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 777,
+    "fields": {
+        "first_name": "Kamal",
+        "last_name": "Sowah",
+        "position": "M",
+        "number": 1,
+        "country": "Ghana"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 778,
+    "fields": {
+        "first_name": "Antoine",
+        "last_name": "Semenyo",
+        "position": "A",
+        "number": 1,
+        "country": "Ghana"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 779,
+    "fields": {
+        "first_name": "Seidu",
+        "last_name": "Alidu",
+        "position": "D",
+        "number": 1,
+        "country": "Ghana"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 780,
+    "fields": {
+        "first_name": "Fernando",
+        "last_name": "Muslera",
+        "position": "G",
+        "number": 1,
+        "country": "Uruguay"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 781,
+    "fields": {
+        "first_name": "Jose",
+        "last_name": "Gimenez",
+        "position": "D",
+        "number": 1,
+        "country": "Uruguay"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 782,
+    "fields": {
+        "first_name": "Diego",
+        "last_name": "Godin",
+        "position": "D",
+        "number": 1,
+        "country": "Uruguay"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 783,
+    "fields": {
+        "first_name": "Ronald",
+        "last_name": "Araujo",
+        "position": "D",
+        "number": 1,
+        "country": "Uruguay"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 784,
+    "fields": {
+        "first_name": "Matias",
+        "last_name": "Vecino",
+        "position": "M",
+        "number": 1,
+        "country": "Uruguay"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 785,
+    "fields": {
+        "first_name": "Rodrigo",
+        "last_name": "Bentancur",
+        "position": "M",
+        "number": 1,
+        "country": "Uruguay"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 786,
+    "fields": {
+        "first_name": "Diego",
+        "last_name": "De La Cruz",
+        "position": "M",
+        "number": 1,
+        "country": "Uruguay"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 787,
+    "fields": {
+        "first_name": "Facundo",
+        "last_name": "Pellistri",
+        "position": "A",
+        "number": 1,
+        "country": "Uruguay"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 788,
+    "fields": {
+        "first_name": "Luis",
+        "last_name": "Suarez",
+        "position": "A",
+        "number": 1,
+        "country": "Uruguay"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 789,
+    "fields": {
+        "first_name": "Giorgian",
+        "last_name": "Arrascaeta",
+        "position": "M",
+        "number": 1,
+        "country": "Uruguay"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 790,
+    "fields": {
+        "first_name": "Darwin",
+        "last_name": "Nunez",
+        "position": "A",
+        "number": 1,
+        "country": "Uruguay"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 791,
+    "fields": {
+        "first_name": "Sebastian",
+        "last_name": "Sosa",
+        "position": "G",
+        "number": 1,
+        "country": "Uruguay"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 792,
+    "fields": {
+        "first_name": "Guillermo",
+        "last_name": "Varela",
+        "position": "D",
+        "number": 1,
+        "country": "Uruguay"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 793,
+    "fields": {
+        "first_name": "Lucas",
+        "last_name": "Torreira",
+        "position": "M",
+        "number": 1,
+        "country": "Uruguay"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 794,
+    "fields": {
+        "first_name": "Federico",
+        "last_name": "Valverde",
+        "position": "M",
+        "number": 1,
+        "country": "Uruguay"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 795,
+    "fields": {
+        "first_name": "Mathias",
+        "last_name": "Olivera",
+        "position": "D",
+        "number": 1,
+        "country": "Uruguay"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 796,
+    "fields": {
+        "first_name": "Matias",
+        "last_name": "Vina",
+        "position": "D",
+        "number": 1,
+        "country": "Uruguay"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 797,
+    "fields": {
+        "first_name": "Maxi",
+        "last_name": "Gomez",
+        "position": "A",
+        "number": 1,
+        "country": "Uruguay"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 798,
+    "fields": {
+        "first_name": "Sebastian",
+        "last_name": "Coates",
+        "position": "D",
+        "number": 1,
+        "country": "Uruguay"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 799,
+    "fields": {
+        "first_name": "Facundo",
+        "last_name": "Torres",
+        "position": "A",
+        "number": 1,
+        "country": "Uruguay"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 800,
+    "fields": {
+        "first_name": "Edinson",
+        "last_name": "Cavani",
+        "position": "A",
+        "number": 1,
+        "country": "Uruguay"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 801,
+    "fields": {
+        "first_name": "Martin",
+        "last_name": "Caceres",
+        "position": "D",
+        "number": 1,
+        "country": "Uruguay"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 802,
+    "fields": {
+        "first_name": "Sergio",
+        "last_name": "Rochet",
+        "position": "G",
+        "number": 1,
+        "country": "Uruguay"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 803,
+    "fields": {
+        "first_name": "Agustin",
+        "last_name": "Canobbio",
+        "position": "M",
+        "number": 1,
+        "country": "Uruguay"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 804,
+    "fields": {
+        "first_name": "Manuel",
+        "last_name": "Ugarte",
+        "position": "M",
+        "number": 1,
+        "country": "Uruguay"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 805,
+    "fields": {
+        "first_name": "Jose",
+        "last_name": "Rodriguez",
+        "position": "D",
+        "number": 1,
+        "country": "Uruguay"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 806,
+    "fields": {
+        "first_name": "Seunggyu",
+        "last_name": "Kim",
+        "position": "G",
+        "number": 1,
+        "country": "Korea Republic"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 807,
+    "fields": {
+        "first_name": "Jonggyu",
+        "last_name": "Yoon",
+        "position": "D",
+        "number": 1,
+        "country": "Korea Republic"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 808,
+    "fields": {
+        "first_name": "Jinsu",
+        "last_name": "Kim",
+        "position": "D",
+        "number": 1,
+        "country": "Korea Republic"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 809,
+    "fields": {
+        "first_name": "Minjae",
+        "last_name": "Kim",
+        "position": "D",
+        "number": 1,
+        "country": "Korea Republic"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 810,
+    "fields": {
+        "first_name": "Wooyoung",
+        "last_name": "Jung",
+        "position": "M",
+        "number": 1,
+        "country": "Korea Republic"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 811,
+    "fields": {
+        "first_name": "Inbeom",
+        "last_name": "Hwang",
+        "position": "M",
+        "number": 1,
+        "country": "Korea Republic"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 812,
+    "fields": {
+        "first_name": "Heungmin",
+        "last_name": "Son",
+        "position": "M",
+        "number": 1,
+        "country": "Korea Republic"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 813,
+    "fields": {
+        "first_name": "Seungho",
+        "last_name": "Paik",
+        "position": "M",
+        "number": 1,
+        "country": "Korea Republic"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 814,
+    "fields": {
+        "first_name": "Guesung",
+        "last_name": "Cho",
+        "position": "A",
+        "number": 1,
+        "country": "Korea Republic"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 815,
+    "fields": {
+        "first_name": "Jaesung",
+        "last_name": "Lee",
+        "position": "M",
+        "number": 1,
+        "country": "Korea Republic"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 816,
+    "fields": {
+        "first_name": "Heechan",
+        "last_name": "Hwang",
+        "position": "M",
+        "number": 1,
+        "country": "Korea Republic"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 817,
+    "fields": {
+        "first_name": "Bumkeun",
+        "last_name": "Song",
+        "position": "G",
+        "number": 1,
+        "country": "Korea Republic"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 818,
+    "fields": {
+        "first_name": "Junho",
+        "last_name": "Son",
+        "position": "M",
+        "number": 1,
+        "country": "Korea Republic"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 819,
+    "fields": {
+        "first_name": "Chul",
+        "last_name": "Hong",
+        "position": "D",
+        "number": 1,
+        "country": "Korea Republic"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 820,
+    "fields": {
+        "first_name": "Moonhwan",
+        "last_name": "Kim",
+        "position": "D",
+        "number": 1,
+        "country": "Korea Republic"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 821,
+    "fields": {
+        "first_name": "Uijo",
+        "last_name": "Hwang",
+        "position": "A",
+        "number": 1,
+        "country": "Korea Republic"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 822,
+    "fields": {
+        "first_name": "Sangho",
+        "last_name": "Na",
+        "position": "M",
+        "number": 1,
+        "country": "Korea Republic"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 823,
+    "fields": {
+        "first_name": "Kangin",
+        "last_name": "Lee",
+        "position": "M",
+        "number": 1,
+        "country": "Korea Republic"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 824,
+    "fields": {
+        "first_name": "Younggwon",
+        "last_name": "Kim",
+        "position": "D",
+        "number": 1,
+        "country": "Korea Republic"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 825,
+    "fields": {
+        "first_name": "Kyungwon",
+        "last_name": "Kwon",
+        "position": "D",
+        "number": 1,
+        "country": "Korea Republic"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 826,
+    "fields": {
+        "first_name": "Hyeonwoo",
+        "last_name": "Jo",
+        "position": "G",
+        "number": 1,
+        "country": "Korea Republic"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 827,
+    "fields": {
+        "first_name": "Changhoon",
+        "last_name": "Kwon",
+        "position": "M",
+        "number": 1,
+        "country": "Korea Republic"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 828,
+    "fields": {
+        "first_name": "Taehwan",
+        "last_name": "Kim",
+        "position": "D",
+        "number": 1,
+        "country": "Korea Republic"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 829,
+    "fields": {
+        "first_name": "Yumin",
+        "last_name": "Cho",
+        "position": "D",
+        "number": 1,
+        "country": "Korea Republic"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 830,
+    "fields": {
+        "first_name": "Wooyeong",
+        "last_name": "Jeong",
+        "position": "M",
+        "number": 1,
+        "country": "Korea Republic"
+    }
+},
+{
+    "model": "wk2022.player",
+    "pk": 831,
+    "fields": {
+        "first_name": "Minkyu",
+        "last_name": "Song",
+        "position": "M",
+        "number": 1,
+        "country": "Korea Republic"
+    }
+}
+]
