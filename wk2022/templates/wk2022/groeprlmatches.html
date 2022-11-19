@@ -53,7 +53,17 @@
                                     {% for key, value in resultaat.items %}
                                         {% if key == match %}
                                             {% if match.has_ended %}
-                                                <td>:</td>
+                                                <td> EINDSTAND </td>
+                                                <td>{{ value.0 }}</td>
+                                                <th>-</th>
+                                                <td>{{ value.1 }}</td>
+                                            {% elif match.start < nowmatch2 %}
+                                                <td> EINDSTAND </td>
+                                                <td>{{ value.0 }}</td>
+                                                <th>-</th>
+                                                <td>{{ value.1 }}</td>
+                                            {% elif match.start < nowmatch1 %}
+                                                <td> LIVE </td>
                                                 <td>{{ value.0 }}</td>
                                                 <th>-</th>
                                                 <td>{{ value.1 }}</td>

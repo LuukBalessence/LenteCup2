@@ -1079,15 +1079,16 @@ def matchhasstarted(player, currentstage):
         speelt = True
     matchstarts = matchplayer.start
     # We halen 2 uur van de nederlandse aanvangstijden af (die eigenlijk in utc ingegeven zijn) zodat deze met utc worden vergeleken
-    mstarts = matchstarts - timedelta(hours=2)
+    mstarts = matchstarts - timedelta(hours=1)
+    print(player.last_name)
+    print(str(now1))
+    print(str(matchstarts))
+    print(str(mstarts))
     if now1 > mstarts:
         print("Match has started")
         started = True
     else:
         print("Match has not started yet")
-        print(str(now1))
-        print(str(matchstarts))
-        print(str(mstarts))
         started = False
     if matchplayer.has_started or started:
         playerlocked = True
@@ -1308,9 +1309,13 @@ def groeprlmatches(request):
     allgoals = Goal.objects.filter(match__in=allgroupmatches)
     resultaat = match_results(allgroupmatches, allgoals)
     groups = models.Country.Group.names
+    nowmatch1 = datetime.now(timezone.utc) + timedelta(hours=1)
+    nowmatch2 = nowmatch1 - timedelta(hours=3)
+    print(nowmatch1)
+    print(nowmatch2)
     return render(request, "wk2022/groeprlmatches.html",
                   context={"allgroupmatches": allgroupmatches, "allstages": allstages, "groups": groups,
-                           "resultaat": resultaat})
+                           "resultaat": resultaat, "nowmatch1": nowmatch1, "nowmatch2": nowmatch2})
 
 
 def myledger(request):
@@ -1733,8 +1738,8 @@ def premies(request):
     currentuser = request.user
     currentleague = Team.objects.get(owner=currentuser).league
     leaguepremie = currentleague.premiebasis
-    leaguepremies = [["winst groepsfase wedstrijd", round(leaguepremie / 5 / 36)],
-                     ["Gelijkspel groepsfase wedstrijd", round(leaguepremie / 5 / 36 / 2)],
+    leaguepremies = [["winst groepsfase wedstrijd", round(leaguepremie / 5 / 48)],
+                     ["Gelijkspel groepsfase wedstrijd", round(leaguepremie / 5 / 48 / 2)],
                      ["Behalen Kwart Finale", round(leaguepremie / 5 / 8)],
                      ["Behalen Halve Finale", round(leaguepremie / 5 / 4)],
                      ["Behalen Finale", round(leaguepremie / 5 / 2)],
@@ -1879,7 +1884,7 @@ def keerpremieuit(request, league, alleenlijst):
     basis = currentleague.premiebasis
     for leagueteam in leagueinfo:
         currentteam = leagueteam[0]
-        premie = (leagueteam[3] + 0.5 * leagueteam[5]) * basis / 5 / 36
+        premie = (leagueteam[3] + 0.5 * leagueteam[5]) * basis / 5 / 48
         teampremies.append([leagueteam[0], leagueteam[3], leagueteam[5], round(premie)])
         if alleenlijst != "True":
             Boekhouding.objects.create(team=leagueteam[0], boekingsopmerking="Premies voor bereiken Achtse Finales",
