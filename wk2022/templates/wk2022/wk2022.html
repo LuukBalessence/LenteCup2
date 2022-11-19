@@ -33,7 +33,7 @@
                     </th>
                 </tr>
             {% endif %}
-        {% if hoofdmelding2 %}
+            {% if hoofdmelding2 %}
                 <tr>
                     <th>
                         <div class="notification is-info" ALIGN="center">
@@ -43,7 +43,7 @@
                     </th>
                 </tr>
             {% endif %}
-        {% if hoofdmelding3 %}
+            {% if hoofdmelding3 %}
                 <tr>
                     <th>
                         <div class="notification is-info" ALIGN="center">
@@ -53,7 +53,7 @@
                     </th>
                 </tr>
             {% endif %}
-        {% if hoofdmelding4 %}
+            {% if hoofdmelding4 %}
                 <tr>
                     <th>
                         <div class="notification is-info" ALIGN="center">
@@ -63,48 +63,73 @@
                     </th>
                 </tr>
             {% endif %}
-            {% if live %}
+        </table>
+        {% if live %}
+            <table class="table" ALIGN="center">
                 <tr>
                     <th style="text-align:center">
-                        <a href="{% url 'livescoring'%}"><input style="width:250px" type="submit" class="button is-danger is-large"
-                                                 value="LIVE SCORING"/></a>
+                        <a href="{% url 'livescoring' %}"><input style="width:250px" type="submit"
+                                                                 class="button is-danger is-large"
+                                                                 value="LIVE SCORING"/></a>
                     </th>
                 </tr>
-            {% endif %}
+                <tr>
+                    <th style="text-align:center">
+                        <a href=/wk2022/livescoringshort><input style="width:250px" type="submit"
+                                                                class="button is-danger is-large"
+                                                                value="LIVE SCORING FAST"/></a>
+                    </th>
+                </tr>
+            </table>
+            <h5 align="center" class="title is-4">LIVE wedstrijden Groep {{ teamgroup }}</h5>
+            <table class="table" ALIGN="center">
+                {% for wedstrijd in allewedstrijden %}
+                    {% if wedstrijd.home.group == teamgroup %}
+                        <tr>
+                            <td>{{ wedstrijd.home }}</td>
+                            <th align="center">{{ wedstrijd.homescore }}</th>
+                            <td>{{ wedstrijd.away }}</td>
+                            <th align="center">{{ wedstrijd.awayscore }}</th>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            </table>
+        {% endif %}
+        <table class="table" ALIGN="center">
             <tr>
                 <th style="text-align:center">
                     <a href=/wk2022/myteam><input style="width:250px" type="submit" class="button is-primary"
-                                             value="Jouw Team"/></a>
+                                                  value="Jouw Team"/></a>
                 </th>
             </tr>
             <tr>
                 <th style="text-align:center">
                     <a href=/wk2022/bidmenu><input style="width:250px" type="submit" class="button is-primary"
-                                             value="Biedings menu"/></a>
+                                                   value="Biedings menu"/></a>
                 </th>
             </tr>
             <tr>
                 <th style="text-align:center">
                     <a href=/wk2022/myleague><input style="width:250px" type="submit" class="button is-primary"
-                                             value="Jouw League"/></a>
+                                                    value="Jouw League"/></a>
                 </th>
             </tr>
             <tr>
                 <th style="text-align:center">
                     <a href=/wk2022/myledger><input style="width:250px" type="submit" class="button is-primary"
-                                             value="Jouw Boekhouding"/></a>
+                                                    value="Jouw Boekhouding"/></a>
                 </th>
             </tr>
             <tr>
                 <th style="text-align:center">
                     <a href=/wk2022/rlwk2022><input style="width:250px" type="submit" class="button is-primary"
-                                             value="Info Echte WK 2022"/></a>
+                                                    value="Info Echte WK 2022"/></a>
                 </th>
             </tr>
             <tr>
                 <th style="text-align:center">
                     <a href=/wk2022/regels><input style="width:250px" type="submit" class="button is-primary"
-                                                      value="Uitleg en Regels"/></a>
+                                                  value="Uitleg en Regels"/></a>
                 </th>
             </tr>
             <tr>

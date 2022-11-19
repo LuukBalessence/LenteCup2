@@ -87,6 +87,7 @@ def wk2022(request):
     currentuser = request.user
     try:
         team = Team.objects.get(owner=currentuser)
+        teamgroup = team.group
         currentleague = League.objects.get(pk=team.league_id)
         if currentleague.gamephase.allowlineup:
             live = True
@@ -96,11 +97,18 @@ def wk2022(request):
     hoofdmelding2 = GameSettings.objects.get(gamesettings='hoofdmelding2').gamesettingsvalue
     hoofdmelding3 = GameSettings.objects.get(gamesettings='hoofdmelding3').gamesettingsvalue
     hoofdmelding4 = GameSettings.objects.get(gamesettings='hoofdmelding4').gamesettingsvalue
+    allteams = Team.objects.filter(league_id=currentleague.pk, eliminated=False)
+    phasetext = getphasetext(currentleague.gamephase)
+    if not phasetext:
+        return redirect(to="home")
+    for y in VirtualMatch.Stage.choices:
+        if phasetext in y[1]:
+            currentstage = y[0]
+    allewedstrijden = VirtualMatch.objects.filter(stage=currentstage, home__in=allteams).select_related("home")
+
     return render(request, template_name="wk2022/wk2022.html", context={"hoofdmelding1": hoofdmelding1,
-                                                                            "hoofdmelding2": hoofdmelding2,
-                                                                            "hoofdmelding3": hoofdmelding3,
-                                                                            "hoofdmelding4": hoofdmelding4,
-                                                                            "live": live})
+                "hoofdmelding2": hoofdmelding2, "hoofdmelding3": hoofdmelding3, "hoofdmelding4": hoofdmelding4,
+                "live": live, "allewedstrijden": allewedstrijden, "teamgroup": teamgroup, "phase": phasetext})
 
 
 def changefirstname(request):
@@ -1515,6 +1523,32 @@ def livescoring(request):
                            "teamopstellingen": opstellingsinfo, "scoring": scoring, "currentleague": currentleague})
 
 
+def livescoringshort(request):
+    error = ""
+    scoring = False
+    opstellingsinfo = []
+    wedstrijdeninfo = []
+    speelt = False
+    currentuser = request.user
+    team = Team.objects.get(owner=currentuser)
+    currentleague = League.objects.get(pk=team.league_id)
+    if "Opstelling" in currentleague.gamephase.gamephase or "Live" in currentleague.gamephase.gamephase:
+        scoring = True
+    groups = Country.Group.labels
+    allteams = Team.objects.filter(league_id=currentleague.pk, eliminated=False)
+    phasetext = getphasetext(currentleague.gamephase)
+    if not phasetext:
+        return redirect(to="home")
+    for y in VirtualMatch.Stage.choices:
+        if phasetext in y[1]:
+            currentstage = y[0]
+    allewedstrijden = VirtualMatch.objects.filter(stage=currentstage, home__in=allteams).select_related("home")
+
+    return render(request, "wk2022/livescoringshort.html",
+                  context={"error": error, "groups": groups, "allewedstrijden": allewedstrijden, "scoring": scoring, "currentleague": currentleague})
+
+
+
 def resultaatperspeler(opstelling, wedstrijd, thuiswedstrijd, verlenging, shootout, opslaan):
     minpunten = 0
     pluspunten = 0
@@ -1788,6 +1822,9 @@ def saveroundscores(request, league):
     opstellingsinfo = []
     opstellingsinfo2 = []
     wedstrijdeninfo = []
+    lastsaveround = datetime.now(timezone.utc) + timedelta(hours=1)
+    newlastsaveround = GameSettings.objects.get(gamesettings='lastsaveround').gamesettingsvalue
+    newlastsaveround.update(lastsaveround=lastsaveround)
     currentleague = League.objects.get(pk=league)
     allteams = Team.objects.filter(league_id=league, eliminated=False)
     phasetext = getphasetext(currentleague.gamephase)
@@ -1798,7 +1835,7 @@ def saveroundscores(request, league):
         error = "Scores kunnen niet worden opgeslagen als we niet in de opstellings of Live fase zitten"
         return render(request, "wk2022/saveroundscores.html",
                       context={"error": error, "groups": groups, "allewedstrijden": wedstrijdeninfo,
-                               "teamopstellingen": opstellingsinfo, "scoring": scoring, "opslaan": opslaan})
+                               "teamopstellingen": opstellingsinfo, "scoring": scoring, "opslaan": opslaan, "lastsaveround": lastsaveround})
     if not phasetext:
         return redirect(to="home")
     for y in VirtualMatch.Stage.choices:
