@@ -1880,9 +1880,6 @@ def saveroundscores(request, league):
     opstellingsinfo = []
     opstellingsinfo2 = []
     wedstrijdeninfo = []
-    lastsaveround = datetime.now(timezone.utc) + timedelta(hours=1)
-    newlastsaveround = GameSettings.objects.get(gamesettings='lastsaveround').gamesettingsvalue
-    newlastsaveround.update(lastsaveround=lastsaveround)
     currentleague = League.objects.get(pk=league)
     allteams = Team.objects.filter(league_id=league, eliminated=False)
     phasetext = getphasetext(currentleague.gamephase)
@@ -1893,7 +1890,7 @@ def saveroundscores(request, league):
         error = "Scores kunnen niet worden opgeslagen als we niet in de opstellings of Live fase zitten"
         return render(request, "wk2022/saveroundscores.html",
                       context={"error": error, "groups": groups, "allewedstrijden": wedstrijdeninfo,
-                               "teamopstellingen": opstellingsinfo, "scoring": scoring, "opslaan": opslaan, "lastsaveround": lastsaveround})
+                               "teamopstellingen": opstellingsinfo, "scoring": scoring, "opslaan": opslaan})
     if not phasetext:
         return redirect(to="home")
     for y in VirtualMatch.Stage.choices:
