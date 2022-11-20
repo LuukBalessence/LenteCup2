@@ -186,6 +186,12 @@ def myteam(request):
     leaguedraw = False
     bidauction = False
     manager = request.user
+    if request.user.is_authenticated:
+        pass
+    else:
+        print("niet geauthenticeerd")
+        return redirect(to="wk2022")
+
     bnumber = GameSettings.objects.get(gamesettings='bnumber').gamesettingsvalue
     bname = GameSettings.objects.get(gamesettings='bname').gamesettingsvalue
     leaguefee = "Onbekend"
@@ -263,6 +269,11 @@ def myteam(request):
 
 def myleague(request):
     manager = request.user
+    if request.user.is_authenticated:
+        pass
+    else:
+        print("niet geauthenticeerd")
+        return redirect(to="wk2022")
     try:
         teamdata = Team.objects.get(owner=manager)
     except:
@@ -290,6 +301,12 @@ def myleague(request):
 
 
 def rlwk2022(request):
+    manager = request.user
+    if request.user.is_authenticated:
+        pass
+    else:
+        print("niet geauthenticeerd")
+        return redirect(to="wk2022")
     return render(request, template_name="wk2022/rlwk2022.html")
 
 
@@ -501,6 +518,12 @@ def auctionoverview(request):
 
 def bidmenu(request):
     manager = request.user
+    if request.user.is_authenticated:
+        pass
+    else:
+        print("niet geauthenticeerd")
+        return redirect(to="wk2022")
+
     teamdata = Team.objects.get(owner=manager)
     league = League.objects.get(leaguename=teamdata.league)
     bids = Bids.objects.all()
@@ -1345,6 +1368,11 @@ def groeprlmatches(request):
 
 def myledger(request):
     manager = request.user
+    if request.user.is_authenticated:
+        pass
+    else:
+        print("niet geauthenticeerd")
+        return redirect(to="wk2022")
     currentteam = Team.objects.get(owner=manager)
     jouwboekhouding = Boekhouding.objects.filter(team=currentteam)
 
@@ -1493,6 +1521,11 @@ def livescoring(request):
     wedstrijdeninfo = []
     speelt = False
     currentuser = request.user
+    if request.user.is_authenticated:
+        pass
+    else:
+        print("niet geauthenticeerd")
+        return redirect(to="wk2022")
     team = Team.objects.get(owner=currentuser)
     currentleague = League.objects.get(pk=team.league_id)
     if "Opstelling" in currentleague.gamephase.gamephase or "Live" in currentleague.gamephase.gamephase:
@@ -1543,10 +1576,12 @@ def livescoring(request):
 def livescoringshort(request):
     error = ""
     scoring = False
-    opstellingsinfo = []
-    wedstrijdeninfo = []
-    speelt = False
     currentuser = request.user
+    if request.user.is_authenticated:
+        pass
+    else:
+        print("niet geauthenticeerd")
+        return redirect(to="wk2022")
     team = Team.objects.get(owner=currentuser)
     currentleague = League.objects.get(pk=team.league_id)
     if "Opstelling" in currentleague.gamephase.gamephase or "Live" in currentleague.gamephase.gamephase:
@@ -1562,7 +1597,7 @@ def livescoringshort(request):
     allewedstrijden = VirtualMatch.objects.filter(stage=currentstage, home__in=allteams).select_related("home")
 
     return render(request, "wk2022/livescoringshort.html",
-                  context={"error": error, "groups": groups, "allewedstrijden": allewedstrijden, "scoring": scoring, "currentleague": currentleague})
+              context={"error": error, "groups": groups, "allewedstrijden": allewedstrijden, "scoring": scoring, "currentleague": currentleague})
 
 
 
