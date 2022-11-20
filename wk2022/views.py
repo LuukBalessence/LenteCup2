@@ -87,6 +87,8 @@ def wk2022(request):
     teamgroup = ""
     allewedstrijden = []
     phasetext = ""
+    nowmatch1 = datetime.now(timezone.utc) + timedelta(hours=1)
+    nowmatch2 = nowmatch1 - timedelta(hours=3)
     try:
         team = Team.objects.get(owner=currentuser)
         teamgroup = team.group
@@ -112,10 +114,17 @@ def wk2022(request):
     except:
         pass
 
+    daynowmatch = nowmatch1.day
+    alllivegroupmatches = Match.objects.filter(stage__startswith="G", start__day=daynowmatch).order_by("start")
+    allgoals = Goal.objects.filter(match__in=alllivegroupmatches)
+    resultaat = match_results(alllivegroupmatches, allgoals)
+
+
     if errorwk2022 == "":
         return render(request, template_name="wk2022/wk2022.html", context={"hoofdmelding1": hoofdmelding1,
                 "hoofdmelding2": hoofdmelding2, "hoofdmelding3": hoofdmelding3, "hoofdmelding4": hoofdmelding4,
-                "live": live, "allewedstrijden": allewedstrijden, "teamgroup": teamgroup, "phase": phasetext, "error": errorwk2022})
+                "live": live, "allewedstrijden": allewedstrijden, "teamgroup": teamgroup, "phase": phasetext, "error": errorwk2022,
+                "livematches": alllivegroupmatches, "allgoals": allgoals, "resultaat": resultaat, "nowmatch1": nowmatch1, "nowmatch2": nowmatch2})
     else:
         return render(request, template_name="wk2022/wk2022.html", context={"hoofdmelding1": hoofdmelding1,
                                                                             "hoofdmelding2": hoofdmelding2,
@@ -1362,7 +1371,6 @@ def groeprlmatches(request):
     return render(request, "wk2022/groeprlmatches.html",
                   context={"allgroupmatches": allgroupmatches, "allstages": allstages, "groups": groups,
                            "resultaat": resultaat, "nowmatch1": nowmatch1, "nowmatch2": nowmatch2})
-
 
 def myledger(request):
     manager = request.user
