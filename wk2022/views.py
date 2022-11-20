@@ -84,7 +84,11 @@ def add_goal(request, pk: int):
 
 def wk2022(request):
     live = False
+    errorwk2022 = ""
     currentuser = request.user
+    teamgroup = ""
+    allewedstrijden = []
+    phasetext = ""
     try:
         team = Team.objects.get(owner=currentuser)
         teamgroup = team.group
@@ -92,24 +96,37 @@ def wk2022(request):
         if currentleague.gamephase.allowlineup:
             live = True
     except:
+        errorwk2022 = "Het lijkt erop dat je niet ingelogd bent"
         pass
     hoofdmelding1 = GameSettings.objects.get(gamesettings='hoofdmelding1').gamesettingsvalue
     hoofdmelding2 = GameSettings.objects.get(gamesettings='hoofdmelding2').gamesettingsvalue
     hoofdmelding3 = GameSettings.objects.get(gamesettings='hoofdmelding3').gamesettingsvalue
     hoofdmelding4 = GameSettings.objects.get(gamesettings='hoofdmelding4').gamesettingsvalue
-    allteams = Team.objects.filter(league_id=currentleague.pk, eliminated=False)
-    phasetext = getphasetext(currentleague.gamephase)
-    if not phasetext:
-        return redirect(to="home")
-    for y in VirtualMatch.Stage.choices:
-        if phasetext in y[1]:
-            currentstage = y[0]
-    allewedstrijden = VirtualMatch.objects.filter(stage=currentstage, home__in=allteams).select_related("home")
+    try:
+        allteams = Team.objects.filter(league_id=currentleague.pk, eliminated=False)
+        phasetext = getphasetext(currentleague.gamephase)
+        if not phasetext:
+            return redirect(to="home")
+        for y in VirtualMatch.Stage.choices:
+            if phasetext in y[1]:
+                currentstage = y[0]
+        allewedstrijden = VirtualMatch.objects.filter(stage=currentstage, home__in=allteams).select_related("home")
+    except:
+        pass
 
-    return render(request, template_name="wk2022/wk2022.html", context={"hoofdmelding1": hoofdmelding1,
+    if errorwk2022 == "":
+        return render(request, template_name="wk2022/wk2022.html", context={"hoofdmelding1": hoofdmelding1,
                 "hoofdmelding2": hoofdmelding2, "hoofdmelding3": hoofdmelding3, "hoofdmelding4": hoofdmelding4,
-                "live": live, "allewedstrijden": allewedstrijden, "teamgroup": teamgroup, "phase": phasetext})
-
+                "live": live, "allewedstrijden": allewedstrijden, "teamgroup": teamgroup, "phase": phasetext, "error": errorwk2022})
+    else:
+        return render(request, template_name="wk2022/wk2022.html", context={"hoofdmelding1": hoofdmelding1,
+                                                                            "hoofdmelding2": hoofdmelding2,
+                                                                            "hoofdmelding3": hoofdmelding3,
+                                                                            "hoofdmelding4": hoofdmelding4,
+                                                                            "live": live,
+                                                                            "allewedstrijden": allewedstrijden,
+                                                                            "teamgroup": teamgroup, "phase": phasetext,
+                                                                            "error": errorwk2022})
 
 def changefirstname(request):
     if request.method == 'POST':
