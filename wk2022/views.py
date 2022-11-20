@@ -24,26 +24,24 @@ from django.forms import formset_factory
 
 
 def index(request):
-    if request.user.is_authenticated:
-        return redirect(to="wk2022")
-
-    countries = get_list_or_404(klass=models.Country)
-    groups = models.Country.Group.names
-    players = models.Player.objects.select_related("country")
-    locations = get_list_or_404(klass=models.Location)
-    match = get_list_or_404(klass=models.Match)
-
-    return render(
-        request,
-        template_name="wk2022/index.html",
-        context={
-            "countries": countries,
-            "groups": groups,
-            "players": players,
-            "locations": locations,
-            "match": match,
-        },
-    )
+    return redirect(to="wk2022")
+    # countries = get_list_or_404(klass=models.Country)
+    # groups = models.Country.Group.names
+    # players = models.Player.objects.select_related("country")
+    # locations = get_list_or_404(klass=models.Location)
+    # match = get_list_or_404(klass=models.Match)
+    #
+    # return render(
+    #     request,
+    #     template_name="wk2022/index.html",
+    #     context={
+    #         "countries": countries,
+    #         "groups": groups,
+    #         "players": players,
+    #         "locations": locations,
+    #         "match": match,
+    #     },
+    # )
 
 
 def standenbeheer(request):
