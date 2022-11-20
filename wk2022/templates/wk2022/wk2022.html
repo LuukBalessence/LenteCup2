@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}
     <table class="table" ALIGN="center">
         <tr>
@@ -81,6 +82,92 @@
                     </th>
                 </tr>
             </table>
+
+            {% if livematches == "" %}
+                <h5 align="center" class="title is-4">GEEN WK 2022 WEDSTRIJDEN VANDAAG</h5>
+            {% else %}
+                <h5 align="center" class="title is-4">LIVE wedstrijden WK2022</h5>
+                {% for match in livematches %}
+                    <table class="table" ALIGN="center">
+                        <tr></tr>
+                        <td>
+                            {% with 'images/'|add:match.home.name|add:'.jpg' as image_static %}
+                                <img src="{% static image_static %}" width="30" height="20">
+                            {% endwith %}</td>
+                        <td>{{ match.home.nlname }}</td>
+                        <td>
+                            {% with 'images/'|add:match.away.name|add:'.jpg' as image_static %}
+                                <img src="{% static image_static %}" width="30" height="20">
+                            {% endwith %}
+                        </td>
+                        <td>{{ match.away.nlname }}</td>
+                        {% for key, value in resultaat.items %}
+                            {% if key == match %}
+                                {% if match.has_ended %}
+                                    <td> EINDSTAND</td>
+                                    <td>{{ value.0 }}</td>
+                                    <th>-</th>
+                                    <td>{{ value.1 }}</td>
+                                {% elif match.start < nowmatch2 %}
+                                    <td> EINDSTAND</td>
+                                    <td>{{ value.0 }}</td>
+                                    <th>-</th>
+                                    <td>{{ value.1 }}</td>
+                                {% elif match.start < nowmatch1 %}
+                                    <td> LIVE</td>
+                                    <td>{{ value.0 }}</td>
+                                    <th>-</th>
+                                    <td>{{ value.1 }}</td>
+                                {% elif match.has_started %}
+                                    <td> LIVE</td>
+                                    <td>{{ value.0 }}</td>
+                                    <th>-</th>
+                                    <td>{{ value.1 }}</td>
+                                {% else %}
+                                    <td>:</td>
+                                    <td>Nog</td>
+                                    <td>niet</td>
+                                    <td>gestart</td>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                        </tr>
+                    </table>
+                    {% if allgoals %}
+                        <h6 align="center" class="title is-4">Geregistreerde doelpunten</h6>
+                        <table class="table" ALIGN="center">
+                        <tr>
+                            <th>Minuut</th>
+                            <th>Speler</th>
+                            <th>Land</th>
+                            <th>Type</th>
+
+                        </tr>
+                        {% for goal in allgoals %}
+                            {% if match == goal.match %}
+                                <tr>
+                                    <td> {{ goal.minute }}</td>
+                                    <td> {{ goal.player }}</td>
+                                    <td> {{ goal.player.country.nlname }}</td>
+                                    {% if goal.type == "GO" %}
+                                        <td> Goal</td>
+                                    {% elif goal.type == "PE" %}
+                                        <td> Penalty</td>
+                                    {% elif goal.type == "OG" %}
+                                        <td> Eigen doelpunt</td>
+                                    {% endif %}
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+
+                </table>
+                {% endfor %}
+
+
+
+            {% endif %}
+
             <h5 align="center" class="title is-4">LIVE wedstrijden Groep {{ teamgroup }}</h5>
             <table class="table" ALIGN="center">
                 {% for wedstrijd in allewedstrijden %}
