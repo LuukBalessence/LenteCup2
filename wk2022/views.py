@@ -105,8 +105,8 @@ def wk2022(request):
     try:
         allteams = Team.objects.filter(league_id=currentleague.pk, eliminated=False)
         phasetext = getphasetext(currentleague.gamephase)
-        if not phasetext:
-            return redirect(to="home")
+        # if not phasetext:
+        #     return redirect(to="home")
         for y in VirtualMatch.Stage.choices:
             if phasetext in y[1]:
                 currentstage = y[0]
@@ -571,7 +571,7 @@ def bidoverview(request):
             currentleague = currentteam.league
             currentleaguegamephase = League.objects.get(leaguename=currentleague).gamephase
             if not (GamePhase.objects.get(gamephase=currentleaguegamephase).allowbidding and not bidendexceeded):
-                error = "Je league is (nog) niet in een fase die biedingen toelaat"
+                error = "Je league is nog niet of niet meer in een fase die biedingen toelaat"
         except:
             error = "Je hebt nog geen league gekozen. Ga in het Hoofdmenu naat  Jouw Team"
             # We dienen te controleren of we in een spelfase zitten waarin we mogen bieden, anders een melding
