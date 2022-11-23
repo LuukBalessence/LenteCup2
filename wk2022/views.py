@@ -419,7 +419,8 @@ def groepstandcalc(league):
                         gl = gl + 1
                         pt = pt + 1
             groepstandinfo.append([ploeg, gs, pt, wi, vl, gl, dp, dt, dp - dt])
-    groepstandinfo.sort(key=lambda x: (x[0].order, -x[2], -x[8], -x[6]))
+    groepstandinfo.sort(key=lambda x: (-x[2], -x[8], -x[6]))
+    # groepstandinfo.sort(key=lambda x: (x[0].order, -x[2], -x[8], -x[6]))
     return groepstandinfo
 
 
@@ -449,6 +450,7 @@ def leaguestand(request, league):
     leagueteams = Team.objects.filter(league=league).order_by("order")
     allleaguematches = VirtualMatch.objects.filter(home__in=leagueteams)
     leagueinfo = groepvmstand(manager)
+
     return render(
         request=request,
         template_name="wk2022/leaguestand.html",

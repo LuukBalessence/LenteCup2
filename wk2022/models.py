@@ -95,6 +95,7 @@ class League(models.Model):
     secretnumber = models.PositiveIntegerField(verbose_name=_("Secret key"), validators=[MinValueValidator(10000), MaxValueValidator(99999)], default=10000)
     draw = models.BooleanField(verbose_name=_("Loting plaatsgevonden"), default=False)
     premiebasis = models.IntegerField(default=0)
+    lastscoresave = models.DateTimeField(verbose_name=_("Laatst opgeslagen Scoremake"), default=datetime.now())
 
     def __str__(self):
         return f"{self.leaguename}"
@@ -155,6 +156,7 @@ class Player(models.Model):
         max_length=1, choices=Position.choices
         # verbose_name=_("Position")
     )
+    sitename = models.CharField(verbose_name=_("website name"), max_length=100, null=True, blank=True)
     number = models.PositiveSmallIntegerField(
         verbose_name=_("Number"),
         validators=[MinValueValidator(1), MaxValueValidator(99)],
@@ -203,6 +205,7 @@ class Match(models.Model):
     homewonshootout = models.BooleanField(default=False)
     readurl = models.URLField(max_length=300, blank=True)
     koreference = models.CharField(max_length=4, default="", blank=True)
+    matchsitename = models.CharField(verbose_name=_("matchsite name"), max_length=30, null=True, blank=True)
 
     class Meta:
         verbose_name = _("Match")

@@ -19,7 +19,8 @@ class GamePhaseAdmin(admin.ModelAdmin):
 
 @admin.register(models.Player)
 class PlayerAdmin(admin.ModelAdmin):
-    list_display = ("first_name", "last_name", "position", "number", "country")
+    list_display = ("first_name", "last_name", "position", "number", "country", "sitename")
+    list_editable = ("number", "sitename")
     list_filter = ("country",)
 
 
@@ -47,9 +48,10 @@ class MatchAdmin(admin.ModelAdmin):
         "location",
         "has_started",
         "has_ended",
-        "koreference"
+        "koreference",
+        "matchsitename"
     )
-    list_editable = ("has_started", "has_ended", "koreference")
+    list_editable = ("has_started", "has_ended", "koreference", "matchsitename")
 
     def add_view(self, request, form_url='', extra_context=None):
         # when we add a match, we don't show the players because we don't know the countries yet
