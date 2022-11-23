@@ -124,7 +124,8 @@ def wk2022(request):
         return render(request, template_name="wk2022/wk2022.html", context={"hoofdmelding1": hoofdmelding1,
                 "hoofdmelding2": hoofdmelding2, "hoofdmelding3": hoofdmelding3, "hoofdmelding4": hoofdmelding4,
                 "live": live, "allewedstrijden": allewedstrijden, "teamgroup": teamgroup, "phase": phasetext, "error": errorwk2022,
-                "livematches": alllivegroupmatches, "allgoals": allgoals, "resultaat": resultaat, "nowmatch1": nowmatch1, "nowmatch2": nowmatch2})
+                "livematches": alllivegroupmatches, "allgoals": allgoals, "resultaat": resultaat, "nowmatch1": nowmatch1, "nowmatch2": nowmatch2
+                                                                            , "team": team.name})
     else:
         return render(request, template_name="wk2022/wk2022.html", context={"hoofdmelding1": hoofdmelding1,
                                                                             "hoofdmelding2": hoofdmelding2,
