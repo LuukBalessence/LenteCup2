@@ -1556,7 +1556,7 @@ def livescoring(request):
             home = False
         now = datetime.now(timezone.utc)
         matchstarts = wedstrijd.start
-        mstarts = matchstarts - timedelta(hours=2)
+        mstarts = matchstarts - timedelta(hours=1)
         if now > mstarts:
             started = True
         wedstrijdgestart = wedstrijd.has_started or started
