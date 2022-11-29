@@ -1782,6 +1782,14 @@ def resultaatperwedstrijd(virtualmatch, phasetext, currentstage, verlenging, sho
         scorehome = 0
     elif scorehome == 0.5:
         scorehome = 1
+    elif scorehome == 1.5:
+        scorehome = 2
+    elif scorehome == 2.5:
+        scorehome = 3
+    elif scorehome == 3.5:
+        scorehome = 4
+    elif scorehome == 4.5:
+        scorehome = 5
     else:
         scorehome = round(scorehome)
     posaway = totpluspuntenaway + totscorepuntenaway
@@ -1790,6 +1798,14 @@ def resultaatperwedstrijd(virtualmatch, phasetext, currentstage, verlenging, sho
         scoreaway = 0
     elif scoreaway == 0.5:
         scoreaway = 1
+    elif scorehome == 1.5:
+        scorehome = 2
+    elif scorehome == 2.5:
+        scorehome = 3
+    elif scorehome == 3.5:
+        scorehome = 4
+    elif scorehome == 4.5:
+        scorehome = 5
     else:
         scoreaway = round(scoreaway)
     if opslaan:
