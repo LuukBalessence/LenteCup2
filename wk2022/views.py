@@ -115,7 +115,7 @@ def wk2022(request):
         pass
 
     daynowmatch = nowmatch1.day
-    alllivegroupmatches = Match.objects.filter(stage__startswith="G", start__day=daynowmatch).order_by("start")
+    alllivegroupmatches = Match.objects.filter(stage__startswith="Q", start__day=daynowmatch).order_by("start")
     allgoals = Goal.objects.filter(match__in=alllivegroupmatches)
     resultaat = match_results(alllivegroupmatches, allgoals)
 
