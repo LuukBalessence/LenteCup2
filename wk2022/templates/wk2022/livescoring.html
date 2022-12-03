@@ -3,12 +3,12 @@
 {% block title %}LIVE SCORING{% endblock %}
 {% block content %}
     {% if scoring %}
-{#        <table class="table" align="center">#}
-{#                        <th style="font-size: large;font: bold">#}
-{#                                    <a href="{% url 'standvoorverlenging' currentleague.pk %}" class="button is-danger">CHECK STAND#}
-{#                                        ZONDER VERLENGING</a>#}
-{#                                </th>#}
-{#        </table>#}
+        <table class="table" align="center">
+                        <th style="font-size: large;font: bold">
+                                    <a href="{% url 'standvoorverlenging' currentleague.pk %}" class="button is-danger">CHECK STAND
+                                        ZONDER VERLENGING</a>
+                                </th>
+        </table>
         {% for group in groups %}
 {#            <h4 align="center" class="title is-4">Groep: {{ group }}</h4>#}
             <table class="table" align="center">
@@ -32,7 +32,7 @@
                         {% elif wedstrijd.verlenging %}
                             <tr>
                                 <th style="font-size: large;font: bold">
-{#                                    VERLENGING#}
+                                    VERLENGING
                                 </th>
                             </tr>
                         {% endif %}
