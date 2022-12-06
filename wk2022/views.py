@@ -1858,7 +1858,7 @@ def premies(request):
                      ["Behalen Kwart Finale", round(leaguepremie / 5 / 8)],
                      ["Behalen Halve Finale", round(leaguepremie / 5 / 4)],
                      ["Behalen Finale", round(leaguepremie / 5 / 2)],
-                     ["Europees Kampioen", round(leaguepremie / 5)]]
+                     ["Wereldkampioen", round(leaguepremie / 5)]]
     return render(request, "wk2022/premies.html", context={"error": error, "leaguepremies": leaguepremies})
 
 
