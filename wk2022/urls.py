@@ -62,6 +62,7 @@ urlpatterns = [
     path("myledger", views.myledger, name="myledger"),
     path("hulpbieden", views.hulpbieden, name="hulpbieden"),
     path("premies", views.premies, name="premies"),
+    path("getmatchinfo/<str:gameurl>", views.getmatchinfo, name="getmatchinfo")
 ]
 if settings.DEBUG:
     import debug_toolbar

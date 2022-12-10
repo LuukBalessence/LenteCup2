@@ -1,7 +1,10 @@
-from datetime import datetime, timezone, timedelta
 import random
-
+import sys
+import json
 import pytz
+
+from datetime import datetime, timezone, timedelta
+from urllib.request import urlopen
 from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, get_list_or_404, get_object_or_404, redirect
 
@@ -1903,7 +1906,12 @@ def saveroundscores(request, league):
     opstellingsinfo = []
     opstellingsinfo2 = []
     wedstrijdeninfo = []
+
+    objtime = datetime.now()
     currentleague = League.objects.get(pk=league)
+    currentleague.lastscoresave = objtime
+    currentleague.save()
+
     allteams = Team.objects.filter(league_id=league, eliminated=False)
     phasetext = getphasetext(currentleague.gamephase)
     groups = Country.Group.labels
@@ -2094,3 +2102,74 @@ def koscheme(request):
     komatches = VirtualMatch.objects.filter(koreference__icontains="F", home__in=allleagueteams)
     return render(request, "wk2022/koscheme.html",
                   context={"error": error, "komatches": komatches})
+
+
+# Usage: python extract_match_data.py <URL>
+# Example:
+# python extract_match_data.py "https://sporza.be/nl/sport/voetbal/~3311844/"
+
+def extract_match_data(url):
+    # Open url and read data into string
+    data = urlopen(url).read()
+    body = data.decode('utf-8')
+    # Split string into list of lines
+    body_lines = body.split('\n')
+    # Search for the line containing the page data, and check that there is just one line. Use list comprehension
+    info_line = [item for item in body_lines if ('data-hypernova-key="Scoreboard"' in item and 'reqUrl' in item)]
+    assert len(info_line) == 1
+    # Convert 1-element list to string
+    info_line = info_line[0]
+    # Poor man's way of searching for start and end statement of json
+    index_string_start = info_line.find('<!--')
+    index_string_end = info_line.find('-->')
+    # Parse json
+    json_string = info_line[index_string_start + 4: index_string_end]
+    match_data = json.loads(json_string)
+    # Return the dictionary
+    return match_data
+
+
+def getmatchinfo(request, gameurl):
+    website = GameSettings.objects.get(gamesettings='website').gamesettingsvalue
+    error = ""
+    if gameurl == "":
+        error = "Er is geen URL voor de match opgegeven"
+        return render(request, "wk2022/getmatchinfo.html",
+                      context={"matchdata": match_data, "error": error})
+
+    url = website + gameurl
+    # url = "https://sporza.be/nl/sport/voetbal/~3311902/"
+    print(url)
+    match_data = extract_match_data(url)
+    print('Home squad')
+    print('----------')
+    homesquads = match_data['data']['homeSquad']['lineup']
+    awaysquads = match_data['data']['awaySquad']['lineup']
+    events = match_data['data']['events'][::-1]
+    for home_player in match_data['data']['homeSquad']['lineup']:
+        print(home_player['player']['name'])
+    print('')
+    print('Away squad')
+    print('----------')
+    for away_player in match_data['data']['awaySquad']['lineup']:
+        print(away_player['player']['name'])
+    # Events are ordered last to first, reverse them in display
+    for event in match_data['data']['events'][::-1]:
+            try:
+                eventfirstname = event['player']['firstName']
+            except:
+                eventfirstname = ""
+            try:
+                eventlastname = event['player']['lastName']
+            except:
+                eventlastname = ""
+
+            if  event['type'] == 'GOAL':
+                print('{} minute: {} {}: {}-{} ({} points)'.format(
+                event['time'], eventfirstname, eventlastname, event['homeScore'],
+                event['awayScore'],
+                1.0 if event['type'] == 'GOAL' else 0.5 if event['type'] == 'PENALTY_GOAL' else 0.0))
+
+    return render(request, "wk2022/getmatchinfo.html",
+                  context={"homesquad": homesquads, "awaysquad": awaysquads, "events": events,"error": error})
+

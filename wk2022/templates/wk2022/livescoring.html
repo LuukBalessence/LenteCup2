@@ -4,6 +4,20 @@
 {% block content %}
     {% if scoring %}
         <table class="table" align="center">
+            <tr>
+            <th style="font-size: large;font: bold">
+
+                Stand laatst bijgewerkt:
+                                </th>
+        </tr>
+            <tr>
+            <td style="font-size: large;font: bold">
+
+                {{ currentleague.lastscoresave }}
+                                </td>
+        </tr>
+        </table>
+        <table class="table" align="center">
                         <th style="font-size: large;font: bold">
                                     <a href="{% url 'standvoorverlenging' currentleague.pk %}" class="button is-danger">CHECK STAND
                                         ZONDER VERLENGING</a>

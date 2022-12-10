@@ -131,6 +131,7 @@
                                 {% endif %}
                             {% endif %}
                         {% endfor %}
+                        <td><a href="{% url "getmatchinfo" match.matchsitename %}" class="button is-primary">Info</a></td>
                         </tr>
                     </table>
                     {% if allgoals %}
@@ -177,6 +178,9 @@
                             <th align="center">{{ wedstrijd.homescore }}</th>
                             <td>{{ wedstrijd.away }}</td>
                             <th align="center">{{ wedstrijd.awayscore }}</th>
+
+
+            </tr>
                         </tr>
                     {% endif %}
                 {% endfor %}
@@ -225,6 +229,7 @@
                                                       value="Hulp bij bieden en stand"/></a>
                 </th>
             </tr>
+
             <tr>
                 <th style="text-align:center">
                     <a href=../accounts/logout/><input style="width:250px" type="submit" class="button is-primary"

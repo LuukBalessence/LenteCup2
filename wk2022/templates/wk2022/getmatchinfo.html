@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}MATCH INFO{% endblock %}
+{% block content %}
+    <table class="table" align="center">
+        <tr><th>THUIS</th></tr>
+
+        {% for hsquad in homesquad %}
+        <tr>
+            <td>
+                {{ hsquad.position }}
+            </td>
+            <td>
+                {{ hsquad.player.name }}
+            </td>
+        </tr>
+        {% endfor %}
+
+        <tr><th>UIT</th></tr>
+        {% for asquad in awaysquad %}
+        <tr>
+            <td>
+                {{ asquad.position }}
+            </td>
+            <td>
+                {{ asquad.player.name }}
+            </td>
+        </tr>
+        {% endfor %}
+            </table>
+{% endblock %}
