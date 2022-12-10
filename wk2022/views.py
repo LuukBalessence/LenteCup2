@@ -1907,7 +1907,7 @@ def saveroundscores(request, league):
     opstellingsinfo2 = []
     wedstrijdeninfo = []
 
-    objtime = datetime.now()
+    objtime = datetime.now() + timedelta(hours=1)
     currentleague = League.objects.get(pk=league)
     currentleague.lastscoresave = objtime
     currentleague.save()
