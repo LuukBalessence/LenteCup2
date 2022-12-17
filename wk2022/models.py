@@ -328,7 +328,7 @@ class Bids(models.Model):
     team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name="bids", blank=True)
     player = models.ForeignKey(Player, on_delete=models.CASCADE, related_name="bids", blank=True)
     playerbid = models.PositiveSmallIntegerField(default=0,
-                                                 validators=([MinValueValidator(0), MaxValueValidator(2000)]),
+                                                 validators=([MinValueValidator(0), MaxValueValidator(20000)]),
                                                  blank=True)
     gamephase = models.ForeignKey(GamePhase, null=True, on_delete=models.CASCADE)
     assigned = models.BooleanField(null=True)
